@@ -569,6 +569,110 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 
 .wf-loading .hero h1{visibility:hidden}
 .wf-active .hero h1,.wf-inactive .hero h1{visibility:visible}
+
+/* ===== instant brush header images ===== */
+.unified-brand{
+  display:flex !important;
+  align-items:center !important;
+  min-width:150px;
+  font-size:0 !important;
+  line-height:1 !important;
+}
+.unified-brand img{
+  display:block;
+  width:auto;
+  height:31px;
+  object-fit:contain;
+}
+.unified-nav a{
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  min-width:38px;
+  min-height:42px;
+  font-size:0 !important;
+  line-height:1 !important;
+}
+.unified-nav a img{
+  display:block;
+  width:auto;
+  height:27px;
+  object-fit:contain;
+  opacity:.88;
+  transition:opacity .2s ease, transform .2s ease, filter .2s ease;
+}
+.unified-nav a:hover img,
+.unified-nav a.active img{
+  opacity:1;
+  transform:translateY(-1px);
+}
+@media(max-width:900px){
+  .unified-brand img{height:29px}
+}
+
+
+/* ===== 2026-09-22 visual refinement ===== */
+.hero-bg{
+  background-image:
+    linear-gradient(90deg,rgba(4,4,4,.96) 0%,rgba(4,4,4,.80) 32%,rgba(4,4,4,.22) 63%,rgba(4,4,4,.43) 100%) !important,
+    linear-gradient(180deg,rgba(4,4,4,.04),rgba(4,4,4,.07) 52%,rgba(4,4,4,.66) 100%) !important,
+    url("tou-buddha.jpg") !important;
+  background-position:center 46% !important;
+  filter:saturate(.58) contrast(1.06) brightness(.78) !important;
+}
+.app{
+  min-height:300px !important;
+  isolation:isolate;
+  color:#f3eee4 !important;
+  padding:30px 32px 30px !important;
+  border-color:rgba(255,255,255,.14) !important;
+}
+.app::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg,rgba(5,5,5,.90) 0%,rgba(5,5,5,.74) 48%,rgba(5,5,5,.42) 100%);
+  transition:background .25s ease;
+}
+.app:hover::before{
+  background:linear-gradient(90deg,rgba(5,5,5,.84) 0%,rgba(5,5,5,.65) 48%,rgba(5,5,5,.32) 100%);
+}
+#appYamakawa,
+#appYamakawa:hover{
+  background-image:url("app-yamakawa-cover-20260922v3.jpg") !important;
+  background-size:cover !important;
+  background-position:center 36% !important;
+  background-repeat:no-repeat !important;
+}
+#appJidai,
+#appJidai:hover{
+  background-image:url("app-jidai-cover-20260922v3.jpg") !important;
+  background-size:cover !important;
+  background-position:center 42% !important;
+  background-repeat:no-repeat !important;
+}
+.app-cover{display:none !important}
+.app-index{color:rgba(255,255,255,.68) !important;position:relative;z-index:2}
+.app h2{
+  color:#fff !important;
+  position:relative;z-index:2;
+  text-shadow:0 2px 12px rgba(0,0,0,.52);
+  margin-top:58px !important;
+  max-width:430px !important;
+}
+.app p{
+  color:rgba(255,255,255,.80) !important;
+  position:relative;z-index:2;
+  max-width:420px !important;
+  text-shadow:0 1px 7px rgba(0,0,0,.46);
+}
+.app-foot{
+  color:#fff !important;
+  position:absolute;z-index:2;
+}
+.app-foot:before{background:rgba(255,255,255,.24) !important}
+
 </style>
 
 <script>
@@ -588,15 +692,21 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 </script>
 
 <!-- build:20260922v3 -->
+<!-- instant-brush-header-preload -->
+<link rel="preload" as="image" href="header-brand.png">
+<link rel="preload" as="image" href="header-manabu.png">
+<link rel="preload" as="image" href="header-tou.png">
+<link rel="preload" as="image" href="header-kitaeru.png">
+<link rel="preload" as="image" href="header-miru.png">
+<link rel="preload" as="image" href="header-shiraberu.png">
+<link rel="preload" as="image" href="header-meguru.png">
 </head>
 <body>
 
 <header class="unified-header">
   <div class="unified-header-inner">
-    <a class="unified-brand" href="index.html#top">歴史する</a>
-    <nav class="unified-nav">
-      <a href="manabu.html">学ぶ</a><a class="active" href="tou.html?v=20260922v3">問う</a><a href="kitaeru.html?v=20260922v3">鍛える</a><a href="miru.html">観る</a><a href="shiraberu.html">調べる</a><a href="meguru.html">巡る</a>
-    </nav>
+    <a class="unified-brand" href="index.html#top" aria-label="歴史する"><img src="header-brand.png" alt="歴史する" decoding="sync" fetchpriority="high"></a>
+    <nav class="unified-nav"><a href="manabu.html" aria-label="学ぶ"><img src="header-manabu.png" alt="学ぶ" decoding="sync"></a><a class="active" href="tou.html" aria-label="問う"><img src="header-tou.png" alt="問う" decoding="sync"></a><a href="kitaeru.html" aria-label="鍛える"><img src="header-kitaeru.png" alt="鍛える" decoding="sync"></a><a href="miru.html" aria-label="観る"><img src="header-miru.png" alt="観る" decoding="sync"></a><a href="shiraberu.html" aria-label="調べる"><img src="header-shiraberu.png" alt="調べる" decoding="sync"></a><a href="meguru.html" aria-label="巡る"><img src="header-meguru.png" alt="巡る" decoding="sync"></a></nav>
     <button class="unified-menu" id="hamb" type="button" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
 </header>
