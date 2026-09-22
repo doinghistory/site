@@ -665,6 +665,47 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 
 .wf-loading .hero h1{visibility:hidden}
 .wf-active .hero h1,.wf-inactive .hero h1{visibility:visible}
+
+/* ===== instant brush header images ===== */
+.unified-brand{
+  display:flex !important;
+  align-items:center !important;
+  min-width:150px;
+  font-size:0 !important;
+  line-height:1 !important;
+}
+.unified-brand img{
+  display:block;
+  width:auto;
+  height:31px;
+  object-fit:contain;
+}
+.unified-nav a{
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  min-width:38px;
+  min-height:42px;
+  font-size:0 !important;
+  line-height:1 !important;
+}
+.unified-nav a img{
+  display:block;
+  width:auto;
+  height:27px;
+  object-fit:contain;
+  opacity:.88;
+  transition:opacity .2s ease, transform .2s ease, filter .2s ease;
+}
+.unified-nav a:hover img,
+.unified-nav a.active img{
+  opacity:1;
+  transform:translateY(-1px);
+}
+@media(max-width:900px){
+  .unified-brand img{height:29px}
+}
+
 </style>
 
 <script>
@@ -684,15 +725,21 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 </script>
 
 <!-- build:20260922v3 -->
+<!-- instant-brush-header-preload -->
+<link rel="preload" as="image" href="header-brand.png">
+<link rel="preload" as="image" href="header-manabu.png">
+<link rel="preload" as="image" href="header-tou.png">
+<link rel="preload" as="image" href="header-kitaeru.png">
+<link rel="preload" as="image" href="header-miru.png">
+<link rel="preload" as="image" href="header-shiraberu.png">
+<link rel="preload" as="image" href="header-meguru.png">
 </head>
 <body>
 
 <header class="unified-header">
   <div class="unified-header-inner">
-    <a class="unified-brand" href="index.html#top">歴史する</a>
-    <nav class="unified-nav">
-      <a href="manabu.html">学ぶ</a><a href="tou.html?v=20260922v3">問う</a><a href="kitaeru.html?v=20260922v3">鍛える</a><a href="miru.html">観る</a><a href="shiraberu.html">調べる</a><a class="active" href="meguru.html">巡る</a>
-    </nav>
+    <a class="unified-brand" href="index.html#top" aria-label="歴史する"><img src="header-brand.png" alt="歴史する" decoding="sync" fetchpriority="high"></a>
+    <nav class="unified-nav"><a href="manabu.html" aria-label="学ぶ"><img src="header-manabu.png" alt="学ぶ" decoding="sync"></a><a href="tou.html" aria-label="問う"><img src="header-tou.png" alt="問う" decoding="sync"></a><a href="kitaeru.html" aria-label="鍛える"><img src="header-kitaeru.png" alt="鍛える" decoding="sync"></a><a href="miru.html" aria-label="観る"><img src="header-miru.png" alt="観る" decoding="sync"></a><a href="shiraberu.html" aria-label="調べる"><img src="header-shiraberu.png" alt="調べる" decoding="sync"></a><a class="active" href="meguru.html" aria-label="巡る"><img src="header-meguru.png" alt="巡る" decoding="sync"></a></nav>
     <button class="unified-menu" id="hamb" type="button" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
 </header>
