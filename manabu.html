@@ -1106,7 +1106,14 @@ function render(){
 
   let data=rows.filter(x=>x.era===currentMajor);
   if(currentSub) data=data.filter(x=>x.subEra===currentSub || normalizeEra(x.rawEra).includes(currentSub));
-  data.sort((a,b)=>(a.order-b.order)||dateValue(b.date)-dateValue(a.date));
+  const eraOrder=SUB_ERAS[currentMajor]||[];
+  data.sort((a,b)=>{
+    const eraDiff=eraOrder.indexOf(a.subEra)-eraOrder.indexOf(b.subEra);
+    if(eraDiff) return eraDiff;
+    const orderDiff=a.order-b.order;
+    if(orderDiff) return orderDiff;
+    return dateValue(b.date)-dateValue(a.date);
+  });
 
   document.getElementById("count").textContent=data.length;
 
