@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>問う｜歴史する</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070706;
+  --bg2:#0b0b0a;
+  --line:rgba(255,255,255,.10);
+  --line2:rgba(255,255,255,.16);
+  --text:#f1eee7;
+  --muted:#948e84;
+  --muted2:#716b63;
+  --hover:#0e0e0d;
+  --serif:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--serif);letter-spacing:.04em
+}
+a{color:inherit;text-decoration:none}
+button,select{font:inherit}
+
+/* header */
+header{
+  height:74px;position:absolute;top:0;left:0;right:0;z-index:50
+}
+.header-inner{
+  width:min(1280px,calc(100% - 48px));height:100%;margin:auto;
+  display:flex;align-items:center;justify-content:space-between
+}
+.brand{font-size:1.24rem;letter-spacing:.18em}
+.nav{display:flex;gap:26px;align-items:center;font-size:.77rem;color:#aaa49a}
+.nav a.active{color:#fff;border-bottom:1px solid #fff;padding-bottom:5px}
+.menu{font:500 1.3rem/1 var(--sans);color:#ddd}
+
+/* hero slimmer */
+.hero{
+  min-height:480px;position:relative;overflow:hidden;background:#050504
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(90deg,rgba(4,4,4,.98) 0%,rgba(4,4,4,.89) 32%,rgba(4,4,4,.43) 63%,rgba(4,4,4,.70) 100%),
+    linear-gradient(180deg,rgba(4,4,4,.10),rgba(4,4,4,.12) 52%,rgba(4,4,4,.88) 100%),
+    url("tou-hero.jpg");
+  background-size:cover;
+  background-position:center 46%;
+  filter:saturate(.46) contrast(1.08) brightness(.64)
+}
+.hero-inner{
+  position:relative;z-index:2;width:min(1280px,calc(100% - 48px));min-height:480px;margin:auto;
+  display:flex;align-items:center
+}
+.hero-copy{width:430px;padding-top:22px}
+.eyebrow{font-size:.84rem;color:#c8c2b7;margin-bottom:12px}
+.hero h1{
+  margin:0;font-size:clamp(4.1rem,7vw,6.1rem);font-weight:500;line-height:.95;letter-spacing:.16em
+}
+.lead{margin-top:22px;font-size:.98rem;line-height:1.95;color:#d0cabf}
+.sub{margin-top:10px;font:400 .71rem/1.85 var(--sans);color:#8d877d}
+
+/* apps */
+.apps{
+  background:#090908;border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+}
+.apps-inner{
+  width:min(1180px,calc(100% - 48px));margin:auto;padding:46px 0 52px
+}
+.section-label{
+  font:500 .61rem/1 var(--sans);letter-spacing:.15em;color:#777168;margin-bottom:16px
+}
+.apps-grid{
+  display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+}
+.app{
+  min-height:250px;padding:30px 32px 28px;position:relative;border-right:1px solid var(--line);
+  transition:.25s;overflow:hidden
+}
+.app:last-child{border-right:0}
+.app:hover{background:#0e0e0d}
+.app-index{font:500 .56rem/1 var(--sans);letter-spacing:.16em;color:#68635c}
+.app h2{margin:46px 0 12px;font-size:clamp(1.55rem,2.5vw,2.4rem);font-weight:500;letter-spacing:.08em}
+.app p{margin:0;color:#928c82;font:400 .72rem/1.9 var(--sans);max-width:340px}
+.app-foot{
+  position:absolute;left:32px;right:32px;bottom:22px;display:flex;justify-content:space-between;align-items:center;
+  font-size:.74rem;color:#c2bcb1
+}
+.app-foot:before{
+  content:"";position:absolute;left:0;right:0;top:-13px;height:1px;background:var(--line)
+}
+.arrow{font:1rem var(--sans)}
+
+/* print area */
+.print{
+  background:#080807;padding:58px 0 92px
+}
+.print-inner{
+  width:min(1120px,calc(100% - 48px));margin:auto
+}
+.print-head{
+  display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;align-items:end;margin-bottom:28px
+}
+.print-head .kicker{font-size:.9rem;color:#bbb5ab}
+.print-head .kicker:after{content:"";display:block;width:40px;height:1px;background:#514d46;margin-top:14px}
+.print-head h2{margin:0;font-size:2rem;font-weight:500}
+.print-head p{margin:8px 0 0;font:400 .7rem/1.8 var(--sans);color:#89837a}
+
+.selector-layout{
+  display:grid;grid-template-columns:220px minmax(0,1fr);gap:30px;align-items:start
+}
+.side-menu{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+}
+.mode-btn{
+  appearance:none;width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;color:#8b857b;
+  text-align:left;padding:18px 16px;cursor:pointer;transition:.2s
+}
+.mode-btn:last-child{border-bottom:0}
+.mode-btn:hover{background:var(--hover);color:#fff}
+.mode-btn.active{background:#11110f;color:#fff}
+.mode-btn small{
+  display:block;font:500 .53rem/1 var(--sans);letter-spacing:.14em;color:#6f6961;margin-bottom:8px
+}
+.mode-btn strong{font-size:.98rem;font-weight:500;letter-spacing:.05em}
+
+.content-panel{
+  border-top:1px solid var(--line)
+}
+.panel-lead{
+  display:flex;justify-content:space-between;align-items:end;gap:24px;
+  padding:14px 0 14px;border-bottom:1px solid var(--line)
+}
+.panel-lead h3{margin:0;font-size:1.16rem;font-weight:500;letter-spacing:.05em}
+.panel-lead p{margin:6px 0 0;font:400 .67rem/1.7 var(--sans);color:#857f76}
+.panel-lead .note{font:400 .61rem/1.5 var(--sans);color:#6e685f}
+
+.era-list{border-bottom:1px solid var(--line)}
+.era-row{
+  border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:145px minmax(0,1fr);gap:22px;
+  align-items:start;min-height:96px;padding:18px 0
+}
+.era-row:last-child{border-bottom:0}
+.era-name{
+  font-size:1rem;letter-spacing:.08em;padding-top:10px;color:#d2ccc1
+}
+.era-subs{
+  display:grid;grid-template-columns:repeat(4,minmax(92px,1fr));gap:8px
+}
+.sub-era-btn{
+  appearance:none;border:1px solid var(--line);background:transparent;color:#8d877d;
+  min-height:46px;padding:10px 12px;text-align:center;cursor:pointer;transition:.2s;
+  font-size:.76rem;letter-spacing:.04em
+}
+.sub-era-btn:hover{
+  background:#0f0f0e;color:#fff;border-color:rgba(255,255,255,.16)
+}
+.sub-era-btn.active{
+  color:#fff;border-color:#f0ece3;background:#11110f
+}
+
+/* detail */
+.detail{
+  display:none;margin-top:34px;border-top:1px solid var(--line);padding-top:20px
+}
+.detail.show{display:block}
+.detail-head{
+  display:flex;justify-content:space-between;gap:24px;align-items:end;padding-bottom:14px;border-bottom:1px solid var(--line)
+}
+.detail-head h4{margin:0;font-size:1.32rem;font-weight:500}
+.detail-head p{margin:7px 0 0;font:400 .68rem/1.8 var(--sans);color:#878178}
+select{
+  appearance:none;background:transparent;color:#d0cac0;border:1px solid var(--line2);padding:10px 14px;min-width:150px
+}
+.resource-list{border-bottom:1px solid var(--line)}
+.resource{
+  min-height:82px;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:105px minmax(0,1fr) 80px 24px;gap:18px;align-items:center;transition:.2s
+}
+.resource:last-child{border-bottom:0}
+.resource:hover{background:#0d0d0c;padding-left:8px;padding-right:8px}
+.kind{
+  font:500 .57rem/1 var(--sans);color:#9c968b;border:1px solid var(--line);padding:7px 9px;width:max-content
+}
+.title{font-size:.94rem;margin-bottom:4px}
+.desc{font:400 .64rem/1.7 var(--sans);color:#817b72}
+.meta{text-align:right;font:400 .59rem/1.5 var(--sans);color:#6f6961}
+.empty-note{
+  padding:24px 0;color:#7c766d;font:400 .67rem/1.8 var(--sans)
+}
+
+footer{
+  border-top:1px solid var(--line);padding:22px 0 30px;color:#6d675f;font:400 .6rem/1.7 var(--sans)
+}
+.footer-inner{
+  width:min(1120px,calc(100% - 48px));margin:auto;display:flex;justify-content:space-between
+}
+
+@media(max-width:900px){
+  .nav{display:none}
+  .hero{min-height:430px}
+  .hero-inner{min-height:430px}
+  .hero-copy{width:76%;padding-top:46px}
+  .apps-grid{grid-template-columns:1fr}
+  .app{border-right:0;border-bottom:1px solid var(--line)}
+  .app:last-child{border-bottom:0}
+  .print-head{grid-template-columns:1fr}
+  .selector-layout{grid-template-columns:1fr}
+  .side-menu{display:grid;grid-template-columns:repeat(3,1fr)}
+  .mode-btn{border-bottom:0;border-right:1px solid var(--line)}
+  .mode-btn:last-child{border-right:0}
+  .era-row{grid-template-columns:1fr;gap:10px}
+  .era-name{padding-top:0}
+  .era-subs{grid-template-columns:repeat(3,minmax(86px,1fr))}
+  .resource{grid-template-columns:90px minmax(0,1fr) 24px}
+  .meta,.desc{display:none}
+}
+@media(max-width:620px){
+  .side-menu{grid-template-columns:1fr}
+  .mode-btn{border-right:0;border-bottom:1px solid var(--line)}
+  .mode-btn:last-child{border-bottom:0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="./#gates">歴史する</a>
+    <nav class="nav">
+      <a href="materials-a-v2.html">学ぶ</a>
+      <a class="active" href="#">問う</a>
+      <a href="#">鍛える</a>
+      <a href="miru.html">観る</a>
+      <a href="#">調べる</a>
+      <a href="#">巡る</a>
+    </nav>
+    <div class="menu">☰</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">知っている、から。</div>
+      <h1>問う</h1>
+      <div class="lead">考えることが、<br>歴史を深くする。</div>
+      <div class="sub">思い出す。説明する。並べる。<br>問いを重ねるほど、歴史は立体になる。</div>
+    </div>
+  </div>
+</section>
+
+<section class="apps">
+  <div class="apps-inner">
+    <div class="section-label">WEB APPS</div>
+    <div class="apps-grid">
+      <a class="app" href="#">
+        <div class="app-index">01</div>
+        <h2>山川一問一答</h2>
+        <p>用語・人物・出来事を短い問いで反復する。知識を思い出すためのWebアプリ。</p>
+        <div class="app-foot"><span>アプリを開く</span><span class="arrow">→</span></div>
+      </a>
+      <a class="app" href="#">
+        <div class="app-index">02</div>
+        <h2>時代と流れ</h2>
+        <p>出来事を単独で覚えるのではなく、前後関係と時代のつながりから捉えるためのWebアプリ。</p>
+        <div class="app-foot"><span>アプリを開く</span><span class="arrow">→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="print">
+  <div class="print-inner">
+    <div class="print-head">
+      <div class="kicker">PRINT MATERIALS</div>
+      <div>
+        <h2>プリントで、もう一度問う。</h2>
+        <p>左で問題形式を選び、右で時代と単元をたどる。前より少し操作しやすい版です。</p>
+      </div>
+    </div>
+
+    <div class="selector-layout">
+      <aside class="side-menu">
+        <button class="mode-btn active" data-mode="一問一答">
+          <small>01 / RECALL</small>
+          <strong>一問一答</strong>
+        </button>
+        <button class="mode-btn" data-mode="一文論述">
+          <small>02 / EXPLAIN</small>
+          <strong>一文論述</strong>
+        </button>
+        <button class="mode-btn" data-mode="年代整序">
+          <small>03 / ORDER</small>
+          <strong>年代整序</strong>
+        </button>
+      </aside>
+
+      <div class="content-panel">
+        <div class="panel-lead">
+          <div>
+            <h3 id="panelTitle">一問一答を選ぶ</h3>
+            <p>時代区分から、そのまま必要な時代を選びます。</p>
+          </div>
+          <div class="note">ERA → UNIT → MATERIAL</div>
+        </div>
+
+        <div class="era-list" id="eraList"></div>
+
+        <div class="detail" id="detail">
+          <div class="detail-head">
+            <div>
+              <h4 id="detailTitle">鎌倉</h4>
+              <p id="detailCopy"></p>
+            </div>
+            <select id="unitSelect"></select>
+          </div>
+          <div class="resource-list" id="resourceList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>歴史する / DOING HISTORY</span>
+    <span>高校日本史 問題演習</span>
+  </div>
+</footer>
+
+<script>
+const SUB_ERAS={
+  "古代":["旧石器","縄文","弥生","古墳","飛鳥","奈良","平安"],
+  "中世":["鎌倉","南北朝","室町","戦国"],
+  "近世":["安土桃山","江戸","幕末"],
+  "近代":["明治","大正","昭和戦前"],
+  "現代":["戦後","平成","令和"]
+};
+const COPY={
+  "旧石器":"列島のはじまりと人びとの移動を考える。",
+  "縄文":"暮らしの痕跡から社会と精神性をみる。",
+  "弥生":"稲作が社会をどう変えたのかを考える。",
+  "古墳":"権力の形成を古墳の形から読み解く。",
+  "飛鳥":"国家形成と仏教受容のはじまりをみる。",
+  "奈良":"律令国家の仕組みと都の姿を考える。",
+  "平安":"貴族社会と地方の変化を捉える。",
+  "鎌倉":"武士政権の成立と支配の仕組みをみる。",
+  "南北朝":"動乱のなかで変わる権力を考える。",
+  "室町":"幕府・都市・文化が重なる時代をみる。",
+  "戦国":"地域権力と統一への動きをたどる。",
+  "安土桃山":"統一政権と交流の広がりを考える。",
+  "江戸":"都市と村がつながる社会をみる。",
+  "幕末":"世界との接触と政治の揺れを追う。",
+  "明治":"近代国家と国民化の始まりを考える。",
+  "大正":"大衆社会と政党政治の展開をみる。",
+  "昭和戦前":"戦争へ向かう社会の変化をみる。",
+  "戦後":"占領改革と新しい社会の出発をみる。",
+  "平成":"暮らしと社会の変化をふり返る。",
+  "令和":"現在につながる歴史を考える。"
+};
+const DATA=[
+  ["古代","縄文","一問一答","プリント","縄文時代 一問一答","基本語句と特徴を短時間で確認するプリント。","PDF"],
+  ["古代","縄文","一文論述","プリント","縄文社会の特徴を一文で説明する","暮らしや精神性を短く説明する練習。","PDF"],
+  ["古代","縄文","年代整序","プリント","古代前半 年代整序","旧石器・縄文・弥生を流れで整理する。","PDF"],
+  ["中世","鎌倉","一問一答","プリント","鎌倉時代 一問一答","人物・制度・事件を手早く確認する。","PDF"],
+  ["中世","鎌倉","一文論述","プリント","御恩と奉公を一文で説明する","用語同士の関係を短く説明する問題。","PDF"],
+  ["中世","鎌倉","年代整序","プリント","鎌倉前期 年代整序","幕府成立から承久の乱までを並べる。","PDF"],
+  ["近世","江戸","一問一答","プリント","江戸時代 一問一答","政治・社会・文化をひと通り確認する。","PDF"],
+  ["近世","江戸","一文論述","プリント","幕藩体制とは何か","制度の仕組みを一文で説明する。","PDF"],
+  ["近世","江戸","年代整序","プリント","江戸前期 年代整序","幕府成立から改革までを流れで捉える。","PDF"],
+  ["近代","明治","一問一答","プリント","明治時代 一問一答","近代国家形成の基本事項を確認。","PDF"],
+  ["近代","明治","一文論述","プリント","廃藩置県の意味を説明する","政策の意味を一文で整理する。","PDF"],
+  ["現代","戦後","一問一答","プリント","戦後史 一問一答","占領改革から高度成長までを確認する。","PDF"],
+  ["現代","戦後","一文論述","プリント","高度経済成長を一文で説明する","特徴と背景を短くまとめる。","PDF"],
+  ["現代","戦後","年代整序","プリント","戦後史 年代整序","戦後の主要出来事を時系列で確認する。","PDF"]
+].map(x=>({major:x[0],sub:x[1],mode:x[2],kind:x[3],title:x[4],desc:x[5],meta:x[6]}));
+
+let mode="一問一答", major=null, sub=null;
+
+function renderEraList(){
+  const list=document.getElementById("eraList");
+  list.innerHTML=Object.entries(SUB_ERAS).map(([m,subs])=>`
+    <div class="era-row">
+      <div class="era-name">${m}</div>
+      <div class="era-subs">
+        ${subs.map(s=>`
+          <button class="sub-era-btn ${major===m && sub===s ? "active" : ""}" data-major="${m}" data-sub="${s}">
+            ${s}
+          </button>
+        `).join("")}
+      </div>
+    </div>
+  `).join("");
+
+  list.querySelectorAll(".sub-era-btn").forEach(btn=>{
+    btn.onclick=()=>{
+      major=btn.dataset.major;
+      sub=btn.dataset.sub;
+      renderEraList();
+      renderDetail();
+      document.getElementById("detail").scrollIntoView({behavior:"smooth",block:"start"});
+    };
+  });
+}
+function renderDetail(){
+  const detail=document.getElementById("detail");
+  document.getElementById("panelTitle").textContent = `${mode}を選ぶ`;
+  if(!major){detail.classList.remove("show");return;}
+  detail.classList.add("show");
+  const sel=document.getElementById("unitSelect");
+  sel.innerHTML=SUB_ERAS[major].map(s=>`<option ${s===sub?"selected":""}>${s}</option>`).join("");
+  sel.onchange=()=>{sub=sel.value;renderDetail();};
+  document.getElementById("detailTitle").textContent=sub;
+  document.getElementById("detailCopy").textContent=COPY[sub]||"";
+  const rows=DATA.filter(r=>r.major===major&&r.sub===sub&&r.mode===mode);
+  const list=document.getElementById("resourceList");
+  if(!rows.length){
+    list.innerHTML=`<div class="empty-note">この単元・形式の教材はまだ登録されていません。</div>`;
+  } else {
+    list.innerHTML=rows.map(r=>`
+      <a class="resource" href="#">
+        <div class="kind">${r.kind}</div>
+        <div><div class="title">${r.title}</div><div class="desc">${r.desc}</div></div>
+        <div class="meta">${r.meta}</div>
+        <div class="arrow">→</div>
+      </a>
+    `).join("");
+  }
+}
+document.querySelectorAll(".mode-btn").forEach(btn=>{
+  btn.onclick=()=>{
+    mode=btn.dataset.mode;
+    document.querySelectorAll(".mode-btn").forEach(b=>b.classList.toggle("active",b===btn));
+    renderDetail();
+  };
+});
+renderEraList();
+renderDetail();
+</script>
+</body>
+</html>
