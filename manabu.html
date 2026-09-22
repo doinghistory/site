@@ -819,6 +819,31 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
   visibility:visible !important;
 }
 /* ===== END REQUESTED FIXES ===== */
+
+/* ===== HEADER VISIBILITY FIX 2026-09-22 ===== */
+/* Brush PNGs are black originals. Force clear light rendering on the dark header. */
+.unified-brand img{
+  opacity:1 !important;
+  filter:brightness(0) invert(1) !important;
+}
+.unified-nav a img{
+  opacity:.92 !important;
+  filter:brightness(0) invert(1) !important;
+}
+.unified-nav a:hover img{
+  opacity:1 !important;
+  filter:brightness(0) saturate(100%) invert(82%) sepia(28%) saturate(620%) hue-rotate(354deg) brightness(92%) contrast(88%) !important;
+}
+.unified-nav a.active img{
+  opacity:1 !important;
+  filter:brightness(0) saturate(100%) invert(72%) sepia(38%) saturate(690%) hue-rotate(356deg) brightness(91%) contrast(86%) !important;
+}
+/* Keep the header background dark enough that every label stays readable. */
+.unified-header{
+  background:rgba(8,8,7,.90) !important;
+}
+/* ===== END HEADER VISIBILITY FIX ===== */
+
 </style>
 
 <script>
