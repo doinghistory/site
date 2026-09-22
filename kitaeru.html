@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>鍛える｜歴史する</title>
-
-
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#080807;
@@ -190,86 +189,101 @@ footer{
   .era-subs{grid-template-columns:repeat(2,1fr)}
 }
 </style>
-<style>
-/* 2026-09 humanized editorial pass */
-:root{
-  --serif:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif CJK JP",serif;
-  --sans:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro","Meiryo",sans-serif;
-}
-body{letter-spacing:.025em}
-.brand img,.logo img{display:block;width:118px;height:auto}
-.hero h1{font-weight:600;letter-spacing:.10em}
-.mode-no,.section-label,.kicker,.list-title,.tag,.num{letter-spacing:.08em}
-</style></head>
+<style id="dark-theme-restore">body{background:#080807!important} footer{background:#050505!important}</style>
+</head>
 <body>
+
 <header>
-<div class="header-inner">
-<a class="brand" href="index.html"><img alt="歴史する" src="assets/logo.png"/></a>
-<nav class="nav"><a href="manabu.html">学ぶ</a><a href="tou.html">問う</a><a class="active" href="kitaeru.html">鍛える</a><a href="miru.html">観る</a><a href="shiraberu.html">調べる</a><a href="meguru.html">巡る</a></nav>
-
-</div>
+  <div class="header-inner">
+    <a class="brand" href="index.html">歴史する</a>
+    <nav class="nav">
+      <a href="manabu.html">学ぶ</a>
+      <a href="tou.html">問う</a>
+      <a class="active" href="#">鍛える</a>
+      <a href="miru.html">観る</a>
+      <a href="#">調べる</a>
+      <a href="#">巡る</a>
+    </nav>
+    <div class="menu">☰</div>
+  </div>
 </header>
-<section class="hero">
-<div class="hero-inner">
-<div class="hero-copy">
-<div class="eyebrow">問題演習</div>
-<h1>鍛える</h1>
-<div class="lead">過去問・正誤問題・演習プリント</div>
-<div class="sub">時代と形式を選んで取り組みます。</div>
-</div>
 
-</div>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">知識を、使える力へ。</div>
+      <h1>鍛える</h1>
+      <div class="lead">解く。迷う。確かめる。<br>その繰り返しで、歴史は強くなる。</div>
+      <div class="sub">本番形式、判断問題、演習プリント。<br>覚えた知識を、問題の中で使ってみる。</div>
+    </div>
+
+    <div class="hero-meter">
+      <div class="meter-label">TRAINING</div>
+      <div class="meter-line"><span>確認</span><div class="bar"></div></div>
+      <div class="meter-line"><span>判断</span><div class="bar"></div></div>
+      <div class="meter-line"><span>実戦</span><div class="bar"></div></div>
+      <div class="meter-note">難しさではなく、使い方を変えて鍛える。</div>
+    </div>
+  </div>
 </section>
+
 <section class="modes">
-<div class="section-label">問題形式</div>
-<div class="mode-grid">
-<button class="mode-card active" data-mode="過去問演習">
-<small>01</small>
-<h2>過去問演習</h2>
-<p>大学入試の過去問を使い、知識を本番の文脈で使う。</p>
-<div class="mode-foot"><span>問題を見る</span><span>→</span></div>
-</button>
-<button class="mode-card" data-mode="正誤・組合せ問題">
-<small>02</small>
-<h2>正誤・組合せ問題</h2>
-<p>細かな違いを見抜き、根拠をもって判断する。</p>
-<div class="mode-foot"><span>問題を見る</span><span>→</span></div>
-</button>
-<button class="mode-card" data-mode="演習プリント">
-<small>03</small>
-<h2>演習プリント</h2>
-<p>単元ごとにまとめて解き、弱点を確かめる。</p>
-<div class="mode-foot"><span>教材を見る</span><span>→</span></div>
-</button>
-</div>
+  <div class="section-label">PRACTICE MODE</div>
+  <div class="mode-grid">
+    <button class="mode-card active" data-mode="過去問演習">
+      <small>01 / EXAM</small>
+      <h2>過去問演習</h2>
+      <p>大学入試の過去問を使い、知識を本番の文脈で使う。</p>
+      <div class="mode-foot"><span>問題を見る</span><span>→</span></div>
+    </button>
+
+    <button class="mode-card" data-mode="正誤・組合せ問題">
+      <small>02 / JUDGE</small>
+      <h2>正誤・組合せ問題</h2>
+      <p>細かな違いを見抜き、根拠をもって判断する。</p>
+      <div class="mode-foot"><span>問題を見る</span><span>→</span></div>
+    </button>
+
+    <button class="mode-card" data-mode="演習プリント">
+      <small>03 / DRILL</small>
+      <h2>演習プリント</h2>
+      <p>単元ごとにまとめて解き、弱点を確かめる。</p>
+      <div class="mode-foot"><span>教材を見る</span><span>→</span></div>
+    </button>
+  </div>
 </section>
+
 <section class="practice">
-<div class="practice-inner">
-<div class="practice-head">
-<div class="kicker">時代を選ぶ</div>
-<div>
-<h3 id="practiceTitle">時代から問題を選ぶ</h3>
-<p>必要な時代を選び、その単元の問題へ進みます。</p>
-</div>
-</div>
-<div class="era-block" id="eraBlock"></div>
-<div class="detail" id="detail">
-<div class="detail-head">
-<div>
-<h4 id="detailTitle">鎌倉</h4>
-<p id="detailCopy"></p>
-</div>
-</div>
-<div id="resourceList"></div>
-</div>
-</div>
+  <div class="practice-inner">
+    <div class="practice-head">
+      <div class="kicker">PRACTICE MATERIALS</div>
+      <div>
+        <h3 id="practiceTitle">過去問演習を、時代から。</h3>
+        <p>必要な時代を選び、その単元の問題へ進みます。</p>
+      </div>
+    </div>
+
+    <div class="era-block" id="eraBlock"></div>
+
+    <div class="detail" id="detail">
+      <div class="detail-head">
+        <div>
+          <h4 id="detailTitle">鎌倉</h4>
+          <p id="detailCopy"></p>
+        </div>
+      </div>
+      <div id="resourceList"></div>
+    </div>
+  </div>
 </section>
+
 <footer>
-<div class="footer-inner">
-<span>歴史する</span>
-<span>高校日本史教材</span>
-</div>
+  <div class="footer-inner">
+    <span>歴史する / DOING HISTORY</span>
+    <span>高校日本史 演習</span>
+  </div>
 </footer>
+
 <script>
 const SUB_ERAS={
   "古代":["旧石器","縄文","弥生","古墳","飛鳥","奈良","平安"],

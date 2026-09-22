@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="noindex,nofollow" name="robots"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
 <title>問う｜歴史する</title>
-<meta content="高校日本史の一問一答・一文論述・年代整序。知識を思い出し、説明し、並べる。" name="description"/>
+<meta name="description" content="高校日本史の一問一答・一文論述・年代整序。知識を思い出し、説明し、並べる。">
 
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -230,97 +231,146 @@ button{font:inherit}
   .app-callout.show{grid-template-columns:1fr}
 }
 </style>
-<style>
-/* 2026-09 humanized editorial pass */
+
+<style id="dark-theme-restore">
 :root{
-  --serif:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif CJK JP",serif;
-  --sans:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro","Meiryo",sans-serif;
+  --paper:#090908 !important;
+  --paper2:#0d0d0c !important;
+  --ink:#eeeae2 !important;
+  --muted:#9e978d !important;
+  --line:rgba(255,255,255,.12) !important;
+  --dark:#050505 !important;
+  --accent:#b4a78a !important;
 }
-body{letter-spacing:.025em}
-.brand img,.logo img{display:block;width:118px;height:auto}
-.hero h1{font-weight:600;letter-spacing:.10em}
-.mode-no,.section-label,.kicker,.list-title,.tag,.num{letter-spacing:.08em}
-</style></head>
+body{background:#090908 !important;color:#eeeae2 !important}
+.site-header,header{background:#090908 !important;color:#eeeae2 !important;border-color:rgba(255,255,255,.10) !important}
+.nav a,.header-nav a,.global-nav a{color:#aaa399 !important}
+.nav a.active,.header-nav a.active,.global-nav a.active{color:#fff !important;border-color:#fff !important}
+.era-area,.era-bar,.subera-wrap{background:#0b0b0a !important;border-color:rgba(255,255,255,.10) !important}
+.major-btn,.era-btn,.sub-btn,.subera-btn{color:#d7d2c9 !important;border-color:rgba(255,255,255,.11) !important}
+.major-btn:hover,.era-btn:hover,.sub-btn:hover,.subera-btn:hover{background:#151513 !important;color:#fff !important}
+.major-btn.active,.era-btn.active,.sub-btn.active,.subera-btn.active{background:#29241d !important;color:#fff !important;border-color:#75694f !important}
+.main,.materials{background:#090908 !important}
+.mode-card,.class-card,.reco-card,.material-row,.empty{background:#11110f !important;border-color:rgba(255,255,255,.10) !important}
+.mode-card:hover,.class-card:hover,.reco-card:hover,.material-row:hover{background:#171714 !important}
+.mode-card.active{background:#29241d !important;border-color:#75694f !important}
+.item-title,.res-title,.class-copy h3,.reco-title{color:#f1ede5 !important}
+.item-desc,.item-date,.res-desc,.res-meta,.source,.reco-era,.reco-source,.section-heading p,.intro p,.mode-card p,.resource-head p,.resource-count{color:#9e978d !important}
+.footer,footer{background:#050505 !important;border-color:rgba(255,255,255,.10) !important}
+</style>
+
+</head>
 <body>
+
 <header class="site-header">
-<div class="header-inner">
-<a class="brand" href="index.html"><img alt="歴史する" src="assets/logo.png"/></a>
-<nav class="header-nav"><a href="manabu.html">学ぶ</a><a class="active" href="tou.html">問う</a><a href="kitaeru.html">鍛える</a><a href="miru.html">観る</a><a href="shiraberu.html">調べる</a><a href="meguru.html">巡る</a></nav>
-
-</div>
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-main">歴史する</span>
+      <span class="brand-sub">DOING HISTORY</span>
+    </a>
+    <nav class="header-nav">
+      <a href="manabu.html">学ぶ</a>
+      <a class="active" href="#">問う</a>
+      <a href="#">鍛える</a>
+      <a href="miru.html">観る</a>
+      <a href="#">調べる</a>
+      <a href="#">巡る</a>
+    </nav>
+    <div class="header-note">問いが、<br>知識をつなぐ。</div>
+  </div>
 </header>
+
 <section class="hero">
-<div class="hero-bg"></div>
-<div class="hero-inner">
-<div class="hero-copy">
-<div class="hero-eyebrow">一問一答・一文論述・年代整序</div>
-<h1>問う</h1>
-<div class="hero-rule"></div>
-<p>問題形式を選び、時代別に取り組めます。</p>
-</div>
-</div>
-
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-eyebrow">知っている、から。説明できる、へ。</div>
+      <h1>問う</h1>
+      <div class="hero-rule"></div>
+      <p>
+        思い出す。ことばにする。順序を考える。<br>
+        問いに答えることで、ばらばらだった知識が<br>
+        少しずつ、歴史としてつながっていきます。
+      </p>
+    </div>
+  </div>
+  <div class="hero-vertical">問いは、知識の輪郭をはっきりさせる。</div>
 </section>
+
 <section class="era-area">
-<div class="era-major">
-<button class="major-btn active" data-major="古代">古代</button>
-<button class="major-btn" data-major="中世">中世</button>
-<button class="major-btn" data-major="近世">近世</button>
-<button class="major-btn" data-major="近代">近代</button>
-<button class="major-btn" data-major="現代">現代</button>
-</div>
-<div class="sub-row" id="subRow"></div>
-</section>
-<main class="main">
-<div class="inner">
-<div class="intro">
-<div class="intro-label" id="eraLabel">古代</div>
-<div>
-<h2>問題形式を選ぶ</h2>
-<p>一問一答・一文論述・年代整序から選んでください。</p>
-</div>
-</div>
-<section aria-label="問題形式を選ぶ" class="mode-grid">
-<button class="mode-card active" data-mode="一問一答">
-<div class="mode-no">01</div>
-<div class="mode-word">答</div>
-<h3>一問一答</h3>
-<p>まずは思い出す。プリントとWebアプリで、知識の定着を確かめます。</p>
-<div class="action">教材を見る</div>
-</button>
-<button class="mode-card" data-mode="一文論述">
-<div class="mode-no">02</div>
-<div class="mode-word">文</div>
-<h3>一文論述</h3>
-<p>用語や出来事を、短い一文で説明する。覚えた知識を、自分の言葉に変えます。</p>
-<div class="action">教材を見る</div>
-</button>
-<button class="mode-card" data-mode="年代整序">
-<div class="mode-no">03</div>
-<div class="mode-word">順</div>
-<h3>年代整序</h3>
-<p>出来事を並べることで、因果関係と時代の流れを確かめます。</p>
-<div class="action">教材を見る</div>
-</button>
+  <div class="era-major">
+    <button class="major-btn active" data-major="古代">古代</button>
+    <button class="major-btn" data-major="中世">中世</button>
+    <button class="major-btn" data-major="近世">近世</button>
+    <button class="major-btn" data-major="近代">近代</button>
+    <button class="major-btn" data-major="現代">現代</button>
+  </div>
+  <div class="sub-row" id="subRow"></div>
 </section>
 
-<section class="resource-section">
-<div class="resource-head">
-<h3 id="resourceTitle">一問一答</h3>
-<span class="line"></span>
-<p id="resourceSub">教材</p>
-<div class="resource-count"><span id="count">0</span> 件</div>
-</div>
-<div class="resource-list" id="resourceList"></div>
-</section>
-</div>
+<main class="main">
+  <div class="inner">
+    <div class="intro">
+      <div class="intro-label" id="eraLabel">古代</div>
+      <div>
+        <h2>知識を、<br>三つの方法で確かめる。</h2>
+        <p>「思い出す」「説明する」「並べる」。同じ知識でも、問い方が変わると見え方も変わります。</p>
+      </div>
+    </div>
+
+    <section class="mode-grid" aria-label="問題形式を選ぶ">
+      <button class="mode-card active" data-mode="一問一答">
+        <div class="mode-no">01 / RECALL</div>
+        <div class="mode-word">答</div>
+        <h3>一問一答</h3>
+        <p>まずは思い出す。プリントとWebアプリで、知識の定着を確かめます。</p>
+        <div class="action">教材を見る</div>
+      </button>
+
+      <button class="mode-card" data-mode="一文論述">
+        <div class="mode-no">02 / EXPLAIN</div>
+        <div class="mode-word">文</div>
+        <h3>一文論述</h3>
+        <p>用語や出来事を、短い一文で説明する。覚えた知識を、自分の言葉に変えます。</p>
+        <div class="action">教材を見る</div>
+      </button>
+
+      <button class="mode-card" data-mode="年代整序">
+        <div class="mode-no">03 / ORDER</div>
+        <div class="mode-word">順</div>
+        <h3>年代整序</h3>
+        <p>出来事を並べることで、因果関係と時代の流れを確かめます。</p>
+        <div class="action">教材を見る</div>
+      </button>
+    </section>
+
+    <div class="app-callout show" id="appCallout">
+      <div>
+        <h4>Webで一問一答</h4>
+        <p>プリントとは別に、スマートフォンやPCから使える一問一答アプリへのリンクを置く想定です。</p>
+      </div>
+      <a href="#" id="appLink">Webアプリを開く →</a>
+    </div>
+
+    <section class="resource-section">
+      <div class="resource-head">
+        <h3 id="resourceTitle">一問一答</h3>
+        <span class="line"></span>
+        <p id="resourceSub">PRINT / WEB</p>
+        <div class="resource-count"><span id="count">0</span> 件</div>
+      </div>
+      <div class="resource-list" id="resourceList"></div>
+    </section>
+  </div>
 </main>
+
 <footer class="footer">
-<div class="footer-inner">
-<span>歴史する</span>
-<span>高校日本史教材</span>
-</div>
+  <div class="footer-inner">
+    <span>歴史する / DOING HISTORY</span>
+    <span>高校日本史 問題演習</span>
+  </div>
 </footer>
+
 <script>
 const SUB_ERAS={
   "古代":["旧石器","縄文","弥生","古墳","飛鳥","奈良","平安"],
@@ -404,8 +454,10 @@ function render(){
   document.getElementById("eraLabel").textContent=currentSub||currentMajor;
   document.getElementById("resourceTitle").textContent=currentMode;
   document.getElementById("resourceSub").textContent=
-    currentMode==="一問一答" ? "プリント・Web" :
-    currentMode==="一文論述" ? "短文論述" : "年代整序";
+    currentMode==="一問一答" ? "PRINT / WEB" :
+    currentMode==="一文論述" ? "SHORT WRITING" : "CHRONOLOGY";
+
+  document.getElementById("appCallout").classList.toggle("show",currentMode==="一問一答");
 
   const data=filtered();
   document.getElementById("count").textContent=data.length;
@@ -443,6 +495,7 @@ document.querySelectorAll(".mode-card").forEach(btn=>{
     document.querySelector(".resource-section").scrollIntoView({behavior:"smooth",block:"start"});
   };
 });
+document.getElementById("appLink").onclick=e=>e.preventDefault();
 
 setFromUrl();
 render();
