@@ -848,7 +848,14 @@ function filtered(type){
     if(currentSub && v.sub!==currentSub) return false;
     if(v.type!==type) return false;
     return true;
-  }).sort((a,b)=>(a.order-b.order)||dateValue(b.date)-dateValue(a.date));
+  }).sort((a,b)=>{
+    const eraOrder=SUB_ERAS[currentMajor]||[];
+    const eraDiff=eraOrder.indexOf(a.sub)-eraOrder.indexOf(b.sub);
+    if(eraDiff) return eraDiff;
+    const orderDiff=a.order-b.order;
+    if(orderDiff) return orderDiff;
+    return dateValue(b.date)-dateValue(a.date);
+  });
 }
 
 function render(){
