@@ -47,11 +47,11 @@ header{
 .hero:before{
   content:"";position:absolute;inset:0;
   background:
-    linear-gradient(90deg,rgba(4,4,4,.98) 0%,rgba(4,4,4,.91) 34%,rgba(4,4,4,.45) 70%,rgba(4,4,4,.58) 100%),
-    linear-gradient(180deg,rgba(4,4,4,.08),rgba(4,4,4,.14) 55%,rgba(4,4,4,.86) 100%),
+    linear-gradient(90deg,rgba(4,4,4,.80) 0%,rgba(4,4,4,.58) 34%,rgba(4,4,4,.16) 70%,rgba(4,4,4,.24) 100%),
+    linear-gradient(180deg,rgba(4,4,4,.03),rgba(4,4,4,.06) 55%,rgba(4,4,4,.46) 100%),
     url("kitaeru-hero-20260922v3.jpg");
   background-size:110% auto;background-position:left center;
-  filter:saturate(.7) contrast(1.05);
+  filter:saturate(.82) contrast(1.03) brightness(.98);
 }
 .hero-inner{
   position:relative;z-index:2;width:min(1280px,calc(100% - 48px));min-height:520px;margin:auto;
@@ -82,11 +82,11 @@ header{
 }
 .stage-bg{
   position:absolute;inset:0;background-size:cover;background-position:center;
-  filter:saturate(.55) contrast(1.06) brightness(.72)
+  filter:saturate(.72) contrast(1.03) brightness(.90)
 }
-.stage:nth-child(1) .stage-bg{background-image:linear-gradient(90deg,#080807 0%,rgba(8,8,7,.90) 36%,rgba(8,8,7,.34) 76%,rgba(8,8,7,.72) 100%),url("kitaeru-section1-20260922v3.jpg")}
-.stage:nth-child(2) .stage-bg{background-image:linear-gradient(90deg,#080807 0%,rgba(8,8,7,.90) 40%,rgba(8,8,7,.38) 76%,rgba(8,8,7,.74) 100%),url("kitaeru-section2-20260922v3.jpg")}
-.stage:nth-child(3) .stage-bg{background-image:linear-gradient(90deg,#080807 0%,rgba(8,8,7,.91) 38%,rgba(8,8,7,.34) 75%,rgba(8,8,7,.74) 100%),url("kitaeru-section3-20260922v3.jpg")}
+.stage:nth-child(1) .stage-bg{background-image:linear-gradient(90deg,rgba(8,8,7,.40) 0%,rgba(8,8,7,.68) 36%,rgba(8,8,7,.14) 76%,rgba(8,8,7,.40) 100%),url("kitaeru-section1-20260922v3.jpg")}
+.stage:nth-child(2) .stage-bg{background-image:linear-gradient(90deg,rgba(8,8,7,.40) 0%,rgba(8,8,7,.68) 40%,rgba(8,8,7,.14) 76%,rgba(8,8,7,.40) 100%),url("kitaeru-section2-20260922v3.jpg")}
+.stage:nth-child(3) .stage-bg{background-image:linear-gradient(90deg,rgba(8,8,7,.40) 0%,rgba(8,8,7,.68) 38%,rgba(8,8,7,.14) 75%,rgba(8,8,7,.40) 100%),url("kitaeru-section3-20260922v3.jpg")}
 .stage-inner{
   width:min(1280px,calc(100% - 48px));min-height:340px;margin:auto;position:relative;z-index:2;
   display:grid;grid-template-columns:90px 360px minmax(0,1fr);gap:30px;align-items:center
@@ -535,8 +535,8 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
   width:100%;
   height:100%;
   object-fit:cover;
-  opacity:.50;
-  filter:saturate(.68) contrast(1.08) brightness(.72);
+  opacity:.82;
+  filter:saturate(.90) contrast(1.02) brightness(.98);
   z-index:-2;
   transition:transform .35s ease,opacity .35s ease;
 }
@@ -545,11 +545,11 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
   position:absolute;
   inset:0;
   background:
-    linear-gradient(90deg,rgba(5,5,5,.92) 0%,rgba(5,5,5,.72) 52%,rgba(5,5,5,.34) 100%),
-    linear-gradient(180deg,rgba(5,5,5,.12),rgba(5,5,5,.52));
+    linear-gradient(90deg,rgba(5,5,5,.74) 0%,rgba(5,5,5,.46) 52%,rgba(5,5,5,.10) 100%),
+    linear-gradient(180deg,rgba(5,5,5,.04),rgba(5,5,5,.28));
   z-index:-1;
 }
-.kitaeru-app:hover img{transform:scale(1.025);opacity:.57}
+.kitaeru-app:hover img{transform:scale(1.025);opacity:.88}
 .kitaeru-app .app-index{
   font:500 .56rem/1 var(--site-gothic,"Zen Kaku Gothic New",sans-serif);
   letter-spacing:.16em;
@@ -619,24 +619,15 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-copy">
-      <div class="eyebrow">知を、実力に変える。</div>
       <h1>鍛える</h1>
       <div class="lead">解く。見抜く。挑む。</div>
-      <div class="sub">
-        読んで終わりにしない。<br>
-        解いて、間違えて、考えて、また解く。<br>
-        その繰り返しが、歴史を自分のものにする。
-      </div>
     </div>
   </div>
-  <div class="vertical">過去と向き合う力は、これからを生きる力になる。</div>
-  <div class="scroll">SCROLL ↓</div>
 </section>
 
 
 <section class="kitaeru-apps">
   <div class="kitaeru-apps-inner">
-    <div class="kitaeru-apps-label">WEB APPS</div>
     <div class="kitaeru-apps-grid">
       <a class="kitaeru-app" href="#">
         <img src="app-yamakawa-cover-20260922v3.jpg" alt="">
@@ -752,7 +743,7 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 
 <footer>
   <div class="footer-inner">
-    <span>歴史する / DOING HISTORY</span>
+    <span>歴史する</span>
     <span>高校日本史 演習</span>
   </div>
 </footer>
