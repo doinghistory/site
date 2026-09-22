@@ -761,6 +761,8 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 
 .wf-loading .hero h1{visibility:hidden}
 .wf-active .hero h1,.wf-inactive .hero h1{visibility:visible}
+
+.thumb.has-image{background-size:cover;background-position:center}
 </style>
 
 <script>
@@ -975,6 +977,9 @@ function parseCSV(text){
 }
 
 function clean(v){return (v==null?"":String(v)).trim();}
+function isPublishedValue(v){const s=clean(v).toLowerCase();return !["false","0","no","off","非公開","下書き"].includes(s);}
+function placementAllows(v,target){const s=clean(v);return !s||s.includes(target);}
+function orderValue(v){const s=clean(v);if(!s)return Number.POSITIVE_INFINITY;const n=Number(s);return Number.isFinite(n)?n:Number.POSITIVE_INFINITY;}
 
 function normalizeEra(v){
   return String(v||"")
@@ -1020,9 +1025,13 @@ function objects(csv){
       title:o["タイトル"]||o["教材名"]||"",
       desc:o["ひとこと説明"]||o["説明"]||o["概要"]||"",
       date:o["公開日"]||o["日付"]||"",
-      url:o["URL"]||o["リンク"]||""
+      url:o["URL"]||o["リンク"]||"",
+      thumb:o["サムネイルURL"]||o["サムネイル"]||"",
+      placement:o["掲載先"]||"",
+      published:isPublishedValue(o["公開"]),
+      order:orderValue(o["表示順"]||o["順番"]||o["並び順"])
     };
-  }).filter(x=>x.title && x.url);
+  }).filter(x=>x.title && x.url && x.published && placementAllows(x.placement,"学ぶ"));
 }
 
 function dateValue(s){
@@ -1097,7 +1106,7 @@ function render(){
 
   let data=rows.filter(x=>x.era===currentMajor);
   if(currentSub) data=data.filter(x=>x.subEra===currentSub || normalizeEra(x.rawEra).includes(currentSub));
-  data.sort((a,b)=>dateValue(b.date)-dateValue(a.date));
+  data.sort((a,b)=>(a.order-b.order)||dateValue(b.date)-dateValue(a.date));
 
   document.getElementById("count").textContent=data.length;
 
@@ -1109,7 +1118,7 @@ function render(){
 
   list.innerHTML=data.map(x=>`
     <a class="material-row" href="${esc(x.url)}" ${x.url==="#"?"":"target=\"_blank\" rel=\"noopener\""}>
-      <div class="thumb kind-${esc(x.kind)}" data-label="${esc((x.kind||"教材").toUpperCase())}"></div>
+      <div class="thumb kind-${esc(x.kind)} ${x.thumb?"has-image":""}" data-label="${esc((x.kind||"教材").toUpperCase())}" ${x.thumb?`style="background-image:url(\'${esc(x.thumb)}\')"`:""}></div>
       <div>
         <div class="item-meta">${x.kind?`<span class="kind">${esc(x.kind)}</span>`:""}</div>
         <h3 class="item-title">${esc(x.title)}</h3>
