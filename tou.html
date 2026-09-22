@@ -230,20 +230,105 @@ footer{
   .mode-btn{border-right:0;border-bottom:1px solid var(--line)}
   .mode-btn:last-child{border-bottom:0}
 }
+
+/* ===== update: unified header + top-page font ===== */
+:root{
+  --mincho:"Shippori Mincho B1",serif;
+  --gothic:"Zen Kaku Gothic New",sans-serif;
+  --gold-l:#c4a35c;
+  --paper:#f2ebdb;
+  --sumi:#1d1913;
+  --soft:#6d6250;
+}
+body{font-family:var(--mincho) !important;}
+h1,h2,h3,h4,h5,h6,
+.brand,.nav a,.nav,.menu,
+.hero h1,.feature h2,.column-head h3,.section-head h2,
+.mode-card h2,.practice-head h3,.stage h2,.stage h3{
+  font-family:var(--mincho) !important;
+}
+small,.eyebrow,.sub,.lead,.copy,.desc,.meta,.badge,
+input,button,select,textarea{
+  font-family:var(--gothic);
+}
+header{
+  height:74px !important;
+  position:fixed !important;
+  top:0;left:0;right:0;
+  z-index:80 !important;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg,rgba(10,10,9,.80),rgba(10,10,9,.46)) !important;
+  backdrop-filter:blur(10px);
+}
+.header-inner{
+  width:min(1280px,calc(100% - 48px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  color:var(--paper) !important;
+  font-size:1.24rem;
+  letter-spacing:.18em;
+}
+.nav{
+  display:flex;
+  gap:clamp(12px,2vw,26px) !important;
+  align-items:center;
+  color:#ddd4c6 !important;
+  font-size:.86rem !important;
+}
+.nav a{
+  writing-mode:horizontal-tb !important;
+  color:#e8dfc7 !important;
+  position:relative;
+  padding-bottom:6px;
+  transition:.25s;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-1px;
+  width:1px;
+  height:0;
+  background:var(--gold-l);
+  transform:translateX(-50%);
+  transition:.25s;
+}
+.nav a.active,
+.nav a:hover{color:var(--gold-l) !important}
+.nav a.active::after,
+.nav a:hover::after{height:10px}
+.menu{
+  width:44px;height:44px;
+  border:1px solid rgba(242,235,219,.24);
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.03);
+  color:var(--paper) !important;
+  font:500 1.05rem/1 var(--gothic) !important;
+}
+@media(max-width:900px){
+  .nav{display:none !important}
+}
+
 </style>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <a class="brand" href="/site/#gates">歴史する</a>
+    <a class="brand" href="index.html#gates">歴史する</a>
     <nav class="nav">
-      <a href="/site/manabu.html">学ぶ</a>
-      <a class="active" href="/site/tou.html">問う</a>
-      <a href="/site/kitaeru.html">鍛える</a>
-      <a href="/site/miru.html">観る</a>
-      <a href="/site/shiraberu.html">調べる</a>
-      <a href="/site/meguru.html">巡る</a>
+      <a href="manabu.html">学ぶ</a>
+      <a class="active" href="tou.html">問う</a>
+      <a href="kitaeru.html">鍛える</a>
+      <a href="miru.html">観る</a>
+      <a href="shiraberu.html">調べる</a>
+      <a href="meguru.html">巡る</a>
     </nav>
     <div class="menu">☰</div>
   </div>
@@ -265,13 +350,13 @@ footer{
   <div class="apps-inner">
     <div class="section-label">WEB APPS</div>
     <div class="apps-grid">
-      <a class="app" href="#">
+      <a class="app" id="appYamakawa" href="#">
         <div class="app-index">01</div>
         <h2>山川一問一答</h2>
         <p>用語・人物・出来事を短い問いで反復する。知識を思い出すためのWebアプリ。</p>
         <div class="app-foot"><span>アプリを開く</span><span class="arrow">→</span></div>
       </a>
-      <a class="app" href="#">
+      <a class="app" id="appJidai" href="#">
         <div class="app-index">02</div>
         <h2>時代と流れ</h2>
         <p>出来事を単独で覚えるのではなく、前後関係と時代のつながりから捉えるためのWebアプリ。</p>
@@ -340,6 +425,7 @@ footer{
   </div>
 </footer>
 
+<script src="site-config.js"></script>
 <script>
 const SUB_ERAS={
   "古代":["旧石器","縄文","弥生","古墳","飛鳥","奈良","平安"],
@@ -370,22 +456,101 @@ const COPY={
   "平成":"暮らしと社会の変化をふり返る。",
   "令和":"現在につながる歴史を考える。"
 };
-const DATA=[
-  ["古代","縄文","一問一答","プリント","縄文時代 一問一答","基本語句と特徴を短時間で確認するプリント。","PDF"],
-  ["古代","縄文","一文論述","プリント","縄文社会の特徴を一文で説明する","暮らしや精神性を短く説明する練習。","PDF"],
-  ["古代","縄文","年代整序","プリント","古代前半 年代整序","旧石器・縄文・弥生を流れで整理する。","PDF"],
-  ["中世","鎌倉","一問一答","プリント","鎌倉時代 一問一答","人物・制度・事件を手早く確認する。","PDF"],
-  ["中世","鎌倉","一文論述","プリント","御恩と奉公を一文で説明する","用語同士の関係を短く説明する問題。","PDF"],
-  ["中世","鎌倉","年代整序","プリント","鎌倉前期 年代整序","幕府成立から承久の乱までを並べる。","PDF"],
-  ["近世","江戸","一問一答","プリント","江戸時代 一問一答","政治・社会・文化をひと通り確認する。","PDF"],
-  ["近世","江戸","一文論述","プリント","幕藩体制とは何か","制度の仕組みを一文で説明する。","PDF"],
-  ["近世","江戸","年代整序","プリント","江戸前期 年代整序","幕府成立から改革までを流れで捉える。","PDF"],
-  ["近代","明治","一問一答","プリント","明治時代 一問一答","近代国家形成の基本事項を確認。","PDF"],
-  ["近代","明治","一文論述","プリント","廃藩置県の意味を説明する","政策の意味を一文で整理する。","PDF"],
-  ["現代","戦後","一問一答","プリント","戦後史 一問一答","占領改革から高度成長までを確認する。","PDF"],
-  ["現代","戦後","一文論述","プリント","高度経済成長を一文で説明する","特徴と背景を短くまとめる。","PDF"],
-  ["現代","戦後","年代整序","プリント","戦後史 年代整序","戦後の主要出来事を時系列で確認する。","PDF"]
-].map(x=>({major:x[0],sub:x[1],mode:x[2],kind:x[3],title:x[4],desc:x[5],meta:x[6]}));
+const CSV_URL=(window.HISTORY_SITE_CONFIG && window.HISTORY_SITE_CONFIG.SHEET_CSV_URL)||"";
+let DATA=[];
+
+function clean(v){return (v==null?"":String(v)).trim();}
+function parseCSV(text){
+  const out=[]; let row=[], field="", quoted=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(quoted){
+      if(c === '"' && text[i+1] === '"'){field+='"';i++;}
+      else if(c === '"') quoted=false;
+      else field+=c;
+    }else{
+      if(c === '"') quoted=true;
+      else if(c === ","){row.push(field);field="";}
+      else if(c === "\n"){row.push(field);out.push(row);row=[];field="";}
+      else if(c !== "\r") field+=c;
+    }
+  }
+  row.push(field);
+  if(row.length>1 || row[0]) out.push(row);
+  return out;
+}
+function normalizeEra(v){
+  return clean(v).replace(/\s+/g,"").replace(/時代$/,"")
+    .replace(/昭和前期|昭和・戦前|戦前昭和/,"昭和戦前")
+    .replace(/昭和後期|昭和・戦後|昭和戦後/,"戦後")
+    .replace(/安土・桃山|安土桃山時代/,"安土桃山");
+}
+function majorOf(v){
+  const s=normalizeEra(v);
+  if(/旧石器|縄文|弥生|古墳|飛鳥|奈良|平安|原始|古代/.test(s)) return "古代";
+  if(/鎌倉|南北朝|室町|戦国|中世/.test(s)) return "中世";
+  if(/安土桃山|江戸|幕末|近世/.test(s)) return "近世";
+  if(/明治|大正|昭和戦前|戦前|近代/.test(s)) return "近代";
+  if(/戦後|平成|令和|現代/.test(s)) return "現代";
+  return "";
+}
+function subOf(v){
+  const s=normalizeEra(v);
+  for(const e of Object.values(SUB_ERAS).flat()){
+    if(s.includes(e)) return e;
+  }
+  if(s.includes("昭和") && !s.includes("戦後")) return "昭和戦前";
+  if(s.includes("昭和") && s.includes("戦後")) return "戦後";
+  return "";
+}
+function modeOf(kind){
+  const s=clean(kind);
+  return ["一問一答","一文論述","年代整序"].find(m=>s.includes(m))||"";
+}
+function rowsFromCSV(text){
+  const csv=parseCSV(text);
+  if(!csv.length) return [];
+  const h=csv[0].map(clean);
+  return csv.slice(1).map(r=>{
+    const o={}; h.forEach((k,i)=>o[k]=clean(r[i]));
+    const rawEra=o["時代"]||"";
+    const kind=o["種別"]||o["種類"]||"";
+    const mode=modeOf(kind);
+    const url=o["URL"]||o["リンク"]||"";
+    return {
+      major:majorOf(rawEra),
+      sub:subOf(rawEra),
+      mode,
+      kind:kind||"教材",
+      title:o["タイトル"]||o["教材名"]||"",
+      desc:o["ひとこと説明"]||o["説明"]||o["概要"]||"",
+      meta:o["形式"]||o["ファイル形式"]||(/\.pdf(?:$|\?)/i.test(url)?"PDF":"LINK"),
+      url
+    };
+  }).filter(x=>x.mode && x.major && x.sub && x.title && x.url);
+}
+
+function setupApps(){
+  const cfg=(window.HISTORY_SITE_CONFIG&&window.HISTORY_SITE_CONFIG.APPS)||{};
+  const pairs=[
+    [document.getElementById("appYamakawa"),cfg.yamakawa],
+    [document.getElementById("appJidai"),cfg.jidaiToNagare]
+  ];
+  pairs.forEach(([el,url])=>{
+    if(!el) return;
+    if(url){
+      el.href=url;
+      el.target="_blank";
+      el.rel="noopener";
+    }else{
+      el.href="#";
+      el.addEventListener("click",e=>e.preventDefault());
+      el.title="実URL未設定";
+      el.style.opacity=".55";
+      el.querySelector(".app-foot span:first-child").textContent="URL未設定";
+    }
+  });
+}
 
 let mode="一問一答", major=null, sub=null;
 
@@ -430,7 +595,7 @@ function renderDetail(){
     list.innerHTML=`<div class="empty-note">この単元・形式の教材はまだ登録されていません。</div>`;
   } else {
     list.innerHTML=rows.map(r=>`
-      <a class="resource" href="#">
+      <a class="resource" href="${r.url}" target="_blank" rel="noopener">
         <div class="kind">${r.kind}</div>
         <div><div class="title">${r.title}</div><div class="desc">${r.desc}</div></div>
         <div class="meta">${r.meta}</div>
@@ -446,8 +611,16 @@ document.querySelectorAll(".mode-btn").forEach(btn=>{
     renderDetail();
   };
 });
+setupApps();
 renderEraList();
 renderDetail();
+
+if(CSV_URL){
+  fetch(CSV_URL,{cache:"no-store"})
+    .then(r=>{if(!r.ok) throw new Error("CSV"); return r.text();})
+    .then(text=>{ DATA=rowsFromCSV(text); renderDetail(); })
+    .catch(()=>{ DATA=[]; renderDetail(); });
+}
 </script>
 </body>
 </html>

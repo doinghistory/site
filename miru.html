@@ -266,19 +266,108 @@ button{font:inherit}
   .class-thumb{min-height:190px}
   .reco-strip{grid-template-columns:1fr}
 }
+
+/* ===== update: unified header + top-page font ===== */
+:root{
+  --mincho:"Shippori Mincho B1",serif;
+  --gothic:"Zen Kaku Gothic New",sans-serif;
+  --gold-l:#c4a35c;
+  --paper:#f2ebdb;
+  --sumi:#1d1913;
+  --soft:#6d6250;
+}
+body{font-family:var(--mincho) !important;}
+h1,h2,h3,h4,h5,h6,
+.brand,.nav a,.nav,.menu,
+.hero h1,.feature h2,.column-head h3,.section-head h2,
+.mode-card h2,.practice-head h3,.stage h2,.stage h3{
+  font-family:var(--mincho) !important;
+}
+small,.eyebrow,.sub,.lead,.copy,.desc,.meta,.badge,
+input,button,select,textarea{
+  font-family:var(--gothic);
+}
+header{
+  height:74px !important;
+  position:fixed !important;
+  top:0;left:0;right:0;
+  z-index:80 !important;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg,rgba(10,10,9,.80),rgba(10,10,9,.46)) !important;
+  backdrop-filter:blur(10px);
+}
+.header-inner{
+  width:min(1280px,calc(100% - 48px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  color:var(--paper) !important;
+  font-size:1.24rem;
+  letter-spacing:.18em;
+}
+.nav{
+  display:flex;
+  gap:clamp(12px,2vw,26px) !important;
+  align-items:center;
+  color:#ddd4c6 !important;
+  font-size:.86rem !important;
+}
+.nav a{
+  writing-mode:horizontal-tb !important;
+  color:#e8dfc7 !important;
+  position:relative;
+  padding-bottom:6px;
+  transition:.25s;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-1px;
+  width:1px;
+  height:0;
+  background:var(--gold-l);
+  transform:translateX(-50%);
+  transition:.25s;
+}
+.nav a.active,
+.nav a:hover{color:var(--gold-l) !important}
+.nav a.active::after,
+.nav a:hover::after{height:10px}
+.menu{
+  width:44px;height:44px;
+  border:1px solid rgba(242,235,219,.24);
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.03);
+  color:var(--paper) !important;
+  font:500 1.05rem/1 var(--gothic) !important;
+}
+@media(max-width:900px){
+  .nav{display:none !important}
+}
+
 </style>
 </head>
 <body>
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="/site/#gates">
+    <a class="brand" href="index.html#gates">
       <span class="brand-main">歴史する</span>
       <span class="brand-sub">DOING HISTORY</span>
     </a>
     <nav class="nav">
-      <a href="/site/manabu.html">学ぶ</a>
-      <a class="active" href="/site/miru.html">観る</a>
+      <a href="manabu.html">学ぶ</a>
+      <a href="tou.html">問う</a>
+      <a href="kitaeru.html">鍛える</a>
+      <a class="active" href="miru.html">観る</a>
+      <a href="shiraberu.html">調べる</a>
+      <a href="meguru.html">巡る</a>
     </nav>
     <div class="header-note">過去と、<br>いまを生きる力に。</div>
   </div>
@@ -350,6 +439,7 @@ button{font:inherit}
   </div>
 </footer>
 
+<script src="site-config.js"></script>
 <script>
 const SUB_ERAS={
   "古代":["旧石器","縄文","弥生","古墳","飛鳥","奈良","平安"],
@@ -359,35 +449,90 @@ const SUB_ERAS={
   "現代":["戦後","平成","令和"]
 };
 
-/*
-  ここを実際のYouTube動画に差し替えてください。
-  youtube にはURLではなく YouTube の動画IDを入れます。
-  例:
-  https://www.youtube.com/watch?v=abc123XYZ
-  → youtube:"abc123XYZ"
-*/
-const VIDEOS=[
-  {major:"古代",sub:"縄文",type:"授業動画",title:"縄文人のくらしと世界観",desc:"縄文社会を、資料と問いからもう一度たどります。",source:"歴史する",duration:"24分",youtube:"dQw4w9WgXcQ"},
-  {major:"古代",sub:"古墳",type:"授業動画",title:"古墳はなぜ巨大化したのか",desc:"古墳の形・分布・副葬品から、権力の広がりを考えます。",source:"歴史する",duration:"19分",youtube:"dQw4w9WgXcQ"},
-  {major:"古代",sub:"弥生",type:"おすすめ動画",title:"弥生時代のムラと社会",desc:"稲作と社会の変化を別の角度から見る動画です。",source:"おすすめ",duration:"14分",youtube:"dQw4w9WgXcQ"},
-  {major:"古代",sub:"奈良",type:"おすすめ動画",title:"奈良の都を歩く",desc:"都市空間から律令国家を見ていきます。",source:"おすすめ",duration:"17分",youtube:"dQw4w9WgXcQ"},
+const CSV_URL=(window.HISTORY_SITE_CONFIG && window.HISTORY_SITE_CONFIG.SHEET_CSV_URL)||"";
+let VIDEOS=[];
 
-  {major:"中世",sub:"鎌倉",type:"授業動画",title:"鎌倉幕府はいつ成立したのか",desc:"1185年・1192年だけでは捉えきれない幕府成立を考えます。",source:"歴史する",duration:"28分",youtube:"dQw4w9WgXcQ"},
-  {major:"中世",sub:"室町",type:"授業動画",title:"室町幕府と京都",desc:"政治・都市・文化の重なりから室町社会を捉えます。",source:"歴史する",duration:"22分",youtube:"dQw4w9WgXcQ"},
-  {major:"中世",sub:"戦国",type:"おすすめ動画",title:"戦国大名と地域社会",desc:"戦国大名の支配を地域から見るおすすめ動画です。",source:"おすすめ",duration:"16分",youtube:"dQw4w9WgXcQ"},
-
-  {major:"近世",sub:"江戸",type:"授業動画",title:"江戸の町と人びとの暮らし",desc:"絵図や史料から都市江戸を読み解きます。",source:"歴史する",duration:"26分",youtube:"dQw4w9WgXcQ"},
-  {major:"近世",sub:"幕末",type:"授業動画",title:"開国と幕末の政治",desc:"世界との接触から幕府政治の変化を追います。",source:"歴史する",duration:"31分",youtube:"dQw4w9WgXcQ"},
-  {major:"近世",sub:"江戸",type:"おすすめ動画",title:"浮世絵から見る江戸文化",desc:"絵画資料から町人文化を読み解きます。",source:"おすすめ",duration:"18分",youtube:"dQw4w9WgXcQ"},
-
-  {major:"近代",sub:"明治",type:"授業動画",title:"明治国家と国民化",desc:"学校・軍隊・時間などから近代国家の形成を考えます。",source:"歴史する",duration:"27分",youtube:"dQw4w9WgXcQ"},
-  {major:"近代",sub:"大正",type:"授業動画",title:"大正デモクラシー",desc:"政党政治と社会運動の広がりを整理します。",source:"歴史する",duration:"23分",youtube:"dQw4w9WgXcQ"},
-  {major:"近代",sub:"明治",type:"おすすめ動画",title:"明治の近代化と私たち",desc:"制度と生活の変化から近代化を捉え直します。",source:"おすすめ",duration:"16分",youtube:"dQw4w9WgXcQ"},
-
-  {major:"現代",sub:"戦後",type:"授業動画",title:"戦後日本のはじまり",desc:"占領改革と戦後社会の出発を振り返ります。",source:"歴史する",duration:"25分",youtube:"dQw4w9WgXcQ"},
-  {major:"現代",sub:"平成",type:"授業動画",title:"平成社会を振り返る",desc:"経済・暮らし・メディアの変化を見ていきます。",source:"歴史する",duration:"20分",youtube:"dQw4w9WgXcQ"},
-  {major:"現代",sub:"戦後",type:"おすすめ動画",title:"街頭テレビと戦後社会",desc:"映像メディアの普及から戦後の暮らしを考えます。",source:"おすすめ",duration:"15分",youtube:"dQw4w9WgXcQ"}
-];
+function clean(v){return (v==null?"":String(v)).trim();}
+function parseCSV(text){
+  const out=[]; let row=[], field="", quoted=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(quoted){
+      if(c === '"' && text[i+1] === '"'){field+='"';i++;}
+      else if(c === '"') quoted=false;
+      else field+=c;
+    }else{
+      if(c === '"') quoted=true;
+      else if(c === ","){row.push(field);field="";}
+      else if(c === "\n"){row.push(field);out.push(row);row=[];field="";}
+      else if(c !== "\r") field+=c;
+    }
+  }
+  row.push(field);
+  if(row.length>1 || row[0]) out.push(row);
+  return out;
+}
+function normalizeEra(v){
+  return clean(v).replace(/\s+/g,"").replace(/時代$/,"")
+    .replace(/昭和前期|昭和・戦前|戦前昭和/,"昭和戦前")
+    .replace(/昭和後期|昭和・戦後|昭和戦後/,"戦後")
+    .replace(/安土・桃山|安土桃山時代/,"安土桃山");
+}
+function majorOf(v){
+  const s=normalizeEra(v);
+  if(/旧石器|縄文|弥生|古墳|飛鳥|奈良|平安|原始|古代/.test(s)) return "古代";
+  if(/鎌倉|南北朝|室町|戦国|中世/.test(s)) return "中世";
+  if(/安土桃山|江戸|幕末|近世/.test(s)) return "近世";
+  if(/明治|大正|昭和戦前|戦前|近代/.test(s)) return "近代";
+  if(/戦後|平成|令和|現代/.test(s)) return "現代";
+  return "";
+}
+function subOf(v){
+  const s=normalizeEra(v);
+  for(const e of Object.values(SUB_ERAS).flat()){
+    if(s.includes(e)) return e;
+  }
+  if(s.includes("昭和") && !s.includes("戦後")) return "昭和戦前";
+  if(s.includes("昭和") && s.includes("戦後")) return "戦後";
+  return "";
+}
+function youtubeId(url){
+  const s=clean(url);
+  if(!s) return "";
+  const m=s.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{6,})/i);
+  if(m) return m[1];
+  try{
+    const u=new URL(s);
+    if(/youtube\.com$/i.test(u.hostname)||/www\.youtube\.com$/i.test(u.hostname)){
+      return u.searchParams.get("v")||"";
+    }
+  }catch(e){}
+  return "";
+}
+function videosFromCSV(text){
+  const csv=parseCSV(text);
+  if(!csv.length) return [];
+  const h=csv[0].map(clean);
+  return csv.slice(1).map(r=>{
+    const o={}; h.forEach((k,i)=>o[k]=clean(r[i]));
+    const kind=o["種別"]||o["種類"]||"";
+    if(!kind.includes("動画")) return null;
+    const rawEra=o["時代"]||"";
+    const url=o["URL"]||o["リンク"]||"";
+    const type=kind.includes("おすすめ") ? "おすすめ動画" : "授業動画";
+    return {
+      major:majorOf(rawEra),
+      sub:subOf(rawEra),
+      type,
+      title:o["タイトル"]||o["教材名"]||"",
+      desc:o["ひとこと説明"]||o["説明"]||o["概要"]||"",
+      source:o["提供"]||o["出典"]||o["チャンネル"]||(type==="授業動画"?"歴史する":"おすすめ"),
+      duration:o["時間"]||o["長さ"]||"",
+      youtube:youtubeId(url),
+      url
+    };
+  }).filter(Boolean).filter(v=>v.major && v.sub && v.title && v.url);
+}
 
 let currentMajor="古代";
 let currentSub="";
@@ -466,7 +611,7 @@ function render(){
       a.className="class-card";
       a.innerHTML=`
         <div class="class-thumb">
-          <span class="duration">${v.duration}</span>
+          ${v.duration?`<span class="duration">${v.duration}</span>`:""}
         </div>
         <div class="class-copy">
           <div class="kicker">${v.sub}</div>
@@ -475,7 +620,7 @@ function render(){
           <div class="source">${v.source}</div>
         </div>`;
       addThumb(a.querySelector(".class-thumb"),v.youtube);
-      a.onclick=e=>{e.preventDefault();openPlayer(v);};
+      a.onclick=e=>{e.preventDefault(); v.youtube ? openPlayer(v) : window.open(v.url,"_blank","noopener");};
       cg.appendChild(a);
     });
   }
@@ -497,7 +642,7 @@ function render(){
           <div class="reco-source">${v.source}</div>
         </div>`;
       addThumb(a.querySelector(".reco-thumb"),v.youtube);
-      a.onclick=e=>{e.preventDefault();openPlayer(v);};
+      a.onclick=e=>{e.preventDefault(); v.youtube ? openPlayer(v) : window.open(v.url,"_blank","noopener");};
       rs.appendChild(a);
     });
   }
@@ -535,6 +680,13 @@ document.querySelectorAll(".major-btn").forEach(btn=>{
 
 setFromUrl();
 render();
+
+if(CSV_URL){
+  fetch(CSV_URL,{cache:"no-store"})
+    .then(r=>{if(!r.ok) throw new Error("CSV"); return r.text();})
+    .then(text=>{ VIDEOS=videosFromCSV(text); render(); })
+    .catch(()=>{ VIDEOS=[]; render(); });
+}
 </script>
 </body>
 </html>

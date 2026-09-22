@@ -460,19 +460,108 @@ header{
     overflow:hidden;
   }
 }
+
+/* ===== update: unified header + top-page font ===== */
+:root{
+  --mincho:"Shippori Mincho B1",serif;
+  --gothic:"Zen Kaku Gothic New",sans-serif;
+  --gold-l:#c4a35c;
+  --paper:#f2ebdb;
+  --sumi:#1d1913;
+  --soft:#6d6250;
+}
+body{font-family:var(--mincho) !important;}
+h1,h2,h3,h4,h5,h6,
+.brand,.nav a,.nav,.menu,
+.hero h1,.feature h2,.column-head h3,.section-head h2,
+.mode-card h2,.practice-head h3,.stage h2,.stage h3{
+  font-family:var(--mincho) !important;
+}
+small,.eyebrow,.sub,.lead,.copy,.desc,.meta,.badge,
+input,button,select,textarea{
+  font-family:var(--gothic);
+}
+header{
+  height:74px !important;
+  position:fixed !important;
+  top:0;left:0;right:0;
+  z-index:80 !important;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg,rgba(10,10,9,.80),rgba(10,10,9,.46)) !important;
+  backdrop-filter:blur(10px);
+}
+.header-inner{
+  width:min(1280px,calc(100% - 48px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  color:var(--paper) !important;
+  font-size:1.24rem;
+  letter-spacing:.18em;
+}
+.nav{
+  display:flex;
+  gap:clamp(12px,2vw,26px) !important;
+  align-items:center;
+  color:#ddd4c6 !important;
+  font-size:.86rem !important;
+}
+.nav a{
+  writing-mode:horizontal-tb !important;
+  color:#e8dfc7 !important;
+  position:relative;
+  padding-bottom:6px;
+  transition:.25s;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-1px;
+  width:1px;
+  height:0;
+  background:var(--gold-l);
+  transform:translateX(-50%);
+  transition:.25s;
+}
+.nav a.active,
+.nav a:hover{color:var(--gold-l) !important}
+.nav a.active::after,
+.nav a:hover::after{height:10px}
+.menu{
+  width:44px;height:44px;
+  border:1px solid rgba(242,235,219,.24);
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.03);
+  color:var(--paper) !important;
+  font:500 1.05rem/1 var(--gothic) !important;
+}
+@media(max-width:900px){
+  .nav{display:none !important}
+}
+
 </style>
 </head>
 
 <body>
 <header>
   <div class="header-inner">
-    <a class="logo" href="/site/#gates">
+    <a class="logo" href="index.html#gates">
       <span class="logo-main">歴史する</span>
       <span class="logo-sub">DOING HISTORY</span>
     </a>
     <nav class="global-nav">
-      <a href="#" class="active">学ぶ</a>
-      <a href="/site/miru.html">観る</a>
+      <a href="manabu.html" class="active">学ぶ</a>
+      <a href="tou.html">問う</a>
+      <a href="kitaeru.html">鍛える</a>
+      <a href="miru.html">観る</a>
+      <a href="shiraberu.html">調べる</a>
+      <a href="meguru.html">巡る</a>
       <span class="menu-mark" aria-hidden="true"></span>
     </nav>
   </div>
@@ -539,8 +628,9 @@ header{
   CC BY-SA 4.0
 </div>
 
+<script src="site-config.js"></script>
 <script>
-const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTGfy6nXuXVIFiazfphIAJT7by7hcBLolbP6DHFrIxqrbyB8ucFAlzIRUGuK3BERm9p1IFCi07cvgPu/pub?gid=1464622297&single=true&output=csv";
+const CSV_URL = (window.HISTORY_SITE_CONFIG && window.HISTORY_SITE_CONFIG.SHEET_CSV_URL) || "https://docs.google.com/spreadsheets/d/e/2PACX-1vTGfy6nXuXVIFiazfphIAJT7by7hcBLolbP6DHFrIxqrbyB8ucFAlzIRUGuK3BERm9p1IFCi07cvgPu/pub?gid=1464622297&single=true&output=csv";
 
 const ERA_TEXT = {
   "古代":{
