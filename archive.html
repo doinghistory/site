@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>史料室｜歴史する</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="doinghistory.css">
+</head>
+<body class="archive" data-page="archive">
+<div class="noise"></div>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="prototype.html"><strong>歴史する</strong><small>DOING HISTORY</small></a>
+    <nav class="room-nav" aria-label="部屋を移動する">
+      <a href="library.html">教材書庫</a>
+      <a href="theater.html">映像室</a>
+      <a href="archive.html">史料室</a>
+      <a href="inquiry.html">探究室</a>
+    </nav>
+    <a class="home-link" href="./#gates">入口へ</a>
+  </div>
+</header>
+<main>
+  <section class="room-hero shell">
+    <div class="kicker">ROOM 03 / ARCHIVE</div>
+    <h1>史料室</h1>
+    <p>史料は「答え」が書かれたものではなく、過去への手がかり。年代と文脈を確かめながら、一点ずつ開くための部屋です。</p>
+    <div class="rule"></div>
+  </section>
+  <section class="shell archive-wrap">
+    <aside class="archive-index">
+      <h3>INDEX / 時代</h3>
+      <p>時代を選ぶと、その時代の史料だけを机上に取り出します。</p>
+      <div class="pills" id="eraPills"></div>
+    </aside>
+    <div>
+      <div class="tools">
+        <div class="search"><input id="q" type="search" placeholder="史料名・人物・キーワード"></div>
+        <div class="count"><span id="count">0</span> 点</div>
+      </div>
+      <div class="documents" id="content"><div class="empty"><strong>整理中</strong>史料を読み込んでいます。</div></div>
+    </div>
+  </section>
+</main>
+<div class="footer">歴史する ｜ 史料室</div>
+<script src="doinghistory.js"></script>
+</body></html>
