@@ -123,6 +123,96 @@ header{
 .quick:hover{color:#fff;border-color:rgba(255,255,255,.24)}
 .quick.big{grid-column:span 3;justify-content:space-between;padding:0 14px}
 
+
+.training-materials{
+  background:#090908;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:58px 0 72px;
+}
+.training-materials-inner{
+  width:min(1120px,calc(100% - 48px));
+  margin:auto;
+}
+.training-materials-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:26px;
+}
+.training-materials-head h2{
+  margin:0;
+  font-size:1.8rem;
+  font-weight:500;
+  letter-spacing:.08em;
+}
+.training-materials-head select{
+  background:#0d0d0c;
+  color:#d9d3c8;
+  border:1px solid rgba(255,255,255,.16);
+  padding:10px 34px 10px 12px;
+  font:400 .72rem/1 var(--sans);
+}
+.training-era-group{
+  display:grid;
+  grid-template-columns:120px minmax(0,1fr);
+  gap:26px;
+  padding:18px 0;
+  border-top:1px solid rgba(255,255,255,.10);
+}
+.training-era-group:last-child{
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.training-era-group h3{
+  margin:12px 0 0;
+  font-size:1rem;
+  font-weight:500;
+  color:#d5cec2;
+}
+.training-item{
+  display:grid;
+  grid-template-columns:92px minmax(0,1fr) 24px;
+  gap:18px;
+  align-items:center;
+  min-height:72px;
+  padding:12px 4px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.training-item:last-child{border-bottom:0}
+.training-item:hover{background:rgba(255,255,255,.025)}
+.training-kind{
+  font:500 .58rem/1 var(--sans);
+  color:#9e978c;
+  border:1px solid rgba(255,255,255,.12);
+  padding:7px 8px;
+  width:max-content;
+}
+.training-title{
+  font-size:.94rem;
+  margin-bottom:4px;
+}
+.training-desc{
+  font:400 .64rem/1.65 var(--sans);
+  color:#817b72;
+}
+.training-arrow{
+  font-size:1rem;
+  color:#bcb5aa;
+}
+.training-empty{
+  padding:30px 0;
+  border-top:1px solid rgba(255,255,255,.10);
+  color:#817b72;
+  font:400 .68rem/1.8 var(--sans);
+}
+@media(max-width:720px){
+  .training-materials-head{align-items:start;flex-direction:column}
+  .training-era-group{grid-template-columns:1fr;gap:8px}
+  .training-era-group h3{margin-top:0}
+  .training-item{grid-template-columns:82px minmax(0,1fr) 20px}
+}
+
 /* closing */
 .closing{
   min-height:155px;position:relative;overflow:hidden;border-bottom:1px solid var(--line)
@@ -661,7 +751,7 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
         <h2>解く</h2>
         <h3>演習プリント</h3>
         <p>まずは手を動かして、知識を整理する。基礎から応用まで、単元ごとに繰り返す。</p>
-        <a class="stage-link" href="#"><span>演習プリントへ</span><span>→</span></a>
+        <a class="stage-link" href="#kitaeru-materials" data-training-mode="演習プリント"><span>演習プリントへ</span><span>→</span></a>
       </div>
       <div class="stage-aside">
         <div class="aside-box">
@@ -692,7 +782,7 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
         <h2>見抜く</h2>
         <h3>正誤・組合せ問題</h3>
         <p>似ているもの、まぎらわしいもの。違いを見抜く力は、本番で大きな武器になる。</p>
-        <a class="stage-link" href="#"><span>正誤・組合せ問題へ</span><span>→</span></a>
+        <a class="stage-link" href="#kitaeru-materials" data-training-mode="正誤・組合せ問題"><span>正誤・組合せ問題へ</span><span>→</span></a>
       </div>
       <div class="stage-aside">
         <div class="aside-box">
@@ -716,7 +806,7 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
         <h2>挑む</h2>
         <h3>過去問演習</h3>
         <p>大学入試の過去問で、時間の中で考え、書き、今の自分の力を試す。</p>
-        <a class="stage-link" href="#"><span>過去問演習へ</span><span>→</span></a>
+        <a class="stage-link" href="#kitaeru-materials" data-training-mode="過去問演習"><span>過去問演習へ</span><span>→</span></a>
       </div>
       <div class="stage-aside">
         <div class="aside-box">
@@ -737,6 +827,26 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 
 </main>
 
+
+<section class="training-materials" id="kitaeru-materials">
+  <div class="training-materials-inner">
+    <div class="training-materials-head">
+      <h2 id="trainingModeTitle">演習プリント</h2>
+      <select id="trainingEraFilter" aria-label="時代を選ぶ">
+        <option value="">すべての時代</option>
+        <option value="古代">古代</option>
+        <option value="中世">中世</option>
+        <option value="近世">近世</option>
+        <option value="近代">近代</option>
+        <option value="現代">現代</option>
+      </select>
+    </div>
+    <div class="training-list" id="trainingList">
+      <div class="training-empty">教材を読み込んでいます。</div>
+    </div>
+  </div>
+</section>
+
 <section class="closing">
   <div class="closing-inner">
     <h4>解くたびに、<br>見えてくるものがある。</h4>
@@ -751,6 +861,174 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
   </div>
 </footer>
 
+
+<script src="site-config.js"></script>
+
+<script>
+const TRAINING_CSV_URL=(window.HISTORY_SITE_CONFIG&&window.HISTORY_SITE_CONFIG.SHEET_CSV_URL)||"";
+const TRAINING_SUB_ERAS={
+  "古代":["旧石器","縄文","弥生","古墳","飛鳥","奈良","平安"],
+  "中世":["鎌倉","南北朝","室町","戦国"],
+  "近世":["安土桃山","江戸","幕末"],
+  "近代":["明治","大正","昭和戦前"],
+  "現代":["戦後","平成","令和"]
+};
+let TRAINING_ROWS=[];
+let trainingMode="演習プリント";
+let trainingMajor="";
+
+function tClean(v){return (v==null?"":String(v)).trim();}
+function tPublished(v){
+  const s=tClean(v).toLowerCase();
+  return !["false","0","no","off","非公開","下書き"].includes(s);
+}
+function tPlacement(v){const s=tClean(v);return !s||s.includes("鍛える");}
+function tOrder(v){
+  const s=tClean(v);
+  if(!s)return Number.POSITIVE_INFINITY;
+  const n=Number(s);
+  return Number.isFinite(n)?n:Number.POSITIVE_INFINITY;
+}
+function tDateValue(s){
+  const m=/(\d{4})[\/.\-年](\d{1,2})[\/.\-月](\d{1,2})/.exec(s||"");
+  return m?new Date(+m[1],+m[2]-1,+m[3]).getTime():0;
+}
+function tNormalizeEra(v){
+  return tClean(v).replace(/\s+/g,"").replace(/時代$/,"")
+    .replace(/昭和前期|昭和・戦前|戦前昭和/,"昭和戦前")
+    .replace(/昭和後期|昭和・戦後|昭和戦後/,"戦後")
+    .replace(/安土・桃山|安土桃山時代/,"安土桃山");
+}
+function tMajorOf(v){
+  const s=tNormalizeEra(v);
+  if(/旧石器|縄文|弥生|古墳|飛鳥|奈良|平安|原始|古代/.test(s)) return "古代";
+  if(/鎌倉|南北朝|室町|戦国|中世/.test(s)) return "中世";
+  if(/安土桃山|江戸|幕末|近世/.test(s)) return "近世";
+  if(/明治|大正|昭和戦前|戦前|近代/.test(s)) return "近代";
+  if(/戦後|平成|令和|現代/.test(s)) return "現代";
+  return "";
+}
+function tSubOf(v){
+  const s=tNormalizeEra(v);
+  for(const e of Object.values(TRAINING_SUB_ERAS).flat()){
+    if(s.includes(e)) return e;
+  }
+  return "";
+}
+function tModeOf(kind){
+  const s=tClean(kind);
+  if(/過去問/.test(s)) return "過去問演習";
+  if(/正誤|組合せ|空欄/.test(s)) return "正誤・組合せ問題";
+  if(/演習プリント|演習/.test(s)) return "演習プリント";
+  return "";
+}
+function tParseCSV(text){
+  const out=[];let row=[],field="",quoted=false;
+  for(let i=0;i<text.length;i++){
+    const ch=text[i];
+    if(quoted){
+      if(ch==='"'&&text[i+1]==='"'){field+='"';i++;}
+      else if(ch==='"')quoted=false;
+      else field+=ch;
+    }else{
+      if(ch==='"')quoted=true;
+      else if(ch===','){row.push(field);field="";}
+      else if(ch==='\n'){row.push(field);out.push(row);row=[];field="";}
+      else if(ch!=='\r')field+=ch;
+    }
+  }
+  row.push(field);
+  if(row.length>1||row[0])out.push(row);
+  return out;
+}
+function trainingRowsFromCSV(text){
+  const csv=tParseCSV(text);
+  if(!csv.length)return [];
+  const h=csv[0].map(tClean);
+  return csv.slice(1).map(r=>{
+    const o={};h.forEach((k,i)=>o[k]=tClean(r[i]));
+    const rawEra=o["時代"]||"";
+    const kind=o["種別"]||o["種類"]||"";
+    const mode=tModeOf(kind);
+    return {
+      major:tMajorOf(rawEra),
+      sub:tSubOf(rawEra),
+      mode,
+      kind:kind||"教材",
+      title:o["タイトル"]||o["教材名"]||"",
+      desc:o["ひとこと説明"]||o["説明"]||o["概要"]||"",
+      date:o["公開日"]||o["日付"]||"",
+      order:tOrder(o["表示順"]||o["順番"]||o["並び順"]),
+      url:o["URL"]||o["リンク"]||"",
+      published:tPublished(o["公開"]),
+      placement:o["掲載先"]||""
+    };
+  }).filter(x=>x.major&&x.sub&&x.mode&&x.title&&x.url&&x.published&&tPlacement(x.placement));
+}
+function renderTraining(){
+  const title=document.getElementById("trainingModeTitle");
+  const list=document.getElementById("trainingList");
+  if(!title||!list)return;
+  title.textContent=trainingMode;
+
+  let rows=TRAINING_ROWS.filter(x=>x.mode===trainingMode);
+  if(trainingMajor)rows=rows.filter(x=>x.major===trainingMajor);
+
+  if(!rows.length){
+    list.innerHTML='<div class="training-empty">この条件の教材は、まだ登録されていません。</div>';
+    return;
+  }
+
+  const majorOrder=Object.keys(TRAINING_SUB_ERAS);
+  const subOrder=majorOrder.flatMap(m=>TRAINING_SUB_ERAS[m]);
+  rows.sort((a,b)=>{
+    const si=subOrder.indexOf(a.sub)-subOrder.indexOf(b.sub);
+    if(si)return si;
+    const oi=a.order-b.order;
+    if(oi)return oi;
+    return tDateValue(b.date)-tDateValue(a.date);
+  });
+
+  const groups={};
+  rows.forEach(x=>(groups[x.sub]||(groups[x.sub]=[])).push(x));
+  list.innerHTML=subOrder.filter(s=>groups[s]).map(s=>`
+    <div class="training-era-group">
+      <h3>${s}</h3>
+      <div>
+        ${groups[s].map(x=>`
+          <a class="training-item" href="${x.url}" target="_blank" rel="noopener">
+            <div class="training-kind">${x.kind}</div>
+            <div>
+              <div class="training-title">${x.title}</div>
+              <div class="training-desc">${x.desc||"教材を開く"}</div>
+            </div>
+            <div class="training-arrow">→</div>
+          </a>`).join("")}
+      </div>
+    </div>`).join("");
+}
+document.querySelectorAll("[data-training-mode]").forEach(a=>{
+  a.addEventListener("click",()=>{
+    trainingMode=a.dataset.trainingMode;
+    renderTraining();
+  });
+});
+const trainingEra=document.getElementById("trainingEraFilter");
+if(trainingEra){
+  trainingEra.addEventListener("change",()=>{
+    trainingMajor=trainingEra.value;
+    renderTraining();
+  });
+}
+if(TRAINING_CSV_URL){
+  fetch(TRAINING_CSV_URL,{cache:"no-store"})
+    .then(r=>{if(!r.ok)throw new Error("CSV");return r.text();})
+    .then(text=>{TRAINING_ROWS=trainingRowsFromCSV(text);renderTraining();})
+    .catch(()=>{TRAINING_ROWS=[];renderTraining();});
+}else{
+  renderTraining();
+}
+</script>
 
 <script>
 (function(){
