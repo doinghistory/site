@@ -657,13 +657,9 @@ footer{padding-top:44px !important}
 
 </style>
 
+<script src="site-config.js"></script>
 <script>
-/* ========================================================================
-   ここだけ設定してください
-   Googleスプレッドシートを「ファイル > 共有 > ウェブに公開」し、
-   形式を「カンマ区切り(.csv)」にして出てくるURLを貼り付けます。
-   ======================================================================== */
-window.SHEET_CSV_URL = "";   /* 例: https://docs.google.com/spreadsheets/d/e/2PACX-.../pub?gid=0&single=true&output=csv */
+window.SHEET_CSV_URL = (window.HISTORY_SITE_CONFIG && window.HISTORY_SITE_CONFIG.SHEET_CSV_URL) || "";
 </script>
 <!-- build:20260923b -->
 <!-- instant-brush-header-preload -->
