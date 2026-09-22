@@ -53,12 +53,12 @@ header{
 .hero-bg{
   position:absolute;inset:0;
   background-image:
-    linear-gradient(90deg,rgba(4,4,4,.98) 0%,rgba(4,4,4,.89) 32%,rgba(4,4,4,.43) 63%,rgba(4,4,4,.70) 100%),
-    linear-gradient(180deg,rgba(4,4,4,.10),rgba(4,4,4,.12) 52%,rgba(4,4,4,.88) 100%),
+    linear-gradient(90deg,rgba(4,4,4,.86) 0%,rgba(4,4,4,.64) 32%,rgba(4,4,4,.18) 63%,rgba(4,4,4,.30) 100%),
+    linear-gradient(180deg,rgba(4,4,4,.04),rgba(4,4,4,.06) 52%,rgba(4,4,4,.48) 100%),
     url("tou-buddha.jpg");
   background-size:cover;
   background-position:center 46%;
-  filter:saturate(.46) contrast(1.08) brightness(.64)
+  filter:saturate(.70) contrast(1.04) brightness(.92)
 }
 .hero-inner{
   position:relative;z-index:2;width:min(1280px,calc(100% - 48px));min-height:480px;margin:auto;
@@ -111,7 +111,7 @@ header{
   width:min(1120px,calc(100% - 48px));margin:auto
 }
 .print-head{
-  display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;align-items:end;margin-bottom:28px
+  display:block;margin-bottom:28px
 }
 .print-head .kicker{font-size:.9rem;color:#bbb5ab}
 .print-head .kicker:after{content:"";display:block;width:40px;height:1px;background:#514d46;margin-top:14px}
@@ -620,8 +620,8 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
   border:0 !important;
   border-radius:0 !important;
   box-shadow:none !important;
-  opacity:.50 !important;
-  filter:saturate(.68) contrast(1.08) brightness(.72);
+  opacity:.82 !important;
+  filter:saturate(.90) contrast(1.02) brightness(.98);
   z-index:-2 !important;
 }
 .app::after{
@@ -629,8 +629,8 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
   position:absolute;
   inset:0;
   background:
-    linear-gradient(90deg,rgba(5,5,5,.92) 0%,rgba(5,5,5,.72) 52%,rgba(5,5,5,.34) 100%),
-    linear-gradient(180deg,rgba(5,5,5,.12),rgba(5,5,5,.52));
+    linear-gradient(90deg,rgba(5,5,5,.74) 0%,rgba(5,5,5,.46) 52%,rgba(5,5,5,.10) 100%),
+    linear-gradient(180deg,rgba(5,5,5,.04),rgba(5,5,5,.28));
   z-index:-1;
   pointer-events:none;
 }
@@ -644,7 +644,7 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 .app-foot{color:#f0e9dd !important}
 .app:hover .app-cover{
   transform:scale(1.025);
-  opacity:.57 !important;
+  opacity:.88 !important;
   transition:transform .35s ease,opacity .35s ease;
 }
 @media(max-width:900px){
@@ -680,15 +680,12 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
     <div class="hero-copy">
       <div class="eyebrow">知っている、から。</div>
       <h1>問う</h1>
-      <div class="lead">考えることが、<br>歴史を深くする。</div>
-      <div class="sub">思い出す。説明する。並べる。<br>問いを重ねるほど、歴史は立体になる。</div>
     </div>
   </div>
 </section>
 
 <section class="apps">
   <div class="apps-inner">
-    <div class="section-label">WEB APPS</div>
     <div class="apps-grid">
       <a class="app" id="appYamakawa" href="#">
         <img class="app-cover" src="app-yamakawa-cover-20260922v3.jpg" alt="山川一問一答の参考書イメージ">
@@ -711,25 +708,18 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 <section class="print">
   <div class="print-inner">
     <div class="print-head">
-      <div class="kicker">PRINT MATERIALS</div>
-      <div>
-        <h2>プリントで、もう一度問う。</h2>
-        <p>左で問題形式を選び、右で時代と単元をたどる。前より少し操作しやすい版です。</p>
-      </div>
+      <h2>プリント</h2>
     </div>
 
     <div class="selector-layout">
       <aside class="side-menu">
         <button class="mode-btn active" data-mode="一問一答">
-          <small>01 / RECALL</small>
           <strong>一問一答</strong>
         </button>
         <button class="mode-btn" data-mode="一文論述">
-          <small>02 / EXPLAIN</small>
           <strong>一文論述</strong>
         </button>
         <button class="mode-btn" data-mode="年代整序">
-          <small>03 / ORDER</small>
           <strong>年代整序</strong>
         </button>
       </aside>
@@ -740,7 +730,6 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
             <h3 id="panelTitle">一問一答を選ぶ</h3>
             <p>時代区分から、そのまま必要な時代を選びます。</p>
           </div>
-          <div class="note">ERA → UNIT → MATERIAL</div>
         </div>
 
         <div class="era-list" id="eraList"></div>
@@ -762,7 +751,7 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 
 <footer>
   <div class="footer-inner">
-    <span>歴史する / DOING HISTORY</span>
+    <span>歴史する</span>
     <span>高校日本史 問題演習</span>
   </div>
 </footer>
