@@ -794,6 +794,9 @@ const CSV_URL=(window.HISTORY_SITE_CONFIG && window.HISTORY_SITE_CONFIG.SHEET_CS
 let DATA=[];
 
 function clean(v){return (v==null?"":String(v)).trim();}
+function isPublishedValue(v){const s=clean(v).toLowerCase();return !["false","0","no","off","非公開","下書き"].includes(s);}
+function placementAllows(v,target){const s=clean(v);return !s||s.includes(target);}
+function orderValue(v){const s=clean(v);if(!s)return Number.POSITIVE_INFINITY;const n=Number(s);return Number.isFinite(n)?n:Number.POSITIVE_INFINITY;}
 function parseCSV(text){
   const out=[]; let row=[], field="", quoted=false;
   for(let i=0;i<text.length;i++){
@@ -859,9 +862,12 @@ function rowsFromCSV(text){
       title:o["タイトル"]||o["教材名"]||"",
       desc:o["ひとこと説明"]||o["説明"]||o["概要"]||"",
       meta:o["形式"]||o["ファイル形式"]||(/\.pdf(?:$|\?)/i.test(url)?"PDF":"LINK"),
+      placement:o["掲載先"]||"",
+      published:isPublishedValue(o["公開"]),
+      order:orderValue(o["表示順"]||o["順番"]||o["並び順"]),
       url
     };
-  }).filter(x=>x.mode && x.major && x.sub && x.title && x.url);
+  }).filter(x=>x.mode && x.major && x.sub && x.title && x.url && x.published && placementAllows(x.placement,"問う"));
 }
 
 function setupApps(){
@@ -923,7 +929,7 @@ function renderDetail(){
   sel.onchange=()=>{sub=sel.value;renderDetail();};
   document.getElementById("detailTitle").textContent=sub;
   document.getElementById("detailCopy").textContent=COPY[sub]||"";
-  const rows=DATA.filter(r=>r.major===major&&r.sub===sub&&r.mode===mode);
+  const rows=DATA.filter(r=>r.major===major&&r.sub===sub&&r.mode===mode).sort((a,b)=>a.order-b.order);
   const list=document.getElementById("resourceList");
   if(!rows.length){
     list.innerHTML=`<div class="empty-note">この単元・形式の教材はまだ登録されていません。</div>`;
