@@ -673,6 +673,84 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 }
 .app-foot:before{background:rgba(255,255,255,.24) !important}
 
+
+/* ===== REQUESTED FIXES 2026-09-22 ===== */
+/* Header: instant brush lettering */
+.unified-brand,
+.unified-nav a{font-family:inherit !important}
+.unified-brand img,
+.unified-nav a img{visibility:visible !important;opacity:1}
+.wf-loading .unified-brand,
+.wf-loading .unified-nav a{visibility:visible !important}
+
+/* Ask hero: let the Buddha read more clearly while retaining text contrast. */
+.hero-bg{
+  background-image:
+    linear-gradient(90deg,rgba(4,4,4,.95) 0%,rgba(4,4,4,.74) 31%,rgba(4,4,4,.12) 61%,rgba(4,4,4,.28) 100%) !important,
+    linear-gradient(180deg,rgba(4,4,4,.02),rgba(4,4,4,.03) 52%,rgba(4,4,4,.50) 100%) !important,
+    url("tou-buddha.jpg") !important;
+  filter:saturate(.72) contrast(1.05) brightness(.90) !important;
+}
+
+/* Make each web-app tile use the whole reference image as its background. */
+.apps-grid{gap:1px;background:rgba(255,255,255,.10)}
+.app{
+  min-height:330px !important;
+  padding:34px 34px 32px !important;
+  isolation:isolate;
+  border:0 !important;
+  color:#f6f0e5 !important;
+  background-color:#111 !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+  overflow:hidden;
+}
+#appYamakawa{
+  background-image:url("app-yamakawa-cover-20260922v3.jpg") !important;
+  background-position:center 43% !important;
+}
+#appJidai{
+  background-image:url("app-jidai-cover-20260922v3.jpg") !important;
+  background-position:center 45% !important;
+}
+.app::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(90deg,rgba(6,6,5,.91) 0%,rgba(6,6,5,.78) 44%,rgba(6,6,5,.46) 72%,rgba(6,6,5,.38) 100%),
+    linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.42));
+  transition:background .25s ease;
+}
+.app:hover::before{
+  background:
+    linear-gradient(90deg,rgba(6,6,5,.86) 0%,rgba(6,6,5,.69) 44%,rgba(6,6,5,.36) 72%,rgba(6,6,5,.28) 100%),
+    linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.32));
+}
+.app-cover{display:none !important}
+.app-index{color:rgba(255,255,255,.72) !important;position:relative;z-index:1}
+.app h2{
+  margin:52px 0 12px !important;
+  color:#fff !important;
+  position:relative;z-index:1;
+  text-shadow:0 2px 14px rgba(0,0,0,.58);
+}
+.app p{
+  color:rgba(255,255,255,.86) !important;
+  max-width:390px !important;
+  position:relative;z-index:1;
+  text-shadow:0 1px 8px rgba(0,0,0,.55);
+}
+.app-foot{
+  color:#fff !important;
+  position:absolute;z-index:1;
+}
+.app-foot:before{background:rgba(255,255,255,.34) !important}
+@media(max-width:900px){
+  .app{min-height:290px !important;padding:28px 24px 30px !important}
+}
+/* ===== END REQUESTED FIXES ===== */
 </style>
 
 <script>
@@ -693,20 +771,29 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 
 <!-- build:20260922v3 -->
 <!-- instant-brush-header-preload -->
-<link rel="preload" as="image" href="header-brand.png">
-<link rel="preload" as="image" href="header-manabu.png">
-<link rel="preload" as="image" href="header-tou.png">
-<link rel="preload" as="image" href="header-kitaeru.png">
-<link rel="preload" as="image" href="header-miru.png">
-<link rel="preload" as="image" href="header-shiraberu.png">
-<link rel="preload" as="image" href="header-meguru.png">
+<link rel="preload" as="image" href="header-brand.png?v=20260922d">
+<link rel="preload" as="image" href="header-manabu.png?v=20260922d">
+<link rel="preload" as="image" href="header-tou.png?v=20260922d">
+<link rel="preload" as="image" href="header-kitaeru.png?v=20260922d">
+<link rel="preload" as="image" href="header-miru.png?v=20260922d">
+<link rel="preload" as="image" href="header-shiraberu.png?v=20260922d">
+<link rel="preload" as="image" href="header-meguru.png?v=20260922d">
+
+<!-- instant-header-preload-20260922d -->
+<link rel="preload" as="image" href="header-brand.png?v=20260922d">
+<link rel="preload" as="image" href="header-manabu.png?v=20260922d">
+<link rel="preload" as="image" href="header-tou.png?v=20260922d">
+<link rel="preload" as="image" href="header-kitaeru.png?v=20260922d">
+<link rel="preload" as="image" href="header-miru.png?v=20260922d">
+<link rel="preload" as="image" href="header-shiraberu.png?v=20260922d">
+<link rel="preload" as="image" href="header-meguru.png?v=20260922d">
 </head>
 <body>
 
 <header class="unified-header">
   <div class="unified-header-inner">
-    <a class="unified-brand" href="index.html#top" aria-label="歴史する"><img src="header-brand.png" alt="歴史する" decoding="sync" fetchpriority="high"></a>
-    <nav class="unified-nav"><a href="manabu.html" aria-label="学ぶ"><img src="header-manabu.png" alt="学ぶ" decoding="sync"></a><a class="active" href="tou.html" aria-label="問う"><img src="header-tou.png" alt="問う" decoding="sync"></a><a href="kitaeru.html" aria-label="鍛える"><img src="header-kitaeru.png" alt="鍛える" decoding="sync"></a><a href="miru.html" aria-label="観る"><img src="header-miru.png" alt="観る" decoding="sync"></a><a href="shiraberu.html" aria-label="調べる"><img src="header-shiraberu.png" alt="調べる" decoding="sync"></a><a href="meguru.html" aria-label="巡る"><img src="header-meguru.png" alt="巡る" decoding="sync"></a></nav>
+    <a class="unified-brand" href="index.html#top" aria-label="歴史する"><img src="header-brand.png?v=20260922d" alt="歴史する" decoding="sync" fetchpriority="high"></a>
+    <nav class="unified-nav"><a href="manabu.html" aria-label="学ぶ"><img src="header-manabu.png?v=20260922d" alt="学ぶ" decoding="sync"></a><a class="active" href="tou.html" aria-label="問う"><img src="header-tou.png?v=20260922d" alt="問う" decoding="sync"></a><a href="kitaeru.html" aria-label="鍛える"><img src="header-kitaeru.png?v=20260922d" alt="鍛える" decoding="sync"></a><a href="miru.html" aria-label="観る"><img src="header-miru.png?v=20260922d" alt="観る" decoding="sync"></a><a href="shiraberu.html" aria-label="調べる"><img src="header-shiraberu.png?v=20260922d" alt="調べる" decoding="sync"></a><a href="meguru.html" aria-label="巡る"><img src="header-meguru.png?v=20260922d" alt="巡る" decoding="sync"></a></nav>
     <button class="unified-menu" id="hamb" type="button" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
 </header>
