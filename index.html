@@ -655,6 +655,45 @@ footer{padding-top:44px !important}
 }
 /* ===== END PROFESSIONAL HOME REFINEMENT ===== */
 
+
+/* ===== LATEST MATERIALS ===== */
+.news{
+  padding:70px 0 78px !important;
+  background:rgba(255,255,255,.20);
+}
+.news .sec-ttl{margin-bottom:6px}
+.news .sec-en{margin-bottom:10px}
+.mat-list .md{
+  font-family:var(--gothic);
+  font-size:.66rem;
+  font-weight:300;
+  letter-spacing:.05em;
+  color:#8d8168;
+  white-space:nowrap;
+}
+.latest-all{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  margin-top:24px;
+  padding:8px 2px;
+  border-bottom:1px solid #a2937a;
+  font-family:var(--gothic);
+  font-size:.74rem;
+  font-weight:300;
+  letter-spacing:.12em;
+  color:var(--sumi-2);
+}
+.latest-all::after{content:"→";color:#9a793a}
+.latest-all:hover{color:#9a793a}
+@media(max-width:760px){
+  .news{padding:54px 0 60px !important}
+  .mat-list a{gap:8px 12px}
+  .mat-list .tt{min-width:160px}
+  .mat-list .md{order:3;width:100%}
+}
+/* ===== END LATEST MATERIALS ===== */
+
 </style>
 
 <script src="site-config.js"></script>
@@ -738,6 +777,16 @@ window.SHEET_CSV_URL = (window.HISTORY_SITE_CONFIG && window.HISTORY_SITE_CONFIG
   
   
   </div></div>
+</section>
+
+<section class="news reveal" id="latest" aria-labelledby="latestTitle">
+  <div class="wrap">
+    <div class="sec-ttl" id="latestTitle">最近追加した教材</div>
+    <div class="sec-en">NEW MATERIALS</div>
+    <div class="rule"></div>
+    <ul class="mat-list" id="matList" aria-live="polite"></ul>
+    <a class="latest-all" href="manabu.html">教材一覧へ</a>
+  </div>
 </section>
 
 <!-- 全幅写真＋縦組みの詩 -->
@@ -927,10 +976,11 @@ document.querySelectorAll('.reveal,.rule,.sho-img,.vband').forEach(el=>io.observ
     if(list){
       if(!items.length){ list.innerHTML='<li><div class="mat-empty">教材はまだありません。</div></li>'; }
       else{
-        list.innerHTML=items.map(function(x){
+        list.innerHTML=items.slice(0,6).map(function(x){
           var v=(x.kind==="動画");
           return '<li><a href="'+x.url+'" target="_blank" rel="noopener">'
                + '<span class="kd'+(v?' v':'')+'">'+(x.kind||"資料")+'</span>'
+               + (x.date?'<span class="md">'+fmtDate(x.date)+'</span>':'')
                + '<span class="tt">'+x.title+'</span>'
                + (x.desc?'<span class="ds">'+x.desc+'</span>':'')
                + '</a></li>';
