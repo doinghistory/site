@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>巡る｜歴史する</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#090908;
+  --bg2:#0d0d0c;
+  --panel:#10100f;
+  --line:rgba(255,255,255,.10);
+  --line2:rgba(255,255,255,.18);
+  --text:#f1eee8;
+  --muted:#9b958b;
+  --muted2:#746e65;
+  --warm:#b89f7a;
+  --serif:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(184,159,122,.08), transparent 24%),
+    linear-gradient(180deg,#070706,#090908 36%,#080807 100%);
+  color:var(--text);
+  font-family:var(--serif);
+  letter-spacing:.04em;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+
+/* header */
+header{
+  height:74px;
+  position:absolute;
+  top:0;left:0;right:0;
+  z-index:50;
+}
+.header-inner{
+  width:min(1280px,calc(100% - 48px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{font-size:1.24rem;letter-spacing:.18em}
+.nav{display:flex;gap:26px;align-items:center;font-size:.77rem;color:#aaa49a}
+.nav a.active{color:#fff;border-bottom:1px solid #fff;padding-bottom:5px}
+.menu{font:500 1.3rem/1 var(--sans);color:#ddd}
+
+/* hero */
+.hero{
+  min-height:470px;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:
+    linear-gradient(90deg,rgba(5,5,5,.96) 0%,rgba(5,5,5,.90) 36%,rgba(5,5,5,.58) 70%,rgba(5,5,5,.80) 100%),
+    radial-gradient(circle at 80% 40%,rgba(184,159,122,.14),transparent 25%);
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  right:6%;
+  top:100px;
+  width:430px;
+  height:270px;
+  background:
+    linear-gradient(135deg,transparent 0 48%,rgba(255,255,255,.04) 48% 49%,transparent 49% 100%),
+    radial-gradient(circle at 60% 35%,rgba(255,255,255,.10),transparent 12%),
+    radial-gradient(circle at 30% 70%,rgba(184,159,122,.11),transparent 18%);
+  border:1px solid rgba(255,255,255,.07);
+  transform:rotate(2deg);
+}
+.hero-inner{
+  width:min(1280px,calc(100% - 48px));
+  min-height:470px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+}
+.hero-copy{width:470px;padding-top:42px}
+.eyebrow{font-size:.84rem;color:#c8c2b7;margin-bottom:12px}
+.hero h1{
+  margin:0;
+  font-size:clamp(4.1rem,7vw,6rem);
+  font-weight:500;
+  line-height:.95;
+  letter-spacing:.16em;
+}
+.lead{
+  margin-top:22px;
+  font-size:1rem;
+  line-height:1.95;
+  color:#d2ccc1;
+}
+.sub{
+  margin-top:10px;
+  font:400 .72rem/1.85 var(--sans);
+  color:#8e887d;
+}
+.hero-note{
+  position:absolute;
+  right:7%;
+  bottom:44px;
+  font:500 .56rem/1.8 var(--sans);
+  letter-spacing:.15em;
+  color:#8a8378;
+}
+
+/* editorial intro */
+.magazine{
+  width:min(1280px,calc(100% - 48px));
+  margin:auto;
+  padding:50px 0 88px;
+}
+.issue-line{
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+  align-items:center;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:24px;
+}
+.issue-line .left{
+  font:500 .58rem/1 var(--sans);
+  letter-spacing:.17em;
+  color:#756f66;
+}
+.issue-line .right{
+  font-size:.8rem;
+  color:#a29c91;
+}
+
+/* featured layout */
+.feature-grid{
+  display:grid;
+  grid-template-columns:1.4fr .8fr;
+  gap:18px;
+  margin-bottom:28px;
+}
+.feature{
+  min-height:420px;
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.76)),
+    radial-gradient(circle at 64% 36%,rgba(184,159,122,.16),transparent 18%),
+    linear-gradient(135deg,#1a1815,#0d0d0c 54%,#151310);
+}
+.feature.small{
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.76)),
+    radial-gradient(circle at 54% 34%,rgba(255,255,255,.08),transparent 14%),
+    linear-gradient(135deg,#11110f,#181512 70%);
+}
+.feature .tag{
+  position:absolute;
+  left:24px;
+  top:22px;
+  font:500 .56rem/1 var(--sans);
+  letter-spacing:.15em;
+  color:#a79f93;
+}
+.feature .copy{
+  position:absolute;
+  left:24px;
+  right:24px;
+  bottom:24px;
+}
+.feature h2{
+  margin:0 0 10px;
+  font-size:clamp(1.8rem,3vw,3rem);
+  line-height:1.45;
+  font-weight:500;
+}
+.feature p{
+  margin:0;
+  max-width:600px;
+  font:400 .7rem/1.85 var(--sans);
+  color:#a09a90;
+}
+.feature .meta{
+  margin-top:16px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  font:400 .62rem/1.5 var(--sans);
+  color:#817b72;
+}
+
+/* three columns */
+.columns{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.column{
+  border-top:1px solid var(--line);
+  padding-top:16px;
+}
+.column-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:12px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.column-head .num{
+  font-size:1.1rem;
+  color:#776f65;
+}
+.column-head h3{
+  margin:2px 0 0;
+  font-size:1.35rem;
+  font-weight:500;
+}
+.column-head small{
+  font:500 .54rem/1 var(--sans);
+  letter-spacing:.15em;
+  color:#6f6961;
+}
+.entry-list{
+  display:grid;
+}
+.entry{
+  min-height:118px;
+  display:grid;
+  grid-template-columns:76px minmax(0,1fr) 24px;
+  gap:14px;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+  transition:.2s;
+}
+.entry:hover{
+  background:#0f0f0e;
+  padding-left:8px;
+  padding-right:8px;
+}
+.thumb{
+  width:76px;
+  height:76px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.04),rgba(184,159,122,.08)),
+    #10100f;
+}
+.entry:nth-child(2) .thumb{background:linear-gradient(135deg,#11110f,#181511)}
+.entry:nth-child(3) .thumb{background:linear-gradient(135deg,#15120f,#0d0d0c)}
+.entry .title{
+  font-size:.93rem;
+  line-height:1.55;
+  margin-bottom:5px;
+}
+.entry .desc{
+  font:400 .62rem/1.65 var(--sans);
+  color:#817b72;
+}
+.entry .arrow{
+  font:1rem var(--sans);
+  color:#aaa49a;
+  text-align:right;
+}
+
+/* travel strip */
+.travel-strip{
+  margin-top:34px;
+  display:grid;
+  grid-template-columns:1.1fr repeat(3,.7fr);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.travel-title{
+  min-height:180px;
+  padding:24px;
+  border-right:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.travel-title small{
+  font:500 .56rem/1 var(--sans);
+  letter-spacing:.16em;
+  color:#756f65;
+}
+.travel-title h4{
+  margin:0;
+  font-size:1.55rem;
+  font-weight:500;
+  line-height:1.55;
+}
+.place{
+  min-height:180px;
+  padding:20px;
+  border-right:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:linear-gradient(180deg,rgba(255,255,255,.018),transparent);
+}
+.place:last-child{border-right:0}
+.place .city{
+  font:500 .56rem/1 var(--sans);
+  letter-spacing:.15em;
+  color:#756f65;
+}
+.place b{
+  font-size:1.02rem;
+  font-weight:500;
+  line-height:1.55;
+}
+.place p{
+  margin:7px 0 0;
+  font:400 .62rem/1.7 var(--sans);
+  color:#837d74;
+}
+.place .go{
+  text-align:right;
+  font:1rem var(--sans);
+  color:#aaa49a;
+}
+
+/* footer */
+footer{
+  border-top:1px solid var(--line);
+  padding:22px 0 30px;
+  color:#6d675f;
+  font:400 .6rem/1.7 var(--sans);
+}
+.footer-inner{
+  width:min(1280px,calc(100% - 48px));
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+}
+
+@media(max-width:1000px){
+  .feature-grid{grid-template-columns:1fr}
+  .columns{grid-template-columns:1fr}
+  .travel-strip{grid-template-columns:1fr 1fr}
+  .travel-title{grid-column:span 2}
+}
+@media(max-width:900px){
+  .nav{display:none}
+  .hero:after,.hero-note{display:none}
+}
+@media(max-width:620px){
+  .hero{min-height:380px}
+  .hero-inner{min-height:380px}
+  .hero-copy{width:82%;padding-top:30px}
+  .travel-strip{grid-template-columns:1fr}
+  .travel-title{grid-column:auto}
+  .travel-title,.place{border-right:0;border-bottom:1px solid var(--line)}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="index.html#gates">歴史する</a>
+    <nav class="nav">
+      <a href="manabu.html">学ぶ</a>
+      <a href="tou.html">問う</a>
+      <a href="kitaeru.html">鍛える</a>
+      <a href="miru.html">観る</a>
+      <a href="shiraberu.html">調べる</a>
+      <a class="active" href="meguru.html">巡る</a>
+    </nav>
+    <div class="menu">☰</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">教科書の外へ。</div>
+      <h1>巡る</h1>
+      <div class="lead">歩く。見る。寄り道する。<br>歴史は、場所と人に出会うと少し違って見える。</div>
+      <div class="sub">先生の偏愛コラム、史跡・博物館、歴史さんぽと旅の記録。<br>授業の外側にある「おもしろい」を集めます。</div>
+    </div>
+    <div class="hero-note">COLUMN / PLACE / WALK / TRAVEL</div>
+  </div>
+</section>
+
+<main class="magazine">
+
+  <div class="issue-line">
+    <div class="left">MEGURU / ISSUE 01</div>
+    <div class="right">歴史を、場所から読み直す。</div>
+  </div>
+
+  <section class="feature-grid">
+    <a class="feature" href="#">
+      <div class="tag">FEATURE / 先生の偏愛コラム</div>
+      <div class="copy">
+        <h2>なぜ、史跡には<br>「何もない」ように見えるのか。</h2>
+        <p>石碑ひとつ、道ひとつ。目の前に残っていないからこそ、想像してみる。そんな歴史の見方について。</p>
+        <div class="meta">
+          <span>偏愛コラム #01</span>
+          <span>読む →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="feature small" href="#">
+      <div class="tag">PICK UP / 歴史さんぽ</div>
+      <div class="copy">
+        <h2>上野を歩く。</h2>
+        <p>博物館だけではない、上野の歴史をたどる短い散歩。</p>
+        <div class="meta">
+          <span>東京 / 上野</span>
+          <span>見る →</span>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <section class="columns">
+
+    <div class="column" id="column">
+      <div class="column-head">
+        <div>
+          <div class="num">01</div>
+          <h3>先生の偏愛コラム</h3>
+        </div>
+        <small>COLUMN</small>
+      </div>
+
+      <div class="entry-list">
+        <a class="entry" href="#">
+          <div class="thumb"></div>
+          <div>
+            <div class="title">「境界」を見ると、歴史はおもしろい。</div>
+            <div class="desc">中央と周縁、内と外。その境目から歴史を読む。</div>
+          </div>
+          <div class="arrow">→</div>
+        </a>
+        <a class="entry" href="#">
+          <div class="thumb"></div>
+          <div>
+            <div class="title">地名は、過去の痕跡なのか。</div>
+            <div class="desc">町名・坂名・旧地名から、場所の記憶を探す。</div>
+          </div>
+          <div class="arrow">→</div>
+        </a>
+        <a class="entry" href="#">
+          <div class="thumb"></div>
+          <div>
+            <div class="title">博物館で最初に見るもの。</div>
+            <div class="desc">展示物そのものより、まず空間を見るという話。</div>
+          </div>
+          <div class="arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="column" id="places">
+      <div class="column-head">
+        <div>
+          <div class="num">02</div>
+          <h3>おすすめ史跡・博物館</h3>
+        </div>
+        <small>PLACES</small>
+      </div>
+
+      <div class="entry-list">
+        <a class="entry" href="#">
+          <div class="thumb"></div>
+          <div>
+            <div class="title">東京国立博物館</div>
+            <div class="desc">日本史を実物からたどる定番の入口。</div>
+          </div>
+          <div class="arrow">→</div>
+        </a>
+        <a class="entry" href="#">
+          <div class="thumb"></div>
+          <div>
+            <div class="title">江戸東京たてもの園</div>
+            <div class="desc">建物と暮らしから近現代を考える。</div>
+          </div>
+          <div class="arrow">→</div>
+        </a>
+        <a class="entry" href="#">
+          <div class="thumb"></div>
+          <div>
+            <div class="title">鎌倉・鶴岡八幡宮周辺</div>
+            <div class="desc">武家政権の空間を歩いてみる。</div>
+          </div>
+          <div class="arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="column" id="travel">
+      <div class="column-head">
+        <div>
+          <div class="num">03</div>
+          <h3>歴史さんぽ・旅の記録</h3>
+        </div>
+        <small>WALK / TRAVEL</small>
+      </div>
+
+      <div class="entry-list">
+        <a class="entry" href="#">
+          <div class="thumb"></div>
+          <div>
+            <div class="title">浅草から吉原へ。</div>
+            <div class="desc">都市・身分・周縁を歩いて考えるルート。</div>
+          </div>
+          <div class="arrow">→</div>
+        </a>
+        <a class="entry" href="#">
+          <div class="thumb"></div>
+          <div>
+            <div class="title">京都・深草から五条まで。</div>
+            <div class="desc">伏見と京都の歴史をつなぎながら歩く。</div>
+          </div>
+          <div class="arrow">→</div>
+        </a>
+        <a class="entry" href="#">
+          <div class="thumb"></div>
+          <div>
+            <div class="title">淡路島で、日本史を拾う。</div>
+            <div class="desc">島の地理と古代・中世・近世をつなぐ旅。</div>
+          </div>
+          <div class="arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="travel-strip">
+    <div class="travel-title">
+      <small>NEXT DESTINATION</small>
+      <h4>次は、どこを巡る？</h4>
+    </div>
+
+    <a class="place" href="#">
+      <div>
+        <div class="city">TOKYO</div>
+        <b>上野</b>
+        <p>博物館・公園・寛永寺から近代都市へ。</p>
+      </div>
+      <div class="go">→</div>
+    </a>
+
+    <a class="place" href="#">
+      <div>
+        <div class="city">KANAGAWA</div>
+        <b>鎌倉</b>
+        <p>幕府・寺社・谷戸を歩いて読む。</p>
+      </div>
+      <div class="go">→</div>
+    </a>
+
+    <a class="place" href="#">
+      <div>
+        <div class="city">KYOTO</div>
+        <b>京都</b>
+        <p>古代から近世まで、重なった時間を歩く。</p>
+      </div>
+      <div class="go">→</div>
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>歴史する / DOING HISTORY</span>
+    <span>高校日本史 コラム・史跡・旅</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>観る｜歴史する</title>
+<meta name="description" content="高校日本史の授業動画とおすすめ動画。時代から映像を探し、歴史の見方を広げる。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f4f1ea;
+  --paper2:#ebe6dc;
+  --ink:#171714;
+  --muted:#746d63;
+  --line:#d6d0c4;
+  --line-dark:#b9b1a3;
+  --dark:#10100e;
+  --accent:#4d493d;
+  --serif:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);letter-spacing:.04em;
+}
+a{color:inherit}
+button{font:inherit}
+::selection{background:#d7cfbc}
+
+/* header */
+.site-header{
+  height:78px;background:#faf8f3;color:var(--ink);
+  border-bottom:1px solid rgba(0,0,0,.07);
+  position:relative;z-index:30;
+}
+.header-inner{
+  width:min(1280px,calc(100% - 52px));height:100%;margin:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:28px;
+}
+.brand{text-decoration:none;line-height:1}
+.brand-main{display:block;font-size:1.45rem;letter-spacing:.18em;font-weight:500}
+.brand-sub{display:block;margin-top:7px;font:500 .56rem/1 var(--sans);letter-spacing:.24em;color:#686258}
+.nav{display:flex;align-items:center;gap:34px}
+.nav a{
+  text-decoration:none;font-size:.84rem;padding:28px 4px 10px;
+  border-bottom:1px solid transparent;
+}
+.nav a.active{border-color:#22201c}
+.header-note{
+  font-size:.73rem;line-height:1.7;color:#5f5a52;
+  border-left:1px solid var(--line);padding-left:24px;
+}
+
+/* hero */
+.hero{
+  height:410px;position:relative;overflow:hidden;background:#161614;color:#fff;
+}
+.hero-image{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(90deg,rgba(10,10,9,.93) 0%,rgba(10,10,9,.78) 29%,rgba(10,10,9,.22) 53%,rgba(10,10,9,.22) 74%,rgba(10,10,9,.58) 100%),
+    url("machikado-tv.jpg");
+  background-size:cover;
+  background-position:center 47%;
+  filter:grayscale(1) contrast(1.02);
+  transform:scale(1.005);
+}
+.hero-inner{
+  position:relative;z-index:2;width:min(1280px,calc(100% - 52px));height:100%;margin:auto;
+  display:flex;align-items:center;
+}
+.hero-copy{width:370px;margin-top:-2px}
+.hero-eyebrow{font-size:.92rem;margin-bottom:12px}
+.hero h1{
+  margin:0;font-size:clamp(3.8rem,7.6vw,6.7rem);
+  line-height:1;letter-spacing:.16em;font-weight:500;
+}
+.hero p{
+  margin:28px 0 0;font-size:.84rem;line-height:2.15;max-width:345px;
+}
+.hero-rule{width:38px;height:1px;background:#fff;margin:27px 0 0}
+.hero-small{
+  margin-top:20px;font-size:.72rem;line-height:1.85;opacity:.86;
+}
+.hero-vertical{
+  position:absolute;right:32px;top:44px;writing-mode:vertical-rl;
+  font-size:.78rem;letter-spacing:.2em;line-height:2;color:rgba(255,255,255,.88);
+}
+.hero-caption{
+  position:absolute;right:24px;bottom:16px;
+  font:400 .58rem/1.5 var(--sans);color:rgba(255,255,255,.72);
+}
+
+/* era nav */
+.era-area{background:#f7f4ee;border-bottom:1px solid var(--line)}
+.era-major{
+  width:min(1180px,calc(100% - 52px));margin:auto;
+  display:grid;grid-template-columns:repeat(5,1fr);padding-top:20px;
+}
+.major-btn{
+  appearance:none;background:transparent;border:1px solid var(--line);
+  border-right:0;cursor:pointer;height:58px;color:#26231f;
+  font-size:1.03rem;letter-spacing:.1em;transition:.2s;
+}
+.major-btn:last-child{border-right:1px solid var(--line)}
+.major-btn:hover{background:#eee8dc}
+.major-btn.active{
+  background:#e2d7bd;border-color:#c8b994;
+}
+.sub-row{
+  width:min(1180px,calc(100% - 52px));margin:auto;
+  display:flex;justify-content:center;gap:8px;overflow-x:auto;
+  scrollbar-width:none;padding:15px 0 19px;
+}
+.sub-row::-webkit-scrollbar{display:none}
+.sub-btn{
+  appearance:none;border:1px solid #d7d0c4;background:transparent;color:#6c665d;
+  padding:8px 18px;cursor:pointer;flex:0 0 auto;
+  font-size:.76rem;letter-spacing:.06em;
+}
+.sub-btn:hover{background:#ece6dc;color:#1d1b18}
+.sub-btn.active{background:#dfd3b7;border-color:#cfbe96;color:#27231c}
+
+/* main */
+.main{padding:38px 0 88px}
+.inner{width:min(1280px,calc(100% - 52px));margin:auto}
+.section{margin-top:34px}
+.section:first-child{margin-top:0}
+.section-heading{
+  display:flex;align-items:center;gap:22px;margin-bottom:18px;
+}
+.section-heading h2{
+  margin:0;font-size:1.35rem;font-weight:500;letter-spacing:.1em;
+}
+.section-heading .line{width:40px;height:1px;background:#777168}
+.section-heading p{
+  margin:0;color:#70695f;font:400 .68rem/1.7 var(--sans);
+}
+.section-heading .more{
+  margin-left:auto;text-decoration:none;font-size:.72rem;color:#514c44;
+}
+
+/* class videos */
+.class-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.class-card{
+  display:grid;grid-template-columns:1.05fr 1fr;
+  min-height:175px;border:1px solid var(--line);background:#f8f5ef;
+  text-decoration:none;overflow:hidden;transition:.2s;
+}
+.class-card:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.05)}
+.class-thumb{
+  position:relative;min-height:175px;background:#8a8376;overflow:hidden;
+}
+.class-thumb:before{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.36)),
+    linear-gradient(135deg,#6f685c,#39372f 68%);
+}
+.class-thumb img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.67) contrast(1.01);transition:.35s;
+}
+.class-card:hover img{transform:scale(1.02)}
+.duration{
+  position:absolute;right:8px;bottom:8px;z-index:2;
+  background:rgba(20,20,18,.78);color:#fff;padding:5px 8px;
+  font:500 .61rem/1 var(--sans);
+}
+.class-copy{padding:22px 24px 18px}
+.kicker{font:500 .61rem/1 var(--sans);letter-spacing:.12em;color:#746d64}
+.class-copy h3{margin:10px 0 10px;font-size:1.12rem;line-height:1.55;font-weight:500}
+.class-copy p{margin:0;color:#6f685f;font:400 .7rem/1.75 var(--sans)}
+.source{margin-top:14px;color:#999187;font:400 .61rem/1.5 var(--sans)}
+
+/* recommends */
+.reco-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);border-left:1px solid var(--line);
+}
+.reco-card{
+  display:grid;grid-template-columns:118px 1fr;
+  min-height:96px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:#f8f5ef;text-decoration:none;transition:.2s;
+}
+.reco-card:hover{background:#efe9df}
+.reco-thumb{
+  position:relative;background:#8c8579;overflow:hidden;
+}
+.reco-thumb:before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.28)),linear-gradient(135deg,#777063,#403d35 70%);
+}
+.reco-thumb img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.62);
+}
+.reco-copy{padding:12px 12px 10px}
+.reco-era{font:500 .58rem/1 var(--sans);color:#80786e}
+.reco-title{margin:7px 0 5px;font-size:.81rem;line-height:1.45}
+.reco-source{font:400 .57rem/1.5 var(--sans);color:#9a9287}
+.reco-arrow{float:right;margin-left:6px;font-family:var(--sans)}
+
+.empty{
+  grid-column:1/-1;padding:48px 20px;text-align:center;
+  border:1px solid var(--line);color:#887f74;font:400 .76rem/1.8 var(--sans);
+}
+
+/* player */
+.player{
+  position:fixed;inset:0;z-index:100;background:rgba(9,9,8,.96);
+  display:none;align-items:center;justify-content:center;padding:34px;
+}
+.player.open{display:flex}
+.player-inner{width:min(1080px,100%)}
+.player-screen{aspect-ratio:16/9;background:#000;position:relative}
+.player-screen iframe{width:100%;height:100%;border:0}
+.player-fallback{
+  position:absolute;inset:0;display:grid;place-items:center;text-align:center;
+  color:#d5cfc4;background:#171714;padding:30px;font:400 .77rem/1.9 var(--sans);
+}
+.player-close{
+  position:absolute;right:28px;top:20px;border:0;background:transparent;color:#fff;
+  font:300 2rem/1 var(--sans);cursor:pointer;
+}
+
+/* footer */
+.footer{
+  border-top:1px solid var(--line);padding:22px 0 32px;
+  color:#8a8378;font:400 .61rem/1.7 var(--sans);
+}
+.footer-inner{
+  width:min(1280px,calc(100% - 52px));margin:auto;
+  display:flex;justify-content:space-between;gap:20px;
+}
+
+/* responsive */
+@media(max-width:1040px){
+  .header-note{display:none}
+  .class-grid{grid-template-columns:1fr}
+  .reco-strip{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .nav{display:none}
+  .site-header{height:70px}
+  .header-inner,.hero-inner,.inner,.footer-inner{width:calc(100% - 28px)}
+  .brand-main{font-size:1.2rem}
+  .hero{height:460px}
+  .hero-image{
+    background-position:63% 48%;
+    background-image:
+      linear-gradient(90deg,rgba(8,8,7,.93) 0%,rgba(8,8,7,.78) 45%,rgba(8,8,7,.24) 78%,rgba(8,8,7,.38) 100%),
+      url("machikado-tv.jpg");
+  }
+  .hero-copy{width:72%}
+  .hero-vertical{display:none}
+  .era-major{width:100%;overflow-x:auto;grid-template-columns:repeat(5,145px);padding-left:14px;padding-right:14px}
+  .sub-row{width:calc(100% - 28px);justify-content:flex-start}
+  .class-card{grid-template-columns:1fr}
+  .class-thumb{min-height:190px}
+  .reco-strip{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html#gates">
+      <span class="brand-main">歴史する</span>
+      <span class="brand-sub">DOING HISTORY</span>
+    </a>
+    <nav class="nav">
+      <a href="manabu.html">学ぶ</a>
+      <a class="active" href="miru.html">観る</a>
+    </nav>
+    <div class="header-note">過去と、<br>いまを生きる力に。</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-image" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-eyebrow">映像から、歴史へ。</div>
+      <h1>観る</h1>
+      <p>
+        あのときの映像は、いまも私たちに語りかける。<br>
+        授業で見たあの場面を、もう一度。<br>
+        映像を通して、歴史の見え方はもっと広がります。
+      </p>
+      <div class="hero-rule"></div>
+      <div class="hero-small">過去を見つめるまなざしが、<br>いまを考える力になる。</div>
+    </div>
+  </div>
+  <div class="hero-vertical">映るのは、時代の空気だった。</div>
+  <div class="hero-caption">街頭テレビに集まる人々</div>
+</section>
+
+<section class="era-area">
+  <div class="era-major">
+    <button class="major-btn active" data-major="古代">古代</button>
+    <button class="major-btn" data-major="中世">中世</button>
+    <button class="major-btn" data-major="近世">近世</button>
+    <button class="major-btn" data-major="近代">近代</button>
+    <button class="major-btn" data-major="現代">現代</button>
+  </div>
+  <div class="sub-row" id="subRow"></div>
+</section>
+
+<main class="main">
+  <div class="inner">
+    <section class="section">
+      <div class="section-heading">
+        <h2>授業動画</h2>
+        <span class="line"></span>
+        <p>教室の学びを、もう一度。映像でたどる、日本の歴史。</p>
+      </div>
+      <div class="class-grid" id="classGrid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2>おすすめ動画</h2>
+        <span class="line"></span>
+        <p>もっと知りたい人へ。テーマでひろがる、歴史の世界。</p>
+      </div>
+      <div class="reco-strip" id="recoStrip"></div>
+    </section>
+  </div>
+</main>
+
+<div class="player" id="player">
+  <button class="player-close" id="playerClose" aria-label="閉じる">×</button>
+  <div class="player-inner">
+    <div class="player-screen" id="playerScreen"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>歴史する / DOING HISTORY</span>
+    <span>高校日本史 映像教材</span>
+  </div>
+</footer>
+
+<script>
+const SUB_ERAS={
+  "古代":["旧石器","縄文","弥生","古墳","飛鳥","奈良","平安"],
+  "中世":["鎌倉","南北朝","室町","戦国"],
+  "近世":["安土桃山","江戸","幕末"],
+  "近代":["明治","大正","昭和戦前"],
+  "現代":["戦後","平成","令和"]
+};
+
+/*
+  ここを実際のYouTube動画に差し替えてください。
+  youtube にはURLではなく YouTube の動画IDを入れます。
+  例:
+  https://www.youtube.com/watch?v=abc123XYZ
+  → youtube:"abc123XYZ"
+*/
+const VIDEOS=[
+  {major:"古代",sub:"縄文",type:"授業動画",title:"縄文人のくらしと世界観",desc:"縄文社会を、資料と問いからもう一度たどります。",source:"歴史する",duration:"24分",youtube:"dQw4w9WgXcQ"},
+  {major:"古代",sub:"古墳",type:"授業動画",title:"古墳はなぜ巨大化したのか",desc:"古墳の形・分布・副葬品から、権力の広がりを考えます。",source:"歴史する",duration:"19分",youtube:"dQw4w9WgXcQ"},
+  {major:"古代",sub:"弥生",type:"おすすめ動画",title:"弥生時代のムラと社会",desc:"稲作と社会の変化を別の角度から見る動画です。",source:"おすすめ",duration:"14分",youtube:"dQw4w9WgXcQ"},
+  {major:"古代",sub:"奈良",type:"おすすめ動画",title:"奈良の都を歩く",desc:"都市空間から律令国家を見ていきます。",source:"おすすめ",duration:"17分",youtube:"dQw4w9WgXcQ"},
+
+  {major:"中世",sub:"鎌倉",type:"授業動画",title:"鎌倉幕府はいつ成立したのか",desc:"1185年・1192年だけでは捉えきれない幕府成立を考えます。",source:"歴史する",duration:"28分",youtube:"dQw4w9WgXcQ"},
+  {major:"中世",sub:"室町",type:"授業動画",title:"室町幕府と京都",desc:"政治・都市・文化の重なりから室町社会を捉えます。",source:"歴史する",duration:"22分",youtube:"dQw4w9WgXcQ"},
+  {major:"中世",sub:"戦国",type:"おすすめ動画",title:"戦国大名と地域社会",desc:"戦国大名の支配を地域から見るおすすめ動画です。",source:"おすすめ",duration:"16分",youtube:"dQw4w9WgXcQ"},
+
+  {major:"近世",sub:"江戸",type:"授業動画",title:"江戸の町と人びとの暮らし",desc:"絵図や史料から都市江戸を読み解きます。",source:"歴史する",duration:"26分",youtube:"dQw4w9WgXcQ"},
+  {major:"近世",sub:"幕末",type:"授業動画",title:"開国と幕末の政治",desc:"世界との接触から幕府政治の変化を追います。",source:"歴史する",duration:"31分",youtube:"dQw4w9WgXcQ"},
+  {major:"近世",sub:"江戸",type:"おすすめ動画",title:"浮世絵から見る江戸文化",desc:"絵画資料から町人文化を読み解きます。",source:"おすすめ",duration:"18分",youtube:"dQw4w9WgXcQ"},
+
+  {major:"近代",sub:"明治",type:"授業動画",title:"明治国家と国民化",desc:"学校・軍隊・時間などから近代国家の形成を考えます。",source:"歴史する",duration:"27分",youtube:"dQw4w9WgXcQ"},
+  {major:"近代",sub:"大正",type:"授業動画",title:"大正デモクラシー",desc:"政党政治と社会運動の広がりを整理します。",source:"歴史する",duration:"23分",youtube:"dQw4w9WgXcQ"},
+  {major:"近代",sub:"明治",type:"おすすめ動画",title:"明治の近代化と私たち",desc:"制度と生活の変化から近代化を捉え直します。",source:"おすすめ",duration:"16分",youtube:"dQw4w9WgXcQ"},
+
+  {major:"現代",sub:"戦後",type:"授業動画",title:"戦後日本のはじまり",desc:"占領改革と戦後社会の出発を振り返ります。",source:"歴史する",duration:"25分",youtube:"dQw4w9WgXcQ"},
+  {major:"現代",sub:"平成",type:"授業動画",title:"平成社会を振り返る",desc:"経済・暮らし・メディアの変化を見ていきます。",source:"歴史する",duration:"20分",youtube:"dQw4w9WgXcQ"},
+  {major:"現代",sub:"戦後",type:"おすすめ動画",title:"街頭テレビと戦後社会",desc:"映像メディアの普及から戦後の暮らしを考えます。",source:"おすすめ",duration:"15分",youtube:"dQw4w9WgXcQ"}
+];
+
+let currentMajor="古代";
+let currentSub="";
+
+function liveMode(){
+  return /\.github\.io$/i.test(location.hostname);
+}
+function ytThumb(id){
+  return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+}
+function addThumb(el,id){
+  if(!liveMode() || !id) return;
+  const img=document.createElement("img");
+  img.src=ytThumb(id);
+  img.alt="";
+  img.loading="lazy";
+  el.appendChild(img);
+}
+
+function setFromUrl(){
+  const q=new URLSearchParams(location.search).get("era")||"";
+  if(SUB_ERAS[q]){currentMajor=q;return;}
+  for(const major of Object.keys(SUB_ERAS)){
+    if(SUB_ERAS[major].includes(q)){currentMajor=major;currentSub=q;return;}
+  }
+}
+function updateUrl(){
+  const u=new URL(location.href);
+  u.searchParams.set("era",currentSub||currentMajor);
+  history.replaceState(null,"",u);
+}
+
+function renderSub(){
+  const row=document.getElementById("subRow");
+  row.innerHTML=
+    `<button class="sub-btn ${currentSub===""?"active":""}" data-sub="">すべて</button>`+
+    SUB_ERAS[currentMajor].map(s=>
+      `<button class="sub-btn ${currentSub===s?"active":""}" data-sub="${s}">${s}</button>`
+    ).join("");
+
+  row.querySelectorAll(".sub-btn").forEach(btn=>{
+    btn.onclick=()=>{
+      currentSub=btn.dataset.sub||"";
+      updateUrl();
+      render();
+    };
+  });
+}
+
+function filtered(type){
+  return VIDEOS.filter(v=>{
+    if(v.major!==currentMajor) return false;
+    if(currentSub && v.sub!==currentSub) return false;
+    if(v.type!==type) return false;
+    return true;
+  });
+}
+
+function render(){
+  document.querySelectorAll(".major-btn").forEach(
+    b=>b.classList.toggle("active",b.dataset.major===currentMajor)
+  );
+  renderSub();
+
+  const classVideos=filtered("授業動画");
+  const recos=filtered("おすすめ動画");
+
+  const cg=document.getElementById("classGrid");
+  if(!classVideos.length){
+    cg.innerHTML='<div class="empty">この時代の授業動画は、まだ登録されていません。</div>';
+  }else{
+    cg.innerHTML="";
+    classVideos.forEach(v=>{
+      const a=document.createElement("a");
+      a.href="#";
+      a.className="class-card";
+      a.innerHTML=`
+        <div class="class-thumb">
+          <span class="duration">${v.duration}</span>
+        </div>
+        <div class="class-copy">
+          <div class="kicker">${v.sub}</div>
+          <h3>${v.title}</h3>
+          <p>${v.desc}</p>
+          <div class="source">${v.source}</div>
+        </div>`;
+      addThumb(a.querySelector(".class-thumb"),v.youtube);
+      a.onclick=e=>{e.preventDefault();openPlayer(v);};
+      cg.appendChild(a);
+    });
+  }
+
+  const rs=document.getElementById("recoStrip");
+  if(!recos.length){
+    rs.innerHTML='<div class="empty">この時代のおすすめ動画は、まだ登録されていません。</div>';
+  }else{
+    rs.innerHTML="";
+    recos.forEach(v=>{
+      const a=document.createElement("a");
+      a.href="#";
+      a.className="reco-card";
+      a.innerHTML=`
+        <div class="reco-thumb"></div>
+        <div class="reco-copy">
+          <div class="reco-era">${v.sub}</div>
+          <div class="reco-title">${v.title}<span class="reco-arrow">›</span></div>
+          <div class="reco-source">${v.source}</div>
+        </div>`;
+      addThumb(a.querySelector(".reco-thumb"),v.youtube);
+      a.onclick=e=>{e.preventDefault();openPlayer(v);};
+      rs.appendChild(a);
+    });
+  }
+}
+
+function openPlayer(v){
+  const screen=document.getElementById("playerScreen");
+  if(liveMode()){
+    screen.innerHTML=`<iframe src="https://www.youtube.com/embed/${v.youtube}?autoplay=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+  }else{
+    screen.innerHTML='<div class="player-fallback">GitHub Pages上では、ここにYouTube動画が表示されます。<br>ChatGPT内プレビューでは外部通信を行いません。</div>';
+  }
+  document.getElementById("player").classList.add("open");
+}
+function closePlayer(){
+  document.getElementById("player").classList.remove("open");
+  document.getElementById("playerScreen").innerHTML="";
+}
+document.getElementById("playerClose").onclick=closePlayer;
+document.getElementById("player").onclick=e=>{
+  if(e.target.id==="player") closePlayer();
+};
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape") closePlayer();
+});
+
+document.querySelectorAll(".major-btn").forEach(btn=>{
+  btn.onclick=()=>{
+    currentMajor=btn.dataset.major;
+    currentSub="";
+    updateUrl();
+    render();
+  };
+});
+
+setFromUrl();
+render();
+</script>
+</body>
+</html>

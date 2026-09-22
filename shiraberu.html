@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>調べる｜歴史する</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070706;
+  --panel:#0c0c0b;
+  --panel2:#10100f;
+  --line:rgba(255,255,255,.10);
+  --line2:rgba(255,255,255,.16);
+  --text:#f1eee8;
+  --muted:#9b958b;
+  --muted2:#726c64;
+  --gold:#bca98a;
+  --serif:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 80% 10%, rgba(188,169,138,.08), transparent 24%),
+    radial-gradient(circle at 15% 85%, rgba(255,255,255,.04), transparent 18%),
+    linear-gradient(180deg,#060605,#090908 35%, #080807 100%);
+  color:var(--text);
+  font-family:var(--serif);
+  letter-spacing:.04em;
+}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+
+/* header */
+header{
+  height:74px;
+  position:absolute;
+  top:0;left:0;right:0;
+  z-index:50;
+}
+.header-inner{
+  width:min(1280px,calc(100% - 48px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{font-size:1.24rem;letter-spacing:.18em}
+.nav{display:flex;gap:26px;align-items:center;font-size:.77rem;color:#aaa49a}
+.nav a.active{color:#fff;border-bottom:1px solid #fff;padding-bottom:5px}
+.menu{font:500 1.3rem/1 var(--sans);color:#ddd}
+
+/* hero */
+.hero{
+  min-height:400px;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.hero:before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(4,4,4,.95) 0%,rgba(4,4,4,.88) 40%,rgba(4,4,4,.55) 70%,rgba(4,4,4,.82) 100%),
+    linear-gradient(180deg,rgba(188,169,138,.10), transparent 35%, rgba(0,0,0,.34) 100%),
+    radial-gradient(circle at 78% 38%, rgba(255,255,255,.10), transparent 20%),
+    radial-gradient(circle at 75% 40%, rgba(188,169,138,.14), transparent 34%);
+  filter:contrast(1.05);
+}
+.hero:after{
+  content:"";
+  position:absolute;right:7%;top:92px;width:380px;height:250px;
+  border:1px solid rgba(255,255,255,.08);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
+    repeating-linear-gradient(0deg, transparent 0 29px, rgba(255,255,255,.035) 29px 30px),
+    repeating-linear-gradient(90deg, transparent 0 59px, rgba(255,255,255,.03) 59px 60px);
+  box-shadow:0 30px 60px rgba(0,0,0,.30);
+  transform:rotate(-3deg);
+  opacity:.85;
+}
+.hero-inner{
+  width:min(1280px,calc(100% - 48px));
+  min-height:400px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+}
+.hero-copy{width:460px;padding-top:42px}
+.eyebrow{font-size:.84rem;color:#c8c2b7;margin-bottom:12px}
+.hero h1{
+  margin:0;
+  font-size:clamp(4.1rem,7vw,6rem);
+  font-weight:500;
+  line-height:.95;
+  letter-spacing:.16em;
+}
+.lead{
+  margin-top:20px;
+  font-size:1rem;
+  line-height:1.95;
+  color:#d2ccc1;
+}
+.sub{
+  margin-top:10px;
+  font:400 .72rem/1.85 var(--sans);
+  color:#8e887d;
+}
+.hero-note{
+  position:absolute;
+  right:7%;
+  bottom:48px;
+  font:500 .56rem/1.8 var(--sans);
+  letter-spacing:.16em;
+  color:#8e877c;
+  text-align:right;
+}
+
+/* main */
+.main{
+  width:min(1280px,calc(100% - 48px));
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:240px minmax(0,1fr);
+  gap:34px;
+  padding:42px 0 84px;
+}
+
+/* side index */
+.index-panel{
+  align-self:start;
+  position:sticky;
+  top:22px;
+  border:1px solid var(--line);
+  background:rgba(9,9,8,.76);
+  backdrop-filter:blur(8px);
+}
+.index-head{
+  padding:18px 18px 14px;
+  border-bottom:1px solid var(--line);
+}
+.index-head small{
+  display:block;
+  font:500 .55rem/1 var(--sans);
+  letter-spacing:.16em;
+  color:#746e65;
+  margin-bottom:10px;
+}
+.index-head strong{
+  font-size:1.04rem;
+  font-weight:500;
+}
+.index-links{
+  padding:8px 0;
+}
+.index-links a{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 18px;
+  border-bottom:1px solid var(--line);
+  font-size:.84rem;
+  color:#bdb7ad;
+  transition:.2s;
+}
+.index-links a:last-child{border-bottom:0}
+.index-links a:hover{background:#11110f;color:#fff}
+.index-links span:last-child{
+  color:#7f796f;
+  font:500 .55rem/1 var(--sans);
+  letter-spacing:.12em;
+}
+
+/* content */
+.content{
+  display:grid;
+  gap:28px;
+}
+.section{
+  border:1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
+    rgba(10,10,9,.72);
+  backdrop-filter:blur(6px);
+}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+  align-items:end;
+  padding:22px 24px 18px;
+  border-bottom:1px solid var(--line);
+}
+.section-head .num{
+  font-size:1.3rem;
+  color:#7c766d;
+}
+.section-head h2{
+  margin:0;
+  font-size:1.9rem;
+  font-weight:500;
+}
+.section-head p{
+  margin:6px 0 0;
+  font:400 .68rem/1.8 var(--sans);
+  color:#8c867d;
+}
+.section-head .more{
+  font:500 .6rem/1 var(--sans);
+  letter-spacing:.16em;
+  color:#7c766d;
+}
+
+/* search header section */
+.search-shell{
+  padding:24px;
+}
+.search-bar{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 160px 150px;
+  gap:12px;
+  margin-bottom:18px;
+}
+.search-input,
+.filter{
+  background:#0d0d0c;
+  border:1px solid var(--line2);
+  color:#ddd8cf;
+  min-height:50px;
+  padding:0 16px;
+}
+.tag-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.tag{
+  display:inline-flex;
+  align-items:center;
+  min-height:38px;
+  padding:0 14px;
+  border:1px solid var(--line);
+  color:#c9c3b8;
+  font-size:.77rem;
+  background:rgba(255,255,255,.02);
+}
+.search-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:18px;
+  margin-top:18px;
+}
+.note-card{
+  min-height:140px;
+  border:1px solid var(--line);
+  background:#0f0f0e;
+  padding:18px;
+}
+.note-card small{
+  display:block;
+  font:500 .55rem/1 var(--sans);
+  letter-spacing:.16em;
+  color:#777168;
+  margin-bottom:12px;
+}
+.note-card b{
+  display:block;
+  font-size:1rem;
+  font-weight:500;
+  margin-bottom:8px;
+}
+.note-card p{
+  margin:0;
+  font:400 .66rem/1.8 var(--sans);
+  color:#8c867d;
+}
+
+/* cards */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  padding:22px 24px 24px;
+}
+.ref-card{
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#10100f,#0b0b0a);
+  min-height:172px;
+  padding:18px 16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:.2s;
+}
+.ref-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,255,255,.22);
+}
+.ref-card .top small{
+  display:block;
+  font:500 .55rem/1 var(--sans);
+  letter-spacing:.15em;
+  color:#776f64;
+  margin-bottom:14px;
+}
+.ref-card .top b{
+  display:block;
+  font-weight:500;
+  font-size:1.02rem;
+  line-height:1.6;
+}
+.ref-card .top p{
+  margin:8px 0 0;
+  font:400 .64rem/1.75 var(--sans);
+  color:#8d877d;
+}
+.ref-card .foot{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.74rem;
+  color:#c1bbb0;
+}
+
+/* list section */
+.link-list{
+  padding:0 24px 24px;
+}
+.link-row{
+  display:grid;
+  grid-template-columns:170px minmax(0,1fr) 70px 24px;
+  gap:18px;
+  align-items:center;
+  min-height:78px;
+  border-bottom:1px solid var(--line);
+}
+.link-row:first-child{border-top:0}
+.link-row:last-child{border-bottom:0}
+.link-row:hover{background:#0f0f0e;padding-left:8px;padding-right:8px}
+.badge{
+  width:max-content;
+  border:1px solid var(--line);
+  padding:7px 9px;
+  font:500 .57rem/1 var(--sans);
+  color:#9c968b;
+}
+.link-title{
+  font-size:.96rem;
+  margin-bottom:4px;
+}
+.link-desc{
+  font:400 .64rem/1.7 var(--sans);
+  color:#857f76;
+}
+.link-meta{
+  text-align:right;
+  font:400 .59rem/1.5 var(--sans);
+  color:#726c64;
+}
+.arrow{font:1rem var(--sans);color:#b8b2a8;text-align:right}
+
+/* timeline */
+.timeline{
+  padding:22px 24px 24px;
+}
+.timeline-bar{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+}
+.time-block{
+  min-height:150px;
+  border:1px solid var(--line);
+  background:#0f0f0e;
+  padding:16px 14px;
+}
+.time-block small{
+  display:block;
+  font:500 .55rem/1 var(--sans);
+  letter-spacing:.15em;
+  color:#776f64;
+  margin-bottom:12px;
+}
+.time-block b{
+  display:block;
+  font-size:1rem;
+  font-weight:500;
+  margin-bottom:10px;
+}
+.time-block p{
+  margin:0;
+  font:400 .64rem/1.75 var(--sans);
+  color:#8d877d;
+}
+
+/* footer */
+footer{
+  border-top:1px solid var(--line);
+  padding:22px 0 30px;
+  color:#6d675f;
+  font:400 .6rem/1.7 var(--sans);
+}
+.footer-inner{
+  width:min(1280px,calc(100% - 48px));
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+}
+
+@media(max-width:1000px){
+  .main{grid-template-columns:1fr}
+  .index-panel{position:static}
+}
+@media(max-width:900px){
+  .nav{display:none}
+  .hero:after{display:none}
+  .hero-note{display:none}
+  .search-grid,
+  .card-grid,
+  .timeline-bar{grid-template-columns:1fr}
+  .search-bar{grid-template-columns:1fr}
+  .link-row{grid-template-columns:120px minmax(0,1fr) 24px}
+  .link-meta,.link-desc{display:none}
+}
+@media(max-width:620px){
+  .hero{min-height:340px}
+  .hero-inner{min-height:340px}
+  .hero-copy{width:80%;padding-top:30px}
+  .section-head{display:block}
+  .section-head .more{margin-top:12px;display:inline-block}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="index.html#gates">歴史する</a>
+    <nav class="nav">
+      <a href="manabu.html">学ぶ</a>
+      <a href="tou.html">問う</a>
+      <a href="kitaeru.html">鍛える</a>
+      <a href="miru.html">観る</a>
+      <a class="active" href="shiraberu.html">調べる</a>
+      <a href="meguru.html">巡る</a>
+    </nav>
+    <div class="menu">☰</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">資料にあたり、たしかめる。</div>
+      <h1>調べる</h1>
+      <div class="lead">ことばを引く。時代をたどる。<br>資料とリンクをつないで、歴史の輪郭を確かめる。</div>
+      <div class="sub">用語集・年表・データベース案内・参考リンク集。<br>授業の外でも、調べるための入口を集める。</div>
+    </div>
+    <div class="hero-note">WORDS / TIMELINE / DATABASE / LINKS</div>
+  </div>
+</section>
+
+<main class="main">
+
+  <aside class="index-panel">
+    <div class="index-head">
+      <small>REFERENCE INDEX</small>
+      <strong>調べ方から選ぶ</strong>
+    </div>
+    <div class="index-links">
+      <a href="#words"><span>用語を引く</span><span>01</span></a>
+      <a href="#timeline"><span>時代をたどる</span><span>02</span></a>
+      <a href="#database"><span>データベースを使う</span><span>03</span></a>
+      <a href="#links"><span>参考リンクを見る</span><span>04</span></a>
+    </div>
+  </aside>
+
+  <div class="content">
+
+    <section class="section" id="words">
+      <div class="section-head">
+        <div>
+          <div class="num">01</div>
+          <h2>用語を引く</h2>
+          <p>ことばから入るための入口。授業で出てきた用語をすばやく確認します。</p>
+        </div>
+        <div class="more">SEARCH ENTRY</div>
+      </div>
+      <div class="search-shell">
+        <div class="search-bar">
+          <input class="search-input" type="text" placeholder="用語を入力（例：班田収授法）">
+          <input class="filter" type="text" placeholder="時代">
+          <input class="filter" type="text" placeholder="分野">
+        </div>
+        <div class="tag-row">
+          <span class="tag">政治史</span>
+          <span class="tag">外交史</span>
+          <span class="tag">経済史</span>
+          <span class="tag">社会史</span>
+          <span class="tag">文化史</span>
+        </div>
+        <div class="search-grid">
+          <div class="note-card">
+            <small>HOW TO USE</small>
+            <b>まずはことばから、次に背景へ。</b>
+            <p>授業で出てきた言葉を確認し、そのあと関連する人物・制度・出来事へ広げていく使い方を想定しています。</p>
+          </div>
+          <div class="note-card">
+            <small>EXAMPLE</small>
+            <b>例：班田収授法</b>
+            <p>制度の内容だけでなく、戸籍・計帳・租庸調との関係までつなげて確認する。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <div class="section-head">
+        <div>
+          <div class="num">02</div>
+          <h2>時代をたどる</h2>
+          <p>細かい出来事を、前後関係や流れの中で見直すための年表的な入口です。</p>
+        </div>
+        <div class="more">TIMELINE VIEW</div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-bar">
+          <div class="time-block">
+            <small>ANCIENT</small>
+            <b>古代</b>
+            <p>旧石器から平安まで。国家形成と古代社会の展開をたどる。</p>
+          </div>
+          <div class="time-block">
+            <small>MEDIEVAL</small>
+            <b>中世</b>
+            <p>鎌倉・南北朝・室町・戦国。武士政権と社会変化を整理する。</p>
+          </div>
+          <div class="time-block">
+            <small>EARLY MODERN</small>
+            <b>近世</b>
+            <p>安土桃山から江戸、幕末へ。統一と幕藩体制を確認する。</p>
+          </div>
+          <div class="time-block">
+            <small>MODERN</small>
+            <b>近代</b>
+            <p>明治・大正・昭和戦前。近代国家と戦争への流れをたどる。</p>
+          </div>
+          <div class="time-block">
+            <small>CONTEMPORARY</small>
+            <b>現代</b>
+            <p>戦後から現在へ。占領改革、高度成長、現代社会の変化を見る。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="database">
+      <div class="section-head">
+        <div>
+          <div class="num">03</div>
+          <h2>データベースを使う</h2>
+          <p>資料や史料、図像、機関データベースへアクセスするための入口です。</p>
+        </div>
+        <div class="more">DATABASE GUIDE</div>
+      </div>
+      <div class="card-grid">
+        <a class="ref-card" href="#">
+          <div class="top">
+            <small>DATABASE</small>
+            <b>史料・画像データベース</b>
+            <p>古文書・絵画・写真など、資料にアクセスするための入口。</p>
+          </div>
+          <div class="foot"><span>一覧を見る</span><span>→</span></div>
+        </a>
+        <a class="ref-card" href="#">
+          <div class="top">
+            <small>INSTITUTION</small>
+            <b>博物館・文書館リンク</b>
+            <p>博物館・図書館・文書館の公式ページをまとめる。</p>
+          </div>
+          <div class="foot"><span>一覧を見る</span><span>→</span></div>
+        </a>
+        <a class="ref-card" href="#">
+          <div class="top">
+            <small>MAP</small>
+            <b>地図・地理資料</b>
+            <p>歴史地図や地理情報から、空間的に時代をつかむ。</p>
+          </div>
+          <div class="foot"><span>一覧を見る</span><span>→</span></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="links">
+      <div class="section-head">
+        <div>
+          <div class="num">04</div>
+          <h2>参考リンクを見る</h2>
+          <p>先生のおすすめリンクや、授業で扱った参考サイトの一覧です。</p>
+        </div>
+        <div class="more">LINK COLLECTION</div>
+      </div>
+      <div class="link-list">
+        <a class="link-row" href="#">
+          <div class="badge">外部リンク</div>
+          <div>
+            <div class="link-title">授業で使う参考サイト</div>
+            <div class="link-desc">授業スライド・問い・補助資料とあわせて使える基本リンク集。</div>
+          </div>
+          <div class="link-meta">INDEX</div>
+          <div class="arrow">→</div>
+        </a>
+        <a class="link-row" href="#">
+          <div class="badge">おすすめ</div>
+          <div>
+            <div class="link-title">歴史記事・コラム</div>
+            <div class="link-desc">読み物としてもおもしろい歴史系コンテンツをまとめる。</div>
+          </div>
+          <div class="link-meta">READ</div>
+          <div class="arrow">→</div>
+        </a>
+        <a class="link-row" href="#">
+          <div class="badge">博物館</div>
+          <div>
+            <div class="link-title">博物館・史跡・展示案内</div>
+            <div class="link-desc">フィールドワークや校外学習の下調べに使うリンク集。</div>
+          </div>
+          <div class="link-meta">VISIT</div>
+          <div class="arrow">→</div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>歴史する / DOING HISTORY</span>
+    <span>高校日本史 調査・参照ページ</span>
+  </div>
+</footer>
+
+</body>
+</html>

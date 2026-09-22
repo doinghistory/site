@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>教材｜歴史する</title>
+<meta name="description" content="高校日本史の授業教材。時代を選び、教材をひらく。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#181714;
+  --paper:#f4f1ea;
+  --paper2:#ebe7df;
+  --muted:#777168;
+  --line:#d5d0c6;
+  --dark:#10100e;
+  --accent:#4e4a3c;
+  --serif:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:var(--paper);
+  font-family:var(--serif);
+  letter-spacing:.04em;
+}
+a{color:inherit}
+button{font:inherit}
+::selection{background:#d7d0bd}
+
+header{
+  position:absolute;
+  z-index:20;
+  top:0;left:0;right:0;
+  height:86px;
+  color:#fff;
+}
+.header-inner{
+  width:min(1220px,calc(100% - 48px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  text-decoration:none;
+  line-height:1;
+}
+.logo-main{
+  display:block;
+  font-size:1.5rem;
+  letter-spacing:.18em;
+  font-weight:500;
+}
+.logo-sub{
+  display:block;
+  margin-top:8px;
+  font:500 .58rem/1 var(--sans);
+  letter-spacing:.24em;
+  opacity:.85;
+}
+.global-nav{
+  display:flex;
+  gap:34px;
+  align-items:center;
+}
+.global-nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:.83rem;
+  padding-bottom:8px;
+  border-bottom:1px solid transparent;
+}
+.global-nav a.active{border-color:#fff}
+.menu-mark{
+  width:26px;height:16px;position:relative;margin-left:8px;
+}
+.menu-mark:before,.menu-mark:after{
+  content:"";position:absolute;left:0;right:0;height:1px;background:#fff;
+}
+.menu-mark:before{top:3px}
+.menu-mark:after{bottom:3px}
+
+.hero{
+  min-height:530px;
+  position:relative;
+  color:#fff;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:minmax(300px,32%) 1fr;
+  background:#141411;
+}
+.hero-photo{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(8,8,7,.92) 0%,rgba(8,8,7,.78) 28%,rgba(8,8,7,.15) 55%,rgba(8,8,7,.56) 100%),
+    linear-gradient(0deg,rgba(0,0,0,.28),rgba(0,0,0,.06)),
+    url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Connecting_Corridor_at_T%C5%8Dfuku-ji_Temple_in_Kyoto.jpg/1280px-Connecting_Corridor_at_T%C5%8Dfuku-ji_Temple_in_Kyoto.jpg")
+    center 48% / cover no-repeat;
+  filter:saturate(.72) contrast(1.04);
+  transform:scale(1.01);
+}
+.hero-copy{
+  position:relative;
+  z-index:2;
+  align-self:center;
+  padding:112px 0 62px;
+  width:min(390px,calc(100% - 48px));
+  margin-left:max(24px,calc((100vw - 1220px)/2));
+}
+.hero-eyebrow{
+  font-size:.92rem;
+  margin-bottom:14px;
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(3.1rem,7vw,6.2rem);
+  line-height:1;
+  letter-spacing:.12em;
+  font-weight:500;
+}
+.short-rule{
+  width:40px;height:1px;background:#fff;margin:28px 0;
+}
+.hero-copy p{
+  margin:0;
+  max-width:320px;
+  line-height:2.1;
+  font-size:.86rem;
+}
+.hero-phrase{
+  position:absolute;
+  z-index:2;
+  right:max(28px,calc((100vw - 1220px)/2));
+  bottom:72px;
+  writing-mode:vertical-rl;
+  line-height:2.15;
+  font-size:.88rem;
+  letter-spacing:.2em;
+}
+
+.era-bar{
+  position:relative;
+  z-index:10;
+  background:#f8f6f1;
+  border-bottom:1px solid var(--line);
+  box-shadow:0 7px 24px rgba(0,0,0,.045);
+}
+.era-inner{
+  width:min(1220px,100%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:220px repeat(5,1fr);
+  min-height:76px;
+}
+.era-lead{
+  display:flex;align-items:center;
+  padding:0 24px;
+  font-size:.82rem;
+  letter-spacing:.12em;
+}
+.era-btn{
+  appearance:none;
+  border:0;
+  border-left:1px solid #e3ded4;
+  background:transparent;
+  cursor:pointer;
+  position:relative;
+  color:#292722;
+  font-size:1.08rem;
+  letter-spacing:.12em;
+  transition:.25s ease;
+}
+.era-btn span{
+  display:inline-block;
+  position:relative;
+  padding:25px 28px 22px;
+}
+.era-btn span:after{
+  content:"";
+  position:absolute;
+  left:28px;right:28px;bottom:15px;
+  height:1px;background:#928d82;
+  transform-origin:left;
+  transition:.25s ease;
+}
+.era-btn:hover{
+  background:#ebe7dc;
+}
+.era-btn:hover span:after{
+  transform:scaleX(.7);
+}
+.era-btn.active{
+  background:#4b493d;
+  color:#fff;
+}
+.era-btn.active span:after{background:#fff;height:2px}
+
+.subera-wrap{
+  background:#efebe3;
+  border-top:1px solid #e1dcd2;
+}
+.subera-inner{
+  width:min(1220px,calc(100% - 48px));
+  margin:auto;
+  min-height:56px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.subera-inner::-webkit-scrollbar{display:none}
+.subera-btn{
+  appearance:none;
+  flex:0 0 auto;
+  border:0;
+  background:transparent;
+  color:#686259;
+  padding:17px 15px 15px;
+  cursor:pointer;
+  font-size:.78rem;
+  letter-spacing:.08em;
+  position:relative;
+  transition:.2s ease;
+}
+.subera-btn:hover{color:#171613}
+.subera-btn.active{
+  color:#171613;
+  font-weight:600;
+}
+.subera-btn.active:after{
+  content:"";
+  position:absolute;
+  left:15px;right:15px;bottom:8px;
+  height:2px;
+  background:#4b493d;
+}
+
+.materials{
+  background:
+    radial-gradient(circle at 10% 70%,rgba(55,50,42,.035),transparent 26rem),
+    var(--paper);
+}
+.materials-inner{
+  width:min(1220px,calc(100% - 48px));
+  margin:auto;
+  display:grid;
+  grid-template-columns:300px minmax(0,1fr);
+  gap:44px;
+  padding:54px 0 84px;
+}
+.era-intro{
+  padding:5px 10px 0 0;
+}
+.era-label{
+  font-size:1rem;
+  margin-bottom:18px;
+}
+.era-label:after{
+  content:"";
+  display:block;
+  width:42px;height:1px;background:#38352f;margin-top:18px;
+}
+.era-intro h2{
+  font-size:clamp(2.2rem,4.5vw,3.7rem);
+  line-height:1.45;
+  letter-spacing:.08em;
+  font-weight:500;
+  margin:24px 0 24px;
+}
+.era-intro p{
+  font-size:.84rem;
+  color:#575249;
+  line-height:2.15;
+  margin:0;
+}
+.all-link{
+  margin-top:58px;
+  display:inline-flex;
+  gap:16px;
+  align-items:center;
+  text-decoration:none;
+  font-size:.76rem;
+}
+.all-link:before{
+  content:"";
+  display:block;
+  width:38px;height:1px;background:#59554d;
+}
+.list-head{
+  min-height:42px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+}
+.list-title{
+  font-size:.77rem;
+  color:var(--muted);
+  font-family:var(--sans);
+}
+.list-count{
+  font:400 .7rem var(--sans);
+  color:var(--muted);
+}
+.material-list{
+  border-bottom:1px solid var(--line);
+}
+.material-row{
+  display:grid;
+  grid-template-columns:154px minmax(0,1fr) 122px 34px;
+  gap:22px;
+  min-height:118px;
+  align-items:center;
+  text-decoration:none;
+  border-top:1px solid var(--line);
+  transition:.22s ease;
+}
+.material-row:first-child{border-top:0}
+.material-row:hover{
+  background:rgba(255,255,255,.46);
+  padding-left:8px;
+  padding-right:8px;
+}
+.thumb{
+  height:78px;
+  overflow:hidden;
+  background:#c9c2b4;
+  position:relative;
+}
+.thumb::before{
+  content:attr(data-label);
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:rgba(255,255,255,.9);
+  font:500 .63rem/1 var(--sans);
+  letter-spacing:.18em;
+  background:
+    linear-gradient(135deg,rgba(18,18,16,.22),rgba(18,18,16,.56)),
+    repeating-linear-gradient(90deg,transparent 0 18px,rgba(255,255,255,.05) 18px 19px);
+}
+.thumb.kind-プリント{background:#8d8778}
+.thumb.kind-ワークシート{background:#68716e}
+.thumb.kind-資料{background:#8d765c}
+.thumb.kind-スライド{background:#64717d}
+.thumb.kind-動画{background:#4f5558}
+.thumb.kind-史料{background:#786c5b}
+
+.item-meta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+}
+.kind{
+  font:400 .64rem/1 var(--sans);
+  letter-spacing:.08em;
+  color:#565148;
+  background:#e3dfd6;
+  padding:5px 8px;
+}
+.item-title{
+  font-size:1rem;
+  font-weight:500;
+  margin:0 0 5px;
+  line-height:1.55;
+}
+.item-desc{
+  font:400 .72rem/1.8 var(--sans);
+  color:#6f695f;
+  margin:0;
+  max-width:610px;
+}
+.item-date{
+  font:400 .66rem/1.7 var(--sans);
+  color:#8a847a;
+  text-align:right;
+  white-space:nowrap;
+}
+.arrow{
+  font:300 1.2rem/1 var(--sans);
+  text-align:right;
+  transition:.2s ease;
+}
+.material-row:hover .arrow{transform:translateX(4px)}
+.empty{
+  padding:56px 10px;
+  text-align:center;
+  color:#827c72;
+  font:400 .8rem/1.8 var(--sans);
+  border-top:1px solid var(--line);
+}
+
+.credit{
+  width:min(1220px,calc(100% - 48px));
+  margin:auto;
+  padding:18px 0 32px;
+  border-top:1px solid var(--line);
+  color:#8c867b;
+  font:400 .59rem/1.8 var(--sans);
+}
+.credit a{color:inherit}
+
+@media(max-width:880px){
+  .global-nav{display:none}
+  .hero{min-height:500px;grid-template-columns:1fr}
+  .hero-copy{margin-left:24px;padding-top:126px}
+  .hero-phrase{right:22px;bottom:60px}
+  .era-inner{
+    overflow-x:auto;
+    grid-template-columns:150px repeat(5,150px);
+    scrollbar-width:none;
+  }
+  .era-inner::-webkit-scrollbar{display:none}
+  .materials-inner{grid-template-columns:1fr}
+  .era-intro{max-width:560px}
+  .all-link{margin-top:26px}
+}
+@media(max-width:650px){
+  header{height:72px}
+  .header-inner,.materials-inner,.credit{width:calc(100% - 28px)}
+  .logo-main{font-size:1.2rem}
+  .hero{min-height:470px}
+  .hero-copy{margin-left:18px;width:calc(100% - 90px)}
+  .hero-copy p{font-size:.78rem}
+  .hero-phrase{display:none}
+  .era-inner{grid-template-columns:124px repeat(5,130px)}
+  .subera-inner{width:calc(100% - 28px)}
+  .era-lead{padding:0 14px;font-size:.7rem}
+  .era-btn{font-size:.96rem}
+  .materials-inner{padding-top:38px;gap:28px}
+  .material-row{
+    grid-template-columns:92px minmax(0,1fr) 24px;
+    gap:14px;
+    min-height:108px;
+  }
+  .thumb{height:68px}
+  .item-date{display:none}
+  .item-title{font-size:.91rem}
+  .item-desc{
+    font-size:.68rem;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html#gates">
+      <span class="logo-main">歴史する</span>
+      <span class="logo-sub">DOING HISTORY</span>
+    </a>
+    <nav class="global-nav">
+      <a href="#" class="active">学ぶ</a>
+      <a href="miru.html">観る</a>
+      <span class="menu-mark" aria-hidden="true"></span>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-photo" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <div class="hero-eyebrow">過去と、いまをつなぐ。</div>
+    <h1>教材</h1>
+    <div class="short-rule"></div>
+    <p>
+      史料にふれ、考え、対話する。<br>
+      歴史は、遠い過去の話ではなく、<br>
+      いまを生きる私たちの問いです。
+    </p>
+  </div>
+  <div class="hero-phrase">あの時代も、きっと、だれかのいまだった。</div>
+</section>
+
+<section class="era-bar" aria-label="時代を選ぶ">
+  <div class="era-inner">
+    <div class="era-lead">時代から教材を探す</div>
+    <button class="era-btn active" data-major="古代"><span>古代　→</span></button>
+    <button class="era-btn" data-major="中世"><span>中世　→</span></button>
+    <button class="era-btn" data-major="近世"><span>近世　→</span></button>
+    <button class="era-btn" data-major="近代"><span>近代　→</span></button>
+    <button class="era-btn" data-major="現代"><span>現代　→</span></button>
+  </div>
+  <div class="subera-wrap">
+    <div class="subera-inner" id="subEraNav"></div>
+  </div>
+</section>
+
+<section class="materials">
+  <div class="materials-inner">
+    <aside class="era-intro">
+      <div class="era-label" id="eraLabel">古代</div>
+      <h2 id="eraHeadline">はじまりの<br>日本をみる</h2>
+      <p id="eraCopy">
+        国家のかたちが生まれ、<br>
+        人々の営みが広がっていった時代。<br>
+        史料から、古代の社会と人々の<br>
+        くらしを読み解いてみましょう。
+      </p>
+      <a class="all-link" href="#" id="allLink">この時代の教材をすべて見る　→</a>
+    </aside>
+
+    <div>
+      <div class="list-head">
+        <div class="list-title">MATERIALS</div>
+        <div class="list-count"><span id="count">0</span> 件</div>
+      </div>
+      <div class="material-list" id="list">
+        <div class="empty">教材を読み込んでいます。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="credit">
+  写真：Connecting Corridor at Tōfuku-ji Temple in Kyoto / Tmv,
+  <a href="https://commons.wikimedia.org/wiki/File:Connecting_Corridor_at_T%C5%8Dfuku-ji_Temple_in_Kyoto.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>,
+  CC BY-SA 4.0
+</div>
+
+<script>
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTGfy6nXuXVIFiazfphIAJT7by7hcBLolbP6DHFrIxqrbyB8ucFAlzIRUGuK3BERm9p1IFCi07cvgPu/pub?gid=1464622297&single=true&output=csv";
+
+const ERA_TEXT = {
+  "古代":{
+    headline:"はじまりの<br>日本をみる",
+    copy:"国家のかたちが生まれ、<br>人々の営みが広がっていった時代。<br>史料から、古代の社会と人々の<br>くらしを読み解いてみましょう。"
+  },
+  "中世":{
+    headline:"武士と人びとの<br>時代をみる",
+    copy:"武士の政権が生まれ、<br>地域や社会の結びつきが変化した時代。<br>政治だけでなく、人々の営みから<br>中世を考えてみましょう。"
+  },
+  "近世":{
+    headline:"つながる社会を<br>みつめる",
+    copy:"都市と村、街道と海、<br>さまざまな人とモノが行き交った時代。<br>江戸社会の仕組みと文化を<br>史料から読み解いてみましょう。"
+  },
+  "近代":{
+    headline:"世界と出会う<br>日本をみる",
+    copy:"国家と社会のかたちが大きく変わり、<br>世界との関係も深まっていった時代。<br>制度と人々の暮らしの両方から<br>近代を考えてみましょう。"
+  },
+  "現代":{
+    headline:"いまにつながる<br>歴史をみる",
+    copy:"戦争と復興、高度成長、社会の変化。<br>私たちの「いま」に近い時代だからこそ、<br>過去とのつながりを意識して<br>歴史を考えてみましょう。"
+  }
+};
+
+const SUB_ERAS = {
+  "古代":["旧石器","縄文","弥生","古墳","飛鳥","奈良","平安"],
+  "中世":["鎌倉","南北朝","室町","戦国"],
+  "近世":["安土桃山","江戸","幕末"],
+  "近代":["明治","大正","昭和戦前"],
+  "現代":["戦後","平成","令和"]
+};
+
+const SUB_COPY = {
+  "旧石器":["人類の足跡から","列島のはじまりをみる"],
+  "縄文":["暮らしの痕跡から","縄文社会をみる"],
+  "弥生":["稲作と社会の変化から","弥生時代をみる"],
+  "古墳":["巨大な墓から","権力のかたちをみる"],
+  "飛鳥":["国家形成の動きから","飛鳥の時代をみる"],
+  "奈良":["都と律令国家から","奈良時代をみる"],
+  "平安":["都と地域の変化から","平安時代をみる"],
+  "鎌倉":["武士の政権から","鎌倉時代をみる"],
+  "南北朝":["二つの朝廷から","動乱の時代をみる"],
+  "室町":["幕府と地域社会から","室町時代をみる"],
+  "戦国":["争乱と地域権力から","戦国の社会をみる"],
+  "安土桃山":["統一と交流から","変わる社会をみる"],
+  "江戸":["都市と村のつながりから","江戸時代をみる"],
+  "幕末":["揺らぐ幕府と世界から","幕末をみる"],
+  "明治":["国家と社会の再編から","明治時代をみる"],
+  "大正":["都市と大衆社会から","大正時代をみる"],
+  "昭和戦前":["戦争へ向かう社会から","昭和戦前をみる"],
+  "戦後":["復興と変化から","戦後社会をみる"],
+  "平成":["変わる社会と世界から","平成をみる"],
+  "令和":["いまにつながる出来事から","現在を考える"]
+};
+
+const SAMPLE = [
+  {rawEra:"縄文",era:"古代",subEra:"縄文",kind:"プリント",title:"縄文時代の精神性を考える",desc:"土偶や埋葬などの資料から、縄文社会の精神世界を考えます。",date:"2026.04.22",url:"#"},
+  {rawEra:"弥生",era:"古代",subEra:"弥生",kind:"ワークシート",title:"弥生時代と稲作",desc:"稲作の広がりが社会にもたらした変化を読み解きます。",date:"2026.03.22",url:"#"},
+  {rawEra:"古墳",era:"古代",subEra:"古墳",kind:"資料",title:"古墳からみる社会",desc:"古墳の分布や副葬品から、当時の社会構造を考えます。",date:"2026.02.15",url:"#"},
+  {rawEra:"飛鳥",era:"古代",subEra:"飛鳥",kind:"スライド",title:"飛鳥の寺院と仏教",desc:"寺院建築から、仏教の広がりと政治との関係を学びます。",date:"2026.01.28",url:"#"},
+  {rawEra:"鎌倉",era:"中世",subEra:"鎌倉",kind:"プリント",title:"鎌倉幕府はいつ成立したのか",desc:"複数の出来事を比較しながら、幕府成立をどう捉えるか考えます。",date:"2026.05.11",url:"#"},
+  {rawEra:"江戸",era:"近世",subEra:"江戸",kind:"資料",title:"江戸の町と人びとのくらし",desc:"絵図や記録から、都市に生きた人々の日常を読み解きます。",date:"2026.06.09",url:"#"},
+  {rawEra:"明治",era:"近代",subEra:"明治",kind:"スライド",title:"明治国家と国民化",desc:"制度や学校教育を通して、近代国家が人々をどう組織したか考えます。",date:"2026.07.01",url:"#"},
+  {rawEra:"戦後",era:"現代",subEra:"戦後",kind:"プリント",title:"戦後社会の変化",desc:"戦後日本の社会と暮らしの変化を資料からたどります。",date:"2026.08.20",url:"#"}
+];
+
+let rows = [];
+let currentMajor = "古代";
+let currentSub = "";
+
+function esc(v){
+  return String(v ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+}
+
+function parseCSV(text){
+  const out=[]; let row=[], field="", quoted=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(quoted){
+      if(c === '"' && text[i+1] === '"'){field+='"';i++;}
+      else if(c === '"') quoted=false;
+      else field+=c;
+    }else{
+      if(c === '"') quoted=true;
+      else if(c === ","){row.push(field);field="";}
+      else if(c === "\n"){row.push(field);out.push(row);row=[];field="";}
+      else if(c !== "\r") field+=c;
+    }
+  }
+  row.push(field);
+  if(row.length>1 || row[0]) out.push(row);
+  return out;
+}
+
+function clean(v){return (v==null?"":String(v)).trim();}
+
+function normalizeEra(v){
+  return String(v||"")
+    .replace(/\s+/g,"")
+    .replace(/時代$/,"")
+    .replace(/昭和前期|昭和・戦前|戦前昭和/,"昭和戦前")
+    .replace(/昭和後期|昭和・戦後|昭和戦後/,"戦後")
+    .replace(/安土・桃山|安土桃山時代/,"安土桃山");
+}
+
+function majorOf(v){
+  const s=normalizeEra(v);
+  if(/旧石器|縄文|弥生|古墳|飛鳥|奈良|平安|原始|古代/.test(s)) return "古代";
+  if(/鎌倉|南北朝|室町|戦国|中世/.test(s)) return "中世";
+  if(/安土桃山|江戸|幕末|近世/.test(s)) return "近世";
+  if(/明治|大正|昭和戦前|戦前|近代/.test(s)) return "近代";
+  if(/戦後|平成|令和|現代/.test(s)) return "現代";
+  return "";
+}
+
+function subOf(v){
+  const s=normalizeEra(v);
+  const all=Object.values(SUB_ERAS).flat();
+  for(const e of all){
+    if(s.includes(e)) return e;
+  }
+  if(s.includes("昭和") && !s.includes("戦後")) return "昭和戦前";
+  if(s.includes("昭和") && s.includes("戦後")) return "戦後";
+  return "";
+}
+
+function objects(csv){
+  if(!csv.length) return [];
+  const h=csv[0].map(clean);
+  return csv.slice(1).map(r=>{
+    const o={}; h.forEach((k,i)=>o[k]=clean(r[i]));
+    const rawEra=o["時代"]||"";
+    return {
+      rawEra,
+      era:majorOf(rawEra),
+      subEra:subOf(rawEra),
+      kind:o["種別"]||o["種類"]||"",
+      title:o["タイトル"]||o["教材名"]||"",
+      desc:o["ひとこと説明"]||o["説明"]||o["概要"]||"",
+      date:o["公開日"]||o["日付"]||"",
+      url:o["URL"]||o["リンク"]||""
+    };
+  }).filter(x=>x.title && x.url);
+}
+
+function dateValue(s){
+  const m=/(\d{4})[\/.\-年](\d{1,2})[\/.\-月](\d{1,2})/.exec(s||"");
+  return m ? new Date(+m[1],+m[2]-1,+m[3]).getTime() : 0;
+}
+
+function setFromUrl(){
+  const p=new URLSearchParams(location.search);
+  const requested=normalizeEra(p.get("era")||"");
+  if(!requested) return;
+  if(ERA_TEXT[requested]){
+    currentMajor=requested;
+    currentSub="";
+    return;
+  }
+  const major=majorOf(requested);
+  const sub=subOf(requested);
+  if(major){
+    currentMajor=major;
+    currentSub=sub;
+  }
+}
+
+function updateUrl(){
+  const value=currentSub || currentMajor;
+  const url=new URL(location.href);
+  url.searchParams.set("era",value);
+  history.replaceState(null,"",url);
+}
+
+function renderSubNav(){
+  const nav=document.getElementById("subEraNav");
+  const subs=SUB_ERAS[currentMajor]||[];
+  nav.innerHTML=
+    `<button class="subera-btn ${currentSub===""?"active":""}" data-sub="">すべて</button>`+
+    subs.map(e=>`<button class="subera-btn ${currentSub===e?"active":""}" data-sub="${esc(e)}">${esc(e)}</button>`).join("");
+
+  nav.querySelectorAll(".subera-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      currentSub=btn.dataset.sub||"";
+      updateUrl();
+      render();
+      document.querySelector(".materials").scrollIntoView({behavior:"smooth",block:"start"});
+    });
+  });
+}
+
+function renderIntro(){
+  const label=currentSub || currentMajor;
+  document.getElementById("eraLabel").textContent=label;
+
+  if(currentSub && SUB_COPY[currentSub]){
+    const [small,headline]=SUB_COPY[currentSub];
+    document.getElementById("eraHeadline").innerHTML=headline.replace("を","を<br>");
+    document.getElementById("eraCopy").innerHTML=
+      `${small}。<br>この時代の史料や教材を通して、<br>${currentSub}の社会と人々の姿を<br>読み解いてみましょう。`;
+  }else{
+    const t=ERA_TEXT[currentMajor];
+    document.getElementById("eraHeadline").innerHTML=t.headline;
+    document.getElementById("eraCopy").innerHTML=t.copy;
+  }
+}
+
+function render(){
+  document.querySelectorAll(".era-btn").forEach(
+    b=>b.classList.toggle("active",b.dataset.major===currentMajor)
+  );
+
+  renderSubNav();
+  renderIntro();
+
+  let data=rows.filter(x=>x.era===currentMajor);
+  if(currentSub) data=data.filter(x=>x.subEra===currentSub || normalizeEra(x.rawEra).includes(currentSub));
+  data.sort((a,b)=>dateValue(b.date)-dateValue(a.date));
+
+  document.getElementById("count").textContent=data.length;
+
+  const list=document.getElementById("list");
+  if(!data.length){
+    list.innerHTML=`<div class="empty">${esc(currentSub||currentMajor)}の教材は、まだ登録されていません。</div>`;
+    return;
+  }
+
+  list.innerHTML=data.map(x=>`
+    <a class="material-row" href="${esc(x.url)}" ${x.url==="#"?"":"target=\"_blank\" rel=\"noopener\""}>
+      <div class="thumb kind-${esc(x.kind)}" data-label="${esc((x.kind||"教材").toUpperCase())}"></div>
+      <div>
+        <div class="item-meta">${x.kind?`<span class="kind">${esc(x.kind)}</span>`:""}</div>
+        <h3 class="item-title">${esc(x.title)}</h3>
+        <p class="item-desc">${esc(x.desc||"教材を開く")}</p>
+      </div>
+      <div class="item-date">${esc(x.date)}</div>
+      <div class="arrow">→</div>
+    </a>`).join("");
+}
+
+document.querySelectorAll(".era-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    currentMajor=btn.dataset.major;
+    currentSub="";
+    updateUrl();
+    render();
+  });
+});
+
+document.getElementById("allLink").addEventListener("click",e=>{
+  e.preventDefault();
+  currentSub="";
+  updateUrl();
+  render();
+});
+
+setFromUrl();
+
+fetch(CSV_URL,{cache:"no-store"})
+  .then(r=>{if(!r.ok) throw new Error(); return r.text();})
+  .then(text=>{
+    const loaded=objects(parseCSV(text));
+    rows=loaded.length ? loaded : SAMPLE;
+    render();
+  })
+  .catch(()=>{
+    rows=SAMPLE;
+    render();
+  });
+</script>
+</body>
+</html>

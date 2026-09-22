@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>鍛える｜歴史する</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070706;
+  --bg2:#0b0b0a;
+  --line:rgba(255,255,255,.11);
+  --text:#f1eee8;
+  --muted:#9b958b;
+  --muted2:#6f6961;
+  --serif:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--serif);letter-spacing:.04em}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+
+/* header */
+header{
+  height:74px;position:absolute;top:0;left:0;right:0;z-index:50
+}
+.header-inner{
+  width:min(1280px,calc(100% - 48px));height:100%;margin:auto;
+  display:flex;align-items:center;justify-content:space-between
+}
+.brand{font-size:1.24rem;letter-spacing:.18em}
+.nav{display:flex;gap:26px;align-items:center;font-size:.77rem;color:#aaa49a}
+.nav a.active{color:#fff;border-bottom:1px solid #fff;padding-bottom:5px}
+.menu{font:500 1.3rem/1 var(--sans);color:#ddd}
+
+/* hero */
+.hero{
+  min-height:520px;position:relative;overflow:hidden;background:#050504;border-bottom:1px solid var(--line)
+}
+.hero:before{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(4,4,4,.98) 0%,rgba(4,4,4,.91) 34%,rgba(4,4,4,.45) 70%,rgba(4,4,4,.58) 100%),
+    linear-gradient(180deg,rgba(4,4,4,.08),rgba(4,4,4,.14) 55%,rgba(4,4,4,.86) 100%),
+    url("kitaeru-hero.jpg");
+  background-size:cover;background-position:center;
+  filter:saturate(.7) contrast(1.05);
+}
+.hero-inner{
+  position:relative;z-index:2;width:min(1280px,calc(100% - 48px));min-height:520px;margin:auto;
+  display:flex;align-items:center
+}
+.hero-copy{width:470px;padding-top:42px}
+.hero .eyebrow{font-size:.84rem;color:#c8c2b7;margin-bottom:12px}
+.hero h1{margin:0;font-size:clamp(4.2rem,7vw,6.2rem);font-weight:500;line-height:.95;letter-spacing:.16em}
+.hero .lead{margin-top:20px;font-size:1.05rem;line-height:1.95;color:#d2ccc1}
+.hero .sub{margin-top:10px;font:400 .72rem/1.85 var(--sans);color:#8d877d}
+.hero .vertical{
+  position:absolute;right:7%;top:150px;writing-mode:vertical-rl;
+  font-size:.78rem;line-height:2;color:#c9c3b8;letter-spacing:.14em
+}
+.scroll{
+  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  font:500 .55rem/1 var(--sans);letter-spacing:.18em;color:#7e786f
+}
+
+/* course timeline */
+.course{position:relative}
+.course:before{
+  content:"";position:absolute;left:max(24px,calc((100vw - 1280px)/2 + 28px));top:0;bottom:0;
+  width:1px;background:var(--line);z-index:3
+}
+.stage{
+  min-height:340px;position:relative;border-bottom:1px solid var(--line);overflow:hidden
+}
+.stage-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  filter:saturate(.55) contrast(1.06) brightness(.72)
+}
+.stage:nth-child(1) .stage-bg{background-image:linear-gradient(90deg,#080807 0%,rgba(8,8,7,.90) 36%,rgba(8,8,7,.34) 76%,rgba(8,8,7,.72) 100%),url("kitaeru-section1.jpg")}
+.stage:nth-child(2) .stage-bg{background-image:linear-gradient(90deg,#080807 0%,rgba(8,8,7,.90) 40%,rgba(8,8,7,.38) 76%,rgba(8,8,7,.74) 100%),url("kitaeru-section2.jpg")}
+.stage:nth-child(3) .stage-bg{background-image:linear-gradient(90deg,#080807 0%,rgba(8,8,7,.91) 38%,rgba(8,8,7,.34) 75%,rgba(8,8,7,.74) 100%),url("kitaeru-section3.jpg")}
+.stage-inner{
+  width:min(1280px,calc(100% - 48px));min-height:340px;margin:auto;position:relative;z-index:2;
+  display:grid;grid-template-columns:90px 360px minmax(0,1fr);gap:30px;align-items:center
+}
+.num{font-size:3.4rem;font-weight:400;color:#aaa49a;align-self:start;padding-top:38px}
+.num:before{
+  content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:#d9d4ca;
+  left:max(19px,calc((100vw - 1280px)/2 + 23px));margin-top:18px
+}
+.stage-copy{padding:40px 0}
+.stage-copy .rule{width:110px;height:1px;background:#69635c;margin-bottom:18px}
+.stage h2{margin:0 0 8px;font-size:2.05rem;font-weight:500;letter-spacing:.08em}
+.stage h3{margin:0 0 20px;font-size:1.08rem;font-weight:400;color:#d1cbc1}
+.stage p{margin:0 0 24px;max-width:350px;font:400 .7rem/1.9 var(--sans);color:#9a948a}
+.stage-link{
+  display:inline-flex;align-items:center;justify-content:space-between;gap:50px;
+  border:1px solid rgba(255,255,255,.20);padding:12px 16px;min-width:220px;
+  font-size:.76rem;transition:.2s
+}
+.stage-link:hover{background:rgba(255,255,255,.05)}
+.stage-aside{
+  align-self:stretch;display:flex;align-items:center;justify-content:flex-end;padding-right:20px
+}
+.aside-box{
+  width:min(360px,100%);border:1px solid rgba(255,255,255,.11);background:rgba(5,5,5,.38);
+  backdrop-filter:blur(4px);padding:18px
+}
+.aside-title{font:500 .57rem/1 var(--sans);letter-spacing:.15em;color:#777168;margin-bottom:14px}
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.quick{
+  min-height:46px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;color:#aaa49a;transition:.2s
+}
+.quick:hover{color:#fff;border-color:rgba(255,255,255,.24)}
+.quick.big{grid-column:span 3;justify-content:space-between;padding:0 14px}
+
+/* closing */
+.closing{
+  min-height:155px;position:relative;overflow:hidden;border-bottom:1px solid var(--line)
+}
+.closing:before{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(5,5,5,.65),rgba(5,5,5,.33)),
+    url("kitaeru-closing.jpg");
+  background-size:cover;background-position:center;
+  filter:saturate(.65) brightness(.8)
+}
+.closing-inner{
+  position:relative;z-index:2;width:min(1280px,calc(100% - 48px));min-height:155px;margin:auto;
+  display:flex;justify-content:space-between;align-items:center;gap:30px
+}
+.closing h4{margin:0;font-size:1.4rem;font-weight:500;line-height:1.6}
+.closing .go{font:2rem var(--sans);color:#eee}
+
+/* footer */
+footer{padding:22px 0 30px;color:#6d675f;font:400 .6rem/1.7 var(--sans)}
+.footer-inner{
+  width:min(1280px,calc(100% - 48px));margin:auto;display:flex;justify-content:space-between
+}
+
+@media(max-width:900px){
+  .nav{display:none}
+  .hero .vertical{display:none}
+  .stage-inner{grid-template-columns:70px minmax(0,1fr)}
+  .stage-aside{grid-column:2;padding:0 0 32px;justify-content:flex-start}
+  .course:before{left:24px}
+  .num:before{left:19px}
+}
+@media(max-width:620px){
+  .hero{min-height:450px}
+  .hero-inner{min-height:450px}
+  .hero-copy{width:80%}
+  .stage-inner{grid-template-columns:54px minmax(0,1fr);gap:18px}
+  .num{font-size:2.6rem}
+  .quick-grid{grid-template-columns:repeat(2,1fr)}
+  .quick.big{grid-column:span 2}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="index.html#gates">歴史する</a>
+    <nav class="nav">
+      <a href="manabu.html">学ぶ</a>
+      <a href="tou.html">問う</a>
+      <a class="active" href="kitaeru.html">鍛える</a>
+      <a href="miru.html">観る</a>
+      <a href="shiraberu.html">調べる</a>
+      <a href="meguru.html">巡る</a>
+    </nav>
+    <div class="menu">☰</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">知を、実力に変える。</div>
+      <h1>鍛える</h1>
+      <div class="lead">解く。見抜く。挑む。</div>
+      <div class="sub">
+        読んで終わりにしない。<br>
+        解いて、間違えて、考えて、また解く。<br>
+        その繰り返しが、歴史を自分のものにする。
+      </div>
+    </div>
+  </div>
+  <div class="vertical">過去と向き合う力は、これからを生きる力になる。</div>
+  <div class="scroll">SCROLL ↓</div>
+</section>
+
+<main class="course">
+
+  <section class="stage" id="drill">
+    <div class="stage-bg"></div>
+    <div class="stage-inner">
+      <div class="num">01</div>
+      <div class="stage-copy">
+        <div class="rule"></div>
+        <h2>解く</h2>
+        <h3>演習プリント</h3>
+        <p>まずは手を動かして、知識を整理する。基礎から応用まで、単元ごとに繰り返す。</p>
+        <a class="stage-link" href="#"><span>演習プリントへ</span><span>→</span></a>
+      </div>
+      <div class="stage-aside">
+        <div class="aside-box">
+          <div class="aside-title">時代から選ぶ</div>
+          <div class="quick-grid">
+            <a class="quick" href="#">旧石器</a>
+            <a class="quick" href="#">縄文</a>
+            <a class="quick" href="#">弥生</a>
+            <a class="quick" href="#">飛鳥</a>
+            <a class="quick" href="#">奈良</a>
+            <a class="quick" href="#">平安</a>
+            <a class="quick" href="#">鎌倉</a>
+            <a class="quick" href="#">室町</a>
+            <a class="quick" href="#">江戸</a>
+            <a class="quick big" href="#"><span>すべての時代を見る</span><span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage" id="judge">
+    <div class="stage-bg"></div>
+    <div class="stage-inner">
+      <div class="num">02</div>
+      <div class="stage-copy">
+        <div class="rule"></div>
+        <h2>見抜く</h2>
+        <h3>正誤・組合せ問題</h3>
+        <p>似ているもの、まぎらわしいもの。違いを見抜く力は、本番で大きな武器になる。</p>
+        <a class="stage-link" href="#"><span>正誤・組合せ問題へ</span><span>→</span></a>
+      </div>
+      <div class="stage-aside">
+        <div class="aside-box">
+          <div class="aside-title">問題形式から選ぶ</div>
+          <div class="quick-grid">
+            <a class="quick big" href="#"><span>正誤問題</span><span>→</span></a>
+            <a class="quick big" href="#"><span>組合せ問題</span><span>→</span></a>
+            <a class="quick big" href="#"><span>空欄補充問題</span><span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage" id="past">
+    <div class="stage-bg"></div>
+    <div class="stage-inner">
+      <div class="num">03</div>
+      <div class="stage-copy">
+        <div class="rule"></div>
+        <h2>挑む</h2>
+        <h3>過去問演習</h3>
+        <p>大学入試の過去問で、時間の中で考え、書き、今の自分の力を試す。</p>
+        <a class="stage-link" href="#"><span>過去問演習へ</span><span>→</span></a>
+      </div>
+      <div class="stage-aside">
+        <div class="aside-box">
+          <div class="aside-title">大学から選ぶ</div>
+          <div class="quick-grid">
+            <a class="quick" href="#">東京大学</a>
+            <a class="quick" href="#">京都大学</a>
+            <a class="quick" href="#">一橋大学</a>
+            <a class="quick" href="#">早稲田大学</a>
+            <a class="quick" href="#">慶應義塾</a>
+            <a class="quick" href="#">上智大学</a>
+            <a class="quick big" href="#"><span>共通テスト・その他</span><span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="closing">
+  <div class="closing-inner">
+    <h4>解くたびに、<br>見えてくるものがある。</h4>
+    <div class="go">→</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>歴史する / DOING HISTORY</span>
+    <span>高校日本史 演習</span>
+  </div>
+</footer>
+
+</body>
+</html>
