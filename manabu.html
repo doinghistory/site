@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="noindex,nofollow" name="robots"/>
-<title>教材｜歴史する</title>
-<meta content="高校日本史の授業教材。時代を選び、教材をひらく。" name="description"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="robots" content="noindex,nofollow">
+<title>学ぶ｜歴史する</title>
+<meta name="description" content="高校日本史の授業教材。時代を選び、教材をひらく。">
 
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -459,128 +463,441 @@ header{
     overflow:hidden;
   }
 }
-</style>
-<style>
-/* 2026-09 humanized editorial pass */
+
+/* ===== update: unified header + top-page font ===== */
 :root{
-  --serif:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif CJK JP",serif;
-  --sans:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro","Meiryo",sans-serif;
+  --mincho:"Shippori Mincho B1",serif;
+  --gothic:"Zen Kaku Gothic New",sans-serif;
+  --gold-l:#c4a35c;
+  --paper:#f2ebdb;
+  --sumi:#1d1913;
+  --soft:#6d6250;
 }
-body{letter-spacing:.025em}
-.brand img,.logo img{display:block;width:118px;height:auto}
-.hero h1{font-weight:600;letter-spacing:.10em}
-.mode-no,.section-label,.kicker,.list-title,.tag,.num{letter-spacing:.08em}
-</style>
-<style id="dark-theme-restore">
+body{font-family:var(--mincho) !important;}
+h1,h2,h3,h4,h5,h6,
+.brand,.nav a,.nav,.menu,
+.hero h1,.feature h2,.column-head h3,.section-head h2,
+.mode-card h2,.practice-head h3,.stage h2,.stage h3{
+  font-family:var(--mincho) !important;
+}
+small,.eyebrow,.sub,.lead,.copy,.desc,.meta,.badge,
+input,button,select,textarea{
+  font-family:var(--gothic);
+}
+header{
+  height:74px !important;
+  position:fixed !important;
+  top:0;left:0;right:0;
+  z-index:80 !important;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg,rgba(10,10,9,.80),rgba(10,10,9,.46)) !important;
+  backdrop-filter:blur(10px);
+}
+.header-inner{
+  width:min(1280px,calc(100% - 48px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  color:var(--paper) !important;
+  font-size:1.24rem;
+  letter-spacing:.18em;
+}
+.nav{
+  display:flex;
+  gap:clamp(12px,2vw,26px) !important;
+  align-items:center;
+  color:#ddd4c6 !important;
+  font-size:.86rem !important;
+}
+.nav a{
+  writing-mode:horizontal-tb !important;
+  color:#e8dfc7 !important;
+  position:relative;
+  padding-bottom:6px;
+  transition:.25s;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-1px;
+  width:1px;
+  height:0;
+  background:var(--gold-l);
+  transform:translateX(-50%);
+  transition:.25s;
+}
+.nav a.active,
+.nav a:hover{color:var(--gold-l) !important}
+.nav a.active::after,
+.nav a:hover::after{height:10px}
+.menu{
+  width:44px;height:44px;
+  border:1px solid rgba(242,235,219,.24);
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.03);
+  color:var(--paper) !important;
+  font:500 1.05rem/1 var(--gothic) !important;
+}
+@media(max-width:900px){
+  .nav{display:none !important}
+}
+
+
+/* ===== unified site header / brush hero ===== */
 :root{
-  --paper:#090908 !important;
-  --paper2:#0d0d0c !important;
-  --ink:#eeeae2 !important;
-  --muted:#9e978d !important;
-  --line:rgba(255,255,255,.12) !important;
-  --dark:#050505 !important;
-  --accent:#b4a78a !important;
+  --site-paper:#f2ebdb;
+  --site-gold:#c4a35c;
+  --site-mincho:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
+  --site-gothic:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
 }
-body{background:#090908 !important;color:#eeeae2 !important}
-.site-header,header{background:#090908 !important;color:#eeeae2 !important;border-color:rgba(255,255,255,.10) !important}
-.nav a,.header-nav a,.global-nav a{color:#aaa399 !important}
-.nav a.active,.header-nav a.active,.global-nav a.active{color:#fff !important;border-color:#fff !important}
-.era-area,.era-bar,.subera-wrap{background:#0b0b0a !important;border-color:rgba(255,255,255,.10) !important}
-.major-btn,.era-btn,.sub-btn,.subera-btn{color:#d7d2c9 !important;border-color:rgba(255,255,255,.11) !important}
-.major-btn:hover,.era-btn:hover,.sub-btn:hover,.subera-btn:hover{background:#151513 !important;color:#fff !important}
-.major-btn.active,.era-btn.active,.sub-btn.active,.subera-btn.active{background:#29241d !important;color:#fff !important;border-color:#75694f !important}
-.main,.materials{background:#090908 !important}
-.mode-card,.class-card,.reco-card,.material-row,.empty{background:#11110f !important;border-color:rgba(255,255,255,.10) !important}
-.mode-card:hover,.class-card:hover,.reco-card:hover,.material-row:hover{background:#171714 !important}
-.mode-card.active{background:#29241d !important;border-color:#75694f !important}
-.item-title,.res-title,.class-copy h3,.reco-title{color:#f1ede5 !important}
-.item-desc,.item-date,.res-desc,.res-meta,.source,.reco-era,.reco-source,.section-heading p,.intro p,.mode-card p,.resource-head p,.resource-count{color:#9e978d !important}
-.footer,footer{background:#050505 !important;border-color:rgba(255,255,255,.10) !important}
+.unified-header{
+  position:fixed !important;
+  inset:0 0 auto 0 !important;
+  height:72px !important;
+  z-index:1000 !important;
+  background:rgba(10,10,9,.76) !important;
+  border-bottom:1px solid rgba(255,255,255,.10) !important;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  color:var(--site-paper);
+}
+.unified-header-inner{
+  width:min(1280px,calc(100% - 44px));
+  height:100%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:170px 1fr 52px;
+  align-items:center;
+  gap:24px;
+}
+.unified-brand{
+  color:var(--site-paper);
+  text-decoration:none;
+  font-family:var(--site-mincho);
+  font-size:1.15rem;
+  font-weight:500;
+  letter-spacing:.20em;
+  white-space:nowrap;
+}
+.unified-nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:clamp(16px,2.2vw,34px);
+  min-width:0;
+}
+.unified-nav a{
+  color:#eee7d9;
+  text-decoration:none;
+  font-family:var(--site-mincho);
+  font-size:.83rem;
+  font-weight:500;
+  letter-spacing:.14em;
+  white-space:nowrap;
+  position:relative;
+  padding:8px 1px;
+  transition:.22s ease;
+}
+.unified-nav a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:1px;
+  width:0;
+  height:1px;
+  background:var(--site-gold);
+  transform:translateX(-50%);
+  transition:.22s ease;
+}
+.unified-nav a:hover,
+.unified-nav a.active{color:var(--site-gold);}
+.unified-nav a:hover::after,
+.unified-nav a.active::after{width:100%;}
+.unified-menu{
+  width:44px;
+  height:44px;
+  border:1px solid rgba(242,235,219,.28);
+  background:rgba(255,255,255,.02);
+  border-radius:999px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:6px;
+  padding:0;
+  cursor:pointer;
+  text-decoration:none;
+}
+.unified-menu span{
+  display:block;
+  width:18px;
+  height:1px;
+  background:var(--site-paper);
+}
+.hero h1{
+  font-family:"kokuryu",var(--site-mincho) !important;
+  font-weight:400 !important;
+  letter-spacing:.09em !important;
+}
+@media(max-width:900px){
+  .unified-header-inner{
+    grid-template-columns:1fr 44px;
+    width:calc(100% - 28px);
+  }
+  .unified-nav{display:none;}
+  .unified-brand{font-size:1.05rem;}
+}
+
+
+/* ===== header alignment + shared menu drawer ===== */
+.unified-header-inner{
+  grid-template-columns:170px minmax(0,1fr) 52px !important;
+}
+.unified-nav{
+  justify-content:flex-end !important;
+  margin-left:auto !important;
+}
+.unified-menu{
+  position:relative;
+  z-index:1102;
+}
+body.menu-open{overflow:hidden;}
+body.menu-open .unified-menu{
+  background:transparent !important;
+  border-color:#665e52 !important;
+}
+body.menu-open .unified-menu span{background:#1d1913 !important;}
+body.menu-open .unified-menu span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+body.menu-open .unified-menu span:nth-child(2){opacity:0;}
+body.menu-open .unified-menu span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+.unified-drawer{
+  position:fixed;
+  inset:0;
+  z-index:1100;
+  background:#f2ebdb;
+  color:#1d1913;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  visibility:hidden;
+  opacity:0;
+  pointer-events:none;
+  clip-path:circle(0 at calc(100% - 44px) 36px);
+  transition:
+    clip-path .72s cubic-bezier(.65,0,.35,1),
+    opacity .15s linear,
+    visibility 0s linear .72s;
+}
+body.menu-open .unified-drawer{
+  visibility:visible;
+  opacity:1;
+  pointer-events:auto;
+  clip-path:circle(150% at calc(100% - 44px) 36px);
+  transition:
+    clip-path .72s cubic-bezier(.65,0,.35,1),
+    opacity .15s linear,
+    visibility 0s linear 0s;
+}
+.unified-drawer-in{
+  display:flex;
+  flex-direction:row-reverse;
+  gap:clamp(32px,6vw,76px);
+}
+.unified-drawer a{
+  writing-mode:vertical-rl;
+  height:min(50vh,390px);
+  padding-top:10px;
+  color:#453e32;
+  text-decoration:none;
+  font-family:var(--site-mincho,"Shippori Mincho B1",serif);
+  font-size:clamp(1.05rem,2.4vh,1.42rem);
+  font-weight:500;
+  letter-spacing:.38em;
+  position:relative;
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .45s ease,transform .55s ease,color .22s ease;
+}
+.unified-drawer a::before{
+  content:"";
+  position:absolute;
+  top:-7px;
+  left:50%;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#a2937a;
+  transform:translateX(-50%) scale(0);
+  transition:.25s;
+}
+.unified-drawer a:hover{color:#1d1913;}
+.unified-drawer a:hover::before{transform:translateX(-50%) scale(1);}
+body.menu-open .unified-drawer a{opacity:1;transform:none;}
+body.menu-open .unified-drawer a:nth-child(1){transition-delay:.18s;}
+body.menu-open .unified-drawer a:nth-child(2){transition-delay:.26s;}
+body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
+.unified-drawer-foot{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:28px;
+  text-align:center;
+  color:#6d6250;
+  font-family:var(--site-gothic,"Zen Kaku Gothic New",sans-serif);
+  font-size:.64rem;
+  letter-spacing:.28em;
+}
+@media(max-width:900px){
+  .unified-header-inner{grid-template-columns:1fr 44px !important;}
+  .unified-nav{display:none !important;}
+}
+
+.wf-loading .hero h1{visibility:hidden}
+.wf-active .hero h1,.wf-inactive .hero h1{visibility:visible}
+</style>
+
+<script>
+(function(d) {
+  var config = { kitId: 'iro6lgt', scriptTimeout: 3000, async: true },
+  h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),
+  tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;
+  h.className+=" wf-loading";
+  tk.src='https://use.typekit.net/'+config.kitId+'.js';
+  tk.async=true;
+  tk.onload=tk.onreadystatechange=function(){
+    a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;
+    f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}
+  };
+  s.parentNode.insertBefore(tk,s)
+})(document);
+</script>
+
+<!-- build:20260922v3 -->
+
+<style id="restore-brush-brand">
+.unified-brand{
+  font-family:"kokuryu",var(--site-mincho) !important;
+  font-weight:400 !important;
+  letter-spacing:.11em !important;
+}
+.wf-loading .unified-brand{visibility:hidden}
+.wf-active .unified-brand,
+.wf-inactive .unified-brand{visibility:visible}
 </style>
 
 </head>
-<body>
-<header>
-<div class="header-inner">
-<a class="logo" href="index.html"><img alt="歴史する" src="assets/logo.png"/></a>
-<nav class="global-nav"><a class="active" href="manabu.html">学ぶ</a><a href="tou.html">問う</a><a href="kitaeru.html">鍛える</a><a href="miru.html">観る</a><a href="shiraberu.html">調べる</a><a href="meguru.html">巡る</a></nav>
-</div>
-</header>
-<section class="hero">
-<div aria-hidden="true" class="hero-photo"></div>
-<div class="hero-copy">
-<div class="hero-eyebrow">授業プリント・スライド</div>
-<h1>学ぶ</h1>
-<div class="short-rule"></div>
-<p>時代を選び、授業プリントやスライドから学び直せます。</p>
-</div>
 
+<body>
+<header class="unified-header">
+  <div class="unified-header-inner">
+    <a class="unified-brand" href="index.html#top">歴史する</a>
+    <nav class="unified-nav">
+      <a class="active" href="manabu.html">学ぶ</a><a href="tou.html?v=20260922v3">問う</a><a href="kitaeru.html?v=20260922v3">鍛える</a><a href="miru.html">観る</a><a href="shiraberu.html">調べる</a><a href="meguru.html">巡る</a>
+    </nav>
+    <button class="unified-menu" id="hamb" type="button" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav class="unified-drawer" id="unifiedDrawer" aria-label="サイトメニュー">
+  <div class="unified-drawer-in">
+    <a href="index.html#emaki">時代をたどる</a>
+    <a href="index.html#gates">教材</a>
+    <a href="index.html#sho">この授業について</a>
+  </div>
+  <div class="unified-drawer-foot">歴史する　授業ポータル</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-photo" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <div class="hero-eyebrow">過去と、いまをつなぐ。</div>
+    <h1>学ぶ</h1>
+    <div class="short-rule"></div>
+    <p>
+      史料にふれ、考え、対話する。<br>
+      歴史は、遠い過去の話ではなく、<br>
+      いまを生きる私たちの問いです。
+    </p>
+  </div>
+  <div class="hero-phrase">あの時代も、きっと、だれかのいまだった。</div>
 </section>
-<section aria-label="時代を選ぶ" class="era-bar">
-<div class="era-inner">
-<div class="era-lead">時代から教材を探す</div>
-<button class="era-btn active" data-major="古代"><span>古代　→</span></button>
-<button class="era-btn" data-major="中世"><span>中世　→</span></button>
-<button class="era-btn" data-major="近世"><span>近世　→</span></button>
-<button class="era-btn" data-major="近代"><span>近代　→</span></button>
-<button class="era-btn" data-major="現代"><span>現代　→</span></button>
-</div>
-<div class="subera-wrap">
-<div class="subera-inner" id="subEraNav"></div>
-</div>
+
+<section class="era-bar" aria-label="時代を選ぶ">
+  <div class="era-inner">
+    <div class="era-lead">時代から教材を探す</div>
+    <button class="era-btn active" data-major="古代"><span>古代　→</span></button>
+    <button class="era-btn" data-major="中世"><span>中世　→</span></button>
+    <button class="era-btn" data-major="近世"><span>近世　→</span></button>
+    <button class="era-btn" data-major="近代"><span>近代　→</span></button>
+    <button class="era-btn" data-major="現代"><span>現代　→</span></button>
+  </div>
+  <div class="subera-wrap">
+    <div class="subera-inner" id="subEraNav"></div>
+  </div>
 </section>
+
 <section class="materials">
-<div class="materials-inner">
-<aside class="era-intro">
-<div class="era-label" id="eraLabel">古代</div>
-<h2 id="eraHeadline">はじまりの<br/>日本をみる</h2>
-<p id="eraCopy">
-        国家のかたちが生まれ、<br/>
-        人々の営みが広がっていった時代。<br/>
-        史料から、古代の社会と人々の<br/>
+  <div class="materials-inner">
+    <aside class="era-intro">
+      <div class="era-label" id="eraLabel">古代</div>
+      <h2 id="eraHeadline">はじまりの<br>日本をみる</h2>
+      <p id="eraCopy">
+        国家のかたちが生まれ、<br>
+        人々の営みが広がっていった時代。<br>
+        史料から、古代の社会と人々の<br>
         くらしを読み解いてみましょう。
       </p>
-<a class="all-link" href="#" id="allLink">この時代の教材をすべて見る　→</a>
-</aside>
-<div>
-<div class="list-head">
-<div class="list-title">教材</div>
-<div class="list-count"><span id="count">0</span> 件</div>
-</div>
-<div class="material-list" id="list">
-<div class="empty">教材を読み込んでいます。</div>
-</div>
-</div>
-</div>
+      <a class="all-link" href="#" id="allLink">この時代の教材をすべて見る　→</a>
+    </aside>
+
+    <div>
+      <div class="list-head">
+        <div class="list-title">MATERIALS</div>
+        <div class="list-count"><span id="count">0</span> 件</div>
+      </div>
+      <div class="material-list" id="list">
+        <div class="empty">教材を読み込んでいます。</div>
+      </div>
+    </div>
+  </div>
 </section>
+
 <div class="credit">
   写真：Connecting Corridor at Tōfuku-ji Temple in Kyoto / Tmv,
-  <a href="https://commons.wikimedia.org/wiki/File:Connecting_Corridor_at_T%C5%8Dfuku-ji_Temple_in_Kyoto.jpg" rel="noopener" target="_blank">Wikimedia Commons</a>,
+  <a href="https://commons.wikimedia.org/wiki/File:Connecting_Corridor_at_T%C5%8Dfuku-ji_Temple_in_Kyoto.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>,
   CC BY-SA 4.0
 </div>
+
+<script src="site-config.js"></script>
 <script>
-const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTGfy6nXuXVIFiazfphIAJT7by7hcBLolbP6DHFrIxqrbyB8ucFAlzIRUGuK3BERm9p1IFCi07cvgPu/pub?gid=1464622297&single=true&output=csv";
+const CSV_URL = (window.HISTORY_SITE_CONFIG && window.HISTORY_SITE_CONFIG.SHEET_CSV_URL) || "https://docs.google.com/spreadsheets/d/e/2PACX-1vTGfy6nXuXVIFiazfphIAJT7by7hcBLolbP6DHFrIxqrbyB8ucFAlzIRUGuK3BERm9p1IFCi07cvgPu/pub?gid=1464622297&single=true&output=csv";
 
 const ERA_TEXT = {
   "古代":{
-    headline:"古代",
-    copy:"旧石器から平安まで。授業プリント・スライドを時代別に探せます。"
+    headline:"はじまりの<br>日本をみる",
+    copy:"国家のかたちが生まれ、<br>人々の営みが広がっていった時代。<br>史料から、古代の社会と人々の<br>くらしを読み解いてみましょう。"
   },
   "中世":{
-    headline:"中世",
-    copy:"鎌倉から戦国まで。政治・社会・文化の教材を時代別に探せます。"
+    headline:"武士と人びとの<br>時代をみる",
+    copy:"武士の政権が生まれ、<br>地域や社会の結びつきが変化した時代。<br>政治だけでなく、人々の営みから<br>中世を考えてみましょう。"
   },
   "近世":{
-    headline:"近世",
-    copy:"安土桃山から幕末まで。幕藩体制・社会・文化の教材を探せます。"
+    headline:"つながる社会を<br>みつめる",
+    copy:"都市と村、街道と海、<br>さまざまな人とモノが行き交った時代。<br>江戸社会の仕組みと文化を<br>史料から読み解いてみましょう。"
   },
   "近代":{
-    headline:"近代",
-    copy:"明治から昭和戦前まで。国家・社会・外交の教材を探せます。"
+    headline:"世界と出会う<br>日本をみる",
+    copy:"国家と社会のかたちが大きく変わり、<br>世界との関係も深まっていった時代。<br>制度と人々の暮らしの両方から<br>近代を考えてみましょう。"
   },
   "現代":{
-    headline:"現代",
-    copy:"戦後から令和まで。政治・経済・社会の変化を扱う教材を探せます。"
+    headline:"いまにつながる<br>歴史をみる",
+    copy:"戦争と復興、高度成長、社会の変化。<br>私たちの「いま」に近い時代だからこそ、<br>過去とのつながりを意識して<br>歴史を考えてみましょう。"
   }
 };
 
@@ -830,5 +1147,25 @@ fetch(CSV_URL,{cache:"no-store"})
     render();
   });
 </script>
+
+<script>
+(function(){
+  const btn=document.querySelector('.unified-menu');
+  const drawer=document.getElementById('unifiedDrawer');
+  if(!btn || !drawer) return;
+  btn.addEventListener('click',function(){
+    document.body.classList.toggle('menu-open');
+  });
+  drawer.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      document.body.classList.remove('menu-open');
+    });
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape') document.body.classList.remove('menu-open');
+  });
+})();
+</script>
+
 </body>
 </html>

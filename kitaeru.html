@@ -3,34 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>鍛える｜歴史する</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#080807;
-  --panel:#0d0d0c;
-  --line:rgba(255,255,255,.10);
-  --line2:rgba(255,255,255,.18);
-  --text:#f0ede6;
-  --muted:#918b81;
-  --muted2:#6e685f;
+  --bg:#070706;
+  --bg2:#0b0b0a;
+  --line:rgba(255,255,255,.11);
+  --text:#f1eee8;
+  --muted:#9b958b;
+  --muted2:#6f6961;
   --serif:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
   --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  margin:0;background:var(--bg);color:var(--text);
-  font-family:var(--serif);letter-spacing:.04em
-}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--serif);letter-spacing:.04em}
 a{color:inherit;text-decoration:none}
 button{font:inherit}
 
 /* header */
 header{
-  height:74px;position:absolute;top:0;left:0;right:0;z-index:40
+  height:74px;position:absolute;top:0;left:0;right:0;z-index:50
 }
 .header-inner{
   width:min(1280px,calc(100% - 48px));height:100%;margin:auto;
@@ -43,237 +42,711 @@ header{
 
 /* hero */
 .hero{
-  min-height:430px;position:relative;overflow:hidden;
-  background:
-    radial-gradient(circle at 76% 45%,rgba(255,255,255,.06),transparent 22%),
-    linear-gradient(90deg,#050504 0%,#080807 58%,#0d0d0b 100%);
-  border-bottom:1px solid var(--line);
+  min-height:520px;position:relative;overflow:hidden;background:#050504;border-bottom:1px solid var(--line)
 }
 .hero:before{
   content:"";position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
-  background-size:48px 48px;
-  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 48%,#000 100%);
+  background:
+    linear-gradient(90deg,rgba(4,4,4,.98) 0%,rgba(4,4,4,.91) 34%,rgba(4,4,4,.45) 70%,rgba(4,4,4,.58) 100%),
+    linear-gradient(180deg,rgba(4,4,4,.08),rgba(4,4,4,.14) 55%,rgba(4,4,4,.86) 100%),
+    url("kitaeru-hero-20260922v3.jpg");
+  background-size:110% auto;background-position:left center;
+  filter:saturate(.7) contrast(1.05);
 }
 .hero-inner{
-  position:relative;z-index:2;width:min(1280px,calc(100% - 48px));min-height:430px;margin:auto;
-  display:grid;grid-template-columns:1fr 420px;align-items:center;gap:50px;padding-top:54px
+  position:relative;z-index:2;width:min(1280px,calc(100% - 48px));min-height:520px;margin:auto;
+  display:flex;align-items:center
 }
-.hero-copy{max-width:520px}
-.eyebrow{font-size:.84rem;color:#c8c2b7;margin-bottom:12px}
-.hero h1{
-  margin:0;font-size:clamp(4.2rem,7vw,6.2rem);font-weight:500;line-height:.95;letter-spacing:.16em
+.hero-copy{width:470px;padding-top:42px}
+.hero .eyebrow{font-size:.84rem;color:#c8c2b7;margin-bottom:12px}
+.hero h1{margin:0;font-size:clamp(4.2rem,7vw,6.2rem);font-weight:500;line-height:.95;letter-spacing:.16em}
+.hero .lead{margin-top:20px;font-size:1.05rem;line-height:1.95;color:#d2ccc1}
+.hero .sub{margin-top:10px;font:400 .72rem/1.85 var(--sans);color:#8d877d}
+.hero .vertical{
+  position:absolute;right:7%;top:150px;writing-mode:vertical-rl;
+  font-size:.78rem;line-height:2;color:#c9c3b8;letter-spacing:.14em
 }
-.lead{margin-top:22px;font-size:1rem;line-height:1.95;color:#d0cabf}
-.sub{margin-top:10px;font:400 .71rem/1.85 var(--sans);color:#888279}
-
-/* visual meter */
-.hero-meter{
-  align-self:center;border-left:1px solid var(--line);padding-left:34px
-}
-.meter-label{font:500 .58rem/1 var(--sans);letter-spacing:.15em;color:#706a62;margin-bottom:18px}
-.meter-line{display:flex;align-items:center;gap:12px;margin:14px 0}
-.meter-line span:first-child{width:56px;font-size:.76rem;color:#9f998e}
-.bar{height:1px;background:#4e4942;flex:1;position:relative}
-.bar:after{content:"";position:absolute;left:0;top:-2px;height:5px;background:#ddd8cf}
-.meter-line:nth-child(2) .bar:after{width:42%}
-.meter-line:nth-child(3) .bar:after{width:66%}
-.meter-line:nth-child(4) .bar:after{width:88%}
-.meter-note{margin-top:18px;font:400 .63rem/1.7 var(--sans);color:#6f6961}
-
-/* modes */
-.modes{
-  width:min(1180px,calc(100% - 48px));margin:auto;padding:48px 0 58px
-}
-.section-label{font:500 .6rem/1 var(--sans);letter-spacing:.16em;color:#6f6961;margin-bottom:16px}
-.mode-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line)
-}
-.mode-card{
-  appearance:none;border:0;border-right:1px solid var(--line);
-  background:transparent;color:var(--text);min-height:250px;padding:26px 28px;
-  text-align:left;cursor:pointer;position:relative;transition:.2s
-}
-.mode-card:last-child{border-right:0}
-.mode-card:hover{background:#0d0d0c}
-.mode-card.active{background:#121210}
-.mode-card small{
-  display:block;font:500 .55rem/1 var(--sans);letter-spacing:.15em;color:#6f6961
-}
-.mode-card h2{margin:42px 0 10px;font-size:1.5rem;font-weight:500}
-.mode-card p{margin:0;max-width:280px;font:400 .7rem/1.85 var(--sans);color:#8f897f}
-.mode-foot{
-  position:absolute;left:28px;right:28px;bottom:20px;
-  display:flex;justify-content:space-between;font-size:.72rem;color:#b7b1a6
+.scroll{
+  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  font:500 .55rem/1 var(--sans);letter-spacing:.18em;color:#7e786f
 }
 
-/* practice section */
-.practice{
-  border-top:1px solid var(--line);background:#090908;padding:54px 0 90px
+/* course timeline */
+.course{position:relative}
+.course:before{
+  content:"";position:absolute;left:max(24px,calc((100vw - 1280px)/2 + 28px));top:0;bottom:0;
+  width:1px;background:var(--line);z-index:3
 }
-.practice-inner{width:min(1120px,calc(100% - 48px));margin:auto}
-.practice-head{
-  display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;align-items:end;margin-bottom:24px
+.stage{
+  min-height:340px;position:relative;border-bottom:1px solid var(--line);overflow:hidden
 }
-.practice-head .kicker{font-size:.9rem;color:#bbb5ab}
-.practice-head .kicker:after{content:"";display:block;width:40px;height:1px;background:#514d46;margin-top:14px}
-.practice-head h3{margin:0;font-size:2rem;font-weight:500}
-.practice-head p{margin:8px 0 0;font:400 .7rem/1.8 var(--sans);color:#89837a}
+.stage-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  filter:saturate(.55) contrast(1.06) brightness(.72)
+}
+.stage:nth-child(1) .stage-bg{background-image:linear-gradient(90deg,#080807 0%,rgba(8,8,7,.90) 36%,rgba(8,8,7,.34) 76%,rgba(8,8,7,.72) 100%),url("kitaeru-section1-20260922v3.jpg")}
+.stage:nth-child(2) .stage-bg{background-image:linear-gradient(90deg,#080807 0%,rgba(8,8,7,.90) 40%,rgba(8,8,7,.38) 76%,rgba(8,8,7,.74) 100%),url("kitaeru-section2-20260922v3.jpg")}
+.stage:nth-child(3) .stage-bg{background-image:linear-gradient(90deg,#080807 0%,rgba(8,8,7,.91) 38%,rgba(8,8,7,.34) 75%,rgba(8,8,7,.74) 100%),url("kitaeru-section3-20260922v3.jpg")}
+.stage-inner{
+  width:min(1280px,calc(100% - 48px));min-height:340px;margin:auto;position:relative;z-index:2;
+  display:grid;grid-template-columns:90px 360px minmax(0,1fr);gap:30px;align-items:center
+}
+.num{font-size:3.4rem;font-weight:400;color:#aaa49a;align-self:start;padding-top:38px}
+.num:before{
+  content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:#d9d4ca;
+  left:max(19px,calc((100vw - 1280px)/2 + 23px));margin-top:18px
+}
+.stage-copy{padding:40px 0}
+.stage-copy .rule{width:110px;height:1px;background:#69635c;margin-bottom:18px}
+.stage h2{margin:0 0 8px;font-size:2.05rem;font-weight:500;letter-spacing:.08em}
+.stage h3{margin:0 0 20px;font-size:1.08rem;font-weight:400;color:#d1cbc1}
+.stage p{margin:0 0 24px;max-width:350px;font:400 .7rem/1.9 var(--sans);color:#9a948a}
+.stage-link{
+  display:inline-flex;align-items:center;justify-content:space-between;gap:50px;
+  border:1px solid rgba(255,255,255,.20);padding:12px 16px;min-width:220px;
+  font-size:.76rem;transition:.2s
+}
+.stage-link:hover{background:rgba(255,255,255,.05)}
+.stage-aside{
+  align-self:stretch;display:flex;align-items:center;justify-content:flex-end;padding-right:20px
+}
+.aside-box{
+  width:min(360px,100%);border:1px solid rgba(255,255,255,.11);background:rgba(5,5,5,.38);
+  backdrop-filter:blur(4px);padding:18px
+}
+.aside-title{font:500 .57rem/1 var(--sans);letter-spacing:.15em;color:#777168;margin-bottom:14px}
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.quick{
+  min-height:46px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;color:#aaa49a;transition:.2s
+}
+.quick:hover{color:#fff;border-color:rgba(255,255,255,.24)}
+.quick.big{grid-column:span 3;justify-content:space-between;padding:0 14px}
 
-/* era grid */
-.era-block{border-top:1px solid var(--line)}
-.era-row{
-  display:grid;grid-template-columns:145px minmax(0,1fr);gap:22px;
-  align-items:start;padding:18px 0;border-bottom:1px solid var(--line)
+/* closing */
+.closing{
+  min-height:155px;position:relative;overflow:hidden;border-bottom:1px solid var(--line)
 }
-.era-name{font-size:1rem;letter-spacing:.08em;padding-top:10px;color:#d0cabf}
-.era-subs{display:grid;grid-template-columns:repeat(4,minmax(92px,1fr));gap:8px}
-.sub-era-btn{
-  appearance:none;min-height:46px;border:1px solid var(--line);
-  background:transparent;color:#8d877d;padding:10px 12px;cursor:pointer;transition:.2s
+.closing:before{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(5,5,5,.65),rgba(5,5,5,.33)),
+    url("kitaeru-closing.jpg");
+  background-size:cover;background-position:center;
+  filter:saturate(.65) brightness(.8)
 }
-.sub-era-btn:hover{background:#0f0f0e;color:#fff;border-color:var(--line2)}
-.sub-era-btn.active{color:#fff;border-color:#eee9df;background:#11110f}
+.closing-inner{
+  position:relative;z-index:2;width:min(1280px,calc(100% - 48px));min-height:155px;margin:auto;
+  display:flex;justify-content:space-between;align-items:center;gap:30px
+}
+.closing h4{margin:0;font-size:1.4rem;font-weight:500;line-height:1.6}
+.closing .go{font:2rem var(--sans);color:#eee}
 
-/* list */
-.detail{display:none;margin-top:34px;border-top:1px solid var(--line)}
-.detail.show{display:block}
-.detail-head{
-  display:flex;justify-content:space-between;align-items:end;gap:20px;
-  padding:20px 0 14px;border-bottom:1px solid var(--line)
-}
-.detail-head h4{margin:0;font-size:1.3rem;font-weight:500}
-.detail-head p{margin:6px 0 0;font:400 .67rem/1.75 var(--sans);color:#858077}
-.resource{
-  min-height:84px;border-bottom:1px solid var(--line);
-  display:grid;grid-template-columns:110px minmax(0,1fr) 100px 24px;
-  gap:18px;align-items:center;transition:.2s
-}
-.resource:hover{background:#0d0d0c;padding-left:8px;padding-right:8px}
-.badge{
-  width:max-content;border:1px solid var(--line);padding:7px 9px;
-  font:500 .57rem/1 var(--sans);color:#9b958a
-}
-.title{font-size:.95rem;margin-bottom:4px}
-.desc{font:400 .64rem/1.7 var(--sans);color:#817b72}
-.meta{text-align:right;font:400 .59rem/1.6 var(--sans);color:#706a62}
-.arrow{font:1rem var(--sans);color:#b8b2a8}
-
-footer{
-  border-top:1px solid var(--line);padding:22px 0 30px;
-  color:#6d675f;font:400 .6rem/1.7 var(--sans)
-}
+/* footer */
+footer{padding:22px 0 30px;color:#6d675f;font:400 .6rem/1.7 var(--sans)}
 .footer-inner{
-  width:min(1120px,calc(100% - 48px));margin:auto;
-  display:flex;justify-content:space-between
+  width:min(1280px,calc(100% - 48px));margin:auto;display:flex;justify-content:space-between
 }
 
 @media(max-width:900px){
   .nav{display:none}
-  .hero-inner{grid-template-columns:1fr}
-  .hero-meter{display:none}
-  .mode-grid{grid-template-columns:1fr}
-  .mode-card{border-right:0;border-bottom:1px solid var(--line)}
-  .mode-card:last-child{border-bottom:0}
-  .practice-head{grid-template-columns:1fr}
-  .era-row{grid-template-columns:1fr;gap:10px}
-  .era-name{padding-top:0}
-  .era-subs{grid-template-columns:repeat(3,minmax(86px,1fr))}
-  .resource{grid-template-columns:90px minmax(0,1fr) 24px}
-  .meta,.desc{display:none}
+  .hero .vertical{display:none}
+  .stage-inner{grid-template-columns:70px minmax(0,1fr)}
+  .stage-aside{grid-column:2;padding:0 0 32px;justify-content:flex-start}
+  .course:before{left:24px}
+  .num:before{left:19px}
 }
 @media(max-width:620px){
-  .era-subs{grid-template-columns:repeat(2,1fr)}
+  .hero{min-height:450px}
+  .hero-inner{min-height:450px}
+  .hero-copy{width:80%}
+  .stage-inner{grid-template-columns:54px minmax(0,1fr);gap:18px}
+  .num{font-size:2.6rem}
+  .quick-grid{grid-template-columns:repeat(2,1fr)}
+  .quick.big{grid-column:span 2}
+}
+
+/* ===== update: unified header + top-page font ===== */
+:root{
+  --mincho:"Shippori Mincho B1",serif;
+  --gothic:"Zen Kaku Gothic New",sans-serif;
+  --gold-l:#c4a35c;
+  --paper:#f2ebdb;
+  --sumi:#1d1913;
+  --soft:#6d6250;
+}
+body{font-family:var(--mincho) !important;}
+h1,h2,h3,h4,h5,h6,
+.brand,.nav a,.nav,.menu,
+.hero h1,.feature h2,.column-head h3,.section-head h2,
+.mode-card h2,.practice-head h3,.stage h2,.stage h3{
+  font-family:var(--mincho) !important;
+}
+small,.eyebrow,.sub,.lead,.copy,.desc,.meta,.badge,
+input,button,select,textarea{
+  font-family:var(--gothic);
+}
+header{
+  height:74px !important;
+  position:fixed !important;
+  top:0;left:0;right:0;
+  z-index:80 !important;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg,rgba(10,10,9,.80),rgba(10,10,9,.46)) !important;
+  backdrop-filter:blur(10px);
+}
+.header-inner{
+  width:min(1280px,calc(100% - 48px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  color:var(--paper) !important;
+  font-size:1.24rem;
+  letter-spacing:.18em;
+}
+.nav{
+  display:flex;
+  gap:clamp(12px,2vw,26px) !important;
+  align-items:center;
+  color:#ddd4c6 !important;
+  font-size:.86rem !important;
+}
+.nav a{
+  writing-mode:horizontal-tb !important;
+  color:#e8dfc7 !important;
+  position:relative;
+  padding-bottom:6px;
+  transition:.25s;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-1px;
+  width:1px;
+  height:0;
+  background:var(--gold-l);
+  transform:translateX(-50%);
+  transition:.25s;
+}
+.nav a.active,
+.nav a:hover{color:var(--gold-l) !important}
+.nav a.active::after,
+.nav a:hover::after{height:10px}
+.menu{
+  width:44px;height:44px;
+  border:1px solid rgba(242,235,219,.24);
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.03);
+  color:var(--paper) !important;
+  font:500 1.05rem/1 var(--gothic) !important;
+}
+@media(max-width:900px){
+  .nav{display:none !important}
+}
+
+
+/* ===== unified site header / brush hero ===== */
+:root{
+  --site-paper:#f2ebdb;
+  --site-gold:#c4a35c;
+  --site-mincho:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
+  --site-gothic:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+}
+.unified-header{
+  position:fixed !important;
+  inset:0 0 auto 0 !important;
+  height:72px !important;
+  z-index:1000 !important;
+  background:rgba(10,10,9,.76) !important;
+  border-bottom:1px solid rgba(255,255,255,.10) !important;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  color:var(--site-paper);
+}
+.unified-header-inner{
+  width:min(1280px,calc(100% - 44px));
+  height:100%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:170px 1fr 52px;
+  align-items:center;
+  gap:24px;
+}
+.unified-brand{
+  color:var(--site-paper);
+  text-decoration:none;
+  font-family:var(--site-mincho);
+  font-size:1.15rem;
+  font-weight:500;
+  letter-spacing:.20em;
+  white-space:nowrap;
+}
+.unified-nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:clamp(16px,2.2vw,34px);
+  min-width:0;
+}
+.unified-nav a{
+  color:#eee7d9;
+  text-decoration:none;
+  font-family:var(--site-mincho);
+  font-size:.83rem;
+  font-weight:500;
+  letter-spacing:.14em;
+  white-space:nowrap;
+  position:relative;
+  padding:8px 1px;
+  transition:.22s ease;
+}
+.unified-nav a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:1px;
+  width:0;
+  height:1px;
+  background:var(--site-gold);
+  transform:translateX(-50%);
+  transition:.22s ease;
+}
+.unified-nav a:hover,
+.unified-nav a.active{color:var(--site-gold);}
+.unified-nav a:hover::after,
+.unified-nav a.active::after{width:100%;}
+.unified-menu{
+  width:44px;
+  height:44px;
+  border:1px solid rgba(242,235,219,.28);
+  background:rgba(255,255,255,.02);
+  border-radius:999px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:6px;
+  padding:0;
+  cursor:pointer;
+  text-decoration:none;
+}
+.unified-menu span{
+  display:block;
+  width:18px;
+  height:1px;
+  background:var(--site-paper);
+}
+.hero h1{
+  font-family:"kokuryu",var(--site-mincho) !important;
+  font-weight:400 !important;
+  letter-spacing:.09em !important;
+}
+@media(max-width:900px){
+  .unified-header-inner{
+    grid-template-columns:1fr 44px;
+    width:calc(100% - 28px);
+  }
+  .unified-nav{display:none;}
+  .unified-brand{font-size:1.05rem;}
+}
+
+
+/* ===== header alignment + shared menu drawer ===== */
+.unified-header-inner{
+  grid-template-columns:170px minmax(0,1fr) 52px !important;
+}
+.unified-nav{
+  justify-content:flex-end !important;
+  margin-left:auto !important;
+}
+.unified-menu{
+  position:relative;
+  z-index:1102;
+}
+body.menu-open{overflow:hidden;}
+body.menu-open .unified-menu{
+  background:transparent !important;
+  border-color:#665e52 !important;
+}
+body.menu-open .unified-menu span{background:#1d1913 !important;}
+body.menu-open .unified-menu span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+body.menu-open .unified-menu span:nth-child(2){opacity:0;}
+body.menu-open .unified-menu span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+.unified-drawer{
+  position:fixed;
+  inset:0;
+  z-index:1100;
+  background:#f2ebdb;
+  color:#1d1913;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  visibility:hidden;
+  opacity:0;
+  pointer-events:none;
+  clip-path:circle(0 at calc(100% - 44px) 36px);
+  transition:
+    clip-path .72s cubic-bezier(.65,0,.35,1),
+    opacity .15s linear,
+    visibility 0s linear .72s;
+}
+body.menu-open .unified-drawer{
+  visibility:visible;
+  opacity:1;
+  pointer-events:auto;
+  clip-path:circle(150% at calc(100% - 44px) 36px);
+  transition:
+    clip-path .72s cubic-bezier(.65,0,.35,1),
+    opacity .15s linear,
+    visibility 0s linear 0s;
+}
+.unified-drawer-in{
+  display:flex;
+  flex-direction:row-reverse;
+  gap:clamp(32px,6vw,76px);
+}
+.unified-drawer a{
+  writing-mode:vertical-rl;
+  height:min(50vh,390px);
+  padding-top:10px;
+  color:#453e32;
+  text-decoration:none;
+  font-family:var(--site-mincho,"Shippori Mincho B1",serif);
+  font-size:clamp(1.05rem,2.4vh,1.42rem);
+  font-weight:500;
+  letter-spacing:.38em;
+  position:relative;
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .45s ease,transform .55s ease,color .22s ease;
+}
+.unified-drawer a::before{
+  content:"";
+  position:absolute;
+  top:-7px;
+  left:50%;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#a2937a;
+  transform:translateX(-50%) scale(0);
+  transition:.25s;
+}
+.unified-drawer a:hover{color:#1d1913;}
+.unified-drawer a:hover::before{transform:translateX(-50%) scale(1);}
+body.menu-open .unified-drawer a{opacity:1;transform:none;}
+body.menu-open .unified-drawer a:nth-child(1){transition-delay:.18s;}
+body.menu-open .unified-drawer a:nth-child(2){transition-delay:.26s;}
+body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
+.unified-drawer-foot{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:28px;
+  text-align:center;
+  color:#6d6250;
+  font-family:var(--site-gothic,"Zen Kaku Gothic New",sans-serif);
+  font-size:.64rem;
+  letter-spacing:.28em;
+}
+@media(max-width:900px){
+  .unified-header-inner{grid-template-columns:1fr 44px !important;}
+  .unified-nav{display:none !important;}
+}
+
+.wf-loading .hero h1{visibility:hidden}
+.wf-active .hero h1,.wf-inactive .hero h1{visibility:visible}
+</style>
+
+<script>
+(function(d) {
+  var config = { kitId: 'iro6lgt', scriptTimeout: 3000, async: true },
+  h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),
+  tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;
+  h.className+=" wf-loading";
+  tk.src='https://use.typekit.net/'+config.kitId+'.js';
+  tk.async=true;
+  tk.onload=tk.onreadystatechange=function(){
+    a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;
+    f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}
+  };
+  s.parentNode.insertBefore(tk,s)
+})(document);
+</script>
+
+<!-- build:20260922v3 -->
+
+<style id="restore-brush-brand">
+.unified-brand{
+  font-family:"kokuryu",var(--site-mincho) !important;
+  font-weight:400 !important;
+  letter-spacing:.11em !important;
+}
+.wf-loading .unified-brand{visibility:hidden}
+.wf-active .unified-brand,
+.wf-inactive .unified-brand{visibility:visible}
+</style>
+
+
+<style id="kitaeru-photo-apps">
+.kitaeru-apps{
+  background:#090908;
+  border-bottom:1px solid rgba(255,255,255,.11);
+}
+.kitaeru-apps-inner{
+  width:min(1180px,calc(100% - 48px));
+  margin:auto;
+  padding:42px 0 48px;
+}
+.kitaeru-apps-label{
+  font:500 .61rem/1 var(--site-gothic,"Zen Kaku Gothic New",sans-serif);
+  letter-spacing:.15em;
+  color:#777168;
+  margin-bottom:16px;
+}
+.kitaeru-apps-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:1px solid rgba(255,255,255,.11);
+  border-bottom:1px solid rgba(255,255,255,.11);
+}
+.kitaeru-app{
+  min-height:270px;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  padding:30px 32px 28px;
+  border-right:1px solid rgba(255,255,255,.11);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+.kitaeru-app:last-child{border-right:0}
+.kitaeru-app img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:.50;
+  filter:saturate(.68) contrast(1.08) brightness(.72);
+  z-index:-2;
+  transition:transform .35s ease,opacity .35s ease;
+}
+.kitaeru-app::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(5,5,5,.92) 0%,rgba(5,5,5,.72) 52%,rgba(5,5,5,.34) 100%),
+    linear-gradient(180deg,rgba(5,5,5,.12),rgba(5,5,5,.52));
+  z-index:-1;
+}
+.kitaeru-app:hover img{transform:scale(1.025);opacity:.57}
+.kitaeru-app .app-index{
+  font:500 .56rem/1 var(--site-gothic,"Zen Kaku Gothic New",sans-serif);
+  letter-spacing:.16em;
+  color:#d4cbbb;
+}
+.kitaeru-app h2{
+  margin:46px 0 12px;
+  font-size:clamp(1.55rem,2.5vw,2.4rem);
+  font-weight:500;
+  letter-spacing:.08em;
+  color:#fff;
+}
+.kitaeru-app p{
+  margin:0;
+  max-width:390px;
+  color:#d7d0c5;
+  font:400 .72rem/1.9 var(--site-gothic,"Zen Kaku Gothic New",sans-serif);
+}
+.kitaeru-app .app-foot{
+  position:absolute;
+  left:32px;right:32px;bottom:22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.74rem;
+  color:#f0e9dd;
+}
+.kitaeru-app .app-foot:before{
+  content:"";
+  position:absolute;
+  left:0;right:0;top:-13px;
+  height:1px;
+  background:rgba(255,255,255,.16);
+}
+@media(max-width:900px){
+  .kitaeru-apps-grid{grid-template-columns:1fr}
+  .kitaeru-app{
+    min-height:235px;
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.11);
+  }
+  .kitaeru-app:last-child{border-bottom:0}
 }
 </style>
-<style id="dark-theme-restore">body{background:#080807!important} footer{background:#050505!important}</style>
+
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
-    <a class="brand" href="index.html">歴史する</a>
-    <nav class="nav">
-      <a href="manabu.html">学ぶ</a>
-      <a href="tou.html">問う</a>
-      <a class="active" href="#">鍛える</a>
-      <a href="miru.html">観る</a>
-      <a href="#">調べる</a>
-      <a href="#">巡る</a>
+<header class="unified-header">
+  <div class="unified-header-inner">
+    <a class="unified-brand" href="index.html#top">歴史する</a>
+    <nav class="unified-nav">
+      <a href="manabu.html">学ぶ</a><a href="tou.html?v=20260922v3">問う</a><a class="active" href="kitaeru.html?v=20260922v3">鍛える</a><a href="miru.html">観る</a><a href="shiraberu.html">調べる</a><a href="meguru.html">巡る</a>
     </nav>
-    <div class="menu">☰</div>
+    <button class="unified-menu" id="hamb" type="button" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
 </header>
+<nav class="unified-drawer" id="unifiedDrawer" aria-label="サイトメニュー">
+  <div class="unified-drawer-in">
+    <a href="index.html#emaki">時代をたどる</a>
+    <a href="index.html#gates">教材</a>
+    <a href="index.html#sho">この授業について</a>
+  </div>
+  <div class="unified-drawer-foot">歴史する　授業ポータル</div>
+</nav>
 
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-copy">
-      <div class="eyebrow">知識を、使える力へ。</div>
+      <div class="eyebrow">知を、実力に変える。</div>
       <h1>鍛える</h1>
-      <div class="lead">解く。迷う。確かめる。<br>その繰り返しで、歴史は強くなる。</div>
-      <div class="sub">本番形式、判断問題、演習プリント。<br>覚えた知識を、問題の中で使ってみる。</div>
-    </div>
-
-    <div class="hero-meter">
-      <div class="meter-label">TRAINING</div>
-      <div class="meter-line"><span>確認</span><div class="bar"></div></div>
-      <div class="meter-line"><span>判断</span><div class="bar"></div></div>
-      <div class="meter-line"><span>実戦</span><div class="bar"></div></div>
-      <div class="meter-note">難しさではなく、使い方を変えて鍛える。</div>
-    </div>
-  </div>
-</section>
-
-<section class="modes">
-  <div class="section-label">PRACTICE MODE</div>
-  <div class="mode-grid">
-    <button class="mode-card active" data-mode="過去問演習">
-      <small>01 / EXAM</small>
-      <h2>過去問演習</h2>
-      <p>大学入試の過去問を使い、知識を本番の文脈で使う。</p>
-      <div class="mode-foot"><span>問題を見る</span><span>→</span></div>
-    </button>
-
-    <button class="mode-card" data-mode="正誤・組合せ問題">
-      <small>02 / JUDGE</small>
-      <h2>正誤・組合せ問題</h2>
-      <p>細かな違いを見抜き、根拠をもって判断する。</p>
-      <div class="mode-foot"><span>問題を見る</span><span>→</span></div>
-    </button>
-
-    <button class="mode-card" data-mode="演習プリント">
-      <small>03 / DRILL</small>
-      <h2>演習プリント</h2>
-      <p>単元ごとにまとめて解き、弱点を確かめる。</p>
-      <div class="mode-foot"><span>教材を見る</span><span>→</span></div>
-    </button>
-  </div>
-</section>
-
-<section class="practice">
-  <div class="practice-inner">
-    <div class="practice-head">
-      <div class="kicker">PRACTICE MATERIALS</div>
-      <div>
-        <h3 id="practiceTitle">過去問演習を、時代から。</h3>
-        <p>必要な時代を選び、その単元の問題へ進みます。</p>
+      <div class="lead">解く。見抜く。挑む。</div>
+      <div class="sub">
+        読んで終わりにしない。<br>
+        解いて、間違えて、考えて、また解く。<br>
+        その繰り返しが、歴史を自分のものにする。
       </div>
     </div>
+  </div>
+  <div class="vertical">過去と向き合う力は、これからを生きる力になる。</div>
+  <div class="scroll">SCROLL ↓</div>
+</section>
 
-    <div class="era-block" id="eraBlock"></div>
 
-    <div class="detail" id="detail">
-      <div class="detail-head">
-        <div>
-          <h4 id="detailTitle">鎌倉</h4>
-          <p id="detailCopy"></p>
+<section class="kitaeru-apps">
+  <div class="kitaeru-apps-inner">
+    <div class="kitaeru-apps-label">WEB APPS</div>
+    <div class="kitaeru-apps-grid">
+      <a class="kitaeru-app" href="#">
+        <img src="app-yamakawa-cover-20260922v3.jpg" alt="">
+        <div class="app-index">01</div>
+        <h2>山川一問一答</h2>
+        <p>用語・人物・出来事を短い問いで反復する。</p>
+        <div class="app-foot"><span>アプリを開く</span><span>→</span></div>
+      </a>
+      <a class="kitaeru-app" href="#">
+        <img src="app-jidai-cover-20260922v3.jpg" alt="">
+        <div class="app-index">02</div>
+        <h2>時代と流れで覚える</h2>
+        <p>出来事を前後関係と時代のつながりから捉える。</p>
+        <div class="app-foot"><span>アプリを開く</span><span>→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<main class="course">
+
+  <section class="stage" id="drill">
+    <div class="stage-bg"></div>
+    <div class="stage-inner">
+      <div class="num">01</div>
+      <div class="stage-copy">
+        <div class="rule"></div>
+        <h2>解く</h2>
+        <h3>演習プリント</h3>
+        <p>まずは手を動かして、知識を整理する。基礎から応用まで、単元ごとに繰り返す。</p>
+        <a class="stage-link" href="#"><span>演習プリントへ</span><span>→</span></a>
+      </div>
+      <div class="stage-aside">
+        <div class="aside-box">
+          <div class="aside-title">時代から選ぶ</div>
+          <div class="quick-grid">
+            <a class="quick" href="#">旧石器</a>
+            <a class="quick" href="#">縄文</a>
+            <a class="quick" href="#">弥生</a>
+            <a class="quick" href="#">飛鳥</a>
+            <a class="quick" href="#">奈良</a>
+            <a class="quick" href="#">平安</a>
+            <a class="quick" href="#">鎌倉</a>
+            <a class="quick" href="#">室町</a>
+            <a class="quick" href="#">江戸</a>
+            <a class="quick big" href="#"><span>すべての時代を見る</span><span>→</span></a>
+          </div>
         </div>
       </div>
-      <div id="resourceList"></div>
     </div>
+  </section>
+
+  <section class="stage" id="judge">
+    <div class="stage-bg"></div>
+    <div class="stage-inner">
+      <div class="num">02</div>
+      <div class="stage-copy">
+        <div class="rule"></div>
+        <h2>見抜く</h2>
+        <h3>正誤・組合せ問題</h3>
+        <p>似ているもの、まぎらわしいもの。違いを見抜く力は、本番で大きな武器になる。</p>
+        <a class="stage-link" href="#"><span>正誤・組合せ問題へ</span><span>→</span></a>
+      </div>
+      <div class="stage-aside">
+        <div class="aside-box">
+          <div class="aside-title">問題形式から選ぶ</div>
+          <div class="quick-grid">
+            <a class="quick big" href="#"><span>正誤問題</span><span>→</span></a>
+            <a class="quick big" href="#"><span>組合せ問題</span><span>→</span></a>
+            <a class="quick big" href="#"><span>空欄補充問題</span><span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage" id="past">
+    <div class="stage-bg"></div>
+    <div class="stage-inner">
+      <div class="num">03</div>
+      <div class="stage-copy">
+        <div class="rule"></div>
+        <h2>挑む</h2>
+        <h3>過去問演習</h3>
+        <p>大学入試の過去問で、時間の中で考え、書き、今の自分の力を試す。</p>
+        <a class="stage-link" href="#"><span>過去問演習へ</span><span>→</span></a>
+      </div>
+      <div class="stage-aside">
+        <div class="aside-box">
+          <div class="aside-title">大学から選ぶ</div>
+          <div class="quick-grid">
+            <a class="quick" href="#">東京大学</a>
+            <a class="quick" href="#">京都大学</a>
+            <a class="quick" href="#">一橋大学</a>
+            <a class="quick" href="#">早稲田大学</a>
+            <a class="quick" href="#">慶應義塾</a>
+            <a class="quick" href="#">上智大学</a>
+            <a class="quick big" href="#"><span>共通テスト・その他</span><span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="closing">
+  <div class="closing-inner">
+    <h4>解くたびに、<br>見えてくるものがある。</h4>
+    <div class="go">→</div>
   </div>
 </section>
 
@@ -284,120 +757,25 @@ footer{
   </div>
 </footer>
 
+
 <script>
-const SUB_ERAS={
-  "古代":["旧石器","縄文","弥生","古墳","飛鳥","奈良","平安"],
-  "中世":["鎌倉","南北朝","室町","戦国"],
-  "近世":["安土桃山","江戸","幕末"],
-  "近代":["明治","大正","昭和戦前"],
-  "現代":["戦後","平成","令和"]
-};
-
-const COPY={
-  "旧石器":"旧石器文化と列島形成を問題で確認する。",
-  "縄文":"縄文社会の特徴と変化を問題で確かめる。",
-  "弥生":"稲作・社会変化・対外関係を問題で整理する。",
-  "古墳":"ヤマト政権と古墳文化を問題で確認する。",
-  "飛鳥":"国家形成と仏教受容を問題で確かめる。",
-  "奈良":"律令国家と奈良時代の社会を演習する。",
-  "平安":"平安政治・社会・文化を問題で捉える。",
-  "鎌倉":"武士政権の成立と展開を実戦問題で確認する。",
-  "南北朝":"内乱と政治変化を問題で整理する。",
-  "室町":"室町幕府・外交・社会・文化を演習する。",
-  "戦国":"戦国大名と地域社会を問題で確認する。",
-  "安土桃山":"統一政権と社会変化を問題で整理する。",
-  "江戸":"幕藩体制・社会・文化を幅広く演習する。",
-  "幕末":"開国から倒幕までの流れを問題で確かめる。",
-  "明治":"近代国家形成と国民化を実戦問題で確認する。",
-  "大正":"政党政治と大衆社会を問題で整理する。",
-  "昭和戦前":"戦争と社会変化を問題で確かめる。",
-  "戦後":"占領改革から現代社会までを演習する。",
-  "平成":"平成期の政治・経済・社会を確認する。",
-  "令和":"現代につながるテーマを問題で捉える。"
-};
-
-const DATA=[
-  ["中世","鎌倉","過去問演習","共通テスト","鎌倉幕府の成立と御家人制","史料・図版を含む過去問演習。","PDF"],
-  ["中世","鎌倉","正誤・組合せ問題","演習","鎌倉政治 正誤問題","制度や人物の違いを判断する。","PDF"],
-  ["中世","鎌倉","演習プリント","プリント","鎌倉時代 総合演習","一問一答より一段深い確認問題。","PDF"],
-  ["近世","江戸","過去問演習","私大","江戸社会と経済","経済史・社会史を中心とした過去問。","PDF"],
-  ["近世","江戸","正誤・組合せ問題","演習","江戸政治 正誤・組合せ","改革・将軍・制度の組合せを確認する。","PDF"],
-  ["近世","江戸","演習プリント","プリント","江戸時代 総合演習","政治・経済・文化を横断して演習する。","PDF"],
-  ["近代","明治","過去問演習","国公立","明治国家の形成","近代国家形成をテーマにした入試問題。","PDF"],
-  ["近代","明治","正誤・組合せ問題","演習","明治政治 正誤問題","政策・人物・条約を判断する。","PDF"],
-  ["現代","戦後","演習プリント","プリント","戦後史 総合演習","占領改革から高度成長までを確認する。","PDF"]
-].map(x=>({
-  major:x[0],sub:x[1],mode:x[2],kind:x[3],title:x[4],desc:x[5],meta:x[6]
-}));
-
-let mode="過去問演習",major=null,sub=null;
-
-function renderEras(){
-  const block=document.getElementById("eraBlock");
-  block.innerHTML=Object.entries(SUB_ERAS).map(([m,subs])=>`
-    <div class="era-row">
-      <div class="era-name">${m}</div>
-      <div class="era-subs">
-        ${subs.map(s=>`
-          <button class="sub-era-btn ${major===m&&sub===s?"active":""}"
-            data-major="${m}" data-sub="${s}">
-            ${s}
-          </button>
-        `).join("")}
-      </div>
-    </div>
-  `).join("");
-
-  block.querySelectorAll(".sub-era-btn").forEach(btn=>{
-    btn.onclick=()=>{
-      major=btn.dataset.major;
-      sub=btn.dataset.sub;
-      renderEras();
-      renderDetail();
-      document.getElementById("detail").scrollIntoView({behavior:"smooth",block:"start"});
-    };
+(function(){
+  const btn=document.querySelector('.unified-menu');
+  const drawer=document.getElementById('unifiedDrawer');
+  if(!btn || !drawer) return;
+  btn.addEventListener('click',function(){
+    document.body.classList.toggle('menu-open');
   });
-}
-
-function renderDetail(){
-  const d=document.getElementById("detail");
-  document.getElementById("practiceTitle").textContent=`${mode}を、時代から。`;
-  if(!major){d.classList.remove("show");return;}
-  d.classList.add("show");
-  document.getElementById("detailTitle").textContent=sub;
-  document.getElementById("detailCopy").textContent=COPY[sub]||"";
-
-  const rows=DATA.filter(r=>r.major===major&&r.sub===sub&&r.mode===mode);
-  const list=document.getElementById("resourceList");
-  if(!rows.length){
-    list.innerHTML=`<div class="resource"><div class="badge">準備中</div><div><div class="title">この単元の教材はまだありません</div><div class="desc">教材を追加するとここに表示されます。</div></div><div class="meta">—</div><div class="arrow">→</div></div>`;
-    return;
-  }
-
-  list.innerHTML=rows.map(r=>`
-    <a href="#" class="resource">
-      <div class="badge">${r.kind}</div>
-      <div>
-        <div class="title">${r.title}</div>
-        <div class="desc">${r.desc}</div>
-      </div>
-      <div class="meta">${r.meta}</div>
-      <div class="arrow">→</div>
-    </a>
-  `).join("");
-}
-
-document.querySelectorAll(".mode-card").forEach(btn=>{
-  btn.onclick=()=>{
-    mode=btn.dataset.mode;
-    document.querySelectorAll(".mode-card").forEach(b=>b.classList.toggle("active",b===btn));
-    renderDetail();
-    document.querySelector(".practice").scrollIntoView({behavior:"smooth"});
-  };
-});
-
-renderEras();
-renderDetail();
+  drawer.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      document.body.classList.remove('menu-open');
+    });
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape') document.body.classList.remove('menu-open');
+  });
+})();
 </script>
+
 </body>
 </html>
