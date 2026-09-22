@@ -702,6 +702,10 @@ const CSV_URL=(window.HISTORY_SITE_CONFIG && window.HISTORY_SITE_CONFIG.SHEET_CS
 let VIDEOS=[];
 
 function clean(v){return (v==null?"":String(v)).trim();}
+function isPublishedValue(v){const s=clean(v).toLowerCase();return !["false","0","no","off","非公開","下書き"].includes(s);}
+function placementAllows(v,target){const s=clean(v);return !s||s.includes(target);}
+function orderValue(v){const s=clean(v);if(!s)return Number.POSITIVE_INFINITY;const n=Number(s);return Number.isFinite(n)?n:Number.POSITIVE_INFINITY;}
+function dateValue(s){const m=/(\d{4})[\/.\-年](\d{1,2})[\/.\-月](\d{1,2})/.exec(s||"");return m?new Date(+m[1],+m[2]-1,+m[3]).getTime():0;}
 function parseCSV(text){
   const out=[]; let row=[], field="", quoted=false;
   for(let i=0;i<text.length;i++){
@@ -777,10 +781,15 @@ function videosFromCSV(text){
       desc:o["ひとこと説明"]||o["説明"]||o["概要"]||"",
       source:o["提供"]||o["出典"]||o["チャンネル"]||(type==="授業動画"?"歴史する":"おすすめ"),
       duration:o["時間"]||o["長さ"]||"",
+      date:o["公開日"]||o["日付"]||"",
+      thumb:o["サムネイルURL"]||o["サムネイル"]||"",
+      placement:o["掲載先"]||"",
+      published:isPublishedValue(o["公開"]),
+      order:orderValue(o["表示順"]||o["順番"]||o["並び順"]),
       youtube:youtubeId(url),
       url
     };
-  }).filter(Boolean).filter(v=>v.major && v.sub && v.title && v.url);
+  }).filter(Boolean).filter(v=>v.major && v.sub && v.title && v.url && v.published && placementAllows(v.placement,"観る"));
 }
 
 let currentMajor="古代";
@@ -792,10 +801,12 @@ function liveMode(){
 function ytThumb(id){
   return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 }
-function addThumb(el,id){
-  if(!liveMode() || !id) return;
+function addThumb(el,id,override){
+  if(!liveMode()) return;
+  const src=override || (id ? ytThumb(id) : "");
+  if(!src) return;
   const img=document.createElement("img");
-  img.src=ytThumb(id);
+  img.src=src;
   img.alt="";
   img.loading="lazy";
   el.appendChild(img);
@@ -837,7 +848,7 @@ function filtered(type){
     if(currentSub && v.sub!==currentSub) return false;
     if(v.type!==type) return false;
     return true;
-  });
+  }).sort((a,b)=>(a.order-b.order)||dateValue(b.date)-dateValue(a.date));
 }
 
 function render(){
@@ -868,7 +879,7 @@ function render(){
           <p>${v.desc}</p>
           <div class="source">${v.source}</div>
         </div>`;
-      addThumb(a.querySelector(".class-thumb"),v.youtube);
+      addThumb(a.querySelector(".class-thumb"),v.youtube,v.thumb);
       a.onclick=e=>{e.preventDefault(); v.youtube ? openPlayer(v) : window.open(v.url,"_blank","noopener");};
       cg.appendChild(a);
     });
@@ -890,7 +901,7 @@ function render(){
           <div class="reco-title">${v.title}<span class="reco-arrow">›</span></div>
           <div class="reco-source">${v.source}</div>
         </div>`;
-      addThumb(a.querySelector(".reco-thumb"),v.youtube);
+      addThumb(a.querySelector(".reco-thumb"),v.youtube,v.thumb);
       a.onclick=e=>{e.preventDefault(); v.youtube ? openPlayer(v) : window.open(v.url,"_blank","noopener");};
       rs.appendChild(a);
     });
