@@ -1,947 +1,326 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="noindex,nofollow" name="robots"/>
 <title>問う｜歴史する</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<meta content="高校日本史の一問一答・一文論述・年代整序。知識を思い出し、説明し、並べる。" name="description"/>
+
+
+
 <style>
 :root{
-  --bg:#070706;
-  --bg2:#0b0b0a;
-  --line:rgba(255,255,255,.10);
-  --line2:rgba(255,255,255,.16);
-  --text:#f1eee7;
-  --muted:#948e84;
-  --muted2:#716b63;
-  --hover:#0e0e0d;
+  --paper:#f3f0e9;
+  --ink:#181714;
+  --muted:#756f65;
+  --line:#d4cec2;
+  --dark:#10100e;
+  --accent:#4c493f;
+  --accent2:#d8ccb4;
   --serif:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
   --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;background:var(--bg);color:var(--text);
-  font-family:var(--serif);letter-spacing:.04em
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);letter-spacing:.04em;
 }
-a{color:inherit;text-decoration:none}
-button,select{font:inherit}
+a{color:inherit}
+button{font:inherit}
+::selection{background:#d8cfbc}
 
-/* header */
-header{
-  height:74px;position:absolute;top:0;left:0;right:0;z-index:50
+/* HEADER */
+.site-header{
+  height:78px;background:#faf8f3;border-bottom:1px solid rgba(0,0,0,.07);
+  position:relative;z-index:30;
 }
 .header-inner{
-  width:min(1280px,calc(100% - 48px));height:100%;margin:auto;
-  display:flex;align-items:center;justify-content:space-between
+  width:min(1280px,calc(100% - 52px));height:100%;margin:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:28px;
 }
-.brand{font-size:1.24rem;letter-spacing:.18em}
-.nav{display:flex;gap:26px;align-items:center;font-size:.77rem;color:#aaa49a}
-.nav a.active{color:#fff;border-bottom:1px solid #fff;padding-bottom:5px}
-.menu{font:500 1.3rem/1 var(--sans);color:#ddd}
+.brand{text-decoration:none;line-height:1}
+.brand-main{display:block;font-size:1.45rem;letter-spacing:.18em;font-weight:500}
+.brand-sub{display:block;margin-top:7px;font:500 .56rem/1 var(--sans);letter-spacing:.24em;color:#686258}
+.header-nav{display:flex;gap:30px;align-items:center}
+.header-nav a{
+  text-decoration:none;font-size:.82rem;padding:28px 2px 10px;border-bottom:1px solid transparent;
+}
+.header-nav a.active{border-color:#26231f}
+.header-note{
+  border-left:1px solid var(--line);padding-left:24px;
+  font-size:.72rem;line-height:1.7;color:#655f56;
+}
 
-/* hero slimmer */
+/* HERO */
 .hero{
-  min-height:480px;position:relative;overflow:hidden;background:#050504
+  height:470px;position:relative;overflow:hidden;background:#11100e;color:#fff;
 }
 .hero-bg{
   position:absolute;inset:0;
   background-image:
-    linear-gradient(90deg,rgba(4,4,4,.98) 0%,rgba(4,4,4,.89) 32%,rgba(4,4,4,.43) 63%,rgba(4,4,4,.70) 100%),
-    linear-gradient(180deg,rgba(4,4,4,.10),rgba(4,4,4,.12) 52%,rgba(4,4,4,.88) 100%),
-    url("tou-buddha.jpg");
+    linear-gradient(90deg,rgba(7,7,6,.95) 0%,rgba(7,7,6,.83) 29%,rgba(7,7,6,.34) 58%,rgba(7,7,6,.67) 100%),
+    url("tou-hero.jpg");
   background-size:cover;
   background-position:center 46%;
-  filter:saturate(.46) contrast(1.08) brightness(.64)
+  filter:saturate(.72) contrast(1.04);
 }
 .hero-inner{
-  position:relative;z-index:2;width:min(1280px,calc(100% - 48px));min-height:480px;margin:auto;
-  display:flex;align-items:center
+  position:relative;z-index:2;width:min(1280px,calc(100% - 52px));height:100%;margin:auto;
+  display:flex;align-items:center;
 }
-.hero-copy{width:430px;padding-top:22px}
-.eyebrow{font-size:.84rem;color:#c8c2b7;margin-bottom:12px}
+.hero-copy{width:420px}
+.hero-eyebrow{font-size:.9rem;margin-bottom:12px}
 .hero h1{
-  margin:0;font-size:clamp(4.1rem,7vw,6.1rem);font-weight:500;line-height:.95;letter-spacing:.16em
+  margin:0;font-size:clamp(3.7rem,8vw,6.6rem);font-weight:500;line-height:1;letter-spacing:.16em;
 }
-.lead{margin-top:22px;font-size:.98rem;line-height:1.95;color:#d0cabf}
-.sub{margin-top:10px;font:400 .71rem/1.85 var(--sans);color:#8d877d}
-
-/* apps */
-.apps{
-  background:#090908;border-top:1px solid var(--line);border-bottom:1px solid var(--line)
-}
-.apps-inner{
-  width:min(1180px,calc(100% - 48px));margin:auto;padding:46px 0 52px
-}
-.section-label{
-  font:500 .61rem/1 var(--sans);letter-spacing:.15em;color:#777168;margin-bottom:16px
-}
-.apps-grid{
-  display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)
-}
-.app{
-  min-height:250px;padding:30px 32px 28px;position:relative;border-right:1px solid var(--line);
-  transition:.25s;overflow:hidden
-}
-.app:last-child{border-right:0}
-.app:hover{background:#0e0e0d}
-.app-index{font:500 .56rem/1 var(--sans);letter-spacing:.16em;color:#68635c}
-.app h2{margin:46px 0 12px;font-size:clamp(1.55rem,2.5vw,2.4rem);font-weight:500;letter-spacing:.08em}
-.app p{margin:0;color:#928c82;font:400 .72rem/1.9 var(--sans);max-width:340px}
-.app-foot{
-  position:absolute;left:32px;right:32px;bottom:22px;display:flex;justify-content:space-between;align-items:center;
-  font-size:.74rem;color:#c2bcb1
-}
-.app-foot:before{
-  content:"";position:absolute;left:0;right:0;top:-13px;height:1px;background:var(--line)
-}
-.arrow{font:1rem var(--sans)}
-
-/* print area */
-.print{
-  background:#080807;padding:58px 0 92px
-}
-.print-inner{
-  width:min(1120px,calc(100% - 48px));margin:auto
-}
-.print-head{
-  display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;align-items:end;margin-bottom:28px
-}
-.print-head .kicker{font-size:.9rem;color:#bbb5ab}
-.print-head .kicker:after{content:"";display:block;width:40px;height:1px;background:#514d46;margin-top:14px}
-.print-head h2{margin:0;font-size:2rem;font-weight:500}
-.print-head p{margin:8px 0 0;font:400 .7rem/1.8 var(--sans);color:#89837a}
-
-.selector-layout{
-  display:grid;grid-template-columns:220px minmax(0,1fr);gap:30px;align-items:start
-}
-.side-menu{
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line)
-}
-.mode-btn{
-  appearance:none;width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;color:#8b857b;
-  text-align:left;padding:18px 16px;cursor:pointer;transition:.2s
-}
-.mode-btn:last-child{border-bottom:0}
-.mode-btn:hover{background:var(--hover);color:#fff}
-.mode-btn.active{background:#11110f;color:#fff}
-.mode-btn small{
-  display:block;font:500 .53rem/1 var(--sans);letter-spacing:.14em;color:#6f6961;margin-bottom:8px
-}
-.mode-btn strong{font-size:.98rem;font-weight:500;letter-spacing:.05em}
-
-.content-panel{
-  border-top:1px solid var(--line)
-}
-.panel-lead{
-  display:flex;justify-content:space-between;align-items:end;gap:24px;
-  padding:14px 0 14px;border-bottom:1px solid var(--line)
-}
-.panel-lead h3{margin:0;font-size:1.16rem;font-weight:500;letter-spacing:.05em}
-.panel-lead p{margin:6px 0 0;font:400 .67rem/1.7 var(--sans);color:#857f76}
-.panel-lead .note{font:400 .61rem/1.5 var(--sans);color:#6e685f}
-
-.era-list{border-bottom:1px solid var(--line)}
-.era-row{
-  border-bottom:1px solid var(--line);
-  display:grid;grid-template-columns:145px minmax(0,1fr);gap:22px;
-  align-items:start;min-height:96px;padding:18px 0
-}
-.era-row:last-child{border-bottom:0}
-.era-name{
-  font-size:1rem;letter-spacing:.08em;padding-top:10px;color:#d2ccc1
-}
-.era-subs{
-  display:grid;grid-template-columns:repeat(4,minmax(92px,1fr));gap:8px
-}
-.sub-era-btn{
-  appearance:none;border:1px solid var(--line);background:transparent;color:#8d877d;
-  min-height:46px;padding:10px 12px;text-align:center;cursor:pointer;transition:.2s;
-  font-size:.76rem;letter-spacing:.04em
-}
-.sub-era-btn:hover{
-  background:#0f0f0e;color:#fff;border-color:rgba(255,255,255,.16)
-}
-.sub-era-btn.active{
-  color:#fff;border-color:#f0ece3;background:#11110f
+.hero-rule{width:40px;height:1px;background:#fff;margin:28px 0}
+.hero p{margin:0;font-size:.84rem;line-height:2.1;max-width:360px}
+.hero-vertical{
+  position:absolute;right:30px;top:64px;writing-mode:vertical-rl;
+  font-size:.8rem;letter-spacing:.19em;line-height:2;color:rgba(255,255,255,.9);
 }
 
-/* detail */
-.detail{
-  display:none;margin-top:34px;border-top:1px solid var(--line);padding-top:20px
+/* era nav */
+.era-area{background:#f8f5ee;border-bottom:1px solid var(--line)}
+.era-major{
+  width:min(1180px,calc(100% - 52px));margin:auto;
+  display:grid;grid-template-columns:repeat(5,1fr);padding-top:20px;
 }
-.detail.show{display:block}
-.detail-head{
-  display:flex;justify-content:space-between;gap:24px;align-items:end;padding-bottom:14px;border-bottom:1px solid var(--line)
+.major-btn{
+  appearance:none;border:1px solid var(--line);border-right:0;
+  background:transparent;color:#282520;cursor:pointer;height:58px;
+  font-size:1.02rem;letter-spacing:.1em;transition:.2s;
 }
-.detail-head h4{margin:0;font-size:1.32rem;font-weight:500}
-.detail-head p{margin:7px 0 0;font:400 .68rem/1.8 var(--sans);color:#878178}
-select{
-  appearance:none;background:transparent;color:#d0cac0;border:1px solid var(--line2);padding:10px 14px;min-width:150px
+.major-btn:last-child{border-right:1px solid var(--line)}
+.major-btn:hover{background:#eee8de}
+.major-btn.active{background:#ded3bd;border-color:#c6b793}
+.sub-row{
+  width:min(1180px,calc(100% - 52px));margin:auto;
+  display:flex;justify-content:center;gap:8px;overflow-x:auto;scrollbar-width:none;
+  padding:15px 0 19px;
 }
+.sub-row::-webkit-scrollbar{display:none}
+.sub-btn{
+  appearance:none;border:1px solid #d4cec2;background:transparent;color:#6b655d;
+  padding:8px 18px;cursor:pointer;flex:0 0 auto;font-size:.76rem;letter-spacing:.06em;
+}
+.sub-btn:hover{background:#ebe5dc}
+.sub-btn.active{background:#ded1b3;border-color:#c8b68d;color:#25211c}
+
+/* MAIN */
+.main{padding:54px 0 90px}
+.inner{width:min(1280px,calc(100% - 52px));margin:auto}
+.intro{
+  display:grid;grid-template-columns:300px minmax(0,1fr);gap:48px;align-items:end;margin-bottom:46px;
+}
+.intro-label{font-size:.97rem}
+.intro-label:after{content:"";display:block;width:42px;height:1px;background:#39362f;margin-top:16px}
+.intro h2{
+  margin:0;font-size:clamp(2rem,4.2vw,3.5rem);line-height:1.42;font-weight:500;letter-spacing:.08em;
+}
+.intro p{margin:12px 0 0;color:#676158;font:400 .77rem/1.95 var(--sans);max-width:720px}
+
+/* three modes */
+.mode-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);border-left:1px solid var(--line);
+}
+.mode-card{
+  min-height:270px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:#f8f5ef;padding:26px 26px 24px;position:relative;overflow:hidden;cursor:pointer;
+  transition:.22s;
+}
+.mode-card:hover{background:#eee9df}
+.mode-card.active{background:#ded3bd}
+.mode-no{font:500 .59rem/1 var(--sans);letter-spacing:.18em;color:#8a8277}
+.mode-card h3{margin:44px 0 13px;font-size:1.7rem;font-weight:500;letter-spacing:.08em}
+.mode-card p{margin:0;color:#6e675e;font:400 .72rem/1.9 var(--sans);max-width:290px}
+.mode-card .action{
+  position:absolute;left:26px;bottom:23px;font-size:.74rem;display:flex;align-items:center;gap:14px;
+}
+.mode-card .action:after{content:"";display:block;width:36px;height:1px;background:#69635b}
+.mode-word{
+  position:absolute;right:-3px;top:10px;font-size:6.6rem;line-height:1;color:rgba(55,49,40,.045);
+  font-weight:600;
+}
+
+/* resource section */
+.resource-section{margin-top:46px}
+.resource-head{
+  display:flex;align-items:end;gap:18px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:0;
+}
+.resource-head h3{margin:0;font-size:1.22rem;font-weight:500;letter-spacing:.1em}
+.resource-head .line{width:40px;height:1px;background:#777168}
+.resource-head p{margin:0;color:#827b70;font:400 .66rem/1.6 var(--sans)}
+.resource-count{margin-left:auto;color:#91897f;font:400 .64rem/1.6 var(--sans)}
+
 .resource-list{border-bottom:1px solid var(--line)}
-.resource{
-  min-height:82px;border-bottom:1px solid var(--line);
-  display:grid;grid-template-columns:105px minmax(0,1fr) 80px 24px;gap:18px;align-items:center;transition:.2s
+.resource-row{
+  min-height:106px;border-top:1px solid var(--line);display:grid;
+  grid-template-columns:132px minmax(0,1fr) 150px 34px;gap:22px;align-items:center;
+  text-decoration:none;transition:.2s;
 }
-.resource:last-child{border-bottom:0}
-.resource:hover{background:#0d0d0c;padding-left:8px;padding-right:8px}
-.kind{
-  font:500 .57rem/1 var(--sans);color:#9c968b;border:1px solid var(--line);padding:7px 9px;width:max-content
+.resource-row:first-child{border-top:0}
+.resource-row:hover{background:rgba(255,255,255,.45);padding-left:8px;padding-right:8px}
+.res-kind{
+  font:500 .62rem/1 var(--sans);letter-spacing:.11em;color:#756e64;
+  border:1px solid var(--line-dark);padding:7px 10px;width:max-content;
 }
-.title{font-size:.94rem;margin-bottom:4px}
-.desc{font:400 .64rem/1.7 var(--sans);color:#817b72}
-.meta{text-align:right;font:400 .59rem/1.5 var(--sans);color:#6f6961}
-.empty-note{
-  padding:24px 0;color:#7c766d;font:400 .67rem/1.8 var(--sans)
+.res-title{font-size:.98rem;line-height:1.55;margin-bottom:5px}
+.res-desc{font:400 .69rem/1.7 var(--sans);color:#7c756b}
+.res-meta{text-align:right;color:#948d82;font:400 .63rem/1.65 var(--sans)}
+.res-arrow{font:1rem var(--sans)}
+
+.empty{
+  padding:52px 20px;text-align:center;border-top:1px solid var(--line);
+  color:#877f74;font:400 .76rem/1.8 var(--sans);
 }
 
-footer{
-  border-top:1px solid var(--line);padding:22px 0 30px;color:#6d675f;font:400 .6rem/1.7 var(--sans)
+/* web app callout */
+.app-callout{
+  display:none;margin-top:26px;border:1px solid #c9bea6;background:#e8dfcd;
+  padding:24px 26px;grid-template-columns:1fr auto;gap:20px;align-items:center;
+}
+.app-callout.show{display:grid}
+.app-callout h4{margin:0 0 6px;font-size:1rem;font-weight:500}
+.app-callout p{margin:0;font:400 .7rem/1.75 var(--sans);color:#6c655b}
+.app-callout a{
+  text-decoration:none;border:1px solid #877d69;padding:10px 18px;font-size:.73rem;background:#f7f3eb;
+}
+
+/* footer */
+.footer{
+  border-top:1px solid var(--line);padding:22px 0 32px;
+  color:#8c857a;font:400 .61rem/1.7 var(--sans);
 }
 .footer-inner{
-  width:min(1120px,calc(100% - 48px));margin:auto;display:flex;justify-content:space-between
+  width:min(1280px,calc(100% - 52px));margin:auto;display:flex;justify-content:space-between;gap:20px;
 }
 
-@media(max-width:900px){
-  .nav{display:none}
-  .hero{min-height:430px}
-  .hero-inner{min-height:430px}
-  .hero-copy{width:76%;padding-top:46px}
-  .apps-grid{grid-template-columns:1fr}
-  .app{border-right:0;border-bottom:1px solid var(--line)}
-  .app:last-child{border-bottom:0}
-  .print-head{grid-template-columns:1fr}
-  .selector-layout{grid-template-columns:1fr}
-  .side-menu{display:grid;grid-template-columns:repeat(3,1fr)}
-  .mode-btn{border-bottom:0;border-right:1px solid var(--line)}
-  .mode-btn:last-child{border-right:0}
-  .era-row{grid-template-columns:1fr;gap:10px}
-  .era-name{padding-top:0}
-  .era-subs{grid-template-columns:repeat(3,minmax(86px,1fr))}
-  .resource{grid-template-columns:90px minmax(0,1fr) 24px}
-  .meta,.desc{display:none}
+@media(max-width:960px){
+  .header-note{display:none}
+  .mode-grid{grid-template-columns:1fr}
+  .mode-card{min-height:210px}
+  .intro{grid-template-columns:1fr}
+  .resource-row{grid-template-columns:115px minmax(0,1fr) 30px}
+  .res-meta{display:none}
 }
-@media(max-width:620px){
-  .side-menu{grid-template-columns:1fr}
-  .mode-btn{border-right:0;border-bottom:1px solid var(--line)}
-  .mode-btn:last-child{border-bottom:0}
-}
-
-/* ===== update: unified header + top-page font ===== */
-:root{
-  --mincho:"Shippori Mincho B1",serif;
-  --gothic:"Zen Kaku Gothic New",sans-serif;
-  --gold-l:#c4a35c;
-  --paper:#f2ebdb;
-  --sumi:#1d1913;
-  --soft:#6d6250;
-}
-body{font-family:var(--mincho) !important;}
-h1,h2,h3,h4,h5,h6,
-.brand,.nav a,.nav,.menu,
-.hero h1,.feature h2,.column-head h3,.section-head h2,
-.mode-card h2,.practice-head h3,.stage h2,.stage h3{
-  font-family:var(--mincho) !important;
-}
-small,.eyebrow,.sub,.lead,.copy,.desc,.meta,.badge,
-input,button,select,textarea{
-  font-family:var(--gothic);
-}
-header{
-  height:74px !important;
-  position:fixed !important;
-  top:0;left:0;right:0;
-  z-index:80 !important;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  background:linear-gradient(180deg,rgba(10,10,9,.80),rgba(10,10,9,.46)) !important;
-  backdrop-filter:blur(10px);
-}
-.header-inner{
-  width:min(1280px,calc(100% - 48px));
-  height:100%;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.brand{
-  color:var(--paper) !important;
-  font-size:1.24rem;
-  letter-spacing:.18em;
-}
-.nav{
-  display:flex;
-  gap:clamp(12px,2vw,26px) !important;
-  align-items:center;
-  color:#ddd4c6 !important;
-  font-size:.86rem !important;
-}
-.nav a{
-  writing-mode:horizontal-tb !important;
-  color:#e8dfc7 !important;
-  position:relative;
-  padding-bottom:6px;
-  transition:.25s;
-}
-.nav a::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-1px;
-  width:1px;
-  height:0;
-  background:var(--gold-l);
-  transform:translateX(-50%);
-  transition:.25s;
-}
-.nav a.active,
-.nav a:hover{color:var(--gold-l) !important}
-.nav a.active::after,
-.nav a:hover::after{height:10px}
-.menu{
-  width:44px;height:44px;
-  border:1px solid rgba(242,235,219,.24);
-  border-radius:999px;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(255,255,255,.03);
-  color:var(--paper) !important;
-  font:500 1.05rem/1 var(--gothic) !important;
-}
-@media(max-width:900px){
-  .nav{display:none !important}
-}
-
-
-/* ===== unified site header / brush hero ===== */
-:root{
-  --site-paper:#f2ebdb;
-  --site-gold:#c4a35c;
-  --site-mincho:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
-  --site-gothic:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
-}
-.unified-header{
-  position:fixed !important;
-  inset:0 0 auto 0 !important;
-  height:72px !important;
-  z-index:1000 !important;
-  background:rgba(10,10,9,.76) !important;
-  border-bottom:1px solid rgba(255,255,255,.10) !important;
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  color:var(--site-paper);
-}
-.unified-header-inner{
-  width:min(1280px,calc(100% - 44px));
-  height:100%;
-  margin:auto;
-  display:grid;
-  grid-template-columns:170px 1fr 52px;
-  align-items:center;
-  gap:24px;
-}
-.unified-brand{
-  color:var(--site-paper);
-  text-decoration:none;
-  font-family:var(--site-mincho);
-  font-size:1.15rem;
-  font-weight:500;
-  letter-spacing:.20em;
-  white-space:nowrap;
-}
-.unified-nav{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:clamp(16px,2.2vw,34px);
-  min-width:0;
-}
-.unified-nav a{
-  color:#eee7d9;
-  text-decoration:none;
-  font-family:var(--site-mincho);
-  font-size:.83rem;
-  font-weight:500;
-  letter-spacing:.14em;
-  white-space:nowrap;
-  position:relative;
-  padding:8px 1px;
-  transition:.22s ease;
-}
-.unified-nav a::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:1px;
-  width:0;
-  height:1px;
-  background:var(--site-gold);
-  transform:translateX(-50%);
-  transition:.22s ease;
-}
-.unified-nav a:hover,
-.unified-nav a.active{color:var(--site-gold);}
-.unified-nav a:hover::after,
-.unified-nav a.active::after{width:100%;}
-.unified-menu{
-  width:44px;
-  height:44px;
-  border:1px solid rgba(242,235,219,.28);
-  background:rgba(255,255,255,.02);
-  border-radius:999px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:6px;
-  padding:0;
-  cursor:pointer;
-  text-decoration:none;
-}
-.unified-menu span{
-  display:block;
-  width:18px;
-  height:1px;
-  background:var(--site-paper);
-}
-.hero h1{
-  font-family:"kokuryu",var(--site-mincho) !important;
-  font-weight:400 !important;
-  letter-spacing:.09em !important;
-}
-@media(max-width:900px){
-  .unified-header-inner{
-    grid-template-columns:1fr 44px;
-    width:calc(100% - 28px);
+@media(max-width:720px){
+  .header-nav{display:none}
+  .site-header{height:70px}
+  .header-inner,.hero-inner,.inner,.footer-inner{width:calc(100% - 28px)}
+  .brand-main{font-size:1.2rem}
+  .hero{height:470px}
+  .hero-bg{
+    background-position:46% 45%;
+    background-image:
+      linear-gradient(90deg,rgba(7,7,6,.93) 0%,rgba(7,7,6,.8) 44%,rgba(7,7,6,.4) 80%,rgba(7,7,6,.6) 100%),
+      url("tou-hero.jpg");
   }
-  .unified-nav{display:none;}
-  .unified-brand{font-size:1.05rem;}
+  .hero-copy{width:75%}
+  .hero-vertical{display:none}
+  .era-major{width:100%;overflow-x:auto;grid-template-columns:repeat(5,145px);padding-left:14px;padding-right:14px}
+  .sub-row{width:calc(100% - 28px);justify-content:flex-start}
+  .main{padding-top:42px}
+  .resource-row{grid-template-columns:94px minmax(0,1fr) 24px;gap:14px}
+  .res-desc{display:none}
+  .app-callout.show{grid-template-columns:1fr}
 }
-
-
-/* ===== header alignment + shared menu drawer ===== */
-.unified-header-inner{
-  grid-template-columns:170px minmax(0,1fr) 52px !important;
-}
-.unified-nav{
-  justify-content:flex-end !important;
-  margin-left:auto !important;
-}
-.unified-menu{
-  position:relative;
-  z-index:1102;
-}
-body.menu-open{overflow:hidden;}
-body.menu-open .unified-menu{
-  background:transparent !important;
-  border-color:#665e52 !important;
-}
-body.menu-open .unified-menu span{background:#1d1913 !important;}
-body.menu-open .unified-menu span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-body.menu-open .unified-menu span:nth-child(2){opacity:0;}
-body.menu-open .unified-menu span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-
-.unified-drawer{
-  position:fixed;
-  inset:0;
-  z-index:1100;
-  background:#f2ebdb;
-  color:#1d1913;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  visibility:hidden;
-  opacity:0;
-  pointer-events:none;
-  clip-path:circle(0 at calc(100% - 44px) 36px);
-  transition:
-    clip-path .72s cubic-bezier(.65,0,.35,1),
-    opacity .15s linear,
-    visibility 0s linear .72s;
-}
-body.menu-open .unified-drawer{
-  visibility:visible;
-  opacity:1;
-  pointer-events:auto;
-  clip-path:circle(150% at calc(100% - 44px) 36px);
-  transition:
-    clip-path .72s cubic-bezier(.65,0,.35,1),
-    opacity .15s linear,
-    visibility 0s linear 0s;
-}
-.unified-drawer-in{
-  display:flex;
-  flex-direction:row-reverse;
-  gap:clamp(32px,6vw,76px);
-}
-.unified-drawer a{
-  writing-mode:vertical-rl;
-  height:min(50vh,390px);
-  padding-top:10px;
-  color:#453e32;
-  text-decoration:none;
-  font-family:var(--site-mincho,"Shippori Mincho B1",serif);
-  font-size:clamp(1.05rem,2.4vh,1.42rem);
-  font-weight:500;
-  letter-spacing:.38em;
-  position:relative;
-  opacity:0;
-  transform:translateY(18px);
-  transition:opacity .45s ease,transform .55s ease,color .22s ease;
-}
-.unified-drawer a::before{
-  content:"";
-  position:absolute;
-  top:-7px;
-  left:50%;
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:#a2937a;
-  transform:translateX(-50%) scale(0);
-  transition:.25s;
-}
-.unified-drawer a:hover{color:#1d1913;}
-.unified-drawer a:hover::before{transform:translateX(-50%) scale(1);}
-body.menu-open .unified-drawer a{opacity:1;transform:none;}
-body.menu-open .unified-drawer a:nth-child(1){transition-delay:.18s;}
-body.menu-open .unified-drawer a:nth-child(2){transition-delay:.26s;}
-body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
-.unified-drawer-foot{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:28px;
-  text-align:center;
-  color:#6d6250;
-  font-family:var(--site-gothic,"Zen Kaku Gothic New",sans-serif);
-  font-size:.64rem;
-  letter-spacing:.28em;
-}
-@media(max-width:900px){
-  .unified-header-inner{grid-template-columns:1fr 44px !important;}
-  .unified-nav{display:none !important;}
-}
-
-
-/* ===== app cover update ===== */
-.app{
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  padding-right:150px !important;
-}
-.app-cover{
-  position:absolute;
-  right:24px;
-  top:24px;
-  width:96px;
-  aspect-ratio: 3 / 4;
-  object-fit:cover;
-  border-radius:6px;
-  box-shadow:0 16px 34px rgba(0,0,0,.30);
-  border:1px solid rgba(255,255,255,.08);
-  opacity:.92;
-}
-.app h2{max-width:320px}
-.app p{max-width:360px}
-@media(max-width:900px){
-  .apps-grid{grid-template-columns:1fr !important}
-  .app{
-    min-height:220px !important;
-    padding-right:132px !important;
-    border-right:0 !important;
-    border-bottom:1px solid var(--line);
-  }
-  .app:last-child{border-bottom:0}
-  .app-cover{
-    width:84px;
-    right:20px;
-    top:20px;
-  }
-}
-
-.wf-loading .hero h1{visibility:hidden}
-.wf-active .hero h1,.wf-inactive .hero h1{visibility:visible}
-
-/* ===== instant brush header images ===== */
-.unified-brand{
-  display:flex !important;
-  align-items:center !important;
-  min-width:150px;
-  font-size:0 !important;
-  line-height:1 !important;
-}
-.unified-brand img{
-  display:block;
-  width:auto;
-  height:31px;
-  object-fit:contain;
-}
-.unified-nav a{
-  display:flex !important;
-  align-items:center;
-  justify-content:center;
-  min-width:38px;
-  min-height:42px;
-  font-size:0 !important;
-  line-height:1 !important;
-}
-.unified-nav a img{
-  display:block;
-  width:auto;
-  height:27px;
-  object-fit:contain;
-  opacity:.88;
-  transition:opacity .2s ease, transform .2s ease, filter .2s ease;
-}
-.unified-nav a:hover img,
-.unified-nav a.active img{
-  opacity:1;
-  transform:translateY(-1px);
-}
-@media(max-width:900px){
-  .unified-brand img{height:29px}
-}
-
-
-/* ===== 2026-09-22 visual refinement ===== */
-.hero-bg{
-  background-image:
-    linear-gradient(90deg,rgba(4,4,4,.96) 0%,rgba(4,4,4,.80) 32%,rgba(4,4,4,.22) 63%,rgba(4,4,4,.43) 100%) !important,
-    linear-gradient(180deg,rgba(4,4,4,.04),rgba(4,4,4,.07) 52%,rgba(4,4,4,.66) 100%) !important,
-    url("tou-buddha.jpg") !important;
-  background-position:center 46% !important;
-  filter:saturate(.58) contrast(1.06) brightness(.78) !important;
-}
-.app{
-  min-height:300px !important;
-  isolation:isolate;
-  color:#f3eee4 !important;
-  padding:30px 32px 30px !important;
-  border-color:rgba(255,255,255,.14) !important;
-}
-.app::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-1;
-  background:linear-gradient(90deg,rgba(5,5,5,.90) 0%,rgba(5,5,5,.74) 48%,rgba(5,5,5,.42) 100%);
-  transition:background .25s ease;
-}
-.app:hover::before{
-  background:linear-gradient(90deg,rgba(5,5,5,.84) 0%,rgba(5,5,5,.65) 48%,rgba(5,5,5,.32) 100%);
-}
-#appYamakawa,
-#appYamakawa:hover{
-  background-image:url("app-yamakawa-cover-20260922v3.jpg") !important;
-  background-size:cover !important;
-  background-position:center 36% !important;
-  background-repeat:no-repeat !important;
-}
-#appJidai,
-#appJidai:hover{
-  background-image:url("app-jidai-cover-20260922v3.jpg") !important;
-  background-size:cover !important;
-  background-position:center 42% !important;
-  background-repeat:no-repeat !important;
-}
-.app-cover{display:none !important}
-.app-index{color:rgba(255,255,255,.68) !important;position:relative;z-index:2}
-.app h2{
-  color:#fff !important;
-  position:relative;z-index:2;
-  text-shadow:0 2px 12px rgba(0,0,0,.52);
-  margin-top:58px !important;
-  max-width:430px !important;
-}
-.app p{
-  color:rgba(255,255,255,.80) !important;
-  position:relative;z-index:2;
-  max-width:420px !important;
-  text-shadow:0 1px 7px rgba(0,0,0,.46);
-}
-.app-foot{
-  color:#fff !important;
-  position:absolute;z-index:2;
-}
-.app-foot:before{background:rgba(255,255,255,.24) !important}
-
-
-/* ===== REQUESTED FIXES 2026-09-22 ===== */
-/* Header: instant brush lettering */
-.unified-brand,
-.unified-nav a{font-family:inherit !important}
-.unified-brand img,
-.unified-nav a img{visibility:visible !important;opacity:1}
-.wf-loading .unified-brand,
-.wf-loading .unified-nav a{visibility:visible !important}
-
-/* Ask hero: let the Buddha read more clearly while retaining text contrast. */
-.hero-bg{
-  background-image:
-    linear-gradient(90deg,rgba(4,4,4,.95) 0%,rgba(4,4,4,.74) 31%,rgba(4,4,4,.12) 61%,rgba(4,4,4,.28) 100%) !important,
-    linear-gradient(180deg,rgba(4,4,4,.02),rgba(4,4,4,.03) 52%,rgba(4,4,4,.50) 100%) !important,
-    url("tou-buddha.jpg") !important;
-  filter:saturate(.72) contrast(1.05) brightness(.90) !important;
-}
-
-/* Make each web-app tile use the whole reference image as its background. */
-.apps-grid{gap:1px;background:rgba(255,255,255,.10)}
-.app{
-  min-height:330px !important;
-  padding:34px 34px 32px !important;
-  isolation:isolate;
-  border:0 !important;
-  color:#f6f0e5 !important;
-  background-color:#111 !important;
-  background-size:cover !important;
-  background-repeat:no-repeat !important;
-  overflow:hidden;
-}
-#appYamakawa{
-  background-image:url("app-yamakawa-cover-20260922v3.jpg") !important;
-  background-position:center 43% !important;
-}
-#appJidai{
-  background-image:url("app-jidai-cover-20260922v3.jpg") !important;
-  background-position:center 45% !important;
-}
-.app::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-1;
-  background:
-    linear-gradient(90deg,rgba(6,6,5,.91) 0%,rgba(6,6,5,.78) 44%,rgba(6,6,5,.46) 72%,rgba(6,6,5,.38) 100%),
-    linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.42));
-  transition:background .25s ease;
-}
-.app:hover::before{
-  background:
-    linear-gradient(90deg,rgba(6,6,5,.86) 0%,rgba(6,6,5,.69) 44%,rgba(6,6,5,.36) 72%,rgba(6,6,5,.28) 100%),
-    linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.32));
-}
-.app-cover{display:none !important}
-.app-index{color:rgba(255,255,255,.72) !important;position:relative;z-index:1}
-.app h2{
-  margin:52px 0 12px !important;
-  color:#fff !important;
-  position:relative;z-index:1;
-  text-shadow:0 2px 14px rgba(0,0,0,.58);
-}
-.app p{
-  color:rgba(255,255,255,.86) !important;
-  max-width:390px !important;
-  position:relative;z-index:1;
-  text-shadow:0 1px 8px rgba(0,0,0,.55);
-}
-.app-foot{
-  color:#fff !important;
-  position:absolute;z-index:1;
-}
-.app-foot:before{background:rgba(255,255,255,.34) !important}
-@media(max-width:900px){
-  .app{min-height:290px !important;padding:28px 24px 30px !important}
-}
-/* ===== END REQUESTED FIXES ===== */
-
-/* ===== HEADER VISIBILITY FIX 2026-09-22 ===== */
-/* Brush PNGs are black originals. Force clear light rendering on the dark header. */
-.unified-brand img{
-  opacity:1 !important;
-  filter:brightness(0) invert(1) !important;
-}
-.unified-nav a img{
-  opacity:.92 !important;
-  filter:brightness(0) invert(1) !important;
-}
-.unified-nav a:hover img{
-  opacity:1 !important;
-  filter:brightness(0) saturate(100%) invert(82%) sepia(28%) saturate(620%) hue-rotate(354deg) brightness(92%) contrast(88%) !important;
-}
-.unified-nav a.active img{
-  opacity:1 !important;
-  filter:brightness(0) saturate(100%) invert(72%) sepia(38%) saturate(690%) hue-rotate(356deg) brightness(91%) contrast(86%) !important;
-}
-/* Keep the header background dark enough that every label stays readable. */
-.unified-header{
-  background:rgba(8,8,7,.90) !important;
-}
-/* ===== END HEADER VISIBILITY FIX ===== */
-
-
-
-
-/* ===== HEADER MATCH TOP PAGE ===== */
-.unified-header{
-  background:rgba(10,10,9,.76) !important;
-  border-bottom:1px solid rgba(255,255,255,.10) !important;
-}
-/* ===== END HEADER MATCH TOP PAGE ===== */
-
-
-/* ===== HERO POSITION FIX TOU ===== */
-.hero-bg{
-  background-position:center 35% !important;
-}
-/* ===== END HERO POSITION FIX TOU ===== */
-
 </style>
-
-<script>
-(function(d) {
-  var config = { kitId: 'iro6lgt', scriptTimeout: 3000, async: true },
-  h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),
-  tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;
-  h.className+=" wf-loading";
-  tk.src='https://use.typekit.net/'+config.kitId+'.js';
-  tk.async=true;
-  tk.onload=tk.onreadystatechange=function(){
-    a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;
-    f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}
-  };
-  s.parentNode.insertBefore(tk,s)
-})(document);
-</script>
-
-<!-- build:20260922v3 -->
-<!-- instant-brush-header-preload -->
-<link rel="preload" as="image" href="header-brand.png?v=20260922d">
-<link rel="preload" as="image" href="header-manabu.png?v=20260922d">
-<link rel="preload" as="image" href="header-tou.png?v=20260922d">
-<link rel="preload" as="image" href="header-kitaeru.png?v=20260922d">
-<link rel="preload" as="image" href="header-miru.png?v=20260922d">
-<link rel="preload" as="image" href="header-shiraberu.png?v=20260922d">
-<link rel="preload" as="image" href="header-meguru.png?v=20260922d">
-
-<!-- instant-header-preload-20260922d -->
-<link rel="preload" as="image" href="header-brand.png?v=20260922d">
-<link rel="preload" as="image" href="header-manabu.png?v=20260922d">
-<link rel="preload" as="image" href="header-tou.png?v=20260922d">
-<link rel="preload" as="image" href="header-kitaeru.png?v=20260922d">
-<link rel="preload" as="image" href="header-miru.png?v=20260922d">
-<link rel="preload" as="image" href="header-shiraberu.png?v=20260922d">
-<link rel="preload" as="image" href="header-meguru.png?v=20260922d">
-</head>
+<style>
+/* 2026-09 humanized editorial pass */
+:root{
+  --serif:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif CJK JP",serif;
+  --sans:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro","Meiryo",sans-serif;
+}
+body{letter-spacing:.025em}
+.brand img,.logo img{display:block;width:118px;height:auto}
+.hero h1{font-weight:600;letter-spacing:.10em}
+.mode-no,.section-label,.kicker,.list-title,.tag,.num{letter-spacing:.08em}
+</style></head>
 <body>
+<header class="site-header">
+<div class="header-inner">
+<a class="brand" href="index.html"><img alt="歴史する" src="assets/logo.png"/></a>
+<nav class="header-nav"><a href="manabu.html">学ぶ</a><a class="active" href="tou.html">問う</a><a href="kitaeru.html">鍛える</a><a href="miru.html">観る</a><a href="shiraberu.html">調べる</a><a href="meguru.html">巡る</a></nav>
 
-<header class="unified-header">
-  <div class="unified-header-inner">
-    <a class="unified-brand" href="index.html#top" aria-label="歴史する"><img src="header-brand.png?v=20260922d" alt="歴史する" decoding="sync" fetchpriority="high"></a>
-    <nav class="unified-nav"><a href="manabu.html" aria-label="学ぶ"><img src="header-manabu.png?v=20260922d" alt="学ぶ" decoding="sync"></a><a class="active" href="tou.html" aria-label="問う"><img src="header-tou.png?v=20260922d" alt="問う" decoding="sync"></a><a href="kitaeru.html" aria-label="鍛える"><img src="header-kitaeru.png?v=20260922d" alt="鍛える" decoding="sync"></a><a href="miru.html" aria-label="観る"><img src="header-miru.png?v=20260922d" alt="観る" decoding="sync"></a><a href="shiraberu.html" aria-label="調べる"><img src="header-shiraberu.png?v=20260922d" alt="調べる" decoding="sync"></a><a href="meguru.html" aria-label="巡る"><img src="header-meguru.png?v=20260922d" alt="巡る" decoding="sync"></a></nav>
-    <button class="unified-menu" id="hamb" type="button" aria-label="メニュー"><span></span><span></span><span></span></button>
-  </div>
+</div>
 </header>
-<nav class="unified-drawer" id="unifiedDrawer" aria-label="サイトメニュー">
-  <div class="unified-drawer-in">
-    <a href="index.html#emaki">時代をたどる</a>
-    <a href="index.html#gates">教材</a>
-    <a href="index.html#sho">この授業について</a>
-  </div>
-  <div class="unified-drawer-foot">歴史する　授業ポータル</div>
-</nav>
-
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="eyebrow">知っている、から。</div>
-      <h1>問う</h1>
-      <div class="lead">考えることが、<br>歴史を深くする。</div>
-      <div class="sub">思い出す。説明する。並べる。<br>問いを重ねるほど、歴史は立体になる。</div>
-    </div>
-  </div>
+<div class="hero-bg"></div>
+<div class="hero-inner">
+<div class="hero-copy">
+<div class="hero-eyebrow">一問一答・一文論述・年代整序</div>
+<h1>問う</h1>
+<div class="hero-rule"></div>
+<p>問題形式を選び、時代別に取り組めます。</p>
+</div>
+</div>
+
+</section>
+<section class="era-area">
+<div class="era-major">
+<button class="major-btn active" data-major="古代">古代</button>
+<button class="major-btn" data-major="中世">中世</button>
+<button class="major-btn" data-major="近世">近世</button>
+<button class="major-btn" data-major="近代">近代</button>
+<button class="major-btn" data-major="現代">現代</button>
+</div>
+<div class="sub-row" id="subRow"></div>
+</section>
+<main class="main">
+<div class="inner">
+<div class="intro">
+<div class="intro-label" id="eraLabel">古代</div>
+<div>
+<h2>問題形式を選ぶ</h2>
+<p>一問一答・一文論述・年代整序から選んでください。</p>
+</div>
+</div>
+<section aria-label="問題形式を選ぶ" class="mode-grid">
+<button class="mode-card active" data-mode="一問一答">
+<div class="mode-no">01</div>
+<div class="mode-word">答</div>
+<h3>一問一答</h3>
+<p>まずは思い出す。プリントとWebアプリで、知識の定着を確かめます。</p>
+<div class="action">教材を見る</div>
+</button>
+<button class="mode-card" data-mode="一文論述">
+<div class="mode-no">02</div>
+<div class="mode-word">文</div>
+<h3>一文論述</h3>
+<p>用語や出来事を、短い一文で説明する。覚えた知識を、自分の言葉に変えます。</p>
+<div class="action">教材を見る</div>
+</button>
+<button class="mode-card" data-mode="年代整序">
+<div class="mode-no">03</div>
+<div class="mode-word">順</div>
+<h3>年代整序</h3>
+<p>出来事を並べることで、因果関係と時代の流れを確かめます。</p>
+<div class="action">教材を見る</div>
+</button>
 </section>
 
-<section class="apps">
-  <div class="apps-inner">
-    <div class="section-label">WEB APPS</div>
-    <div class="apps-grid">
-      <a class="app" id="appYamakawa" href="#">
-        <img class="app-cover" src="app-yamakawa-cover-20260922v3.jpg" alt="山川一問一答の参考書イメージ">
-        <div class="app-index">01</div>
-        <h2>山川一問一答</h2>
-        <p>用語・人物・出来事を短い問いで反復し、日本史の基礎知識をテンポよく確認するWebアプリ。</p>
-        <div class="app-foot"><span>アプリを開く</span><span class="arrow">→</span></div>
-      </a>
-      <a class="app" id="appJidai" href="#">
-        <img class="app-cover" src="app-jidai-cover-20260922v3.jpg" alt="時代と流れで覚えるの参考書イメージ">
-        <div class="app-index">02</div>
-        <h2>時代と流れで覚える</h2>
-        <p>用語を単発で覚えるのではなく、時代の流れと前後関係の中で理解するためのWebアプリ。</p>
-        <div class="app-foot"><span>アプリを開く</span><span class="arrow">→</span></div>
-      </a>
-    </div>
-  </div>
+<section class="resource-section">
+<div class="resource-head">
+<h3 id="resourceTitle">一問一答</h3>
+<span class="line"></span>
+<p id="resourceSub">教材</p>
+<div class="resource-count"><span id="count">0</span> 件</div>
+</div>
+<div class="resource-list" id="resourceList"></div>
 </section>
-
-<section class="print">
-  <div class="print-inner">
-    <div class="print-head">
-      <div class="kicker">PRINT MATERIALS</div>
-      <div>
-        <h2>プリントで、もう一度問う。</h2>
-        <p>左で問題形式を選び、右で時代と単元をたどる。前より少し操作しやすい版です。</p>
-      </div>
-    </div>
-
-    <div class="selector-layout">
-      <aside class="side-menu">
-        <button class="mode-btn active" data-mode="一問一答">
-          <small>01 / RECALL</small>
-          <strong>一問一答</strong>
-        </button>
-        <button class="mode-btn" data-mode="一文論述">
-          <small>02 / EXPLAIN</small>
-          <strong>一文論述</strong>
-        </button>
-        <button class="mode-btn" data-mode="年代整序">
-          <small>03 / ORDER</small>
-          <strong>年代整序</strong>
-        </button>
-      </aside>
-
-      <div class="content-panel">
-        <div class="panel-lead">
-          <div>
-            <h3 id="panelTitle">一問一答を選ぶ</h3>
-            <p>時代区分から、そのまま必要な時代を選びます。</p>
-          </div>
-          <div class="note">ERA → UNIT → MATERIAL</div>
-        </div>
-
-        <div class="era-list" id="eraList"></div>
-
-        <div class="detail" id="detail">
-          <div class="detail-head">
-            <div>
-              <h4 id="detailTitle">鎌倉</h4>
-              <p id="detailCopy"></p>
-            </div>
-            <select id="unitSelect"></select>
-          </div>
-          <div class="resource-list" id="resourceList"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-inner">
-    <span>歴史する / DOING HISTORY</span>
-    <span>高校日本史 問題演習</span>
-  </div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<span>歴史する</span>
+<span>高校日本史教材</span>
+</div>
 </footer>
-
-<script src="site-config.js"></script>
 <script>
 const SUB_ERAS={
   "古代":["旧石器","縄文","弥生","古墳","飛鳥","奈良","平安"],
@@ -950,213 +329,123 @@ const SUB_ERAS={
   "近代":["明治","大正","昭和戦前"],
   "現代":["戦後","平成","令和"]
 };
-const COPY={
-  "旧石器":"列島のはじまりと人びとの移動を考える。",
-  "縄文":"暮らしの痕跡から社会と精神性をみる。",
-  "弥生":"稲作が社会をどう変えたのかを考える。",
-  "古墳":"権力の形成を古墳の形から読み解く。",
-  "飛鳥":"国家形成と仏教受容のはじまりをみる。",
-  "奈良":"律令国家の仕組みと都の姿を考える。",
-  "平安":"貴族社会と地方の変化を捉える。",
-  "鎌倉":"武士政権の成立と支配の仕組みをみる。",
-  "南北朝":"動乱のなかで変わる権力を考える。",
-  "室町":"幕府・都市・文化が重なる時代をみる。",
-  "戦国":"地域権力と統一への動きをたどる。",
-  "安土桃山":"統一政権と交流の広がりを考える。",
-  "江戸":"都市と村がつながる社会をみる。",
-  "幕末":"世界との接触と政治の揺れを追う。",
-  "明治":"近代国家と国民化の始まりを考える。",
-  "大正":"大衆社会と政党政治の展開をみる。",
-  "昭和戦前":"戦争へ向かう社会の変化をみる。",
-  "戦後":"占領改革と新しい社会の出発をみる。",
-  "平成":"暮らしと社会の変化をふり返る。",
-  "令和":"現在につながる歴史を考える。"
-};
-const CSV_URL=(window.HISTORY_SITE_CONFIG && window.HISTORY_SITE_CONFIG.SHEET_CSV_URL)||"";
-let DATA=[];
 
-function clean(v){return (v==null?"":String(v)).trim();}
-function parseCSV(text){
-  const out=[]; let row=[], field="", quoted=false;
-  for(let i=0;i<text.length;i++){
-    const c=text[i];
-    if(quoted){
-      if(c === '"' && text[i+1] === '"'){field+='"';i++;}
-      else if(c === '"') quoted=false;
-      else field+=c;
-    }else{
-      if(c === '"') quoted=true;
-      else if(c === ","){row.push(field);field="";}
-      else if(c === "\n"){row.push(field);out.push(row);row=[];field="";}
-      else if(c !== "\r") field+=c;
-    }
+const RESOURCES=[
+  {major:"古代",sub:"縄文",mode:"一問一答",kind:"プリント",title:"縄文・弥生 一問一答",desc:"基本事項を短時間で確認するプリント。",meta:"PDF",url:"#"},
+  {major:"古代",sub:"飛鳥",mode:"一問一答",kind:"プリント",title:"飛鳥〜奈良 一問一答",desc:"律令国家形成期の重要語句を確認します。",meta:"PDF",url:"#"},
+  {major:"中世",sub:"鎌倉",mode:"一問一答",kind:"プリント",title:"鎌倉時代 一問一答",desc:"人物・制度・出来事の基本事項を確認します。",meta:"PDF",url:"#"},
+  {major:"近世",sub:"江戸",mode:"一問一答",kind:"プリント",title:"江戸時代 一問一答",desc:"政治・社会・文化を横断して確認します。",meta:"PDF",url:"#"},
+  {major:"近代",sub:"明治",mode:"一問一答",kind:"プリント",title:"明治時代 一問一答",desc:"近代国家形成の重要事項を確認します。",meta:"PDF",url:"#"},
+  {major:"現代",sub:"戦後",mode:"一問一答",kind:"プリント",title:"戦後史 一問一答",desc:"占領改革から高度成長までを確認します。",meta:"PDF",url:"#"},
+
+  {major:"古代",sub:"古墳",mode:"一文論述",kind:"プリント",title:"古墳はなぜ巨大化したのか",desc:"理由を一文で説明する短文論述です。",meta:"PDF",url:"#"},
+  {major:"中世",sub:"鎌倉",mode:"一文論述",kind:"プリント",title:"御恩と奉公を一文で説明する",desc:"用語同士の関係を短く説明します。",meta:"PDF",url:"#"},
+  {major:"近世",sub:"江戸",mode:"一文論述",kind:"プリント",title:"幕藩体制とは何か",desc:"制度を自分の言葉で短くまとめます。",meta:"PDF",url:"#"},
+  {major:"近代",sub:"明治",mode:"一文論述",kind:"プリント",title:"廃藩置県の意味を説明する",desc:"出来事の意味を一文で説明します。",meta:"PDF",url:"#"},
+  {major:"現代",sub:"戦後",mode:"一文論述",kind:"プリント",title:"高度経済成長を一文で説明する",desc:"変化の特徴を短くまとめます。",meta:"PDF",url:"#"},
+
+  {major:"古代",sub:"奈良",mode:"年代整序",kind:"プリント",title:"古代 年代整序",desc:"古代の出来事を時系列に並べます。",meta:"PDF",url:"#"},
+  {major:"中世",sub:"室町",mode:"年代整序",kind:"プリント",title:"中世 年代整序",desc:"鎌倉から室町までの流れを整理します。",meta:"PDF",url:"#"},
+  {major:"近世",sub:"幕末",mode:"年代整序",kind:"プリント",title:"近世 年代整序",desc:"江戸政治と幕末の出来事を並べます。",meta:"PDF",url:"#"},
+  {major:"近代",sub:"大正",mode:"年代整序",kind:"プリント",title:"近代 年代整序",desc:"明治から大正の出来事を時系列で確認します。",meta:"PDF",url:"#"},
+  {major:"現代",sub:"戦後",mode:"年代整序",kind:"プリント",title:"戦後史 年代整序",desc:"戦後日本の主要事項を順序で確認します。",meta:"PDF",url:"#"}
+];
+
+let currentMajor="古代";
+let currentSub="";
+let currentMode="一問一答";
+
+function setFromUrl(){
+  const p=new URLSearchParams(location.search);
+  const era=p.get("era")||"";
+  const mode=p.get("mode")||"";
+  if(SUB_ERAS[era]) currentMajor=era;
+  for(const m of Object.keys(SUB_ERAS)){
+    if(SUB_ERAS[m].includes(era)){currentMajor=m;currentSub=era;}
   }
-  row.push(field);
-  if(row.length>1 || row[0]) out.push(row);
-  return out;
+  if(["一問一答","一文論述","年代整序"].includes(mode)) currentMode=mode;
 }
-function normalizeEra(v){
-  return clean(v).replace(/\s+/g,"").replace(/時代$/,"")
-    .replace(/昭和前期|昭和・戦前|戦前昭和/,"昭和戦前")
-    .replace(/昭和後期|昭和・戦後|昭和戦後/,"戦後")
-    .replace(/安土・桃山|安土桃山時代/,"安土桃山");
+function updateUrl(){
+  const u=new URL(location.href);
+  u.searchParams.set("era",currentSub||currentMajor);
+  u.searchParams.set("mode",currentMode);
+  history.replaceState(null,"",u);
 }
-function majorOf(v){
-  const s=normalizeEra(v);
-  if(/旧石器|縄文|弥生|古墳|飛鳥|奈良|平安|原始|古代/.test(s)) return "古代";
-  if(/鎌倉|南北朝|室町|戦国|中世/.test(s)) return "中世";
-  if(/安土桃山|江戸|幕末|近世/.test(s)) return "近世";
-  if(/明治|大正|昭和戦前|戦前|近代/.test(s)) return "近代";
-  if(/戦後|平成|令和|現代/.test(s)) return "現代";
-  return "";
-}
-function subOf(v){
-  const s=normalizeEra(v);
-  for(const e of Object.values(SUB_ERAS).flat()){
-    if(s.includes(e)) return e;
-  }
-  if(s.includes("昭和") && !s.includes("戦後")) return "昭和戦前";
-  if(s.includes("昭和") && s.includes("戦後")) return "戦後";
-  return "";
-}
-function modeOf(kind){
-  const s=clean(kind);
-  return ["一問一答","一文論述","年代整序"].find(m=>s.includes(m))||"";
-}
-function rowsFromCSV(text){
-  const csv=parseCSV(text);
-  if(!csv.length) return [];
-  const h=csv[0].map(clean);
-  return csv.slice(1).map(r=>{
-    const o={}; h.forEach((k,i)=>o[k]=clean(r[i]));
-    const rawEra=o["時代"]||"";
-    const kind=o["種別"]||o["種類"]||"";
-    const mode=modeOf(kind);
-    const url=o["URL"]||o["リンク"]||"";
-    return {
-      major:majorOf(rawEra),
-      sub:subOf(rawEra),
-      mode,
-      kind:kind||"教材",
-      title:o["タイトル"]||o["教材名"]||"",
-      desc:o["ひとこと説明"]||o["説明"]||o["概要"]||"",
-      meta:o["形式"]||o["ファイル形式"]||(/\.pdf(?:$|\?)/i.test(url)?"PDF":"LINK"),
-      url
-    };
-  }).filter(x=>x.mode && x.major && x.sub && x.title && x.url);
-}
-
-function setupApps(){
-  const cfg=(window.HISTORY_SITE_CONFIG&&window.HISTORY_SITE_CONFIG.APPS)||{};
-  const pairs=[
-    [document.getElementById("appYamakawa"),cfg.yamakawa],
-    [document.getElementById("appJidai"),cfg.jidaiToNagare]
-  ];
-  pairs.forEach(([el,url])=>{
-    if(!el) return;
-    if(url){
-      el.href=url;
-      el.target="_blank";
-      el.rel="noopener";
-    }else{
-      el.href="#";
-      el.addEventListener("click",e=>e.preventDefault());
-      el.title="実URL未設定";
-      el.style.opacity=".55";
-      el.querySelector(".app-foot span:first-child").textContent="URL未設定";
-    }
-  });
-}
-
-let mode="一問一答", major=null, sub=null;
-
-function renderEraList(){
-  const list=document.getElementById("eraList");
-  list.innerHTML=Object.entries(SUB_ERAS).map(([m,subs])=>`
-    <div class="era-row">
-      <div class="era-name">${m}</div>
-      <div class="era-subs">
-        ${subs.map(s=>`
-          <button class="sub-era-btn ${major===m && sub===s ? "active" : ""}" data-major="${m}" data-sub="${s}">
-            ${s}
-          </button>
-        `).join("")}
-      </div>
-    </div>
-  `).join("");
-
-  list.querySelectorAll(".sub-era-btn").forEach(btn=>{
+function renderSub(){
+  const row=document.getElementById("subRow");
+  row.innerHTML=
+    `<button class="sub-btn ${currentSub===""?"active":""}" data-sub="">すべて</button>`+
+    SUB_ERAS[currentMajor].map(s=>
+      `<button class="sub-btn ${currentSub===s?"active":""}" data-sub="${s}">${s}</button>`
+    ).join("");
+  row.querySelectorAll(".sub-btn").forEach(btn=>{
     btn.onclick=()=>{
-      major=btn.dataset.major;
-      sub=btn.dataset.sub;
-      renderEraList();
-      renderDetail();
-      document.getElementById("detail").scrollIntoView({behavior:"smooth",block:"start"});
+      currentSub=btn.dataset.sub||"";
+      updateUrl();render();
     };
   });
 }
-function renderDetail(){
-  const detail=document.getElementById("detail");
-  document.getElementById("panelTitle").textContent = `${mode}を選ぶ`;
-  if(!major){detail.classList.remove("show");return;}
-  detail.classList.add("show");
-  const sel=document.getElementById("unitSelect");
-  sel.innerHTML=SUB_ERAS[major].map(s=>`<option ${s===sub?"selected":""}>${s}</option>`).join("");
-  sel.onchange=()=>{sub=sel.value;renderDetail();};
-  document.getElementById("detailTitle").textContent=sub;
-  document.getElementById("detailCopy").textContent=COPY[sub]||"";
-  const rows=DATA.filter(r=>r.major===major&&r.sub===sub&&r.mode===mode);
-  const list=document.getElementById("resourceList");
-  if(!rows.length){
-    list.innerHTML=`<div class="empty-note">この単元・形式の教材はまだ登録されていません。</div>`;
-  } else {
-    list.innerHTML=rows.map(r=>`
-      <a class="resource" href="${r.url}" target="_blank" rel="noopener">
-        <div class="kind">${r.kind}</div>
-        <div><div class="title">${r.title}</div><div class="desc">${r.desc}</div></div>
-        <div class="meta">${r.meta}</div>
-        <div class="arrow">→</div>
-      </a>
-    `).join("");
-  }
+function filtered(){
+  return RESOURCES.filter(r=>{
+    if(r.major!==currentMajor) return false;
+    if(currentSub && r.sub!==currentSub) return false;
+    if(r.mode!==currentMode) return false;
+    return true;
+  });
 }
-document.querySelectorAll(".mode-btn").forEach(btn=>{
+function render(){
+  document.querySelectorAll(".major-btn").forEach(
+    b=>b.classList.toggle("active",b.dataset.major===currentMajor)
+  );
+  document.querySelectorAll(".mode-card").forEach(
+    b=>b.classList.toggle("active",b.dataset.mode===currentMode)
+  );
+  renderSub();
+  document.getElementById("eraLabel").textContent=currentSub||currentMajor;
+  document.getElementById("resourceTitle").textContent=currentMode;
+  document.getElementById("resourceSub").textContent=
+    currentMode==="一問一答" ? "プリント・Web" :
+    currentMode==="一文論述" ? "短文論述" : "年代整序";
+
+  const data=filtered();
+  document.getElementById("count").textContent=data.length;
+  const list=document.getElementById("resourceList");
+
+  if(!data.length){
+    list.innerHTML='<div class="empty">この条件の教材は、まだ登録されていません。</div>';
+    return;
+  }
+
+  list.innerHTML=data.map(r=>`
+    <a class="resource-row" href="${r.url}">
+      <div><span class="res-kind">${r.kind}</span></div>
+      <div>
+        <div class="res-title">${r.title}</div>
+        <div class="res-desc">${r.desc}</div>
+      </div>
+      <div class="res-meta">${r.sub}<br>${r.meta}</div>
+      <div class="res-arrow">→</div>
+    </a>
+  `).join("");
+}
+
+document.querySelectorAll(".major-btn").forEach(btn=>{
   btn.onclick=()=>{
-    mode=btn.dataset.mode;
-    document.querySelectorAll(".mode-btn").forEach(b=>b.classList.toggle("active",b===btn));
-    renderDetail();
+    currentMajor=btn.dataset.major;
+    currentSub="";
+    updateUrl();render();
   };
 });
-setupApps();
-renderEraList();
-renderDetail();
+document.querySelectorAll(".mode-card").forEach(btn=>{
+  btn.onclick=()=>{
+    currentMode=btn.dataset.mode;
+    updateUrl();render();
+    document.querySelector(".resource-section").scrollIntoView({behavior:"smooth",block:"start"});
+  };
+});
 
-if(CSV_URL){
-  fetch(CSV_URL,{cache:"no-store"})
-    .then(r=>{if(!r.ok) throw new Error("CSV"); return r.text();})
-    .then(text=>{ DATA=rowsFromCSV(text); renderDetail(); })
-    .catch(()=>{ DATA=[]; renderDetail(); });
-}
+setFromUrl();
+render();
 </script>
-
-<script>
-(function(){
-  const btn=document.querySelector('.unified-menu');
-  const drawer=document.getElementById('unifiedDrawer');
-  if(!btn || !drawer) return;
-  btn.addEventListener('click',function(){
-    document.body.classList.toggle('menu-open');
-  });
-  drawer.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click',function(){
-      document.body.classList.remove('menu-open');
-    });
-  });
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape') document.body.classList.remove('menu-open');
-  });
-})();
-</script>
-
 </body>
 </html>

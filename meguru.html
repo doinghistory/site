@@ -1,15 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>巡る｜歴史する</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+
+
+
 <style>
 :root{
   --bg:#090908;
@@ -367,672 +365,206 @@ footer{
   .travel-title{grid-column:auto}
   .travel-title,.place{border-right:0;border-bottom:1px solid var(--line)}
 }
-
-/* ===== update: unified header + top-page font ===== */
-:root{
-  --mincho:"Shippori Mincho B1",serif;
-  --gothic:"Zen Kaku Gothic New",sans-serif;
-  --gold-l:#c4a35c;
-  --paper:#f2ebdb;
-  --sumi:#1d1913;
-  --soft:#6d6250;
-}
-body{font-family:var(--mincho) !important;}
-h1,h2,h3,h4,h5,h6,
-.brand,.nav a,.nav,.menu,
-.hero h1,.feature h2,.column-head h3,.section-head h2,
-.mode-card h2,.practice-head h3,.stage h2,.stage h3{
-  font-family:var(--mincho) !important;
-}
-small,.eyebrow,.sub,.lead,.copy,.desc,.meta,.badge,
-input,button,select,textarea{
-  font-family:var(--gothic);
-}
-header{
-  height:74px !important;
-  position:fixed !important;
-  top:0;left:0;right:0;
-  z-index:80 !important;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  background:linear-gradient(180deg,rgba(10,10,9,.80),rgba(10,10,9,.46)) !important;
-  backdrop-filter:blur(10px);
-}
-.header-inner{
-  width:min(1280px,calc(100% - 48px));
-  height:100%;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.brand{
-  color:var(--paper) !important;
-  font-size:1.24rem;
-  letter-spacing:.18em;
-}
-.nav{
-  display:flex;
-  gap:clamp(12px,2vw,26px) !important;
-  align-items:center;
-  color:#ddd4c6 !important;
-  font-size:.86rem !important;
-}
-.nav a{
-  writing-mode:horizontal-tb !important;
-  color:#e8dfc7 !important;
-  position:relative;
-  padding-bottom:6px;
-  transition:.25s;
-}
-.nav a::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-1px;
-  width:1px;
-  height:0;
-  background:var(--gold-l);
-  transform:translateX(-50%);
-  transition:.25s;
-}
-.nav a.active,
-.nav a:hover{color:var(--gold-l) !important}
-.nav a.active::after,
-.nav a:hover::after{height:10px}
-.menu{
-  width:44px;height:44px;
-  border:1px solid rgba(242,235,219,.24);
-  border-radius:999px;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(255,255,255,.03);
-  color:var(--paper) !important;
-  font:500 1.05rem/1 var(--gothic) !important;
-}
-@media(max-width:900px){
-  .nav{display:none !important}
-}
-
-
-/* ===== unified site header / brush hero ===== */
-:root{
-  --site-paper:#f2ebdb;
-  --site-gold:#c4a35c;
-  --site-mincho:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
-  --site-gothic:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
-}
-.unified-header{
-  position:fixed !important;
-  inset:0 0 auto 0 !important;
-  height:72px !important;
-  z-index:1000 !important;
-  background:rgba(10,10,9,.76) !important;
-  border-bottom:1px solid rgba(255,255,255,.10) !important;
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  color:var(--site-paper);
-}
-.unified-header-inner{
-  width:min(1280px,calc(100% - 44px));
-  height:100%;
-  margin:auto;
-  display:grid;
-  grid-template-columns:170px 1fr 52px;
-  align-items:center;
-  gap:24px;
-}
-.unified-brand{
-  color:var(--site-paper);
-  text-decoration:none;
-  font-family:var(--site-mincho);
-  font-size:1.15rem;
-  font-weight:500;
-  letter-spacing:.20em;
-  white-space:nowrap;
-}
-.unified-nav{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:clamp(16px,2.2vw,34px);
-  min-width:0;
-}
-.unified-nav a{
-  color:#eee7d9;
-  text-decoration:none;
-  font-family:var(--site-mincho);
-  font-size:.83rem;
-  font-weight:500;
-  letter-spacing:.14em;
-  white-space:nowrap;
-  position:relative;
-  padding:8px 1px;
-  transition:.22s ease;
-}
-.unified-nav a::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:1px;
-  width:0;
-  height:1px;
-  background:var(--site-gold);
-  transform:translateX(-50%);
-  transition:.22s ease;
-}
-.unified-nav a:hover,
-.unified-nav a.active{color:var(--site-gold);}
-.unified-nav a:hover::after,
-.unified-nav a.active::after{width:100%;}
-.unified-menu{
-  width:44px;
-  height:44px;
-  border:1px solid rgba(242,235,219,.28);
-  background:rgba(255,255,255,.02);
-  border-radius:999px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:6px;
-  padding:0;
-  cursor:pointer;
-  text-decoration:none;
-}
-.unified-menu span{
-  display:block;
-  width:18px;
-  height:1px;
-  background:var(--site-paper);
-}
-.hero h1{
-  font-family:"kokuryu",var(--site-mincho) !important;
-  font-weight:400 !important;
-  letter-spacing:.09em !important;
-}
-@media(max-width:900px){
-  .unified-header-inner{
-    grid-template-columns:1fr 44px;
-    width:calc(100% - 28px);
-  }
-  .unified-nav{display:none;}
-  .unified-brand{font-size:1.05rem;}
-}
-
-
-/* ===== header alignment + shared menu drawer ===== */
-.unified-header-inner{
-  grid-template-columns:170px minmax(0,1fr) 52px !important;
-}
-.unified-nav{
-  justify-content:flex-end !important;
-  margin-left:auto !important;
-}
-.unified-menu{
-  position:relative;
-  z-index:1102;
-}
-body.menu-open{overflow:hidden;}
-body.menu-open .unified-menu{
-  background:transparent !important;
-  border-color:#665e52 !important;
-}
-body.menu-open .unified-menu span{background:#1d1913 !important;}
-body.menu-open .unified-menu span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-body.menu-open .unified-menu span:nth-child(2){opacity:0;}
-body.menu-open .unified-menu span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-
-.unified-drawer{
-  position:fixed;
-  inset:0;
-  z-index:1100;
-  background:#f2ebdb;
-  color:#1d1913;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  visibility:hidden;
-  opacity:0;
-  pointer-events:none;
-  clip-path:circle(0 at calc(100% - 44px) 36px);
-  transition:
-    clip-path .72s cubic-bezier(.65,0,.35,1),
-    opacity .15s linear,
-    visibility 0s linear .72s;
-}
-body.menu-open .unified-drawer{
-  visibility:visible;
-  opacity:1;
-  pointer-events:auto;
-  clip-path:circle(150% at calc(100% - 44px) 36px);
-  transition:
-    clip-path .72s cubic-bezier(.65,0,.35,1),
-    opacity .15s linear,
-    visibility 0s linear 0s;
-}
-.unified-drawer-in{
-  display:flex;
-  flex-direction:row-reverse;
-  gap:clamp(32px,6vw,76px);
-}
-.unified-drawer a{
-  writing-mode:vertical-rl;
-  height:min(50vh,390px);
-  padding-top:10px;
-  color:#453e32;
-  text-decoration:none;
-  font-family:var(--site-mincho,"Shippori Mincho B1",serif);
-  font-size:clamp(1.05rem,2.4vh,1.42rem);
-  font-weight:500;
-  letter-spacing:.38em;
-  position:relative;
-  opacity:0;
-  transform:translateY(18px);
-  transition:opacity .45s ease,transform .55s ease,color .22s ease;
-}
-.unified-drawer a::before{
-  content:"";
-  position:absolute;
-  top:-7px;
-  left:50%;
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:#a2937a;
-  transform:translateX(-50%) scale(0);
-  transition:.25s;
-}
-.unified-drawer a:hover{color:#1d1913;}
-.unified-drawer a:hover::before{transform:translateX(-50%) scale(1);}
-body.menu-open .unified-drawer a{opacity:1;transform:none;}
-body.menu-open .unified-drawer a:nth-child(1){transition-delay:.18s;}
-body.menu-open .unified-drawer a:nth-child(2){transition-delay:.26s;}
-body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
-.unified-drawer-foot{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:28px;
-  text-align:center;
-  color:#6d6250;
-  font-family:var(--site-gothic,"Zen Kaku Gothic New",sans-serif);
-  font-size:.64rem;
-  letter-spacing:.28em;
-}
-@media(max-width:900px){
-  .unified-header-inner{grid-template-columns:1fr 44px !important;}
-  .unified-nav{display:none !important;}
-}
-
-.wf-loading .hero h1{visibility:hidden}
-.wf-active .hero h1,.wf-inactive .hero h1{visibility:visible}
-
-/* ===== instant brush header images ===== */
-.unified-brand{
-  display:flex !important;
-  align-items:center !important;
-  min-width:150px;
-  font-size:0 !important;
-  line-height:1 !important;
-}
-.unified-brand img{
-  display:block;
-  width:auto;
-  height:31px;
-  object-fit:contain;
-}
-.unified-nav a{
-  display:flex !important;
-  align-items:center;
-  justify-content:center;
-  min-width:38px;
-  min-height:42px;
-  font-size:0 !important;
-  line-height:1 !important;
-}
-.unified-nav a img{
-  display:block;
-  width:auto;
-  height:27px;
-  object-fit:contain;
-  opacity:.88;
-  transition:opacity .2s ease, transform .2s ease, filter .2s ease;
-}
-.unified-nav a:hover img,
-.unified-nav a.active img{
-  opacity:1;
-  transform:translateY(-1px);
-}
-@media(max-width:900px){
-  .unified-brand img{height:29px}
-}
-
-
-/* ===== REQUESTED FIXES 2026-09-22 ===== */
-/* Header labels and brand are image-based, so there is no font-swap after load. */
-.unified-brand,
-.unified-nav a{
-  font-family:inherit !important;
-}
-.unified-brand img,
-.unified-nav a img{
-  visibility:visible !important;
-  opacity:1;
-}
-.wf-loading .unified-brand,
-.wf-loading .unified-nav a{
-  visibility:visible !important;
-}
-/* ===== END REQUESTED FIXES ===== */
-
-/* ===== HEADER VISIBILITY FIX 2026-09-22 ===== */
-/* Brush PNGs are black originals. Force clear light rendering on the dark header. */
-.unified-brand img{
-  opacity:1 !important;
-  filter:brightness(0) invert(1) !important;
-}
-.unified-nav a img{
-  opacity:.92 !important;
-  filter:brightness(0) invert(1) !important;
-}
-.unified-nav a:hover img{
-  opacity:1 !important;
-  filter:brightness(0) saturate(100%) invert(82%) sepia(28%) saturate(620%) hue-rotate(354deg) brightness(92%) contrast(88%) !important;
-}
-.unified-nav a.active img{
-  opacity:1 !important;
-  filter:brightness(0) saturate(100%) invert(72%) sepia(38%) saturate(690%) hue-rotate(356deg) brightness(91%) contrast(86%) !important;
-}
-/* Keep the header background dark enough that every label stays readable. */
-.unified-header{
-  background:rgba(8,8,7,.90) !important;
-}
-/* ===== END HEADER VISIBILITY FIX ===== */
-
-
-/* ===== HEADER MATCH TOP PAGE ===== */
-.unified-header{
-  background:rgba(10,10,9,.76) !important;
-  border-bottom:1px solid rgba(255,255,255,.10) !important;
-}
-/* ===== END HEADER MATCH TOP PAGE ===== */
-
 </style>
-
-<script>
-(function(d) {
-  var config = { kitId: 'iro6lgt', scriptTimeout: 3000, async: true },
-  h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),
-  tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;
-  h.className+=" wf-loading";
-  tk.src='https://use.typekit.net/'+config.kitId+'.js';
-  tk.async=true;
-  tk.onload=tk.onreadystatechange=function(){
-    a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;
-    f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}
-  };
-  s.parentNode.insertBefore(tk,s)
-})(document);
-</script>
-
-<!-- build:20260922v3 -->
-<!-- instant-brush-header-preload -->
-<link rel="preload" as="image" href="header-brand.png?v=20260922d">
-<link rel="preload" as="image" href="header-manabu.png?v=20260922d">
-<link rel="preload" as="image" href="header-tou.png?v=20260922d">
-<link rel="preload" as="image" href="header-kitaeru.png?v=20260922d">
-<link rel="preload" as="image" href="header-miru.png?v=20260922d">
-<link rel="preload" as="image" href="header-shiraberu.png?v=20260922d">
-<link rel="preload" as="image" href="header-meguru.png?v=20260922d">
-
-<!-- instant-header-preload-20260922d -->
-<link rel="preload" as="image" href="header-brand.png?v=20260922d">
-<link rel="preload" as="image" href="header-manabu.png?v=20260922d">
-<link rel="preload" as="image" href="header-tou.png?v=20260922d">
-<link rel="preload" as="image" href="header-kitaeru.png?v=20260922d">
-<link rel="preload" as="image" href="header-miru.png?v=20260922d">
-<link rel="preload" as="image" href="header-shiraberu.png?v=20260922d">
-<link rel="preload" as="image" href="header-meguru.png?v=20260922d">
-</head>
+<style>
+/* 2026-09 humanized editorial pass */
+:root{
+  --serif:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro","Noto Serif CJK JP",serif;
+  --sans:"Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro","Meiryo",sans-serif;
+}
+body{letter-spacing:.025em}
+.brand img,.logo img{display:block;width:118px;height:auto}
+.hero h1{font-weight:600;letter-spacing:.10em}
+.mode-no,.section-label,.kicker,.list-title,.tag,.num{letter-spacing:.08em}
+</style></head>
 <body>
+<header>
+<div class="header-inner">
+<a class="brand" href="index.html"><img alt="歴史する" src="assets/logo.png"/></a>
+<nav class="nav"><a href="manabu.html">学ぶ</a><a href="tou.html">問う</a><a href="kitaeru.html">鍛える</a><a href="miru.html">観る</a><a href="shiraberu.html">調べる</a><a class="active" href="meguru.html">巡る</a></nav>
 
-<header class="unified-header">
-  <div class="unified-header-inner">
-    <a class="unified-brand" href="index.html#top" aria-label="歴史する"><img src="header-brand.png?v=20260922d" alt="歴史する" decoding="sync" fetchpriority="high"></a>
-    <nav class="unified-nav"><a href="manabu.html" aria-label="学ぶ"><img src="header-manabu.png?v=20260922d" alt="学ぶ" decoding="sync"></a><a href="tou.html" aria-label="問う"><img src="header-tou.png?v=20260922d" alt="問う" decoding="sync"></a><a href="kitaeru.html" aria-label="鍛える"><img src="header-kitaeru.png?v=20260922d" alt="鍛える" decoding="sync"></a><a href="miru.html" aria-label="観る"><img src="header-miru.png?v=20260922d" alt="観る" decoding="sync"></a><a href="shiraberu.html" aria-label="調べる"><img src="header-shiraberu.png?v=20260922d" alt="調べる" decoding="sync"></a><a class="active" href="meguru.html" aria-label="巡る"><img src="header-meguru.png?v=20260922d" alt="巡る" decoding="sync"></a></nav>
-    <button class="unified-menu" id="hamb" type="button" aria-label="メニュー"><span></span><span></span><span></span></button>
-  </div>
+</div>
 </header>
-<nav class="unified-drawer" id="unifiedDrawer" aria-label="サイトメニュー">
-  <div class="unified-drawer-in">
-    <a href="index.html#emaki">時代をたどる</a>
-    <a href="index.html#gates">教材</a>
-    <a href="index.html#sho">この授業について</a>
-  </div>
-  <div class="unified-drawer-foot">歴史する　授業ポータル</div>
-</nav>
-
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="eyebrow">教科書の外へ。</div>
-      <h1>巡る</h1>
-      <div class="lead">歩く。見る。寄り道する。<br>歴史は、場所と人に出会うと少し違って見える。</div>
-      <div class="sub">先生の偏愛コラム、史跡・博物館、歴史さんぽと旅の記録。<br>授業の外側にある「おもしろい」を集めます。</div>
-    </div>
-    <div class="hero-note">COLUMN / PLACE / WALK / TRAVEL</div>
-  </div>
-</section>
+<div class="hero-inner">
+<div class="hero-copy">
+<div class="eyebrow">史跡・博物館・街歩き</div>
+<h1>巡る</h1>
+<div class="lead">授業の外で出会う日本史を集めます。</div>
+<div class="sub">コラム、史跡・博物館、歴史さんぽ、旅の記録。</div>
+</div>
 
+</div>
+</section>
 <main class="magazine">
 
-  <div class="issue-line">
-    <div class="left">MEGURU / ISSUE 01</div>
-    <div class="right">歴史を、場所から読み直す。</div>
-  </div>
+<section class="feature-grid">
+<a class="feature" href="#">
+<div class="tag">先生の偏愛コラム</div>
+<div class="copy">
+<h2>なぜ、史跡には<br/>「何もない」ように見えるのか。</h2>
+<p>石碑ひとつ、道ひとつ。目の前に残っていないからこそ、想像してみる。そんな歴史の見方について。</p>
+<div class="meta">
+<span>偏愛コラム #01</span>
+<span>読む →</span>
+</div>
+</div>
+</a>
+<a class="feature small" href="#">
+<div class="tag">歴史さんぽ</div>
+<div class="copy">
+<h2>上野を歩く。</h2>
+<p>博物館だけではない、上野の歴史をたどる短い散歩。</p>
+<div class="meta">
+<span>東京 / 上野</span>
+<span>見る →</span>
+</div>
+</div>
+</a>
+</section>
+<section class="columns">
+<div class="column">
+<div class="column-head">
+<div>
+<div class="num">01</div>
+<h3>先生の偏愛コラム</h3>
+</div>
 
-  <section class="feature-grid">
-    <a class="feature" href="#">
-      <div class="tag">FEATURE / 先生の偏愛コラム</div>
-      <div class="copy">
-        <h2>なぜ、史跡には<br>「何もない」ように見えるのか。</h2>
-        <p>石碑ひとつ、道ひとつ。目の前に残っていないからこそ、想像してみる。そんな歴史の見方について。</p>
-        <div class="meta">
-          <span>偏愛コラム #01</span>
-          <span>読む →</span>
-        </div>
-      </div>
-    </a>
+</div>
+<div class="entry-list">
+<a class="entry" href="#">
+<div class="thumb"></div>
+<div>
+<div class="title">「境界」を見ると、歴史はおもしろい。</div>
+<div class="desc">中央と周縁、内と外。その境目から歴史を読む。</div>
+</div>
+<div class="arrow">→</div>
+</a>
+<a class="entry" href="#">
+<div class="thumb"></div>
+<div>
+<div class="title">地名は、過去の痕跡なのか。</div>
+<div class="desc">町名・坂名・旧地名から、場所の記憶を探す。</div>
+</div>
+<div class="arrow">→</div>
+</a>
+<a class="entry" href="#">
+<div class="thumb"></div>
+<div>
+<div class="title">博物館で最初に見るもの。</div>
+<div class="desc">展示物そのものより、まず空間を見るという話。</div>
+</div>
+<div class="arrow">→</div>
+</a>
+</div>
+</div>
+<div class="column">
+<div class="column-head">
+<div>
+<div class="num">02</div>
+<h3>おすすめ史跡・博物館</h3>
+</div>
 
-    <a class="feature small" href="#">
-      <div class="tag">PICK UP / 歴史さんぽ</div>
-      <div class="copy">
-        <h2>上野を歩く。</h2>
-        <p>博物館だけではない、上野の歴史をたどる短い散歩。</p>
-        <div class="meta">
-          <span>東京 / 上野</span>
-          <span>見る →</span>
-        </div>
-      </div>
-    </a>
-  </section>
+</div>
+<div class="entry-list">
+<a class="entry" href="#">
+<div class="thumb"></div>
+<div>
+<div class="title">東京国立博物館</div>
+<div class="desc">日本史を実物からたどる定番の入口。</div>
+</div>
+<div class="arrow">→</div>
+</a>
+<a class="entry" href="#">
+<div class="thumb"></div>
+<div>
+<div class="title">江戸東京たてもの園</div>
+<div class="desc">建物と暮らしから近現代を考える。</div>
+</div>
+<div class="arrow">→</div>
+</a>
+<a class="entry" href="#">
+<div class="thumb"></div>
+<div>
+<div class="title">鎌倉・鶴岡八幡宮周辺</div>
+<div class="desc">武家政権の空間を歩いてみる。</div>
+</div>
+<div class="arrow">→</div>
+</a>
+</div>
+</div>
+<div class="column">
+<div class="column-head">
+<div>
+<div class="num">03</div>
+<h3>歴史さんぽ・旅の記録</h3>
+</div>
 
-  <section class="columns">
-
-    <div class="column" id="column">
-      <div class="column-head">
-        <div>
-          <div class="num">01</div>
-          <h3>先生の偏愛コラム</h3>
-        </div>
-        <small>COLUMN</small>
-      </div>
-
-      <div class="entry-list">
-        <a class="entry" href="#">
-          <div class="thumb"></div>
-          <div>
-            <div class="title">「境界」を見ると、歴史はおもしろい。</div>
-            <div class="desc">中央と周縁、内と外。その境目から歴史を読む。</div>
-          </div>
-          <div class="arrow">→</div>
-        </a>
-        <a class="entry" href="#">
-          <div class="thumb"></div>
-          <div>
-            <div class="title">地名は、過去の痕跡なのか。</div>
-            <div class="desc">町名・坂名・旧地名から、場所の記憶を探す。</div>
-          </div>
-          <div class="arrow">→</div>
-        </a>
-        <a class="entry" href="#">
-          <div class="thumb"></div>
-          <div>
-            <div class="title">博物館で最初に見るもの。</div>
-            <div class="desc">展示物そのものより、まず空間を見るという話。</div>
-          </div>
-          <div class="arrow">→</div>
-        </a>
-      </div>
-    </div>
-
-    <div class="column" id="places">
-      <div class="column-head">
-        <div>
-          <div class="num">02</div>
-          <h3>おすすめ史跡・博物館</h3>
-        </div>
-        <small>PLACES</small>
-      </div>
-
-      <div class="entry-list">
-        <a class="entry" href="#">
-          <div class="thumb"></div>
-          <div>
-            <div class="title">東京国立博物館</div>
-            <div class="desc">日本史を実物からたどる定番の入口。</div>
-          </div>
-          <div class="arrow">→</div>
-        </a>
-        <a class="entry" href="#">
-          <div class="thumb"></div>
-          <div>
-            <div class="title">江戸東京たてもの園</div>
-            <div class="desc">建物と暮らしから近現代を考える。</div>
-          </div>
-          <div class="arrow">→</div>
-        </a>
-        <a class="entry" href="#">
-          <div class="thumb"></div>
-          <div>
-            <div class="title">鎌倉・鶴岡八幡宮周辺</div>
-            <div class="desc">武家政権の空間を歩いてみる。</div>
-          </div>
-          <div class="arrow">→</div>
-        </a>
-      </div>
-    </div>
-
-    <div class="column" id="travel">
-      <div class="column-head">
-        <div>
-          <div class="num">03</div>
-          <h3>歴史さんぽ・旅の記録</h3>
-        </div>
-        <small>WALK / TRAVEL</small>
-      </div>
-
-      <div class="entry-list">
-        <a class="entry" href="#">
-          <div class="thumb"></div>
-          <div>
-            <div class="title">浅草から吉原へ。</div>
-            <div class="desc">都市・身分・周縁を歩いて考えるルート。</div>
-          </div>
-          <div class="arrow">→</div>
-        </a>
-        <a class="entry" href="#">
-          <div class="thumb"></div>
-          <div>
-            <div class="title">京都・深草から五条まで。</div>
-            <div class="desc">伏見と京都の歴史をつなぎながら歩く。</div>
-          </div>
-          <div class="arrow">→</div>
-        </a>
-        <a class="entry" href="#">
-          <div class="thumb"></div>
-          <div>
-            <div class="title">淡路島で、日本史を拾う。</div>
-            <div class="desc">島の地理と古代・中世・近世をつなぐ旅。</div>
-          </div>
-          <div class="arrow">→</div>
-        </a>
-      </div>
-    </div>
-
-  </section>
-
-  <section class="travel-strip">
-    <div class="travel-title">
-      <small>NEXT DESTINATION</small>
-      <h4>次は、どこを巡る？</h4>
-    </div>
-
-    <a class="place" href="#">
-      <div>
-        <div class="city">TOKYO</div>
-        <b>上野</b>
-        <p>博物館・公園・寛永寺から近代都市へ。</p>
-      </div>
-      <div class="go">→</div>
-    </a>
-
-    <a class="place" href="#">
-      <div>
-        <div class="city">KANAGAWA</div>
-        <b>鎌倉</b>
-        <p>幕府・寺社・谷戸を歩いて読む。</p>
-      </div>
-      <div class="go">→</div>
-    </a>
-
-    <a class="place" href="#">
-      <div>
-        <div class="city">KYOTO</div>
-        <b>京都</b>
-        <p>古代から近世まで、重なった時間を歩く。</p>
-      </div>
-      <div class="go">→</div>
-    </a>
-  </section>
-
+</div>
+<div class="entry-list">
+<a class="entry" href="#">
+<div class="thumb"></div>
+<div>
+<div class="title">浅草から吉原へ。</div>
+<div class="desc">都市・身分・周縁を歩いて考えるルート。</div>
+</div>
+<div class="arrow">→</div>
+</a>
+<a class="entry" href="#">
+<div class="thumb"></div>
+<div>
+<div class="title">京都・深草から五条まで。</div>
+<div class="desc">伏見と京都の歴史をつなぎながら歩く。</div>
+</div>
+<div class="arrow">→</div>
+</a>
+<a class="entry" href="#">
+<div class="thumb"></div>
+<div>
+<div class="title">淡路島で、日本史を拾う。</div>
+<div class="desc">島の地理と古代・中世・近世をつなぐ旅。</div>
+</div>
+<div class="arrow">→</div>
+</a>
+</div>
+</div>
+</section>
+<section class="travel-strip">
+<div class="travel-title">
+<small>NEXT DESTINATION</small>
+<h4>次は、どこを巡る？</h4>
+</div>
+<a class="place" href="#">
+<div>
+<div class="city">TOKYO</div>
+<b>上野</b>
+<p>博物館・公園・寛永寺から近代都市へ。</p>
+</div>
+<div class="go">→</div>
+</a>
+<a class="place" href="#">
+<div>
+<div class="city">KANAGAWA</div>
+<b>鎌倉</b>
+<p>幕府・寺社・谷戸を歩いて読む。</p>
+</div>
+<div class="go">→</div>
+</a>
+<a class="place" href="#">
+<div>
+<div class="city">KYOTO</div>
+<b>京都</b>
+<p>古代から近世まで、重なった時間を歩く。</p>
+</div>
+<div class="go">→</div>
+</a>
+</section>
 </main>
-
 <footer>
-  <div class="footer-inner">
-    <span>歴史する / DOING HISTORY</span>
-    <span>高校日本史 コラム・史跡・旅</span>
-  </div>
+<div class="footer-inner">
+<span>歴史する</span>
+<span>高校日本史教材</span>
+</div>
 </footer>
-
-
-<script>
-(function(){
-  const btn=document.querySelector('.unified-menu');
-  const drawer=document.getElementById('unifiedDrawer');
-  if(!btn || !drawer) return;
-  btn.addEventListener('click',function(){
-    document.body.classList.toggle('menu-open');
-  });
-  drawer.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click',function(){
-      document.body.classList.remove('menu-open');
-    });
-  });
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape') document.body.classList.remove('menu-open');
-  });
-})();
-</script>
-
 </body>
 </html>
