@@ -706,6 +706,23 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
   .unified-brand img{height:29px}
 }
 
+
+/* ===== REQUESTED FIXES 2026-09-22 ===== */
+/* Header labels and brand are image-based, so there is no font-swap after load. */
+.unified-brand,
+.unified-nav a{
+  font-family:inherit !important;
+}
+.unified-brand img,
+.unified-nav a img{
+  visibility:visible !important;
+  opacity:1;
+}
+.wf-loading .unified-brand,
+.wf-loading .unified-nav a{
+  visibility:visible !important;
+}
+/* ===== END REQUESTED FIXES ===== */
 </style>
 
 <script>
@@ -726,20 +743,29 @@ body.menu-open .unified-drawer a:nth-child(3){transition-delay:.34s;}
 
 <!-- build:20260922v3 -->
 <!-- instant-brush-header-preload -->
-<link rel="preload" as="image" href="header-brand.png">
-<link rel="preload" as="image" href="header-manabu.png">
-<link rel="preload" as="image" href="header-tou.png">
-<link rel="preload" as="image" href="header-kitaeru.png">
-<link rel="preload" as="image" href="header-miru.png">
-<link rel="preload" as="image" href="header-shiraberu.png">
-<link rel="preload" as="image" href="header-meguru.png">
+<link rel="preload" as="image" href="header-brand.png?v=20260922d">
+<link rel="preload" as="image" href="header-manabu.png?v=20260922d">
+<link rel="preload" as="image" href="header-tou.png?v=20260922d">
+<link rel="preload" as="image" href="header-kitaeru.png?v=20260922d">
+<link rel="preload" as="image" href="header-miru.png?v=20260922d">
+<link rel="preload" as="image" href="header-shiraberu.png?v=20260922d">
+<link rel="preload" as="image" href="header-meguru.png?v=20260922d">
+
+<!-- instant-header-preload-20260922d -->
+<link rel="preload" as="image" href="header-brand.png?v=20260922d">
+<link rel="preload" as="image" href="header-manabu.png?v=20260922d">
+<link rel="preload" as="image" href="header-tou.png?v=20260922d">
+<link rel="preload" as="image" href="header-kitaeru.png?v=20260922d">
+<link rel="preload" as="image" href="header-miru.png?v=20260922d">
+<link rel="preload" as="image" href="header-shiraberu.png?v=20260922d">
+<link rel="preload" as="image" href="header-meguru.png?v=20260922d">
 </head>
 <body>
 
 <header class="unified-header">
   <div class="unified-header-inner">
-    <a class="unified-brand" href="index.html#top" aria-label="歴史する"><img src="header-brand.png" alt="歴史する" decoding="sync" fetchpriority="high"></a>
-    <nav class="unified-nav"><a href="manabu.html" aria-label="学ぶ"><img src="header-manabu.png" alt="学ぶ" decoding="sync"></a><a href="tou.html" aria-label="問う"><img src="header-tou.png" alt="問う" decoding="sync"></a><a href="kitaeru.html" aria-label="鍛える"><img src="header-kitaeru.png" alt="鍛える" decoding="sync"></a><a href="miru.html" aria-label="観る"><img src="header-miru.png" alt="観る" decoding="sync"></a><a href="shiraberu.html" aria-label="調べる"><img src="header-shiraberu.png" alt="調べる" decoding="sync"></a><a class="active" href="meguru.html" aria-label="巡る"><img src="header-meguru.png" alt="巡る" decoding="sync"></a></nav>
+    <a class="unified-brand" href="index.html#top" aria-label="歴史する"><img src="header-brand.png?v=20260922d" alt="歴史する" decoding="sync" fetchpriority="high"></a>
+    <nav class="unified-nav"><a href="manabu.html" aria-label="学ぶ"><img src="header-manabu.png?v=20260922d" alt="学ぶ" decoding="sync"></a><a href="tou.html" aria-label="問う"><img src="header-tou.png?v=20260922d" alt="問う" decoding="sync"></a><a href="kitaeru.html" aria-label="鍛える"><img src="header-kitaeru.png?v=20260922d" alt="鍛える" decoding="sync"></a><a href="miru.html" aria-label="観る"><img src="header-miru.png?v=20260922d" alt="観る" decoding="sync"></a><a href="shiraberu.html" aria-label="調べる"><img src="header-shiraberu.png?v=20260922d" alt="調べる" decoding="sync"></a><a class="active" href="meguru.html" aria-label="巡る"><img src="header-meguru.png?v=20260922d" alt="巡る" decoding="sync"></a></nav>
     <button class="unified-menu" id="hamb" type="button" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
 </header>
