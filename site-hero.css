@@ -180,7 +180,7 @@
   letter-spacing:.18em;
 }
 .page-shiraberu{
-  --hero-image:url("https://image.tnm.jp/image/1024/E0070816.jpg");
+  --hero-image:url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Letter%20by%20Date%20Masamune%20(Nov%2023,%201590).jpg?width=1800");
   --hero-size:cover;--hero-x:76%;--hero-y:50%;
   --hero-brightness:.88;--hero-saturation:.62;
   --hero-overlay-left:.86;--hero-overlay-mid:.60;--hero-overlay-right:.16;--hero-overlay-edge:.28;
