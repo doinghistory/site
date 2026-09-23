@@ -213,3 +213,71 @@
   .page-shiraberu{--hero-x:72%;--hero-y:50%;--hero-overlay-left:.89;--hero-overlay-mid:.70}
   .page-meguru{--hero-x:63%;--hero-y:50%;--hero-overlay-left:.88;--hero-overlay-mid:.68}
 }
+
+/* ===== full-background reframing: tou / kitaeru / miru 20260923u3 ===== */
+body.page-tou .site-hero--unified .site-hero-media,
+body.page-kitaeru .site-hero--unified .site-hero-media,
+body.page-miru .site-hero--unified .site-hero-media{
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  transform-origin:right center!important;
+}
+
+body.page-tou .site-hero--unified .site-hero-media{
+  background-position:88% 42%!important;
+  transform:scale(1.15)!important;
+  filter:brightness(.94) saturate(.76) contrast(1.04)!important;
+}
+body.page-kitaeru .site-hero--unified .site-hero-media{
+  background-position:92% 50%!important;
+  transform:scale(1.12)!important;
+  filter:brightness(.94) saturate(.84) contrast(1.04)!important;
+}
+body.page-miru .site-hero--unified .site-hero-media{
+  background-position:88% 47%!important;
+  transform:scale(1.14)!important;
+  filter:brightness(.98) saturate(0) contrast(1.05)!important;
+}
+
+body.page-tou .site-hero--unified.site-hero--photo::after,
+body.page-kitaeru .site-hero--unified.site-hero--photo::after,
+body.page-miru .site-hero--unified.site-hero--photo::after{
+  background:
+    linear-gradient(90deg,
+      rgba(5,5,5,.94) 0%,
+      rgba(5,5,5,.88) 20%,
+      rgba(5,5,5,.70) 37%,
+      rgba(5,5,5,.30) 55%,
+      rgba(5,5,5,.08) 74%,
+      rgba(5,5,5,.12) 100%),
+    linear-gradient(180deg,
+      rgba(5,5,5,.03) 35%,
+      rgba(5,5,5,.30) 100%)!important;
+}
+
+@media(max-width:760px){
+  body.page-tou .site-hero--unified .site-hero-media{
+    background-position:76% 42%!important;
+    transform:scale(1.08)!important;
+  }
+  body.page-kitaeru .site-hero--unified .site-hero-media{
+    background-position:82% 50%!important;
+    transform:scale(1.06)!important;
+  }
+  body.page-miru .site-hero--unified .site-hero-media{
+    background-position:78% 46%!important;
+    transform:scale(1.08)!important;
+  }
+  body.page-tou .site-hero--unified.site-hero--photo::after,
+  body.page-kitaeru .site-hero--unified.site-hero--photo::after,
+  body.page-miru .site-hero--unified.site-hero--photo::after{
+    background:
+      linear-gradient(90deg,
+        rgba(5,5,5,.95) 0%,
+        rgba(5,5,5,.90) 30%,
+        rgba(5,5,5,.64) 52%,
+        rgba(5,5,5,.20) 76%,
+        rgba(5,5,5,.16) 100%),
+      linear-gradient(180deg,rgba(5,5,5,.03),rgba(5,5,5,.32))!important;
+  }
+}
