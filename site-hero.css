@@ -224,8 +224,8 @@ body.page-miru .site-hero--unified .site-hero-media{
 }
 
 body.page-tou .site-hero--unified .site-hero-media{
-  background-position:88% 42%!important;
-  transform:scale(1.15)!important;
+  background-position:92% 58%!important;
+  transform:scale(1.12)!important;
   filter:brightness(.94) saturate(.76) contrast(1.04)!important;
 }
 body.page-kitaeru .site-hero--unified .site-hero-media{
@@ -257,8 +257,8 @@ body.page-miru .site-hero--unified.site-hero--photo::after{
 
 @media(max-width:760px){
   body.page-tou .site-hero--unified .site-hero-media{
-    background-position:76% 42%!important;
-    transform:scale(1.08)!important;
+    background-position:82% 56%!important;
+    transform:scale(1.06)!important;
   }
   body.page-kitaeru .site-hero--unified .site-hero-media{
     background-position:82% 50%!important;
