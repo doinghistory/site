@@ -58,28 +58,28 @@
 }
 .page-tou{
   --hero-image:url("tou-buddha.jpg");
-  --hero-size:auto 132%;--hero-x:92%;--hero-y:40%;
-  --hero-brightness:1.02;--hero-saturation:.78;
-  --hero-overlay-left:.80;--hero-overlay-mid:.44;--hero-overlay-right:.06;--hero-overlay-edge:.12;
+  --hero-size:auto 148%;--hero-x:90%;--hero-y:40%;
+  --hero-brightness:1.00;--hero-saturation:.76;
+  --hero-overlay-left:.90;--hero-overlay-mid:.64;--hero-overlay-right:.08;--hero-overlay-edge:.12;
 }
 .page-kitaeru{
   --hero-image:url("kitaeru-hero-20260922v3.jpg");
-  --hero-size:auto 104%;--hero-x:96%;--hero-y:50%;
-  --hero-brightness:.98;--hero-saturation:.86;
-  --hero-overlay-left:.82;--hero-overlay-mid:.50;--hero-overlay-right:.04;--hero-overlay-edge:.08;
+  --hero-size:auto 118%;--hero-x:90%;--hero-y:50%;
+  --hero-brightness:.98;--hero-saturation:.84;
+  --hero-overlay-left:.90;--hero-overlay-mid:.66;--hero-overlay-right:.08;--hero-overlay-edge:.12;
 }
 .page-miru{
   --hero-image:url("machikado-tv.jpg");
-  --hero-size:auto 138%;--hero-x:96%;--hero-y:46%;
-  --hero-brightness:1.04;--hero-saturation:0;
-  --hero-overlay-left:.84;--hero-overlay-mid:.52;--hero-overlay-right:.05;--hero-overlay-edge:.10;
+  --hero-size:auto 148%;--hero-x:88%;--hero-y:46%;
+  --hero-brightness:1.02;--hero-saturation:0;
+  --hero-overlay-left:.91;--hero-overlay-mid:.67;--hero-overlay-right:.08;--hero-overlay-edge:.12;
 }
 @media(max-width:760px){
   .hero-brush-title img{height:clamp(68px,20vw,92px);max-width:78vw}
   .page-manabu{--hero-x:62%;--hero-y:50%;--hero-overlay-left:.80;--hero-overlay-mid:.60}
-  .page-tou{--hero-size:auto 118%;--hero-x:96%;--hero-y:36%;--hero-overlay-left:.84;--hero-overlay-mid:.58}
-  .page-kitaeru{--hero-size:auto 92%;--hero-x:100%;--hero-y:52%;--hero-overlay-left:.86;--hero-overlay-mid:.62}
-  .page-miru{--hero-size:auto 118%;--hero-x:100%;--hero-y:45%;--hero-overlay-left:.86;--hero-overlay-mid:.64}
+  .page-tou{--hero-size:auto 132%;--hero-x:84%;--hero-y:38%;--hero-overlay-left:.92;--hero-overlay-mid:.72}
+  .page-kitaeru{--hero-size:auto 108%;--hero-x:88%;--hero-y:50%;--hero-overlay-left:.92;--hero-overlay-mid:.72}
+  .page-miru{--hero-size:auto 132%;--hero-x:84%;--hero-y:45%;--hero-overlay-left:.93;--hero-overlay-mid:.74}
 }
 
 /* ===== unified six-page hero / 2026-09-23 ===== */
