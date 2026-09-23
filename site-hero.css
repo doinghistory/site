@@ -285,9 +285,10 @@ body.page-miru .site-hero--unified.site-hero--photo::after{
 /* ===== hero photo revisions 20260923u4 ===== */
 /* 問う：大仏の顔（特に目）が見えるよう、拡大をやめて右下へ。 */
 body.page-tou .site-hero--unified .site-hero-media{
-  background-size:105% auto!important;
-  background-position:0% 20%!important;
-  transform:none!important;
+  background-size:cover!important;
+  background-position:center 38%!important;
+  transform:translate(4%,8%) scale(1.08)!important;
+  transform-origin:center center!important;
   filter:brightness(.96) saturate(.76) contrast(1.04)!important;
 }
 
@@ -328,9 +329,10 @@ body.page-miru .site-hero--unified.site-hero--photo::after{
 
 @media(max-width:760px){
   body.page-tou .site-hero--unified .site-hero-media{
-    background-size:112% auto!important;
-    background-position:0% 18%!important;
-    transform:none!important;
+    background-size:cover!important;
+    background-position:center 36%!important;
+    transform:translate(3%,7%) scale(1.10)!important;
+    transform-origin:center center!important;
   }
   body.page-kitaeru .site-hero--unified .site-hero-media{
     background-size:cover!important;
