@@ -301,13 +301,13 @@ body.page-kitaeru .site-hero--unified .site-hero-media{
   filter:brightness(.92) saturate(.84) contrast(1.03)!important;
 }
 
-/* 観る：1955年の街頭テレビ写真を高解像度版へ。 */
+/* 観る：ユーザー指定の燕子花図を使用。 */
 body.page-miru .site-hero--unified .site-hero-media{
-  background-image:url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Street%20televisions%20in%20Japan.JPG?width=1600")!important;
+  background-image:url("miru-hero-user.webp")!important;
   background-size:cover!important;
-  background-position:56% 50%!important;
+  background-position:58% 50%!important;
   transform:none!important;
-  filter:brightness(.94) saturate(0) contrast(1.05)!important;
+  filter:brightness(.95) saturate(.92) contrast(1.02)!important;
 }
 
 /* 左側は文字のため暗く、右側の主役はできるだけ写真を残す。 */
@@ -341,7 +341,7 @@ body.page-miru .site-hero--unified.site-hero--photo::after{
   }
   body.page-miru .site-hero--unified .site-hero-media{
     background-size:cover!important;
-    background-position:58% 50%!important;
+    background-position:62% 50%!important;
     transform:none!important;
   }
 }
