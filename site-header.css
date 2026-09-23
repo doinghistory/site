@@ -222,3 +222,20 @@ body.menu-open .site-drawer-link:nth-child(6){transition-delay:.42s}
 }
 /* The top page is intentionally not marked active: it is the site home, not one of the six sections. */
 .page-index .site-nav-link{transform:none}
+
+.page-manabu .site-drawer-link[data-nav="manabu"],
+.page-tou .site-drawer-link[data-nav="tou"],
+.page-kitaeru .site-drawer-link[data-nav="kitaeru"],
+.page-miru .site-drawer-link[data-nav="miru"],
+.page-shiraberu .site-drawer-link[data-nav="shiraberu"],
+.page-meguru .site-drawer-link[data-nav="meguru"]{
+  color:var(--site-gold);
+}
+.page-manabu .site-drawer-link[data-nav="manabu"]::before,
+.page-tou .site-drawer-link[data-nav="tou"]::before,
+.page-kitaeru .site-drawer-link[data-nav="kitaeru"]::before,
+.page-miru .site-drawer-link[data-nav="miru"]::before,
+.page-shiraberu .site-drawer-link[data-nav="shiraberu"]::before,
+.page-meguru .site-drawer-link[data-nav="meguru"]::before{
+  transform:translateX(-50%) scale(1);
+}
