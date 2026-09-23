@@ -8,6 +8,7 @@
   --site-gothic:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
 }
 .site-header{
+  contain:layout paint;
   position:fixed;
   inset:0 0 auto 0;
   z-index:1200;
@@ -34,6 +35,8 @@
   line-height:0;
 }
 .site-brand img{
+  user-select:none;
+  -webkit-user-drag:none;
   display:block;
   width:auto;
   height:28px;
@@ -61,6 +64,8 @@
   transition:opacity .22s ease,transform .22s ease;
 }
 .site-nav-link img{
+  user-select:none;
+  -webkit-user-drag:none;
   display:block;
   width:auto;
   height:27px;
