@@ -292,11 +292,11 @@ body.page-tou .site-hero--unified .site-hero-media{
   filter:brightness(.96) saturate(.76) contrast(1.04)!important;
 }
 
-/* 鍛える：添付画像と同じ『蒙古襲来絵詞』石築地前の場面の高解像度版。 */
+/* 鍛える：ユーザー指定の合戦図を使用。 */
 body.page-kitaeru .site-hero--unified .site-hero-media{
-  background-image:url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Takezaki%20suenaga%20ekotoba%20bourui.jpg?width=2400")!important;
+  background-image:url("kitaeru-hero-user.webp")!important;
   background-size:cover!important;
-  background-position:52% 50%!important;
+  background-position:52% 54%!important;
   transform:none!important;
   filter:brightness(.92) saturate(.84) contrast(1.03)!important;
 }
@@ -336,7 +336,7 @@ body.page-miru .site-hero--unified.site-hero--photo::after{
   }
   body.page-kitaeru .site-hero--unified .site-hero-media{
     background-size:cover!important;
-    background-position:54% 50%!important;
+    background-position:54% 52%!important;
     transform:none!important;
   }
   body.page-miru .site-hero--unified .site-hero-media{
