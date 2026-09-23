@@ -226,7 +226,6 @@ button{font:inherit}
 }
 @media(max-width:760px){
   .nav{display:none}
-  .site-header{height:70px}
   .header-inner,.hero-inner,.inner,.footer-inner{width:calc(100% - 28px)}
   .brand-main{font-size:1.2rem}
   .hero{height:460px}
@@ -248,7 +247,14 @@ button{font:inherit}
 
 <!-- build:20260922v3 -->
 
-<link rel="stylesheet" href="site-header.css">
+<link rel="preload" as="image" href="header-brand.png">
+<link rel="preload" as="image" href="header-manabu.png">
+<link rel="preload" as="image" href="header-tou.png">
+<link rel="preload" as="image" href="header-kitaeru.png">
+<link rel="preload" as="image" href="header-miru.png">
+<link rel="preload" as="image" href="header-shiraberu.png">
+<link rel="preload" as="image" href="header-meguru.png">
+<link rel="stylesheet" href="site-header.css?v=20260923h2">
 <link rel="stylesheet" href="site-hero.css">
 </head>
 <body class="page-miru">
@@ -615,6 +621,6 @@ if(CSV_URL){
 }
 </script>
 
-<script src="site-header.js"></script>
+<script src="site-header.js?v=20260923h2"></script>
 </body>
 </html>
