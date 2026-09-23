@@ -10,4 +10,5 @@
   button.addEventListener("click",()=>setOpen(!document.body.classList.contains("menu-open")));
   drawer.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setOpen(false)));
   document.addEventListener("keydown",e=>{if(e.key==="Escape")setOpen(false)});
+  window.addEventListener("pageshow",()=>setOpen(false));
 })();
