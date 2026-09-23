@@ -81,3 +81,135 @@
   .page-kitaeru{--hero-size:auto 92%;--hero-x:100%;--hero-y:52%;--hero-overlay-left:.86;--hero-overlay-mid:.62}
   .page-miru{--hero-size:auto 118%;--hero-x:100%;--hero-y:45%;--hero-overlay-left:.86;--hero-overlay-mid:.64}
 }
+
+/* ===== unified six-page hero / 2026-09-23 ===== */
+.site-hero--unified{
+  min-height:470px!important;
+  height:auto!important;
+  color:#fff;
+  background:var(--hero-base,#070706)!important;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.site-hero--unified::before{
+  display:none!important;
+}
+.site-hero--unified.site-hero--photo::after{
+  content:"";
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  width:auto!important;
+  height:auto!important;
+  right:0!important;
+  bottom:0!important;
+  border:0!important;
+  box-shadow:none!important;
+  transform:none!important;
+  opacity:1!important;
+  z-index:1!important;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,
+      rgba(5,5,5,var(--hero-overlay-left,.82)) 0%,
+      rgba(5,5,5,var(--hero-overlay-mid,.55)) 34%,
+      rgba(5,5,5,var(--hero-overlay-right,.10)) 72%,
+      rgba(5,5,5,var(--hero-overlay-edge,.22)) 100%),
+    linear-gradient(180deg,rgba(5,5,5,.02) 42%,rgba(5,5,5,var(--hero-overlay-bottom,.36)) 100%)!important;
+}
+.site-hero--unified .site-hero-media{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  background-color:var(--hero-base,#070706)!important;
+  background-image:var(--hero-image)!important;
+  background-size:var(--hero-size,cover)!important;
+  background-position:var(--hero-x,70%) var(--hero-y,50%)!important;
+  background-repeat:no-repeat!important;
+  filter:brightness(var(--hero-brightness,1)) saturate(var(--hero-saturation,.84)) contrast(var(--hero-contrast,1.02))!important;
+  transform:none!important;
+}
+.site-hero--unified .hero-inner{
+  position:relative!important;
+  z-index:2!important;
+  width:min(1220px,calc(100% - 48px))!important;
+  min-height:470px!important;
+  height:auto!important;
+  margin:auto!important;
+  display:flex!important;
+  align-items:center!important;
+}
+.site-hero--unified .hero-copy{
+  width:min(390px,calc(100% - 84px))!important;
+  margin:0!important;
+  padding:56px 0 46px!important;
+}
+.site-hero-eyebrow{
+  margin:0 0 14px;
+  color:#fff;
+  font:400 .9rem/1.6 var(--serif,serif);
+  letter-spacing:.08em;
+}
+.site-hero--unified .hero-brush-title{
+  margin:0!important;
+}
+.site-hero--unified .hero-brush-title img{
+  height:clamp(76px,7vw,100px);
+  max-width:min(390px,76vw);
+}
+.site-hero-rule{
+  width:40px;
+  height:1px;
+  margin:25px 0 22px;
+  background:#fff;
+}
+.site-hero-lead{
+  margin:0!important;
+  max-width:345px;
+  color:#fff!important;
+  font:400 .84rem/2.05 var(--serif,serif)!important;
+  letter-spacing:.045em!important;
+}
+.site-hero-phrase{
+  position:absolute;
+  z-index:2;
+  right:max(28px,calc((100vw - 1220px)/2));
+  bottom:54px;
+  writing-mode:vertical-rl;
+  color:rgba(255,255,255,.92);
+  font:400 .82rem/2.1 var(--serif,serif);
+  letter-spacing:.18em;
+}
+.page-shiraberu{
+  --hero-image:url("https://image.tnm.jp/image/1024/E0070816.jpg");
+  --hero-size:cover;--hero-x:76%;--hero-y:50%;
+  --hero-brightness:.88;--hero-saturation:.62;
+  --hero-overlay-left:.86;--hero-overlay-mid:.60;--hero-overlay-right:.16;--hero-overlay-edge:.28;
+}
+.page-meguru{
+  --hero-image:url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Nagasaki,%20Japan;%20Temple%20Street%20Wellcome%20V0037659.jpg?width=1800");
+  --hero-size:cover;--hero-x:72%;--hero-y:48%;
+  --hero-brightness:.90;--hero-saturation:.55;
+  --hero-overlay-left:.84;--hero-overlay-mid:.57;--hero-overlay-right:.12;--hero-overlay-edge:.24;
+}
+@media(max-width:760px){
+  .site-hero--unified{
+    min-height:430px!important;
+  }
+  .site-hero--unified .hero-inner{
+    min-height:430px!important;
+    width:calc(100% - 28px)!important;
+  }
+  .site-hero--unified .hero-copy{
+    width:calc(100% - 64px)!important;
+    padding:52px 0 38px!important;
+  }
+  .site-hero--unified .hero-brush-title img{
+    height:clamp(68px,20vw,88px);
+    max-width:72vw;
+  }
+  .site-hero-eyebrow{font-size:.79rem}
+  .site-hero-lead{font-size:.76rem!important;line-height:1.95!important}
+  .site-hero-phrase{display:none}
+  .page-shiraberu{--hero-x:72%;--hero-y:50%;--hero-overlay-left:.89;--hero-overlay-mid:.70}
+  .page-meguru{--hero-x:63%;--hero-y:50%;--hero-overlay-left:.88;--hero-overlay-mid:.68}
+}
