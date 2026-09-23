@@ -1,0 +1,83 @@
+/* Shared hero tuning.
+   Change the variables below when replacing a photo:
+   --hero-image / --hero-size / --hero-x / --hero-y /
+   --hero-brightness / --hero-overlay-left / --hero-overlay-right.
+*/
+.site-hero{position:relative;overflow:hidden}
+.site-hero--photo{background:var(--hero-base,#070706)}
+.site-hero .site-hero-media{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background-color:var(--hero-base,#070706);
+  background-image:var(--hero-image);
+  background-size:var(--hero-size,cover);
+  background-position:var(--hero-x,70%) var(--hero-y,50%);
+  background-repeat:no-repeat;
+  filter:brightness(var(--hero-brightness,1)) saturate(var(--hero-saturation,.88)) contrast(var(--hero-contrast,1.02));
+  transform:none;
+}
+.site-hero--photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,
+      rgba(5,5,5,var(--hero-overlay-left,.78)) 0%,
+      rgba(5,5,5,var(--hero-overlay-mid,.48)) 34%,
+      rgba(5,5,5,var(--hero-overlay-right,.10)) 72%,
+      rgba(5,5,5,var(--hero-overlay-edge,.18)) 100%),
+    linear-gradient(180deg,rgba(5,5,5,.02) 42%,rgba(5,5,5,var(--hero-overlay-bottom,.36)) 100%);
+}
+.site-hero--photo > :not(.site-hero-media){z-index:2}
+.site-hero.hero::before{z-index:0}
+.page-kitaeru .site-hero.hero::before{display:none!important}
+
+.hero-brush-title{
+  margin:0!important;
+  line-height:0!important;
+  letter-spacing:0!important;
+  font-size:0!important;
+}
+.hero-brush-title img{
+  display:block;
+  width:auto;
+  height:clamp(78px,7.5vw,108px);
+  max-width:min(420px,82vw);
+  object-fit:contain;
+  object-position:left center;
+  filter:brightness(0) invert(1);
+}
+.page-manabu{
+  --hero-image:url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Connecting_Corridor_at_T%C5%8Dfuku-ji_Temple_in_Kyoto.jpg/1280px-Connecting_Corridor_at_T%C5%8Dfuku-ji_Temple_in_Kyoto.jpg");
+  --hero-size:cover;--hero-x:68%;--hero-y:48%;
+  --hero-brightness:.92;--hero-saturation:.78;
+  --hero-overlay-left:.78;--hero-overlay-mid:.48;--hero-overlay-right:.10;--hero-overlay-edge:.24;
+}
+.page-tou{
+  --hero-image:url("tou-buddha.jpg");
+  --hero-size:auto 132%;--hero-x:92%;--hero-y:40%;
+  --hero-brightness:1.02;--hero-saturation:.78;
+  --hero-overlay-left:.80;--hero-overlay-mid:.44;--hero-overlay-right:.06;--hero-overlay-edge:.12;
+}
+.page-kitaeru{
+  --hero-image:url("kitaeru-hero-20260922v3.jpg");
+  --hero-size:auto 104%;--hero-x:96%;--hero-y:50%;
+  --hero-brightness:.98;--hero-saturation:.86;
+  --hero-overlay-left:.82;--hero-overlay-mid:.50;--hero-overlay-right:.04;--hero-overlay-edge:.08;
+}
+.page-miru{
+  --hero-image:url("machikado-tv.jpg");
+  --hero-size:auto 138%;--hero-x:96%;--hero-y:46%;
+  --hero-brightness:1.04;--hero-saturation:0;
+  --hero-overlay-left:.84;--hero-overlay-mid:.52;--hero-overlay-right:.05;--hero-overlay-edge:.10;
+}
+@media(max-width:760px){
+  .hero-brush-title img{height:clamp(68px,20vw,92px);max-width:78vw}
+  .page-manabu{--hero-x:62%;--hero-y:50%;--hero-overlay-left:.80;--hero-overlay-mid:.60}
+  .page-tou{--hero-size:auto 118%;--hero-x:96%;--hero-y:36%;--hero-overlay-left:.84;--hero-overlay-mid:.58}
+  .page-kitaeru{--hero-size:auto 92%;--hero-x:100%;--hero-y:52%;--hero-overlay-left:.86;--hero-overlay-mid:.62}
+  .page-miru{--hero-size:auto 118%;--hero-x:100%;--hero-y:45%;--hero-overlay-left:.86;--hero-overlay-mid:.64}
+}
