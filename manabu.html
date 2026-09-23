@@ -12,7 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700&family=Yuji+Syuku&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
 
 <style>:root{
   --ink:#181714;
@@ -221,11 +221,30 @@ button{font:inherit}
   width:42px;height:1px;background:#38352f;margin-top:18px;
 }
 .era-intro h2{
-  font-size:clamp(2.2rem,4.5vw,3.7rem);
-  line-height:1.45;
-  letter-spacing:.08em;
-  font-weight:500;
+  font-family:"Yuji Syuku","Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:clamp(2rem,3.6vw,3rem);
+  line-height:1.58;
+  letter-spacing:.035em;
+  font-weight:400;
   margin:24px 0 24px;
+  text-wrap:pretty;
+}
+.era-intro h2.quote-medium{
+  font-size:clamp(1.78rem,3.05vw,2.55rem);
+}
+.era-intro h2.quote-long{
+  font-size:clamp(1.52rem,2.55vw,2.08rem);
+  line-height:1.68;
+}
+.quote-main{
+  display:block;
+}
+.quote-source{
+  display:block;
+  margin-top:.72em;
+  font-size:.5em;
+  line-height:1.55;
+  letter-spacing:.035em;
 }
 .era-intro p{
   font-size:.84rem;
@@ -484,8 +503,8 @@ button{font:inherit}
 <section class="materials">
   <div class="materials-inner">
     <aside class="era-intro">
-      <div class="era-label" id="eraLabel">古代</div>
-      <h2 id="eraHeadline">はじまりの<br>日本をみる</h2>
+      <div class="era-label" id="eraLabel">古代のすべて</div>
+      <h2 id="eraHeadline" class="quote-long"><span class="quote-main">焼いたものは自然に属し、煮たものは文化の側に属している</span><span class="quote-source">（レヴィ＝ストロース）</span></h2>
       <p id="eraCopy">
         国家のかたちが生まれ、<br>
         人々の営みが広がっていった時代。<br>
@@ -517,9 +536,13 @@ button{font:inherit}
 <script>
 const CSV_URL = (window.HISTORY_SITE_CONFIG && window.HISTORY_SITE_CONFIG.SHEET_CSV_URL) || "https://docs.google.com/spreadsheets/d/e/2PACX-1vTGfy6nXuXVIFiazfphIAJT7by7hcBLolbP6DHFrIxqrbyB8ucFAlzIRUGuK3BERm9p1IFCi07cvgPu/pub?gid=1464622297&single=true&output=csv";
 
+function brushQuote(text,source){
+  return `<span class="quote-main">${text}</span><span class="quote-source">（${source}）</span>`;
+}
+
 const ERA_TEXT = {
   "古代":{
-    headline:"はじまりの<br>日本をみる",
+    headline:brushQuote("焼いたものは自然に属し、煮たものは文化の側に属している","レヴィ＝ストロース"),
     copy:"国家のかたちが生まれ、<br>人々の営みが広がっていった時代。<br>史料から、古代の社会と人々の<br>くらしを読み解いてみましょう。"
   },
   "中世":{
@@ -549,13 +572,13 @@ const SUB_ERAS = {
 };
 
 const SUB_COPY = {
-  "旧石器":["人類の足跡から","列島のはじまりをみる"],
-  "縄文":["暮らしの痕跡から","縄文社会をみる"],
-  "弥生":["稲作と社会の変化から","弥生時代をみる"],
-  "古墳":["巨大な墓から","権力のかたちをみる"],
-  "飛鳥":["国家形成の動きから","飛鳥の時代をみる"],
-  "奈良":["都と律令国家から","奈良時代をみる"],
-  "平安":["都と地域の変化から","平安時代をみる"],
+  "旧石器":["人類の足跡から",brushQuote("ついに見つけた！","相沢忠洋")],
+  "縄文":["暮らしの痕跡から",brushQuote("モニュメントは世界観だ","小林達雄")],
+  "弥生":["稲作と社会の変化から",brushQuote("倭の奴国、貢を奉じて朝賀す","『後漢書』東夷伝")],
+  "古墳":["巨大な墓から",brushQuote("昼は人がつくり、夜は神がつくった","日本書紀")],
+  "飛鳥":["国家形成の動きから",brushQuote("西蕃の諸国、一に皆礼ふ","日本書紀")],
+  "奈良":["都と律令国家から",brushQuote("かまどには火気ふき立てず","貧窮問答歌")],
+  "平安":["都と地域の変化から",brushQuote("方今、天下の苦しむ所は、軍事と造作なり","日本後紀")],
   "鎌倉":["武士の政権から","鎌倉時代をみる"],
   "南北朝":["二つの朝廷から","動乱の時代をみる"],
   "室町":["幕府と地域社会から","室町時代をみる"],
@@ -716,17 +739,27 @@ function renderSubNav(){
 
 function renderIntro(){
   const label=currentSub || currentMajor;
-  document.getElementById("eraLabel").textContent=label;
+  document.getElementById("eraLabel").textContent=(!currentSub && currentMajor==="古代") ? "古代のすべて" : label;
+
+  const headlineEl=document.getElementById("eraHeadline");
+  headlineEl.classList.remove("quote-medium","quote-long");
 
   if(currentSub && SUB_COPY[currentSub]){
     const [small,headline]=SUB_COPY[currentSub];
-    document.getElementById("eraHeadline").innerHTML=headline.replace("を","を<br>");
+    headlineEl.innerHTML=headline;
     document.getElementById("eraCopy").innerHTML=
       `${small}。<br>この時代の史料や教材を通して、<br>${currentSub}の社会と人々の姿を<br>読み解いてみましょう。`;
   }else{
     const t=ERA_TEXT[currentMajor];
-    document.getElementById("eraHeadline").innerHTML=t.headline;
+    headlineEl.innerHTML=t.headline;
     document.getElementById("eraCopy").innerHTML=t.copy;
+  }
+
+  const quoteMain=headlineEl.querySelector(".quote-main");
+  if(quoteMain){
+    const len=quoteMain.textContent.trim().length;
+    if(len>=24) headlineEl.classList.add("quote-long");
+    else if(len>=14) headlineEl.classList.add("quote-medium");
   }
 }
 
