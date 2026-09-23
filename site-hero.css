@@ -303,7 +303,7 @@ body.page-kitaeru .site-hero--unified .site-hero-media{
 
 /* 観る：ユーザー指定の燕子花図を使用。 */
 body.page-miru .site-hero--unified .site-hero-media{
-  background-image:url("miru-hero-user.webp")!important;
+  background-image:url("miru-hero-iris-v2.webp")!important;
   background-size:cover!important;
   background-position:58% 50%!important;
   transform:none!important;
