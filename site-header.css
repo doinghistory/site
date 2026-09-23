@@ -30,7 +30,7 @@
 .site-brand{
   display:flex;
   align-items:center;
-  width:max-content;
+  width:150px;
   line-height:0;
 }
 .site-brand img{
@@ -52,7 +52,8 @@
   display:flex;
   align-items:center;
   justify-content:center;
-  min-width:42px;
+  width:68px;
+  min-width:68px;
   height:40px;
   padding:5px 1px 8px;
   line-height:0;
@@ -77,7 +78,7 @@
   transform:translateX(-50%);
   transition:width .22s ease;
 }
-.site-nav-link:hover{opacity:1;transform:translateY(-1px)}
+.site-nav-link:hover{opacity:1}
 .site-nav-link:hover::after{width:72%}
 .page-manabu [data-nav="manabu"],
 .page-tou [data-nav="tou"],
@@ -219,3 +220,5 @@ body.menu-open .site-drawer-link:nth-child(6){transition-delay:.42s}
     letter-spacing:.28em;
   }
 }
+/* The top page is intentionally not marked active: it is the site home, not one of the six sections. */
+.page-index .site-nav-link{transform:none}
