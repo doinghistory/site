@@ -1,0 +1,1 @@
+window.TOU_SNAPSHOT=[{"title": "室町文化を一文で説明する", "kind": "一文論述", "era": "室町", "desc": "用語の関係を短く説明する", "url": "", "order": 20}, {"title": "鎌倉幕府の成立年", "kind": "一文論述", "era": "鎌倉", "desc": "鎌倉幕府が成立したのはいつだろうか", "url": "https://youtu.be/ByxGAfGBWRA?si=Bn585MmvSGxD9dRP", "order": 9999}];

@@ -1,0 +1,11 @@
+/* The fixed, shared header matches the unchanged home page. */
+body[class*="page-"]{padding-top:var(--site-header-height)}
+body[class*="page-"] .site-header{font-family:var(--site-gothic)}
+body[class*="page-"] .site-header button{cursor:pointer}
+body[class*="page-"] .site-drawer a{color:var(--site-ink);text-decoration:none}
+body[class*="page-"] .site-drawer{font-family:var(--site-gothic)}
+body[class*="page-"] .site-drawer-link{writing-mode:vertical-rl}
+body[class*="page-"] .site-drawer-link:hover{color:var(--site-ink)}
+body[class*="page-"] .site-drawer-link::before{background:#a2937a}
+body[class*="page-"] .site-nav-link{color:var(--site-paper)}
+@media(max-width:560px){body[class*="page-"]{padding-top:68px}}

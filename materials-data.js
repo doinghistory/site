@@ -1,0 +1,1 @@
+window.MATERIALS_SNAPSHOT=[{"title": "29 室町文化", "era": "室町", "kind": "授業プリント", "desc": "室町文化を史料と問いから考える", "url": "", "date": "2026/09/23", "order": 10}, {"title": "57.中央集権化", "era": "明治", "kind": "授業プリント", "desc": "明治政府はどのようにして社会を中央集権化していったのか", "url": "https://drive.google.com/file/d/1QOZ7h6C9_8A5z5oYXzWTarkBhyxCdnAN/view?usp=drive_link", "date": "2026/09/23", "order": 9999}];
