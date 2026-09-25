@@ -248,6 +248,32 @@ body.menu-open .site-drawer-link:nth-child(6){transition-delay:.42s}
   }
 }
 /* The top page is intentionally not marked active: it is the site home, not one of the six sections. */
+/* The contents dialog is isolated from the unchanged home-page styling. */
+.site-drawer.editorial-menu{position:fixed;inset:0;box-sizing:border-box;width:100%;height:100dvh;max-width:none;max-height:none;margin:0;padding:0 5%;border:0;background:#fafafa;color:#20211f;clip-path:none;visibility:visible;opacity:1;pointer-events:auto;transition:none;overflow:auto;font-family:"Noto Sans CJK JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;letter-spacing:0;line-height:1.6}
+.site-drawer.editorial-menu:not([open]){display:none}
+.site-drawer.editorial-menu[open]{display:block}
+.editorial-menu::backdrop{background:#fafafa}
+.editorial-menu *, .editorial-menu *::before,.editorial-menu *::after{box-sizing:border-box;letter-spacing:0}
+.editorial-menu a{color:inherit;text-decoration:none}
+.editorial-menu .contents-bar{height:100px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #c9cac6}
+.editorial-menu .contents-bar img{width:140px;height:auto;filter:brightness(0);display:block}
+.editorial-menu .contents-close{position:static;display:grid;place-items:center;width:48px;height:48px;border:1px solid #20211f;background:transparent;color:#20211f;font:32px/1 sans-serif;border-radius:0;cursor:pointer}
+.editorial-menu .contents-layout{display:grid;grid-template-columns:minmax(180px,1fr) minmax(0,2.15fr);gap:8%;max-width:1320px;margin:65px auto 50px}
+.editorial-menu .contents-heading p{font-size:14px;margin:0 0 24px}
+.editorial-menu .contents-heading h2{font:400 76px/1.3 "Yu Mincho","Noto Serif CJK JP",serif;margin:0 0 48px}
+.editorial-menu .contents-home{font-size:14px;display:inline-flex;gap:28px;border-bottom:1px solid #20211f;padding-bottom:10px}
+.editorial-menu .contents-row{position:relative;border-top:1px solid #bfc1bb;padding:0 0 16px}
+.editorial-menu .contents-row:last-child{border-bottom:1px solid #bfc1bb}
+.editorial-menu .contents-destination{display:grid;grid-template-columns:35px 125px minmax(0,1fr) 24px;align-items:center;gap:14px;padding-top:18px}
+.editorial-menu .contents-number{font:italic 15px Georgia,serif;color:#656760}
+.editorial-menu .contents-name{font:400 34px/1.5 "Yu Mincho","Noto Serif CJK JP",serif}
+.editorial-menu .contents-description{font-size:14px}
+.editorial-menu .contents-arrow{font-size:25px}
+.editorial-menu .contents-shortcut{display:block;width:max-content;margin:5px 0 0 49px;font-size:13px;text-decoration:underline;text-underline-offset:4px;color:#565951}
+.editorial-menu .contents-destination:hover,.editorial-menu .contents-destination[aria-current=page]{color:#9d2d25}
+.editorial-menu a:focus-visible,.editorial-menu button:focus-visible{outline:2px solid #9d2d25;outline-offset:4px}
+@media(max-width:760px){.site-drawer.editorial-menu{padding:0 6%}.editorial-menu .contents-bar{height:76px}.editorial-menu .contents-layout{display:block;margin:26px auto}.editorial-menu .contents-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}.editorial-menu .contents-heading p{display:none}.editorial-menu .contents-heading h2{font-size:36px;margin:0}.editorial-menu .contents-home{font-size:13px;gap:10px}.editorial-menu .contents-destination{grid-template-columns:24px 91px minmax(0,1fr) 20px;gap:8px;padding-top:12px}.editorial-menu .contents-name{font-size:28px}.editorial-menu .contents-description{font-size:13px;line-height:1.65}.editorial-menu .contents-shortcut{margin-left:32px;font-size:12px}.editorial-menu .contents-row{padding-bottom:12px}.editorial-menu .contents-arrow{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.site-drawer,.site-menu-button,.site-menu-button::after{transition:none!important}}
 .page-index .site-nav-link{transform:none}
 
 .page-manabu .site-drawer-link[data-nav="manabu"],
