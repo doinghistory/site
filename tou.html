@@ -1,87 +1,199 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>問う — 歴史する</title><meta name="description" content="山川一問一答、時代と流れ、日本史の一問一答プリント。学習する教材を選ぶ。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23993427'/%3E%3Ctext x='32' y='47' text-anchor='middle' fill='white' font-family='serif' font-size='43'%3E問%3C/text%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="tou.css"><link rel="preload" as="image" href="assets/sharaku.jpg"><script src="tou-data.js" defer></script><script src="tou.js" defer></script><link rel="stylesheet" href="site-header.css"><link rel="stylesheet" href="subpage-header.css"><script src="site-header.js" defer></script><style>
-/* 「問う」 図録目次型・試作：このページだけに適用 */
-body.page-tou{
-  --tou-serif:"Shippori Mincho","Yu Mincho","Hiragino Mincho ProN",serif;
-  --tou-sans:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-  --tou-ink:#222925;
-  --tou-rule:#c9c8bc;
-  --tou-paper:#f9f8f4;
-  background:var(--tou-paper);color:var(--tou-ink);
-  font-family:var(--tou-sans);font-weight:400;
-}
-.page-tou .spread{display:block;max-width:none;margin:0}
-.page-tou .choices{border:0;min-width:0}
-.page-tou .tou-hero{position:relative;isolation:isolate;height:clamp(235px,27vw,395px);overflow:hidden;background:#252722}
-.page-tou .tou-hero img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 35%}
-.page-tou .tou-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 53%,rgba(0,0,0,.13) 73%,rgba(0,0,0,.58))}
-.page-tou .tou-hero-copy{position:absolute;z-index:1;top:12%;right:7%;color:#f7f5ed}
-.page-tou .tou-hero h1{font:400 clamp(76px,8vw,128px)/1.1 var(--tou-serif);writing-mode:vertical-rl;letter-spacing:.08em!important;margin:0}
-.page-tou .tou-body{width:min(1350px,calc(100% - 9vw));margin:auto;padding:33px 0 0}
-.page-tou .tou-section-title,
-.page-tou .print-heading h2{font:400 clamp(24px,2.35vw,32px)/1.4 var(--tou-serif)!important;letter-spacing:.025em!important;margin:0!important;border:0!important;padding:0!important;color:var(--tou-ink)}
-.page-tou .editorial-apps{margin-bottom:35px}
-.page-tou .editorial-apps .tou-section-title{margin-bottom:13px!important}
-.page-tou .editorial-app-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(19px,3.5vw,48px);border-top:1px solid var(--tou-rule);border-bottom:1px solid var(--tou-rule)}
-.page-tou .editorial-app-links a{display:grid;grid-template-columns:76px minmax(0,1fr) 24px;gap:clamp(16px,2vw,30px);align-items:center;min-width:0;padding:19px 0;color:inherit;text-decoration:none;background:transparent;border:0}
-.page-tou .editorial-app-links a+a{border-left:1px solid var(--tou-rule);padding-left:clamp(18px,3vw,46px)}
-.page-tou .editorial-app-links a:hover .app-title{color:#836d4b}
-.page-tou .editorial-app-links a:focus-visible{outline:2px solid #8a6d40;outline-offset:-3px}
-.page-tou .book-excerpt{display:flex;position:relative;align-items:center;justify-content:center;width:76px;height:104px;padding:8px;text-align:center;flex:none;border:1px solid rgba(22,31,29,.18)}
-.page-tou .book-excerpt.yamakawa{background:#b6322a}
-.page-tou .book-excerpt.yamakawa::before{content:"";position:absolute;inset:12px 8px;background:#202e3b;clip-path:polygon(50% 0,90% 22%,100% 68%,50% 100%,0 70%,10% 24%)}
-.page-tou .book-excerpt.yamakawa span{position:relative;z-index:1;color:#fff;font:500 15px/1.45 var(--tou-serif)}
-.page-tou .book-excerpt.jidai{background:#d57573}
-.page-tou .book-excerpt.jidai::before{content:"";position:absolute;inset:10px 7px;background:#faf5e9;border:1px solid #e5cbb6}
-.page-tou .book-excerpt.jidai span{position:relative;z-index:1;color:#a63835;font:500 13px/1.45 var(--tou-serif)}
-.page-tou .app-title{display:block;font:400 clamp(21px,2.1vw,30px)/1.5 var(--tou-serif)}
-.page-tou .app-caption{display:block;margin-top:6px;font:400 12px/1.7 var(--tou-sans);color:#6d6d64}
-.page-tou .app-arrow{font-family:var(--tou-sans);font-size:23px;font-weight:400;line-height:1;align-self:center}
-.page-tou .print-section{background:transparent!important;min-height:0;padding:0 0 60px!important}
-.page-tou .print-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 10px}
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>問う — 歴史する</title><meta name="description" content="山川一問一答、時代と流れ、日本史の一問一答プリント。学習する教材を選ぶ。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23993427'/%3E%3Ctext x='32' y='47' text-anchor='middle' fill='white' font-family='serif' font-size='43'%3E問%3C/text%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Zen+Old+Mincho:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="tou.css"><link rel="preload" as="image" href="assets/sharaku.jpg"><script src="tou-data.js" defer></script><script src="tou.js" defer></script><link rel="stylesheet" href="site-header.css"><link rel="stylesheet" href="subpage-header.css"><script src="site-header.js" defer></script><style>
+/* 問う：指定された博物館風レイアウト */
+.page-tou{background:#f8f7f2;color:#242720}
+.page-tou .spread{display:block;max-width:none}
+.page-tou .choices{display:block;border:0}
+.page-tou .contents,.page-tou .between-panels,.page-tou .app-panel,.page-tou .museum-opening{display:none!important}
+.page-tou .tou-hero{height:clamp(340px,35vw,580px);position:relative;overflow:hidden;background:#282b25}
+.page-tou .tou-hero>img{width:100%;height:100%;object-fit:cover;object-position:center 36%}
+.page-tou .tou-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 48%,rgba(0,0,0,.12) 65%,rgba(0,0,0,.57))}
+.page-tou .tou-hero-copy{position:absolute;z-index:1;right:6.5%;top:15%;bottom:15%;display:flex;flex-direction:row-reverse;gap:clamp(22px,3vw,55px);align-items:flex-start;color:#fff}
+.page-tou .tou-hero-copy h1{writing-mode:vertical-rl;font:400 clamp(75px,8vw,140px)/1.15 'Yu Mincho','Hiragino Mincho ProN',serif;margin:0;letter-spacing:.06em!important;border-left:1px solid rgba(255,255,255,.8);padding-left:clamp(15px,2vw,32px)}
+.page-tou .tou-hero-copy p{writing-mode:vertical-rl;font:clamp(15px,1.4vw,23px)/1.9 'Yu Mincho','Hiragino Mincho ProN',serif;margin:32px 0 0;letter-spacing:.1em!important}
+.page-tou .tou-body{max-width:1600px;margin:auto;padding:clamp(36px,4vw,65px) clamp(24px,5vw,78px) 0}
+.page-tou .tou-section-title{font:400 clamp(28px,2.8vw,42px)/1.5 'Yu Mincho','Hiragino Mincho ProN',serif;margin:0 0 24px;border-bottom:1px solid #9d9c91;padding-bottom:5px}
+.page-tou .tou-app-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,45px);margin-bottom:clamp(48px,5vw,75px)}
+.page-tou .tou-app-card{display:grid;grid-template-columns:50% 50%;min-height:clamp(160px,16vw,270px);background:#1e352b;color:#fff;text-decoration:none;overflow:hidden}
+.page-tou .tou-app-card img{width:100%;height:100%;object-fit:cover;object-position:center 35%;transition:transform .35s}
+.page-tou .tou-app-card:hover img{transform:scale(1.035)}
+.page-tou .tou-app-info{display:flex;flex-direction:column;justify-content:center;padding:clamp(14px,2.3vw,34px);min-width:0}
+.page-tou .tou-app-info strong{font:400 clamp(21px,2.4vw,38px)/1.4 'Yu Mincho','Hiragino Mincho ProN',serif;white-space:nowrap}
+.page-tou .tou-app-info small{font:clamp(11px,1.1vw,16px)/1.7 'Yu Mincho','Hiragino Mincho ProN',serif;margin-top:16px}
+.page-tou .tou-app-info .arrow{font-size:30px;align-self:flex-end;margin-top:12px;line-height:1}
+.page-tou .print-section{padding:0 0 85px!important;min-height:0;background:transparent!important}
+.page-tou .print-heading{display:block}
 .page-tou .print-heading .eyebrow{display:none}
+.page-tou .print-heading h2{font:400 clamp(28px,2.8vw,42px)/1.5 'Yu Mincho','Hiragino Mincho ProN',serif!important;border-bottom:1px solid #9d9c91;padding-bottom:5px;margin:0 0 24px!important}
 .page-tou .print-heading h2 span:first-child{font-size:inherit}
+.page-tou .print-heading h2 br{display:none}
 .page-tou .print-heading h2 span:last-child{display:none}
 .page-tou .print-controls{margin-top:0}
-.page-tou .type-nav{display:flex;gap:0;flex-wrap:nowrap;overflow-x:auto;border-bottom:1px solid var(--tou-rule);scrollbar-width:thin}
-.page-tou .type-nav button{flex:0 0 auto;border:0;border-bottom:2px solid transparent;background:transparent;padding:11px clamp(11px,2vw,25px);margin:0;font:400 14px/1.5 var(--tou-sans)!important;white-space:nowrap;min-height:44px}
-.page-tou .type-nav button:first-child{padding-left:4px}
-.page-tou .type-nav button[aria-pressed="true"]{background:transparent!important;color:#2b493a;border-color:#2b493a}
-.page-tou .era-select{margin-top:11px;gap:12px}
-.page-tou .era-select label,.page-tou .era-select select{font:400 13px var(--tou-sans)}
-.page-tou .era-select select{border:0;border-bottom:1px solid #a5a89c;background:transparent;padding:9px 24px 9px 3px;min-height:40px}
-.page-tou #count{display:none}
-.page-tou .data-status{margin:5px 0;font:12px/1.8 var(--tou-sans);min-height:0}
-.page-tou .data-status:empty{display:none}
-.page-tou .print-item{display:grid;grid-template-columns:minmax(0,1fr) 30px;gap:14px;align-items:center;padding:14px 2px;border-top:0;border-bottom:1px solid #d1d0c6;background:transparent!important}
-.page-tou .print-item h3{font:400 clamp(17px,1.6vw,21px)/1.6 var(--tou-sans)!important;margin:4px 0;letter-spacing:0!important}
-.page-tou .print-item p{display:none}
-.page-tou .item-meta{font:12px/1.7 var(--tou-sans);color:#777a6e}
-.page-tou .item-arrow{font-size:19px}
-.page-tou .pending{font-size:12px;writing-mode:horizontal-tb}
-.page-tou .footer{padding:29px 0 35px;border-top:1px solid var(--tou-rule);font-family:var(--tou-sans)}
-.page-tou .footer a,.page-tou .footer summary{font-size:12px}
-@media(max-width:800px){
-  .page-tou .tou-hero{height:200px}
-  .page-tou .tou-hero img{object-position:40% center}
-  .page-tou .tou-hero::after{background:linear-gradient(90deg,transparent 45%,rgba(0,0,0,.48))}
-  .page-tou .tou-hero-copy{right:7%;top:16%}
-  .page-tou .tou-hero h1{font-size:58px}
-  .page-tou .tou-body{width:calc(100% - 36px);padding-top:23px}
-  .page-tou .tou-section-title,.page-tou .print-heading h2{font-size:24px!important}
-  .page-tou .editorial-apps{margin-bottom:27px}
-  .page-tou .editorial-app-links{grid-template-columns:1fr;gap:0}
-  .page-tou .editorial-app-links a{grid-template-columns:62px minmax(0,1fr) 22px;padding:12px 0}
-  .page-tou .editorial-app-links a+a{border-left:0;border-top:1px solid var(--tou-rule);padding-left:0}
-  .page-tou .book-excerpt{width:62px;height:81px}
-  .page-tou .book-excerpt.yamakawa span{font-size:12px}
-  .page-tou .book-excerpt.jidai span{font-size:11px}
-  .page-tou .app-title{font-size:22px}
-  .page-tou .app-caption{font-size:12px}
-  .page-tou .type-nav button{font-size:13px!important;padding:10px 12px}
-  .page-tou .print-item{padding:12px 0}
+.page-tou .type-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-bottom:1px solid #9d9c91;max-width:920px}
+.page-tou .type-nav button{padding:12px 10px;border:0;border-right:1px solid #a7a69b;background:transparent;margin:0;font:clamp(15px,1.5vw,23px)/1.5 'Yu Mincho','Hiragino Mincho ProN',serif}
+.page-tou .type-nav button:first-child{display:none}
+.page-tou .type-nav button[aria-pressed=true]{background:#1e352b;color:#fff}
+.page-tou .era-select{margin-top:20px}
+.page-tou .print-item{grid-template-columns:minmax(0,1fr) 35px;padding:16px 14px;border-top:0;border-bottom:1px solid #c4c1b7}
+.page-tou .print-item h3{font:400 clamp(17px,1.5vw,23px)/1.5 'Yu Mincho','Hiragino Mincho ProN',serif;margin:5px 0}
+.page-tou .print-item p{font-size:13px}
+.page-tou .item-meta{font-size:12px}
+.page-tou .material-tools{margin:20px 0}
+.page-tou .footer{max-width:1600px;margin:auto;padding:30px 5vw}
+@media(max-width:760px){
+.page-tou .tou-hero{height:clamp(310px,75vw,450px)}
+.page-tou .tou-hero>img{object-position:40% center}
+.page-tou .tou-hero:after{background:linear-gradient(90deg,transparent 30%,rgba(0,0,0,.65))}
+.page-tou .tou-hero-copy{right:5%;top:12%;bottom:10%;gap:12px}
+.page-tou .tou-hero-copy h1{font-size:clamp(54px,15vw,85px);padding-left:10px}
+.page-tou .tou-hero-copy p{font-size:12px;margin-top:12px;line-height:1.65}
+.page-tou .tou-body{padding:30px 5% 0}
+.page-tou .tou-app-grid{grid-template-columns:1fr;gap:14px;margin-bottom:45px}
+.page-tou .tou-app-card{min-height:150px}
+.page-tou .tou-app-info strong{font-size:clamp(20px,5.4vw,30px)}
+.page-tou .tou-app-info small{font-size:12px;margin-top:8px}
+.page-tou .tou-app-info .arrow{font-size:23px;margin-top:6px}
+.page-tou .type-nav button{font-size:14px}
+.page-tou .print-heading h2{font-size:27px!important}
 }
-@media(prefers-reduced-motion:reduce){.page-tou *{scroll-behavior:auto!important}}
+</style><style>
+/* 生徒がすぐ教材へ進めるコンパクト版 */
+.page-tou .tou-hero{height:clamp(200px,22vw,340px)}
+.page-tou .tou-hero-copy{top:10%;bottom:8%}
+.page-tou .tou-hero-copy h1{font-size:clamp(60px,6vw,95px)}
+.page-tou .tou-body{padding-top:24px}
+.page-tou .tou-section-title{margin-bottom:12px;font-size:clamp(24px,2.3vw,32px)}
+.page-tou .tou-app-grid{margin-bottom:30px;gap:18px}
+.page-tou .tou-app-card{min-height:135px;max-height:180px}
+.page-tou .tou-app-info{padding:14px 20px}
+.page-tou .tou-app-info strong{font-size:clamp(19px,2vw,29px)}
+.page-tou .tou-app-info small{margin-top:5px}
+.page-tou .tou-app-info .arrow{margin-top:0;font-size:23px}
+.page-tou .print-section{padding-bottom:55px!important}
+.page-tou .print-heading h2{margin-bottom:10px!important;font-size:clamp(25px,2.5vw,33px)!important}
+.page-tou .print-controls{display:flex;align-items:center;gap:12px 25px;flex-wrap:wrap}
+.page-tou .type-nav{flex:1;min-width:320px}
+.page-tou .era-select{margin:0}
+.page-tou .data-status{margin:4px 0}
+.page-tou .print-item{padding:11px 8px}
+.page-tou .print-item p{display:none}
+.page-tou .print-item h3{margin:0}
+.page-tou #count{display:none}
+@media(max-width:760px){
+.page-tou .tou-hero{height:190px}
+.page-tou .tou-hero-copy{top:9%;bottom:7%}
+.page-tou .tou-hero-copy h1{font-size:52px}
+.page-tou .tou-hero-copy p{font-size:11px;margin-top:4px}
+.page-tou .tou-body{padding:18px 5% 0}
+.page-tou .tou-section-title{font-size:23px;margin-bottom:10px}
+.page-tou .tou-app-grid{gap:9px;margin-bottom:25px}
+.page-tou .tou-app-card{min-height:105px;max-height:120px}
+.page-tou .tou-app-info{padding:10px 14px}
+.page-tou .tou-app-info strong{font-size:21px}
+.page-tou .tou-app-info small{font-size:11px;margin-top:4px}
+.page-tou .tou-app-info .arrow{font-size:19px}
+.page-tou .print-heading h2{font-size:24px!important}
+.page-tou .print-controls{display:block}
+.page-tou .type-nav{min-width:0}
+.page-tou .type-nav button{font-size:13px;padding:9px 4px}
+.page-tou .era-select{margin-top:8px}
+.page-tou .print-item{padding:10px 4px}
+}
+</style><style>
+/* 美術館の図録を意識した最終レイアウト。装飾カードを排除 */
+.page-tou{background:#f9f8f4!important}
+.page-tou .tou-hero{height:clamp(240px,30vw,460px)}
+.page-tou .tou-hero>img{object-position:center 34%}
+.page-tou .tou-hero-copy{top:12%;bottom:12%}
+.page-tou .tou-hero-copy h1{font-size:clamp(72px,7vw,116px)}
+.page-tou .tou-body{max-width:1420px;padding:clamp(25px,3.5vw,55px) clamp(22px,5vw,72px) 0}
+.page-tou .tou-section-title{font:400 clamp(24px,2.1vw,33px)/1.5 'Yu Mincho','Hiragino Mincho ProN',serif!important;border:0;padding:0;margin:0!important}
+.page-tou .editorial-apps{display:grid;grid-template-columns:190px minmax(0,1fr);gap:clamp(22px,4vw,60px);align-items:start;margin-bottom:clamp(35px,5vw,75px)}
+.page-tou .editorial-app-links{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #aaa89f}
+.page-tou .editorial-app-links a{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:4px 24px 22px;text-decoration:none}
+.page-tou .editorial-app-links a+a{border-left:1px solid #c5c0b6;padding-left:45px}
+.page-tou .editorial-app-links strong{display:block;font:400 clamp(22px,2.1vw,34px)/1.5 'Yu Mincho','Hiragino Mincho ProN',serif}
+.page-tou .editorial-app-links small{display:block;font-size:13px;color:#6b695f;margin-top:3px}
+.page-tou .editorial-arrow{font-size:24px;flex-shrink:0;transition:transform .2s}
+.page-tou .editorial-app-links a:hover{color:#8a713e}
+.page-tou .editorial-app-links a:hover .editorial-arrow{transform:translate(3px,-3px)}
+.page-tou .print-heading h2{font:400 clamp(25px,2.4vw,36px)/1.5 'Yu Mincho','Hiragino Mincho ProN',serif!important;border:0!important;padding:0!important;margin:0 0 14px!important}
+.page-tou .print-controls{display:block}
+.page-tou .type-nav{max-width:none;display:flex;gap:0;border-bottom:1px solid #aaa89f}
+.page-tou .type-nav button{flex:0 1 210px;border:0!important;padding:11px 18px;font-size:clamp(15px,1.5vw,20px);font-family:'Yu Mincho','Hiragino Mincho ProN',serif}
+.page-tou .type-nav button:first-child{display:block}
+.page-tou .type-nav button[aria-pressed=true]{background:transparent!important;color:#1d392b!important;border-bottom:3px solid #1d392b!important}
+.page-tou .era-select{margin:14px 0 0}
+.page-tou .print-item{padding:12px 8px}
+.page-tou .print-item h3{font-family:'Yu Mincho','Hiragino Mincho ProN',serif;font-weight:400}
+.page-tou .print-item p{display:none}
+.page-tou .print-section{padding-bottom:60px!important}
+@media(max-width:760px){
+.page-tou .tou-hero{height:210px}
+.page-tou .tou-hero-copy h1{font-size:54px}
+.page-tou .tou-body{padding:25px 5% 0}
+.page-tou .editorial-apps{display:block;margin-bottom:32px}
+.page-tou .tou-section-title{font-size:24px!important;margin-bottom:12px!important}
+.page-tou .editorial-app-links{grid-template-columns:1fr}
+.page-tou .editorial-app-links a{padding:12px 0!important}
+.page-tou .editorial-app-links a+a{border-left:0;border-top:1px solid #c5c0b6}
+.page-tou .editorial-app-links strong{font-size:23px}
+.page-tou .editorial-app-links small{font-size:12px}
+.page-tou .print-heading h2{font-size:25px!important}
+.page-tou .type-nav{overflow-x:auto;white-space:nowrap}
+.page-tou .type-nav button{flex:0 0 auto;font-size:14px;padding:10px 12px}
+}
+</style><style>
+/* 表紙を背景へ溶かす2つの演習ボタン。風景・富士山・波の装飾なし */
+.page-tou .editorial-apps{display:block!important;margin-bottom:26px!important}
+.page-tou .editorial-apps .tou-section-title{margin-bottom:14px!important}
+.page-tou .editorial-app-links{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important;border:0!important}
+.page-tou .editorial-app-links .cover-banner{position:relative;display:flex!important;align-items:stretch;min-width:0;min-height:190px;padding:0!important;border:0!important;overflow:hidden;background:#103426;color:#f9f2df!important;text-decoration:none;isolation:isolate}
+.page-tou .editorial-app-links .cover-banner:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#b72e1c 0%,#b82f1d 30%,#6a3327 49%,#123829 77%,#092b20 100%);z-index:-2}
+.page-tou .editorial-app-links .cover-banner:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;background:repeating-linear-gradient(95deg,transparent 0 2px,rgba(250,220,170,.1) 3px,transparent 4px 7px);z-index:2}
+.page-tou .cover-art{width:49%;min-width:0;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:12px 6px;transform:rotate(-2deg)}
+.page-tou .cover-yamakawa .cover-art:before{content:"";position:absolute;inset:7% 8% 8%;z-index:-1;background:#152534;clip-path:polygon(50% 0,78% 12%,92% 36%,100% 65%,73% 86%,50% 100%,20% 86%,0 69%,0 28%);box-shadow:0 0 8px #152534}
+.page-tou .cover-mark{font:600 clamp(15px,2vw,26px)/1.2 'Yu Mincho',serif;color:#e55b42}
+.page-tou .cover-main{font:500 clamp(32px,4vw,58px)/1.3 'Yu Mincho',serif;white-space:nowrap}
+.page-tou .cover-sub{font:12px/1.5 'Yu Mincho',serif;color:#f2b49b}
+.page-tou .cover-jidai .cover-art{transform:rotate(-3deg)}
+.page-tou .cover-jidai .cover-art:before{content:"";position:absolute;inset:7% 8%;z-index:-1;background:#e7d3ad;border:4px solid #9f412b;box-shadow:0 1px 8px #6c251c}
+.page-tou .cover-jidai-text{font:600 clamp(22px,2.9vw,41px)/1.13 'Yu Mincho',serif;color:#9d3027;text-align:center}
+.page-tou .cover-jidai .cover-sub{color:#713c30}
+.page-tou .cover-action{display:flex;flex:1;align-items:center;justify-content:space-between;gap:8px;padding:15px 20px 15px 5px;font:400 clamp(21px,2.4vw,34px)/1.4 'Yu Mincho',serif;white-space:nowrap;text-shadow:0 1px 3px #09291c}
+.page-tou .cover-action span{font-size:25px}
+.page-tou .editorial-app-links .cover-banner:hover .cover-action{color:#f3dca7}
+@media(max-width:760px){.page-tou .editorial-app-links{grid-template-columns:1fr!important;gap:10px!important}.page-tou .editorial-app-links .cover-banner{min-height:120px;max-height:145px}.page-tou .cover-art{width:45%}.page-tou .cover-main{font-size:38px}.page-tou .cover-jidai-text{font-size:26px}.page-tou .cover-action{font-size:25px}}
+</style><style>
+/* 「時代と流れ」表紙のみ調整：赤い外装、白い題字枠、元表紙に近い文字組み */
+.page-tou .cover-jidai .cover-art{transform:none;padding:11px 9px;gap:3px}
+.page-tou .cover-jidai .cover-art:before{inset:4% 5%;background:#d65c5c;border:0;box-shadow:inset 0 0 0 1px #edb3a2,0 1px 5px #63261e}
+.page-tou .cover-jidai-top{z-index:1;color:#4b2724;background:#f9efe2;font:600 clamp(7px,.75vw,11px)/1.3 'Yu Mincho',serif;text-align:center;padding:3px 5px;white-space:nowrap;max-width:95%;overflow:hidden}
+.page-tou .cover-jidai-text{z-index:1;display:block;width:88%;background:#f8f2e9;padding:4px 2px;color:#232321;font:600 clamp(17px,2.1vw,29px)/1.06 'Yu Mincho',serif;letter-spacing:.02em;text-align:center}
+.page-tou .cover-jidai-text em{font-style:normal;color:#c54e52}
+.page-tou .cover-jidai .cover-sub{z-index:1;color:#fff;font-size:clamp(8px,.8vw,11px)}
+@media(max-width:760px){.page-tou .cover-jidai-text{font-size:clamp(20px,6vw,29px)}.page-tou .cover-jidai-top{font-size:8px}.page-tou .cover-jidai .cover-art{padding:6px}}
+</style><style>
+/* フォント試用A：書のロゴと表紙の意匠はそのまま。問うページのみ */
+.page-tou .tou-hero-copy h1,
+.page-tou .tou-body .tou-section-title,
+.page-tou .tou-body .print-heading h2,
+.page-tou .tou-body .cover-action {
+  font-family:'Zen Old Mincho','Yu Mincho','Hiragino Mincho ProN',serif!important;
+  font-weight:400;
+}
+.page-tou .tou-body .print-section,
+.page-tou .tou-body .print-item h3,
+.page-tou .tou-body .item-meta,
+.page-tou .tou-body .type-nav button,
+.page-tou .tou-body .era-select,
+.page-tou .tou-body .data-status,
+.page-tou .tou-body .empty,
+.page-tou .tou-body .footer {
+  font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif!important;
+}
+.page-tou .tou-body .print-item h3{font-weight:400;letter-spacing:0.015em}
+.page-tou .tou-body .type-nav button{font-weight:400;letter-spacing:0.02em}
 </style></head>
 <body class="page-tou"><a class="skip" href="#choices">教材を選ぶ</a>
 <header class="site-header" id="top">
@@ -111,19 +223,12 @@ body.page-tou{
   <div class="site-drawer-foot">歴史する　授業ポータル</div>
 </nav>
 <main class="spread"><div class="choices" id="choices">
-<section class="tou-hero" aria-labelledby="tou-title">
-<img src="assets/sharaku.jpg" alt="東洲斎写楽《三代目大谷鬼次の奴江戸兵衛》" fetchpriority="high">
-<div class="tou-hero-copy"><h1 id="tou-title">問う</h1></div></section>
-<div class="tou-body">
-<section class="editorial-apps" aria-labelledby="apps-title">
-<h2 id="apps-title" class="tou-section-title">演習アプリ</h2>
+<section class="tou-hero" aria-labelledby="tou-title"><img src="assets/sharaku.jpg" alt="東洲斎写楽《三代目大谷鬼次の奴江戸兵衛》" fetchpriority="high"><div class="tou-hero-copy"><h1 id="tou-title">問う</h1></div></section>
+<div class="tou-body"><section class="editorial-apps" aria-labelledby="apps-title">
+<h2 class="tou-section-title" id="apps-title">演習アプリ</h2>
 <nav class="editorial-app-links" aria-label="演習アプリ">
-<a id="yamakawa" href="https://doinghistory.github.io/nihonshi-q-a/" target="_blank" rel="noopener noreferrer">
-<span class="book-excerpt yamakawa" aria-hidden="true"><span>詳説<br>日本史</span></span>
-<span><strong class="app-title">山川一問一答</strong><small class="app-caption">日本史の基本事項を確かめる</small></span><span class="app-arrow" aria-hidden="true">↗</span></a>
-<a id="jidai" href="https://doinghistory.github.io/nihonshi-exercise/" target="_blank" rel="noopener noreferrer">
-<span class="book-excerpt jidai" aria-hidden="true"><span>時代と<br>流れで<br>覚える！</span></span>
-<span><strong class="app-title">時代と流れ</strong><small class="app-caption">出来事の順序とつながりを整理する</small></span><span class="app-arrow" aria-hidden="true">↗</span></a>
+<a class="cover-banner cover-yamakawa" id="yamakawa" href="https://doinghistory.github.io/nihonshi-q-a/" target="_blank" rel="noopener noreferrer" aria-label="一問一答を開く"><span class="cover-art" aria-hidden="true"><span class="cover-mark">詳説</span><span class="cover-main">日本史</span><span class="cover-sub">日本史 探究</span></span><span class="cover-action">一問一答 <span aria-hidden="true">→</span></span></a>
+<a class="cover-banner cover-jidai" id="jidai" href="https://doinghistory.github.io/nihonshi-exercise/" target="_blank" rel="noopener noreferrer" aria-label="時代と流れを開く"><span class="cover-art" aria-hidden="true"><span class="cover-jidai-top">用語は流れで覚えるから得点になる！</span><span class="cover-jidai-text"><em>時代</em>と<br><em>流れ</em>で<br>覚える！</span><span class="cover-sub">日本史用語</span></span><span class="cover-action">時代と流れ <span aria-hidden="true">→</span></span></a>
 </nav></section>
 <section class="print-section" id="prints" aria-labelledby="print-title"><div class="print-heading"><p class="eyebrow">紙で取り組む</p><h2 id="print-title"><span>プリント教材</span><span aria-hidden="true">三</span></h2></div>
 <div class="print-controls"><div class="type-nav" role="group" aria-label="プリントの種類"><button data-mode="" aria-pressed="true">すべて</button><button data-mode="一問一答" aria-pressed="false">一問一答</button><button data-mode="一文論述" aria-pressed="false">一文論述</button><button data-mode="年代整序" aria-pressed="false">年代整序</button></div><div class="era-select"><label for="era">時代</label><select id="era"><option value="">すべての時代</option><optgroup label="原始・古代"><option>旧石器</option><option>縄文</option><option>弥生</option><option>古墳</option><option>飛鳥</option><option>奈良</option><option>平安</option></optgroup><optgroup label="中世"><option>鎌倉</option><option>南北朝</option><option>室町</option><option>戦国</option></optgroup><optgroup label="近世"><option>安土桃山</option><option>江戸</option><option>幕末</option></optgroup><optgroup label="近代"><option>明治</option><option>大正</option><option>昭和戦前</option></optgroup><optgroup label="現代"><option>戦後</option><option>平成</option><option>令和</option></optgroup></select><span id="count" aria-live="polite"></span></div></div>
