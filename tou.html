@@ -276,6 +276,54 @@
  .page-tou .catalog-cover--yamakawa img{transform:translateY(-16px) scale(1.22)}
  .page-tou .catalog-cover--jidai img{transform:translateY(-13px) scale(1.22)}
 }
+</style><style>
+/* 第1弾：写楽の全画面ヒーローと連結文字。教材部分は変更しない。 */
+.page-tou .tou-hero{
+ position:relative!important;isolation:isolate;display:block!important;
+ height:100vh!important;height:100svh!important;min-height:0!important;
+ padding:0!important;margin:0!important;overflow:hidden;background:#221f1c;
+}
+.page-tou .tou-hero>img{
+ display:block;width:100%!important;height:100%!important;
+ object-fit:cover!important;object-position:60% center!important;
+}
+.page-tou .tou-hero::after{
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:linear-gradient(90deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.17) 35%,transparent 70%),linear-gradient(0deg,rgba(0,0,0,.32),transparent 24%);
+}
+.page-tou .tou-hero .tou-hero-copy{
+ position:absolute!important;z-index:2;
+ left:clamp(26px,6.3vw,112px)!important;right:auto!important;top:50%!important;bottom:auto!important;
+ transform:translateY(-50%);display:block!important;margin:0!important;padding:0!important;
+ color:#fff;
+}
+.page-tou .tou-hero .tou-hero-copy h1{
+ display:block;position:static;width:clamp(175px,25vw,330px);
+ margin:0!important;padding:0!important;border:0!important;letter-spacing:0!important;
+ font-size:inherit!important;line-height:0!important;writing-mode:horizontal-tb!important;
+}
+.page-tou .tou-hero-copy h1 img{
+ display:block;width:100%;height:auto;max-height:72svh;object-fit:contain;
+ filter:drop-shadow(0 2px 11px rgba(0,0,0,.28));
+}
+.page-tou .tou-hero .hero-scroll{
+ position:absolute;left:50%;bottom:clamp(23px,5.5vh,58px);transform:translateX(-50%);
+ z-index:3;display:flex;flex-direction:column;align-items:center;gap:13px;
+ font:400 10px/1.4 Georgia,serif;color:#fff;letter-spacing:.28em;text-decoration:none;
+ text-shadow:0 1px 4px rgba(0,0,0,.55);
+}
+.page-tou .hero-scroll-line{display:block;position:relative;width:1px;height:36px;background:rgba(255,255,255,.91)}
+.page-tou .hero-scroll-line::after{content:"";position:absolute;width:9px;height:9px;border-right:1px solid #fff;border-bottom:1px solid #fff;bottom:0;left:-4px;transform:rotate(45deg)}
+.page-tou .hero-scroll:focus-visible{outline:2px solid #fff;outline-offset:8px}
+.page-tou #apps-title{scroll-margin-top:calc(var(--site-header-height,72px) + 20px)}
+@media(max-width:760px){
+ .page-tou .tou-hero>img{object-position:59% center!important}
+ .page-tou .tou-hero::after{background:linear-gradient(90deg,rgba(0,0,0,.53),transparent 82%),linear-gradient(0deg,rgba(0,0,0,.32),transparent 24%)}
+ .page-tou .tou-hero .tou-hero-copy{left:5%!important;top:47%!important}
+ .page-tou .tou-hero .tou-hero-copy h1{width:clamp(133px,36vw,215px)}
+ .page-tou .tou-hero-copy h1 img{max-height:62svh}
+ .page-tou .tou-hero .hero-scroll{bottom:26px}
+}
 </style></head>
 <body class="page-tou"><a class="skip" href="#choices">教材を選ぶ</a>
 <header class="site-header" id="top">
@@ -305,7 +353,10 @@
   <div class="site-drawer-foot">歴史する　授業ポータル</div>
 </nav>
 <main class="spread"><div class="choices" id="choices">
-<section class="tou-hero" aria-labelledby="tou-title"><img src="assets/sharaku.jpg" alt="東洲斎写楽《三代目大谷鬼次の奴江戸兵衛》" fetchpriority="high"><div class="tou-hero-copy"><h1 id="tou-title">解く</h1></div></section>
+<section class="tou-hero" aria-labelledby="tou-title"><img src="assets/sharaku.jpg" alt="東洲斎写楽《三代目大谷鬼次の奴江戸兵衛》" fetchpriority="high">
+<div class="tou-hero-copy"><h1 id="tou-title"><img src="hero-toku.svg" alt="解く" width="360" height="685"></h1></div>
+<a class="hero-scroll" href="#apps-title" aria-label="演習アプリへスクロール"><span>SCROLL</span><span class="hero-scroll-line" aria-hidden="true"></span></a>
+</section>
 <div class="tou-body"><section class="editorial-apps" aria-labelledby="apps-title">
 <h2 class="tou-section-title" id="apps-title">演習アプリ</h2>
 <nav class="editorial-app-links" aria-label="演習アプリ">
