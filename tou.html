@@ -236,6 +236,46 @@
  .page-tou .catalog-card-title{font-size:clamp(23px,6vw,31px)!important}
  .page-tou .catalog-card-desc{font-size:12px}
 }
+</style><style>
+/* 表紙の見せたい文字を残すために、画像だけ少し上へ */
+.page-tou .catalog-cover--yamakawa img{transform:translateY(-24px) scale(1.22);transform-origin:center top}
+.page-tou .catalog-cover--jidai img{transform:translateY(-18px) scale(1.22);transform-origin:center top}
+/* 見出しは赤味や緑味を抑えた墨色に統一 */
+.page-tou .tou-body #apps-title,.page-tou .tou-body #print-title,.page-tou .tou-body #print-title span:first-child{color:#292b29!important}
+/* 時代選択：大区分を横並び、選択後に小区分を表示 */
+.page-tou .print-controls{display:block!important}
+.page-tou .era-select{
+ display:grid!important;grid-template-columns:auto minmax(0,1fr);align-items:center;
+ gap:10px 20px;margin:17px 0 13px!important;
+}
+.page-tou .era-select .era-label{font:400 14px/1.5 'Noto Sans JP','Yu Gothic',sans-serif;color:#3f443e;white-space:nowrap}
+.page-tou .era-main-tabs{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;min-width:0}
+.page-tou .era-main-tabs button{
+ display:inline-flex;align-items:center;justify-content:center;min-height:39px;
+ border:1px solid #c0c3b8;border-radius:0;background:#fbfaf6;
+ padding:7px 15px;white-space:nowrap;
+ font:400 14px/1.5 'Noto Sans JP','Yu Gothic',sans-serif;
+ color:#303732;cursor:pointer;
+}
+.page-tou .era-main-tabs button[aria-pressed="true"]{background:#263b30;color:#fff;border-color:#263b30}
+.page-tou .era-main-tabs button:hover:not([aria-pressed="true"]){border-color:#6a766c;background:#f0f0e9}
+.page-tou .era-main-tabs button:focus-visible,.page-tou .era-detail-tabs button:focus-visible{outline:2px solid #a3834e;outline-offset:2px}
+.page-tou .era-detail-tabs{display:flex;flex-wrap:wrap;gap:2px 19px;grid-column:2;align-items:center;border-bottom:1px solid #dad9cf}
+.page-tou .era-detail-tabs[hidden]{display:none!important}
+.page-tou .era-detail-tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:8px 1px 9px;color:#50564d;cursor:pointer;font:400 14px/1.5 'Noto Sans JP','Yu Gothic',sans-serif}
+.page-tou .era-detail-tabs button[aria-pressed="true"]{color:#243b2b;border-bottom-color:#315541}
+.page-tou .era-detail-tabs button:hover{color:#163727}
+.page-tou .era-select #count{display:none!important}
+@media(max-width:760px){
+ .page-tou .era-select{grid-template-columns:1fr;gap:9px;margin-top:14px!important}
+ .page-tou .era-main-tabs,.page-tou .era-detail-tabs{grid-column:1}
+ .page-tou .era-main-tabs{gap:6px}
+ .page-tou .era-main-tabs button{padding:8px 11px;min-height:40px;font-size:13px}
+ .page-tou .era-detail-tabs{gap:2px 15px}
+ .page-tou .era-detail-tabs button{font-size:13px}
+ .page-tou .catalog-cover--yamakawa img{transform:translateY(-16px) scale(1.22)}
+ .page-tou .catalog-cover--jidai img{transform:translateY(-13px) scale(1.22)}
+}
 </style></head>
 <body class="page-tou"><a class="skip" href="#choices">教材を選ぶ</a>
 <header class="site-header" id="top">
@@ -281,7 +321,7 @@
 </a>
 </nav></section>
 <section class="print-section" id="prints" aria-labelledby="print-title"><div class="print-heading"><p class="eyebrow">紙で取り組む</p><h2 id="print-title"><span>プリント教材</span><span aria-hidden="true">三</span></h2></div>
-<div class="print-controls"><div class="type-nav" role="group" aria-label="プリントの種類"><button data-mode="" aria-pressed="true">すべて</button><button data-mode="一問一答" aria-pressed="false">一問一答</button><button data-mode="一文論述" aria-pressed="false">一文論述</button><button data-mode="年代整序" aria-pressed="false">年代整序</button></div><div class="era-select"><label for="era">時代</label><select id="era"><option value="">すべての時代</option><optgroup label="原始・古代"><option>旧石器</option><option>縄文</option><option>弥生</option><option>古墳</option><option>飛鳥</option><option>奈良</option><option>平安</option></optgroup><optgroup label="中世"><option>鎌倉</option><option>南北朝</option><option>室町</option><option>戦国</option></optgroup><optgroup label="近世"><option>安土桃山</option><option>江戸</option><option>幕末</option></optgroup><optgroup label="近代"><option>明治</option><option>大正</option><option>昭和戦前</option></optgroup><optgroup label="現代"><option>戦後</option><option>平成</option><option>令和</option></optgroup></select><span id="count" aria-live="polite"></span></div></div>
+<div class="print-controls"><div class="type-nav" role="group" aria-label="プリントの種類"><button data-mode="" aria-pressed="true">すべて</button><button data-mode="一問一答" aria-pressed="false">一問一答</button><button data-mode="一文論述" aria-pressed="false">一文論述</button><button data-mode="年代整序" aria-pressed="false">年代整序</button></div><div class="era-select"><span class="era-label" id="era-label">時代</span><div class="era-main-tabs" role="group" aria-labelledby="era-label"><button type="button" data-era-group="" aria-pressed="true">すべて</button><button type="button" data-era-group="原始・古代" aria-pressed="false">原始・古代</button><button type="button" data-era-group="中世" aria-pressed="false">中世</button><button type="button" data-era-group="近世" aria-pressed="false">近世</button><button type="button" data-era-group="近代" aria-pressed="false">近代</button><button type="button" data-era-group="現代" aria-pressed="false">現代</button></div><div class="era-detail-tabs" id="era-detail" role="group" aria-label="細かい時代を選ぶ" hidden></div><span id="count" aria-live="polite"></span></div></div>
 <p class="data-status" id="data-status" role="status"></p><div id="print-list"></div><noscript><p>教材一覧の表示にはJavaScriptを有効にしてください。</p></noscript></section>
 <footer class="footer"><a href="#top">ページの先頭へ ↑</a><details><summary>掲載作品・出典</summary><div id="art-credits"><p>東洲斎写楽《三代目大谷鬼次の奴江戸兵衛》（1794年）<br><a href="https://www.metmuseum.org/art/collection/search/37358" target="_blank" rel="noopener">メトロポリタン美術館・作品情報</a></p><p>歌川広重《大はしあたけの夕立》（1857年）<br><a href="https://www.metmuseum.org/art/collection/search/37094" target="_blank" rel="noopener">メトロポリタン美術館・作品情報</a></p><p>画像：The Metropolitan Museum of Art / Public Domain, CC0</p></div></details></footer>
 </div></div></main>
