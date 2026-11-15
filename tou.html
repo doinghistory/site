@@ -143,6 +143,27 @@
 .page-tou .type-nav{overflow-x:auto;white-space:nowrap}
 .page-tou .type-nav button{flex:0 0 auto;font-size:14px;padding:10px 12px}
 }
+</style><style>
+/* 表紙を背景へ溶かす2つの演習ボタン。風景・富士山・波の装飾なし */
+.page-tou .editorial-apps{display:block!important;margin-bottom:26px!important}
+.page-tou .editorial-apps .tou-section-title{margin-bottom:14px!important}
+.page-tou .editorial-app-links{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important;border:0!important}
+.page-tou .editorial-app-links .cover-banner{position:relative;display:flex!important;align-items:stretch;min-width:0;min-height:190px;padding:0!important;border:0!important;overflow:hidden;background:#103426;color:#f9f2df!important;text-decoration:none;isolation:isolate}
+.page-tou .editorial-app-links .cover-banner:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#b72e1c 0%,#b82f1d 30%,#6a3327 49%,#123829 77%,#092b20 100%);z-index:-2}
+.page-tou .editorial-app-links .cover-banner:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;background:repeating-linear-gradient(95deg,transparent 0 2px,rgba(250,220,170,.1) 3px,transparent 4px 7px);z-index:2}
+.page-tou .cover-art{width:49%;min-width:0;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:12px 6px;transform:rotate(-2deg)}
+.page-tou .cover-yamakawa .cover-art:before{content:"";position:absolute;inset:7% 8% 8%;z-index:-1;background:#152534;clip-path:polygon(50% 0,78% 12%,92% 36%,100% 65%,73% 86%,50% 100%,20% 86%,0 69%,0 28%);box-shadow:0 0 8px #152534}
+.page-tou .cover-mark{font:600 clamp(15px,2vw,26px)/1.2 'Yu Mincho',serif;color:#e55b42}
+.page-tou .cover-main{font:500 clamp(32px,4vw,58px)/1.3 'Yu Mincho',serif;white-space:nowrap}
+.page-tou .cover-sub{font:12px/1.5 'Yu Mincho',serif;color:#f2b49b}
+.page-tou .cover-jidai .cover-art{transform:rotate(-3deg)}
+.page-tou .cover-jidai .cover-art:before{content:"";position:absolute;inset:7% 8%;z-index:-1;background:#e7d3ad;border:4px solid #9f412b;box-shadow:0 1px 8px #6c251c}
+.page-tou .cover-jidai-text{font:600 clamp(22px,2.9vw,41px)/1.13 'Yu Mincho',serif;color:#9d3027;text-align:center}
+.page-tou .cover-jidai .cover-sub{color:#713c30}
+.page-tou .cover-action{display:flex;flex:1;align-items:center;justify-content:space-between;gap:8px;padding:15px 20px 15px 5px;font:400 clamp(21px,2.4vw,34px)/1.4 'Yu Mincho',serif;white-space:nowrap;text-shadow:0 1px 3px #09291c}
+.page-tou .cover-action span{font-size:25px}
+.page-tou .editorial-app-links .cover-banner:hover .cover-action{color:#f3dca7}
+@media(max-width:760px){.page-tou .editorial-app-links{grid-template-columns:1fr!important;gap:10px!important}.page-tou .editorial-app-links .cover-banner{min-height:120px;max-height:145px}.page-tou .cover-art{width:45%}.page-tou .cover-main{font-size:38px}.page-tou .cover-jidai-text{font-size:26px}.page-tou .cover-action{font-size:25px}}
 </style></head>
 <body class="page-tou"><a class="skip" href="#choices">教材を選ぶ</a>
 <header class="site-header" id="top">
@@ -176,9 +197,9 @@
 <div class="tou-body"><section class="editorial-apps" aria-labelledby="apps-title">
 <h2 class="tou-section-title" id="apps-title">演習アプリ</h2>
 <nav class="editorial-app-links" aria-label="演習アプリ">
-<a id="yamakawa" href="https://doinghistory.github.io/nihonshi-q-a/" target="_blank" rel="noopener noreferrer"><span><strong>山川一問一答</strong><small>基本事項を確認する</small></span><span class="editorial-arrow" aria-hidden="true">↗</span></a>
-<a id="jidai" href="https://doinghistory.github.io/nihonshi-exercise/" target="_blank" rel="noopener noreferrer"><span><strong>時代と流れ</strong><small>出来事の前後関係を整理する</small></span><span class="editorial-arrow" aria-hidden="true">↗</span></a>
-</nav>n>
+<a class="cover-banner cover-yamakawa" id="yamakawa" href="https://doinghistory.github.io/nihonshi-q-a/" target="_blank" rel="noopener noreferrer" aria-label="一問一答を開く"><span class="cover-art" aria-hidden="true"><span class="cover-mark">詳説</span><span class="cover-main">日本史</span><span class="cover-sub">日本史 探究</span></span><span class="cover-action">一問一答 <span aria-hidden="true">→</span></span></a>
+<a class="cover-banner cover-jidai" id="jidai" href="https://doinghistory.github.io/nihonshi-exercise/" target="_blank" rel="noopener noreferrer" aria-label="時代と流れを開く"><span class="cover-art" aria-hidden="true"><span class="cover-jidai-text">時代と<br>流れで<br>覚える！</span><span class="cover-sub">日本史用語</span></span><span class="cover-action">時代と流れ <span aria-hidden="true">→</span></span></a>
+</nav></section>
 <section class="print-section" id="prints" aria-labelledby="print-title"><div class="print-heading"><p class="eyebrow">紙で取り組む</p><h2 id="print-title"><span>プリント教材</span><span aria-hidden="true">三</span></h2></div>
 <div class="print-controls"><div class="type-nav" role="group" aria-label="プリントの種類"><button data-mode="" aria-pressed="true">すべて</button><button data-mode="一問一答" aria-pressed="false">一問一答</button><button data-mode="一文論述" aria-pressed="false">一文論述</button><button data-mode="年代整序" aria-pressed="false">年代整序</button></div><div class="era-select"><label for="era">時代</label><select id="era"><option value="">すべての時代</option><optgroup label="原始・古代"><option>旧石器</option><option>縄文</option><option>弥生</option><option>古墳</option><option>飛鳥</option><option>奈良</option><option>平安</option></optgroup><optgroup label="中世"><option>鎌倉</option><option>南北朝</option><option>室町</option><option>戦国</option></optgroup><optgroup label="近世"><option>安土桃山</option><option>江戸</option><option>幕末</option></optgroup><optgroup label="近代"><option>明治</option><option>大正</option><option>昭和戦前</option></optgroup><optgroup label="現代"><option>戦後</option><option>平成</option><option>令和</option></optgroup></select><span id="count" aria-live="polite"></span></div></div>
 <p class="data-status" id="data-status" role="status"></p><div id="print-list"></div><noscript><p>教材一覧の表示にはJavaScriptを有効にしてください。</p></noscript></section>
