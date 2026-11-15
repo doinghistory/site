@@ -1,48 +1,61 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>問う — 歴史する</title><meta name="description" content="山川一問一答、時代と流れ、日本史の一問一答プリント。学習する教材を選ぶ。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23993427'/%3E%3Ctext x='32' y='47' text-anchor='middle' fill='white' font-family='serif' font-size='43'%3E問%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="tou.css"><link rel="preload" as="image" href="assets/sharaku.jpg"><script src="tou-data.js" defer></script><script src="materials-ui.js" defer></script><script src="tou.js" defer></script><link rel="stylesheet" href="site-header.css"><link rel="stylesheet" href="subpage-header.css"><script src="site-header.js" defer></script><style>
-/* 問う — 展示図録型。共通ヘッダーと教材の機能は維持 */
-.page-tou{background:#f9f8f4;color:#222822}
-.page-tou .spread{display:block;max-width:none;margin:0}
-.page-tou .contents,.page-tou .between-panels,.page-tou .panel-content,.page-tou .panel-number{display:none!important}
-.page-tou .choices{border:0;display:contents}
-.page-tou .museum-opening{max-width:1680px;margin:auto;display:grid;grid-template-columns:minmax(0,46%) minmax(0,54%);min-height:min(770px,75vw);padding:clamp(30px,4vw,64px);gap:clamp(36px,5vw,95px)}
-.page-tou .museum-work{margin:0;min-width:0;display:flex;flex-direction:column;justify-content:center}
-.page-tou .museum-work img{display:block;width:100%;height:clamp(450px,48vw,710px);object-fit:cover;object-position:50% 42%}
-.page-tou .museum-work figcaption{font:13px/1.9 'Yu Mincho','Hiragino Mincho ProN',serif;color:#59594f;padding-top:13px}
-.page-tou .museum-reading{min-width:0;display:flex;flex-direction:column;justify-content:center;padding:16px 0}
-.page-tou .museum-heading{display:flex;align-items:center;gap:clamp(25px,3vw,54px);margin:0 0 clamp(34px,5vw,80px)}
-.page-tou .museum-heading h1{font:400 clamp(76px,9vw,152px)/1.1 'Yu Mincho','Hiragino Mincho ProN',serif;margin:0;letter-spacing:.05em!important;white-space:nowrap}
-.page-tou .museum-heading p{border-left:1px solid #9a8b6e;padding-left:clamp(18px,2vw,32px);font:clamp(15px,1.35vw,21px)/2 'Yu Mincho','Hiragino Mincho ProN',serif;margin:0}
-.page-tou .museum-list{border-top:1px solid #aaa99e}
-.page-tou .museum-link{display:grid;grid-template-columns:minmax(0,1fr) 36px;align-items:center;gap:20px;padding:clamp(20px,2.4vw,36px) 0;border-bottom:1px solid #aaa99e;text-decoration:none}
-.page-tou .museum-link strong{display:block;font:400 clamp(24px,2.5vw,38px)/1.5 'Yu Mincho','Hiragino Mincho ProN',serif}
-.page-tou .museum-link small{display:block;font:14px/1.7 'Yu Mincho','Hiragino Mincho ProN',serif;color:#64665e;margin-top:5px}
-.page-tou .museum-link .arrow{font-size:28px;font-weight:200;transition:transform .2s}
-.page-tou .museum-link:hover strong{color:#886b37}
-.page-tou .museum-link:hover .arrow{transform:translateX(5px)}
-.page-tou .print-section{max-width:none;min-height:0;margin:0;padding:clamp(56px,6vw,100px) max(5vw,calc((100vw - 1450px)/2));background:#f0eee7}
-.page-tou .print-heading{display:flex;align-items:baseline;gap:36px;border-bottom:1px solid #b8b2a6;padding-bottom:20px}
+/* 問う：指定された博物館風レイアウト */
+.page-tou{background:#f8f7f2;color:#242720}
+.page-tou .spread{display:block;max-width:none}
+.page-tou .choices{display:block;border:0}
+.page-tou .contents,.page-tou .between-panels,.page-tou .app-panel,.page-tou .museum-opening{display:none!important}
+.page-tou .tou-hero{height:clamp(340px,35vw,580px);position:relative;overflow:hidden;background:#282b25}
+.page-tou .tou-hero>img{width:100%;height:100%;object-fit:cover;object-position:center 36%}
+.page-tou .tou-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 48%,rgba(0,0,0,.12) 65%,rgba(0,0,0,.57))}
+.page-tou .tou-hero-copy{position:absolute;z-index:1;right:6.5%;top:15%;bottom:15%;display:flex;flex-direction:row-reverse;gap:clamp(22px,3vw,55px);align-items:flex-start;color:#fff}
+.page-tou .tou-hero-copy h1{writing-mode:vertical-rl;font:400 clamp(75px,8vw,140px)/1.15 'Yu Mincho','Hiragino Mincho ProN',serif;margin:0;letter-spacing:.06em!important;border-left:1px solid rgba(255,255,255,.8);padding-left:clamp(15px,2vw,32px)}
+.page-tou .tou-hero-copy p{writing-mode:vertical-rl;font:clamp(15px,1.4vw,23px)/1.9 'Yu Mincho','Hiragino Mincho ProN',serif;margin:32px 0 0;letter-spacing:.1em!important}
+.page-tou .tou-body{max-width:1600px;margin:auto;padding:clamp(36px,4vw,65px) clamp(24px,5vw,78px) 0}
+.page-tou .tou-section-title{font:400 clamp(28px,2.8vw,42px)/1.5 'Yu Mincho','Hiragino Mincho ProN',serif;margin:0 0 24px;border-bottom:1px solid #9d9c91;padding-bottom:5px}
+.page-tou .tou-app-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,45px);margin-bottom:clamp(48px,5vw,75px)}
+.page-tou .tou-app-card{display:grid;grid-template-columns:50% 50%;min-height:clamp(160px,16vw,270px);background:#1e352b;color:#fff;text-decoration:none;overflow:hidden}
+.page-tou .tou-app-card img{width:100%;height:100%;object-fit:cover;object-position:center 35%;transition:transform .35s}
+.page-tou .tou-app-card:hover img{transform:scale(1.035)}
+.page-tou .tou-app-info{display:flex;flex-direction:column;justify-content:center;padding:clamp(14px,2.3vw,34px);min-width:0}
+.page-tou .tou-app-info strong{font:400 clamp(21px,2.4vw,38px)/1.4 'Yu Mincho','Hiragino Mincho ProN',serif;white-space:nowrap}
+.page-tou .tou-app-info small{font:clamp(11px,1.1vw,16px)/1.7 'Yu Mincho','Hiragino Mincho ProN',serif;margin-top:16px}
+.page-tou .tou-app-info .arrow{font-size:30px;align-self:flex-end;margin-top:12px;line-height:1}
+.page-tou .print-section{padding:0 0 85px!important;min-height:0;background:transparent!important}
+.page-tou .print-heading{display:block}
 .page-tou .print-heading .eyebrow{display:none}
-.page-tou .print-heading h2{margin:0!important;font:400 clamp(32px,4vw,54px)/1.4 'Yu Mincho','Hiragino Mincho ProN',serif!important}
+.page-tou .print-heading h2{font:400 clamp(28px,2.8vw,42px)/1.5 'Yu Mincho','Hiragino Mincho ProN',serif!important;border-bottom:1px solid #9d9c91;padding-bottom:5px;margin:0 0 24px!important}
 .page-tou .print-heading h2 span:first-child{font-size:inherit}
 .page-tou .print-heading h2 br{display:none}
 .page-tou .print-heading h2 span:last-child{display:none}
-.page-tou .print-item{border-color:#c8c3b8}
-.page-tou .footer{max-width:1500px;margin:0 auto;padding:40px 5vw}
-@media(max-width:800px){
-.page-tou .museum-opening{display:flex;flex-direction:column;gap:26px;padding:24px 6% 58px;min-height:0}
-.page-tou .museum-work img{height:auto;max-height:490px;aspect-ratio:1.1;object-fit:cover;object-position:50% 32%}
-.page-tou .museum-work figcaption{font-size:11px}
-.page-tou .museum-heading{margin:14px 0 25px;gap:18px}
-.page-tou .museum-heading h1{font-size:clamp(64px,18vw,100px)}
-.page-tou .museum-heading p{font-size:14px;line-height:1.8;padding-left:16px}
-.page-tou .museum-link{padding:19px 0}
-.page-tou .museum-link strong{font-size:25px}
-.page-tou .museum-link small{font-size:12px}
-.page-tou .print-section{padding:50px 6%}
-.page-tou .print-heading h2{font-size:30px!important}
+.page-tou .print-controls{margin-top:0}
+.page-tou .type-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-bottom:1px solid #9d9c91;max-width:920px}
+.page-tou .type-nav button{padding:12px 10px;border:0;border-right:1px solid #a7a69b;background:transparent;margin:0;font:clamp(15px,1.5vw,23px)/1.5 'Yu Mincho','Hiragino Mincho ProN',serif}
+.page-tou .type-nav button:first-child{display:none}
+.page-tou .type-nav button[aria-pressed=true]{background:#1e352b;color:#fff}
+.page-tou .era-select{margin-top:20px}
+.page-tou .print-item{grid-template-columns:minmax(0,1fr) 35px;padding:16px 14px;border-top:0;border-bottom:1px solid #c4c1b7}
+.page-tou .print-item h3{font:400 clamp(17px,1.5vw,23px)/1.5 'Yu Mincho','Hiragino Mincho ProN',serif;margin:5px 0}
+.page-tou .print-item p{font-size:13px}
+.page-tou .item-meta{font-size:12px}
+.page-tou .material-tools{margin:20px 0}
+.page-tou .footer{max-width:1600px;margin:auto;padding:30px 5vw}
+@media(max-width:760px){
+.page-tou .tou-hero{height:clamp(310px,75vw,450px)}
+.page-tou .tou-hero>img{object-position:40% center}
+.page-tou .tou-hero:after{background:linear-gradient(90deg,transparent 30%,rgba(0,0,0,.65))}
+.page-tou .tou-hero-copy{right:5%;top:12%;bottom:10%;gap:12px}
+.page-tou .tou-hero-copy h1{font-size:clamp(54px,15vw,85px);padding-left:10px}
+.page-tou .tou-hero-copy p{font-size:12px;margin-top:12px;line-height:1.65}
+.page-tou .tou-body{padding:30px 5% 0}
+.page-tou .tou-app-grid{grid-template-columns:1fr;gap:14px;margin-bottom:45px}
+.page-tou .tou-app-card{min-height:150px}
+.page-tou .tou-app-info strong{font-size:clamp(20px,5.4vw,30px)}
+.page-tou .tou-app-info small{font-size:12px;margin-top:8px}
+.page-tou .tou-app-info .arrow{font-size:23px;margin-top:6px}
+.page-tou .type-nav button{font-size:14px}
+.page-tou .print-heading h2{font-size:27px!important}
 }
-@media(max-width:380px){.page-tou .museum-heading h1{font-size:60px}.page-tou .museum-heading p{font-size:12px}}
 </style></head>
 <body class="page-tou"><a class="skip" href="#choices">教材を選ぶ</a>
 <header class="site-header" id="top">
@@ -72,18 +85,15 @@
   <div class="site-drawer-foot">歴史する　授業ポータル</div>
 </nav>
 <main class="spread"><div class="choices" id="choices">
-<section class="museum-opening" aria-labelledby="tou-title">
-<figure class="museum-work"><img src="assets/sharaku.jpg" alt="東洲斎写楽《三代目大谷鬼次の奴江戸兵衛》" fetchpriority="high"><figcaption>東洲斎写楽　《三代目大谷鬼次の奴江戸兵衛》　寛政6年（1794）</figcaption></figure>
-<div class="museum-reading"><div class="museum-heading"><h1 id="tou-title">問う</h1><p>問題に取り組み、<br>知識と考える力を確かめる。</p></div>
-<nav class="museum-list" aria-label="演習教材">
-<a class="museum-link" id="yamakawa" href="https://doinghistory.github.io/nihonshi-q-a/" target="_blank" rel="noopener noreferrer"><span><strong>山川一問一答</strong><small>日本史の重要事項を確認する</small></span><span class="arrow" aria-hidden="true">→</span></a>
-<a class="museum-link" id="jidai" href="https://doinghistory.github.io/nihonshi-exercise/" target="_blank" rel="noopener noreferrer"><span><strong>時代と流れ</strong><small>出来事の前後関係とつながりを整理する</small></span><span class="arrow" aria-hidden="true">→</span></a>
-<a class="museum-link" href="#prints"><span><strong>演習プリント</strong><small>一問一答・一文論述・年代整序</small></span><span class="arrow" aria-hidden="true">↓</span></a>
-</nav></div></section>
+<section class="tou-hero" aria-labelledby="tou-title"><img src="assets/sharaku.jpg" alt="東洲斎写楽《三代目大谷鬼次の奴江戸兵衛》" fetchpriority="high"><div class="tou-hero-copy"><h1 id="tou-title">問う</h1><p>問題に取り組み、<br>知識と考える力を<br>たしかめる。</p></div></section>
+<div class="tou-body"><section aria-labelledby="apps-title"><h2 class="tou-section-title" id="apps-title">演習アプリ</h2><div class="tou-app-grid">
+<a class="tou-app-card" id="yamakawa" href="https://doinghistory.github.io/nihonshi-q-a/" target="_blank" rel="noopener noreferrer"><img src="assets/sharaku.jpg" alt="東洲斎写楽の浮世絵" loading="lazy"><span class="tou-app-info"><strong>一問一答</strong><small>基本事項を確認する</small><span class="arrow" aria-hidden="true">→</span></span></a>
+<a class="tou-app-card" id="jidai" href="https://doinghistory.github.io/nihonshi-exercise/" target="_blank" rel="noopener noreferrer"><img src="assets/hiroshige.jpg" alt="歌川広重の浮世絵" loading="lazy"><span class="tou-app-info"><strong>時代と流れ</strong><small>出来事の前後関係を整理する</small><span class="arrow" aria-hidden="true">→</span></span></a>
+</div></section>
 <section class="print-section" id="prints" aria-labelledby="print-title"><div class="print-heading"><p class="eyebrow">紙で取り組む</p><h2 id="print-title"><span>一問一答・<br>一文論述・年代整序</span><span aria-hidden="true">三</span></h2></div>
 <div class="print-controls"><div class="type-nav" role="group" aria-label="プリントの種類"><button data-mode="" aria-pressed="true">すべて</button><button data-mode="一問一答" aria-pressed="false">一問一答</button><button data-mode="一文論述" aria-pressed="false">一文論述</button><button data-mode="年代整序" aria-pressed="false">年代整序</button></div><div class="era-select"><label for="era">時代</label><select id="era"><option value="">すべての時代</option><optgroup label="原始・古代"><option>旧石器</option><option>縄文</option><option>弥生</option><option>古墳</option><option>飛鳥</option><option>奈良</option><option>平安</option></optgroup><optgroup label="中世"><option>鎌倉</option><option>南北朝</option><option>室町</option><option>戦国</option></optgroup><optgroup label="近世"><option>安土桃山</option><option>江戸</option><option>幕末</option></optgroup><optgroup label="近代"><option>明治</option><option>大正</option><option>昭和戦前</option></optgroup><optgroup label="現代"><option>戦後</option><option>平成</option><option>令和</option></optgroup></select><span id="count" aria-live="polite"></span></div></div>
 <p class="data-status" id="data-status" role="status"></p><div id="print-list"></div><noscript><p>教材一覧の表示にはJavaScriptを有効にしてください。</p></noscript></section>
 <footer class="footer"><a href="#top">ページの先頭へ ↑</a><details><summary>掲載作品・出典</summary><div id="art-credits"><p>東洲斎写楽《三代目大谷鬼次の奴江戸兵衛》（1794年）<br><a href="https://www.metmuseum.org/art/collection/search/37358" target="_blank" rel="noopener">メトロポリタン美術館・作品情報</a></p><p>歌川広重《大はしあたけの夕立》（1857年）<br><a href="https://www.metmuseum.org/art/collection/search/37094" target="_blank" rel="noopener">メトロポリタン美術館・作品情報</a></p><p>画像：The Metropolitan Museum of Art / Public Domain, CC0</p></div></details></footer>
-</div></main>
+</div></div></main>
 
 </body></html>
