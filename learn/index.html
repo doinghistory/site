@@ -50,6 +50,49 @@
  .page-manabu .era-heading .eras{justify-content:flex-start;width:100%;gap:6px 15px}
  .page-manabu .era-heading .eras button{min-height:40px;padding:6px 9px;font-size:17px}
 }
+</style><style>
+/* 第1弾：唐獅子図屏風を画面いっぱいに見せ、連結文字はSVGで配置する */
+.page-manabu .hero{
+ position:relative;isolation:isolate;display:block!important;
+ height:100vh;height:100svh;min-height:0!important;
+ margin:0;padding:0!important;overflow:hidden;
+ background:#252016;color:#fff;
+}
+.page-manabu .hero-art{
+ position:absolute;inset:0;display:block;width:100%;height:100%;min-height:0!important;
+ border:0;background:#3d3426 url("https://commons.wikimedia.org/wiki/Special:FilePath/Kano_Eitoku_002.jpg") center 48% / cover no-repeat;
+ z-index:-2;
+}
+.page-manabu .hero::after{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:linear-gradient(90deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.19) 34%,transparent 70%),linear-gradient(0deg,rgba(0,0,0,.34),transparent 22%);
+}
+.page-manabu .hero h1.hero-title{
+ position:absolute;z-index:2;left:clamp(24px,6.3vw,112px);top:50%;transform:translateY(-50%);
+ margin:0!important;padding:0!important;line-height:0!important;letter-spacing:0!important;
+ white-space:normal;writing-mode:horizontal-tb;width:clamp(170px,24vw,330px);
+ pointer-events:none;
+}
+.page-manabu .hero-title img{display:block;width:100%;height:auto;max-height:72svh;object-fit:contain;filter:drop-shadow(0 2px 9px rgba(0,0,0,.24))}
+.page-manabu .hero-scroll{
+ position:absolute;left:50%;bottom:clamp(23px,5.5vh,58px);transform:translateX(-50%);
+ z-index:3;display:flex;flex-direction:column;align-items:center;gap:13px;
+ font:400 10px/1.4 Georgia,serif;color:#fff;letter-spacing:.28em;text-decoration:none;
+ text-shadow:0 1px 4px rgba(0,0,0,.55);
+}
+.page-manabu .hero-scroll-line{display:block;position:relative;width:1px;height:36px;background:rgba(255,255,255,.91)}
+.page-manabu .hero-scroll-line::after{content:"";position:absolute;width:9px;height:9px;border-right:1px solid #fff;border-bottom:1px solid #fff;bottom:0;left:-4px;transform:rotate(45deg)}
+.page-manabu .hero-scroll:hover .hero-scroll-line{height:42px}
+.page-manabu .hero-scroll:focus-visible{outline:2px solid #fff;outline-offset:8px}
+.page-manabu #catalog{scroll-margin-top:var(--site-header-height,72px)}
+@media(max-width:760px){
+ .page-manabu .hero-art{background-position:54% center}
+ .page-manabu .hero::after{background:linear-gradient(90deg,rgba(0,0,0,.5),transparent 74%),linear-gradient(0deg,rgba(0,0,0,.35),transparent 22%)}
+ .page-manabu .hero h1.hero-title{left:5%;width:clamp(135px,36vw,200px);top:47%}
+ .page-manabu .hero-title img{max-height:60svh}
+ .page-manabu .hero-scroll{bottom:26px}
+}
+@media(prefers-reduced-motion:reduce){.page-manabu .hero-scroll-line{transition:none}}
 </style></head><body class="page-manabu">
 <header class="site-header">
   <div class="site-header-inner">
@@ -75,7 +118,10 @@
     <a class="site-drawer-link" data-nav="meguru" href="meguru.html">巡る</a>
   </div><div class="site-drawer-foot">歴史する　授業ポータル</div>
 </nav>
-<section class="hero"><div><h1>学ぶ</h1></div><div class="hero-art" role="img" aria-label="狩野永徳《唐獅子図屏風》を用いた歴史するの表紙"></div></section>
+<section class="hero" aria-labelledby="learn-title"><div class="hero-art" role="img" aria-label="狩野永徳《唐獅子図屏風》"></div>
+<h1 class="hero-title" id="learn-title"><img src="hero-manabu.svg" alt="学ぶ" width="360" height="600"></h1>
+<a class="hero-scroll" href="#catalog" aria-label="教材一覧へスクロール"><span>SCROLL</span><span class="hero-scroll-line" aria-hidden="true"></span></a>
+</section>
 <main class="catalog" id="catalog"><div class="catalog-inner">
   <div class="era-heading"><h2>時代を選ぶ</h2><div class="eras" id="eras" role="group" aria-label="時代を選ぶ"></div></div>
   <div class="chapter-heading"><h2 id="title">原始・古代</h2><span class="chapter-number" id="chapter">第一章</span></div>
