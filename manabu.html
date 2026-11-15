@@ -1,64 +1,15 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>学ぶ — 歴史する</title>
-<meta name="description" content="日本史の授業プリントと授業スライド。時代・単元から教材を探す。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2325363b'/%3E%3Ctext x='32' y='47' text-anchor='middle' fill='%23fff' font-family='serif' font-size='43'%3E学%3C/text%3E%3C/svg%3E">
-<link rel="preload" as="image" href="assets/lions.jpg">
-<link rel="stylesheet" href="manabu.css">
-<script src="materials-data.js" defer></script><script src="materials-ui.js" defer></script><script src="manabu.js" defer></script>
-<link rel="stylesheet" href="site-header.css"><link rel="stylesheet" href="subpage-header.css"><script src="site-header.js" defer></script></head>
-<body class="page-manabu">
-<a class="skip" href="#materials">教材一覧へ</a>
-<header class="site-header" id="top">
-  <div class="site-header-inner">
-    <a class="site-brand" href="index.html#top" aria-label="歴史する トップへ">
-      <img src="header-brand.png" alt="歴史する">
-    </a>
-    <nav class="site-nav" aria-label="主要ページ">
-      <a class="site-nav-link" data-nav="manabu" href="manabu.html" aria-label="学ぶ"><img src="header-manabu.png" alt="学ぶ"></a>
-      <a class="site-nav-link" data-nav="tou" href="tou.html" aria-label="問う"><img src="header-tou.png" alt="問う"></a>
-      <a class="site-nav-link" data-nav="kitaeru" href="kitaeru.html" aria-label="鍛える"><img src="header-kitaeru.png" alt="鍛える"></a>
-      <a class="site-nav-link" data-nav="miru" href="miru.html" aria-label="観る"><img src="header-miru.png" alt="観る"></a>
-      <a class="site-nav-link" data-nav="shiraberu" href="shiraberu.html" aria-label="調べる"><img src="header-shiraberu.png" alt="調べる"></a>
-      <a class="site-nav-link" data-nav="meguru" href="meguru.html" aria-label="巡る"><img src="header-meguru.png" alt="巡る"></a>
-    </nav>
-    <button class="site-menu-button" type="button" aria-label="目次を開く" aria-expanded="false" aria-controls="siteDrawer"><span></span><span></span><span></span></button>
-  </div>
-</header><nav class="site-drawer" id="siteDrawer" aria-label="サイトメニュー">
-  <div class="site-drawer-in">
-    <a class="site-drawer-link" data-nav="manabu" href="manabu.html">学ぶ</a>
-    <a class="site-drawer-link" data-nav="tou" href="tou.html">問う</a>
-    <a class="site-drawer-link" data-nav="kitaeru" href="kitaeru.html">鍛える</a>
-    <a class="site-drawer-link" data-nav="miru" href="miru.html">観る</a>
-    <a class="site-drawer-link" data-nav="shiraberu" href="shiraberu.html">調べる</a>
-    <a class="site-drawer-link" data-nav="meguru" href="meguru.html">巡る</a>
-  </div>
-  <div class="site-drawer-foot">歴史する　授業ポータル</div>
-</nav>
-<main>
-<section class="opening" aria-labelledby="page-title">
-<div class="opening-copy"><h1 id="page-title">学ぶ</h1><p class="purpose">授業プリント<br>授業スライド</p></div>
-<figure class="masterpiece"><div class="art-window"><img src="assets/lions.jpg" alt="金地に二頭の獅子を描いた、狩野永徳の唐獅子図屏風" width="3286" height="1626" fetchpriority="high"></div><figcaption>狩野永徳《唐獅子図屏風》右隻<span>安土桃山時代</span></figcaption></figure>
-<a class="browse" href="#materials"><span>教材一覧へ</span><span class="down" aria-hidden="true">↓</span></a>
-<div class="opening-bottom"><span class="opening-note">時代から選ぶ</span><nav class="era-shortcuts" aria-label="時代別の教材へ"><a href="#materials" data-era="古代"><span>原始・古代</span><small>旧石器 ― 平安</small></a><a href="#materials" data-era="中世"><span>中世</span><small>鎌倉 ― 戦国</small></a><a href="#materials" data-era="近世"><span>近世</span><small>安土桃山 ― 幕末</small></a><a href="#materials" data-era="近代"><span>近代</span><small>明治 ― 昭和戦前</small></a><a href="#materials" data-era="現代"><span>現代</span><small>戦後 ― 現在</small></a></nav></div>
-</section>
-<section class="catalog" id="materials" aria-labelledby="catalog-title">
-<div class="catalog-heading"><div><h2 id="catalog-title">教材一覧</h2></div><p class="catalog-intro">時代と単元から、<br>授業で使う教材をひらく。</p></div>
-<div class="catalog-body">
-<aside class="catalog-aside"><p class="aside-label">時代を選ぶ</p><nav id="era-nav" aria-label="教材の時代"></nav><div class="aside-detail"><span>資料について</span><p>教材名を選ぶと、<br>別のタブで開きます。</p></div></aside>
-<div class="results">
-<div class="result-heading"><h3 id="selected-era">すべての時代</h3><span id="result-count" aria-live="polite"></span></div>
-<div class="suberas" id="suberas" aria-label="単元を選ぶ"></div>
-<div class="type-nav" role="group" aria-label="教材の種類"><button type="button" data-kind="" aria-pressed="true">すべて</button><button type="button" data-kind="プリント" aria-pressed="false">授業プリント</button><button type="button" data-kind="スライド" aria-pressed="false">授業スライド</button></div>
-<p class="data-status" id="data-status" role="status"></p>
-<div id="material-list"></div>
-<noscript><p>教材の表示にはJavaScriptを有効にしてください。<a href="manabu.html">公開中の学ぶページ</a>もご利用いただけます。</p></noscript>
-</div></div>
-</section>
-<section class="art-colophon" aria-label="掲載している作品"><div class="art-detail" role="img" aria-label="唐獅子図屏風の獅子の細部"></div><div class="art-info"><p class="section-label">このページの作品</p><h2>唐獅子図屏風</h2><p>狩野永徳筆・右隻<br>安土桃山時代　16世紀</p><a href="https://collection.shozokan.nich.go.jp/en/object/SZK002944" target="_blank" rel="noopener">作品について読む <span aria-hidden="true">↗</span></a></div></section>
-</main>
-<footer><p>日本史の授業教材</p><a class="back-top" href="#top">ページの先頭へ ↑</a><small>画像：<a href="https://commons.wikimedia.org/wiki/File:Kano_Eitoku_002.jpg" target="_blank" rel="noopener">Wikimedia Commons</a> / Public domain</small></footer>
-
-</body></html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url=learn/">
+<title>学ぶ｜歴史する</title>
+<link rel="canonical" href="https://doinghistory.github.io/site/learn/">
+<script>location.replace("learn/"+location.search+location.hash);</script>
+</head>
+<body>
+<p><a href="learn/">新しい「学ぶ」ページへ移動する</a></p>
+</body>
+</html>
