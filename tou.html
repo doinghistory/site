@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>問う — 歴史する</title><meta name="description" content="山川一問一答、時代と流れ、日本史の一問一答プリント。学習する教材を選ぶ。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23993427'/%3E%3Ctext x='32' y='47' text-anchor='middle' fill='white' font-family='serif' font-size='43'%3E問%3C/text%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Zen+Old+Mincho:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="tou.css"><link rel="preload" as="image" href="assets/sharaku.jpg"><script src="tou-data.js" defer></script><script src="tou.js" defer></script><link rel="stylesheet" href="site-header.css"><link rel="stylesheet" href="subpage-header.css"><script src="site-header.js" defer></script><style>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>問う — 歴史する</title><meta name="description" content="山川一問一答、時代と流れ、日本史の一問一答プリント。学習する教材を選ぶ。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23993427'/%3E%3Ctext x='32' y='47' text-anchor='middle' fill='white' font-family='serif' font-size='43'%3E問%3C/text%3E%3C/svg%3E"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Shippori+Mincho:wght@400;500&family=Zen+Old+Mincho:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="tou.css"><link rel="preload" as="image" href="assets/sharaku.jpg"><script src="tou-data.js" defer></script><script src="tou.js" defer></script><link rel="stylesheet" href="site-header.css"><link rel="stylesheet" href="subpage-header.css"><script src="site-header.js" defer></script><style>
 /* 問う：指定された博物館風レイアウト */
 .page-tou{background:#f8f7f2;color:#242720}
 .page-tou .spread{display:block;max-width:none}
@@ -194,6 +194,48 @@
 }
 .page-tou .tou-body .print-item h3{font-weight:400;letter-spacing:0.015em}
 .page-tou .tou-body .type-nav button{font-weight:400;letter-spacing:0.02em}
+</style><style>
+/* 演習アプリ：実際の出版社書影を使用した図録風リンク（ほかの部分は維持） */
+.page-tou .editorial-apps .tou-section-title{margin-bottom:17px!important}
+.page-tou .editorial-app-links{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:clamp(18px,2.7vw,36px)!important;border:0!important}
+.page-tou .editorial-app-links .catalog-app-card{
+  position:relative;display:grid!important;grid-template-columns:clamp(105px,10.4vw,145px) minmax(0,1fr) 24px;
+  align-items:center;justify-content:normal;gap:clamp(13px,1.6vw,24px);
+  min-width:0;min-height:175px;padding:14px clamp(15px,1.7vw,25px) 14px 14px!important;
+  background:linear-gradient(112deg,#f6f4ee 0%,#fcfbf8 76%,#f7f5ee 100%)!important;
+  color:#242922!important;border:1px solid #c9c8c0!important;
+  text-decoration:none;box-shadow:none;overflow:hidden;
+  transition:border-color .2s ease,background-color .2s ease;
+}
+.page-tou .editorial-app-links .catalog-app-card+.catalog-app-card{border-left:1px solid #c9c8c0!important;padding-left:14px!important}
+.page-tou .editorial-app-links .catalog-app-card:hover{border-color:#777e72!important;color:#142c21!important}
+.page-tou .editorial-app-links .catalog-app-card:focus-visible{outline:3px solid #7b5034;outline-offset:3px}
+.page-tou .catalog-cover{display:flex;align-items:center;justify-content:center;align-self:stretch;min-width:0;min-height:145px;overflow:hidden;background:#eee9df}
+.page-tou .catalog-cover--yamakawa{background:#be382e}
+.page-tou .catalog-cover--jidai{background:#da7473}
+.page-tou .catalog-cover img{display:block;width:100%;height:100%;max-height:164px;object-fit:contain;object-position:center;filter:none}
+.page-tou .catalog-card-copy{min-width:0}
+.page-tou .catalog-card-title{display:block;font:400 clamp(25px,2.5vw,37px)/1.35 'Shippori Mincho','Zen Old Mincho','Yu Mincho',serif!important;letter-spacing:.035em;white-space:nowrap}
+.page-tou .catalog-card-desc{display:block;font:400 clamp(11px,1.05vw,14px)/1.7 'Noto Sans JP','Yu Gothic',sans-serif!important;letter-spacing:.012em;color:#646a61!important;margin-top:9px;white-space:normal}
+.page-tou .catalog-card-arrow{font:400 26px/1.2 'Yu Mincho',serif;color:#3e4e43;align-self:center;transition:transform .2s ease}
+.page-tou .catalog-app-card:hover .catalog-card-arrow{transform:translateX(4px)}
+@media(max-width:980px){
+ .page-tou .editorial-app-links{gap:15px!important}
+ .page-tou .editorial-app-links .catalog-app-card{grid-template-columns:94px minmax(0,1fr) 19px;min-height:146px;padding:11px!important;gap:12px}
+ .page-tou .catalog-cover{min-height:120px}
+ .page-tou .catalog-cover img{max-height:140px}
+ .page-tou .catalog-card-title{font-size:clamp(19px,2.7vw,27px)!important}
+ .page-tou .catalog-card-desc{font-size:11px}
+}
+@media(max-width:760px){
+ .page-tou .editorial-app-links{grid-template-columns:1fr!important;gap:12px!important}
+ .page-tou .editorial-app-links .catalog-app-card{grid-template-columns:95px minmax(0,1fr) 22px;min-height:136px;max-height:none;padding:12px!important;gap:15px}
+ .page-tou .editorial-app-links .catalog-app-card+.catalog-app-card{padding-left:12px!important}
+ .page-tou .catalog-cover{min-height:116px}
+ .page-tou .catalog-cover img{max-height:143px}
+ .page-tou .catalog-card-title{font-size:clamp(23px,6vw,31px)!important}
+ .page-tou .catalog-card-desc{font-size:12px}
+}
 </style></head>
 <body class="page-tou"><a class="skip" href="#choices">教材を選ぶ</a>
 <header class="site-header" id="top">
@@ -227,8 +269,16 @@
 <div class="tou-body"><section class="editorial-apps" aria-labelledby="apps-title">
 <h2 class="tou-section-title" id="apps-title">演習アプリ</h2>
 <nav class="editorial-app-links" aria-label="演習アプリ">
-<a class="cover-banner cover-yamakawa" id="yamakawa" href="https://doinghistory.github.io/nihonshi-q-a/" target="_blank" rel="noopener noreferrer" aria-label="一問一答を開く"><span class="cover-art" aria-hidden="true"><span class="cover-mark">詳説</span><span class="cover-main">日本史</span><span class="cover-sub">日本史 探究</span></span><span class="cover-action">一問一答 <span aria-hidden="true">→</span></span></a>
-<a class="cover-banner cover-jidai" id="jidai" href="https://doinghistory.github.io/nihonshi-exercise/" target="_blank" rel="noopener noreferrer" aria-label="時代と流れを開く"><span class="cover-art" aria-hidden="true"><span class="cover-jidai-top">用語は流れで覚えるから得点になる！</span><span class="cover-jidai-text"><em>時代</em>と<br><em>流れ</em>で<br>覚える！</span><span class="cover-sub">日本史用語</span></span><span class="cover-action">時代と流れ <span aria-hidden="true">→</span></span></a>
+<a class="catalog-app-card" id="yamakawa" href="https://doinghistory.github.io/nihonshi-q-a/" target="_blank" rel="noopener noreferrer" aria-label="一問一答の演習アプリを開く">
+<span class="catalog-cover catalog-cover--yamakawa"><img src="https://new-textbook.yamakawa.co.jp/wp/wp-content/uploads/2022/04/header_nitan_syousetsu@2x.jpg" alt="" loading="lazy" decoding="async"></span>
+<span class="catalog-card-copy"><strong class="catalog-card-title">一問一答</strong><small class="catalog-card-desc">重要語句を繰り返し確認する</small></span>
+<span class="catalog-card-arrow" aria-hidden="true">→</span>
+</a>
+<a class="catalog-app-card" id="jidai" href="https://doinghistory.github.io/nihonshi-exercise/" target="_blank" rel="noopener noreferrer" aria-label="時代と流れの演習アプリを開く">
+<span class="catalog-cover catalog-cover--jidai"><img src="https://www.bun-eido.co.jp/books/24165/cover.avif?v=be2cb290" alt="" loading="lazy" decoding="async" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='https://cdn.tower.jp/63/o/32/6363332.jpg'}"></span>
+<span class="catalog-card-copy"><strong class="catalog-card-title">時代と流れ</strong><small class="catalog-card-desc">出来事のつながりと流れを確かめる</small></span>
+<span class="catalog-card-arrow" aria-hidden="true">→</span>
+</a>
 </nav></section>
 <section class="print-section" id="prints" aria-labelledby="print-title"><div class="print-heading"><p class="eyebrow">紙で取り組む</p><h2 id="print-title"><span>プリント教材</span><span aria-hidden="true">三</span></h2></div>
 <div class="print-controls"><div class="type-nav" role="group" aria-label="プリントの種類"><button data-mode="" aria-pressed="true">すべて</button><button data-mode="一問一答" aria-pressed="false">一問一答</button><button data-mode="一文論述" aria-pressed="false">一文論述</button><button data-mode="年代整序" aria-pressed="false">年代整序</button></div><div class="era-select"><label for="era">時代</label><select id="era"><option value="">すべての時代</option><optgroup label="原始・古代"><option>旧石器</option><option>縄文</option><option>弥生</option><option>古墳</option><option>飛鳥</option><option>奈良</option><option>平安</option></optgroup><optgroup label="中世"><option>鎌倉</option><option>南北朝</option><option>室町</option><option>戦国</option></optgroup><optgroup label="近世"><option>安土桃山</option><option>江戸</option><option>幕末</option></optgroup><optgroup label="近代"><option>明治</option><option>大正</option><option>昭和戦前</option></optgroup><optgroup label="現代"><option>戦後</option><option>平成</option><option>令和</option></optgroup></select><span id="count" aria-live="polite"></span></div></div>
