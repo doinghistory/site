@@ -1,5 +1,49 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>問う — 歴史する</title><meta name="description" content="山川一問一答、時代と流れ、日本史の一問一答プリント。学習する教材を選ぶ。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23993427'/%3E%3Ctext x='32' y='47' text-anchor='middle' fill='white' font-family='serif' font-size='43'%3E問%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="tou.css"><link rel="preload" as="image" href="assets/sharaku.jpg"><script src="tou-data.js" defer></script><script src="materials-ui.js" defer></script><script src="tou.js" defer></script><link rel="stylesheet" href="site-header.css"><link rel="stylesheet" href="subpage-header.css"><script src="site-header.js" defer></script></head>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>問う — 歴史する</title><meta name="description" content="山川一問一答、時代と流れ、日本史の一問一答プリント。学習する教材を選ぶ。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23993427'/%3E%3Ctext x='32' y='47' text-anchor='middle' fill='white' font-family='serif' font-size='43'%3E問%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="tou.css"><link rel="preload" as="image" href="assets/sharaku.jpg"><script src="tou-data.js" defer></script><script src="materials-ui.js" defer></script><script src="tou.js" defer></script><link rel="stylesheet" href="site-header.css"><link rel="stylesheet" href="subpage-header.css"><script src="site-header.js" defer></script><style>
+/* 問う — 展示図録型。共通ヘッダーと教材の機能は維持 */
+.page-tou{background:#f9f8f4;color:#222822}
+.page-tou .spread{display:block;max-width:none;margin:0}
+.page-tou .contents,.page-tou .between-panels,.page-tou .panel-content,.page-tou .panel-number{display:none!important}
+.page-tou .choices{border:0;display:contents}
+.page-tou .museum-opening{max-width:1680px;margin:auto;display:grid;grid-template-columns:minmax(0,46%) minmax(0,54%);min-height:min(770px,75vw);padding:clamp(30px,4vw,64px);gap:clamp(36px,5vw,95px)}
+.page-tou .museum-work{margin:0;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.page-tou .museum-work img{display:block;width:100%;height:clamp(450px,48vw,710px);object-fit:cover;object-position:50% 42%}
+.page-tou .museum-work figcaption{font:13px/1.9 'Yu Mincho','Hiragino Mincho ProN',serif;color:#59594f;padding-top:13px}
+.page-tou .museum-reading{min-width:0;display:flex;flex-direction:column;justify-content:center;padding:16px 0}
+.page-tou .museum-heading{display:flex;align-items:center;gap:clamp(25px,3vw,54px);margin:0 0 clamp(34px,5vw,80px)}
+.page-tou .museum-heading h1{font:400 clamp(76px,9vw,152px)/1.1 'Yu Mincho','Hiragino Mincho ProN',serif;margin:0;letter-spacing:.05em!important;white-space:nowrap}
+.page-tou .museum-heading p{border-left:1px solid #9a8b6e;padding-left:clamp(18px,2vw,32px);font:clamp(15px,1.35vw,21px)/2 'Yu Mincho','Hiragino Mincho ProN',serif;margin:0}
+.page-tou .museum-list{border-top:1px solid #aaa99e}
+.page-tou .museum-link{display:grid;grid-template-columns:minmax(0,1fr) 36px;align-items:center;gap:20px;padding:clamp(20px,2.4vw,36px) 0;border-bottom:1px solid #aaa99e;text-decoration:none}
+.page-tou .museum-link strong{display:block;font:400 clamp(24px,2.5vw,38px)/1.5 'Yu Mincho','Hiragino Mincho ProN',serif}
+.page-tou .museum-link small{display:block;font:14px/1.7 'Yu Mincho','Hiragino Mincho ProN',serif;color:#64665e;margin-top:5px}
+.page-tou .museum-link .arrow{font-size:28px;font-weight:200;transition:transform .2s}
+.page-tou .museum-link:hover strong{color:#886b37}
+.page-tou .museum-link:hover .arrow{transform:translateX(5px)}
+.page-tou .print-section{max-width:none;min-height:0;margin:0;padding:clamp(56px,6vw,100px) max(5vw,calc((100vw - 1450px)/2));background:#f0eee7}
+.page-tou .print-heading{display:flex;align-items:baseline;gap:36px;border-bottom:1px solid #b8b2a6;padding-bottom:20px}
+.page-tou .print-heading .eyebrow{display:none}
+.page-tou .print-heading h2{margin:0!important;font:400 clamp(32px,4vw,54px)/1.4 'Yu Mincho','Hiragino Mincho ProN',serif!important}
+.page-tou .print-heading h2 span:first-child{font-size:inherit}
+.page-tou .print-heading h2 br{display:none}
+.page-tou .print-heading h2 span:last-child{display:none}
+.page-tou .print-item{border-color:#c8c3b8}
+.page-tou .footer{max-width:1500px;margin:0 auto;padding:40px 5vw}
+@media(max-width:800px){
+.page-tou .museum-opening{display:flex;flex-direction:column;gap:26px;padding:24px 6% 58px;min-height:0}
+.page-tou .museum-work img{height:auto;max-height:490px;aspect-ratio:1.1;object-fit:cover;object-position:50% 32%}
+.page-tou .museum-work figcaption{font-size:11px}
+.page-tou .museum-heading{margin:14px 0 25px;gap:18px}
+.page-tou .museum-heading h1{font-size:clamp(64px,18vw,100px)}
+.page-tou .museum-heading p{font-size:14px;line-height:1.8;padding-left:16px}
+.page-tou .museum-link{padding:19px 0}
+.page-tou .museum-link strong{font-size:25px}
+.page-tou .museum-link small{font-size:12px}
+.page-tou .print-section{padding:50px 6%}
+.page-tou .print-heading h2{font-size:30px!important}
+}
+@media(max-width:380px){.page-tou .museum-heading h1{font-size:60px}.page-tou .museum-heading p{font-size:12px}}
+</style></head>
 <body class="page-tou"><a class="skip" href="#choices">教材を選ぶ</a>
 <header class="site-header" id="top">
   <div class="site-header-inner">
@@ -27,13 +71,15 @@
   </div>
   <div class="site-drawer-foot">歴史する　授業ポータル</div>
 </nav>
-<main class="spread">
-<aside class="contents"><div class="contents-top"><p class="eyebrow">日本史の用語・流れを確認する</p><h1>問う<span class="title-stop" aria-hidden="true">。</span></h1><p class="intro">一問ずつ確かめる。<br>時代の流れで整理する。</p></div><nav class="chapter-nav" aria-label="このページの教材"><a href="#yamakawa"><span class="chapter-num">一</span><span>山川一問一答</span><span aria-hidden="true">↗</span></a><a href="#jidai"><span class="chapter-num">二</span><span>時代と流れ</span><span aria-hidden="true">↗</span></a><a href="#prints"><span class="chapter-num">三</span><span>一問一答・一文論述・年代整序</span><span aria-hidden="true">↓</span></a></nav><p class="contents-foot">アプリでも、紙でも。</p></aside>
-<div class="choices" id="choices">
-<section class="app-panel panel-yamakawa" id="yamakawa" aria-labelledby="yamakawa-title"><img class="panel-art" src="assets/sharaku.jpg" alt="東洲斎写楽による役者の浮世絵" fetchpriority="high"><div class="panel-content"><p class="panel-kicker">用語を確認する</p><h2 id="yamakawa-title"><span>山川</span><span>一問一答</span></h2><div class="panel-bottom"><a class="app-link" href="https://doinghistory.github.io/nihonshi-q-a/" target="_blank" rel="noopener"><span>アプリを開く</span><span class="link-arrow" aria-hidden="true">↗</span></a></div></div><span class="panel-number" aria-hidden="true">一</span></section>
-<div class="between-panels"><p>人物・出来事・制度の名前を確認する。</p><span>一問一答</span></div>
-<section class="app-panel panel-jidai" id="jidai" aria-labelledby="jidai-title"><img class="panel-art" src="assets/hiroshige.jpg" alt="歌川広重による江戸の風景の浮世絵" loading="lazy"><div class="panel-content"><p class="panel-kicker">前後のつながりを。</p><h2 id="jidai-title"><span>時代と</span><span>流れ</span></h2><div class="panel-bottom"><a class="app-link" href="https://doinghistory.github.io/nihonshi-exercise/" target="_blank" rel="noopener"><span>アプリを開く</span><span class="link-arrow" aria-hidden="true">↗</span></a></div></div><span class="panel-number" aria-hidden="true">二</span></section>
-<div class="between-panels"><p>用語を、時代の順序や関係から整理する。</p><span>時代と流れで覚える</span></div>
+<main class="spread"><div class="choices" id="choices">
+<section class="museum-opening" aria-labelledby="tou-title">
+<figure class="museum-work"><img src="assets/sharaku.jpg" alt="東洲斎写楽《三代目大谷鬼次の奴江戸兵衛》" fetchpriority="high"><figcaption>東洲斎写楽　《三代目大谷鬼次の奴江戸兵衛》　寛政6年（1794）</figcaption></figure>
+<div class="museum-reading"><div class="museum-heading"><h1 id="tou-title">問う</h1><p>問題に取り組み、<br>知識と考える力を確かめる。</p></div>
+<nav class="museum-list" aria-label="演習教材">
+<a class="museum-link" id="yamakawa" href="https://doinghistory.github.io/nihonshi-q-a/" target="_blank" rel="noopener noreferrer"><span><strong>山川一問一答</strong><small>日本史の重要事項を確認する</small></span><span class="arrow" aria-hidden="true">→</span></a>
+<a class="museum-link" id="jidai" href="https://doinghistory.github.io/nihonshi-exercise/" target="_blank" rel="noopener noreferrer"><span><strong>時代と流れ</strong><small>出来事の前後関係とつながりを整理する</small></span><span class="arrow" aria-hidden="true">→</span></a>
+<a class="museum-link" href="#prints"><span><strong>演習プリント</strong><small>一問一答・一文論述・年代整序</small></span><span class="arrow" aria-hidden="true">↓</span></a>
+</nav></div></section>
 <section class="print-section" id="prints" aria-labelledby="print-title"><div class="print-heading"><p class="eyebrow">紙で取り組む</p><h2 id="print-title"><span>一問一答・<br>一文論述・年代整序</span><span aria-hidden="true">三</span></h2></div>
 <div class="print-controls"><div class="type-nav" role="group" aria-label="プリントの種類"><button data-mode="" aria-pressed="true">すべて</button><button data-mode="一問一答" aria-pressed="false">一問一答</button><button data-mode="一文論述" aria-pressed="false">一文論述</button><button data-mode="年代整序" aria-pressed="false">年代整序</button></div><div class="era-select"><label for="era">時代</label><select id="era"><option value="">すべての時代</option><optgroup label="原始・古代"><option>旧石器</option><option>縄文</option><option>弥生</option><option>古墳</option><option>飛鳥</option><option>奈良</option><option>平安</option></optgroup><optgroup label="中世"><option>鎌倉</option><option>南北朝</option><option>室町</option><option>戦国</option></optgroup><optgroup label="近世"><option>安土桃山</option><option>江戸</option><option>幕末</option></optgroup><optgroup label="近代"><option>明治</option><option>大正</option><option>昭和戦前</option></optgroup><optgroup label="現代"><option>戦後</option><option>平成</option><option>令和</option></optgroup></select><span id="count" aria-live="polite"></span></div></div>
 <p class="data-status" id="data-status" role="status"></p><div id="print-list"></div><noscript><p>教材一覧の表示にはJavaScriptを有効にしてください。</p></noscript></section>
