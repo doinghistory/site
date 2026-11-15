@@ -1,0 +1,27 @@
+/* 歴史する：第2弾 全画面ヒーロー (教材・記事の本文は変更しない) */
+.full-hero{position:relative;isolation:isolate;width:100%;height:100vh;height:100svh;min-height:460px;overflow:hidden;margin:0;background:#202820;color:#fff}
+.full-hero-photo{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center center;z-index:-2}
+.full-hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,0,.27) 0%,transparent 32%,rgba(0,0,0,.14) 70%,rgba(0,0,0,.47) 100%),linear-gradient(90deg,rgba(0,0,0,.22),transparent 40%,transparent 64%,rgba(0,0,0,.12))}
+.full-hero--kitaeru .full-hero-photo{object-position:center 44%}
+.full-hero--miru .full-hero-photo{object-position:center 48%}
+.full-hero--shiraberu .full-hero-photo{object-position:center 48%}
+.full-hero--meguru .full-hero-photo{object-position:center 53%}
+.full-hero-title{position:absolute;z-index:2;left:50%;top:49%;transform:translate(-50%,-50%);margin:0!important;padding:0!important;border:0!important;line-height:0!important;font-size:0!important;display:block!important;max-width:none!important}
+.full-hero-title img{display:block;width:clamp(210px,30vw,415px);height:auto;max-height:75svh;object-fit:contain;filter:drop-shadow(0 3px 12px rgba(0,0,0,.25));margin:0 auto}
+.full-hero-scroll{position:absolute;z-index:3;left:50%;bottom:clamp(24px,5vh,62px);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:14px;font:400 10px/1.5 Georgia,'Times New Roman',serif;letter-spacing:.28em;color:#fff!important;text-decoration:none!important;text-shadow:0 1px 4px rgba(0,0,0,.45)}
+.full-hero-scroll::after{content:"";height:44px;width:1px;background:#fff;position:relative}
+.full-hero-scroll:focus-visible{outline:2px solid #fff;outline-offset:9px}
+.full-hero-credits{margin:0;padding:16px clamp(20px,5vw,70px);background:#f8f7f2;color:#686c62;font:400 11px/1.8 'Noto Sans JP','Yu Gothic',sans-serif;text-align:right}
+.full-hero-credits a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.page-kitaeru #materials,.page-miru #materials,.page-shiraberu #content,.page-meguru #content,.page-meguru #journal{scroll-margin-top:calc(var(--site-header-height,72px) + 8px)}
+@media(max-width:760px){
+ .full-hero{min-height:360px}
+ .full-hero-title{top:49%}
+ .full-hero-title img{width:clamp(178px,50vw,270px);max-height:67svh}
+ .full-hero-scroll{bottom:25px}
+ .full-hero-scroll::after{height:32px}
+ .full-hero--miru .full-hero-photo{object-position:53% center}
+ .full-hero--meguru .full-hero-photo{object-position:48% center}
+ .full-hero-credits{text-align:left;font-size:10px;padding:15px 20px}
+}
+@media(prefers-reduced-motion:reduce){.full-hero,.full-hero-scroll{scroll-behavior:auto}}
