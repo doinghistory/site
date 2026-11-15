@@ -1,10 +1,18 @@
 (() => {
+  // 共通のページ名称を「解く」に統一。トップページの埋め込みナビにも適用する。
+  document.querySelectorAll('.site-nav-link[data-nav="tou"]').forEach(link => {
+    link.setAttribute('aria-label', '解く');
+    const img = link.querySelector('img');
+    if (img) { img.src = 'header-toku.svg'; img.alt = '解く'; }
+  });
+  document.querySelectorAll('.site-drawer-link[data-nav="tou"]').forEach(link => { link.textContent = '解く'; });
+  document.querySelectorAll('img.vverb[alt="問う"]').forEach(img => { img.src = 'header-toku.svg'; img.alt = '解く'; });
   const trigger = document.querySelector('.site-menu-button');
   const old = document.getElementById('siteDrawer');
   if (!trigger || !old) return;
   const pages = [
     ['manabu', '学ぶ', '授業プリント・スライド', 'materials'],
-    ['tou', '問う', '一問一答・一文論述・年代整序', 'prints'],
+    ['tou', '解く', '一問一答・一文論述・年代整序', 'prints'],
     ['kitaeru', '鍛える', '演習プリント・入試問題', 'materials'],
     ['miru', '観る', '授業動画・おすすめ動画', 'materials'],
     ['shiraberu', '調べる', '史料・文献・画像のデータベース', ''],
