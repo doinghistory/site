@@ -292,3 +292,15 @@ body.menu-open .site-drawer-link:nth-child(6){transition-delay:.42s}
 .page-meguru .site-drawer-link[data-nav="meguru"]::before{
   transform:translateX(-50%) scale(1);
 }
+
+/* Adobe Fonts 黒龍爽。既存ナビ画像と同じ場所に「解く」を文字として重ねる。
+   Webフォントが有効になったときだけ切り替え、失敗した場合は筆文字SVGを維持。 */
+.site-nav-link[data-nav="tou"] .site-nav-kokuryu{
+ display:none;white-space:nowrap;
+ font-family:"kokuryu","kokuryu-sou","KokuryuSou","黒龍爽",cursive;
+ font-style:normal;font-weight:400;font-size:31px;line-height:1;
+ letter-spacing:-.055em;color:var(--site-paper);
+ transform:translateY(-1px);
+}
+html.kokuryu-ready .site-nav-link[data-nav="tou"] > img{display:none}
+html.kokuryu-ready .site-nav-link[data-nav="tou"] .site-nav-kokuryu{display:block}
