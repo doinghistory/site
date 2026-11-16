@@ -25,3 +25,15 @@
  .full-hero-credits{text-align:left;font-size:10px;padding:15px 20px}
 }
 @media(prefers-reduced-motion:reduce){.full-hero,.full-hero-scroll{scroll-behavior:auto}}
+
+/* 「巡る」：瑠璃光院の紅葉を見せ、連結文字は画面左に寄せる */
+.full-hero--meguru .full-hero-photo{object-position:center 47%}
+.full-hero--meguru .full-hero-title{left:clamp(30px,7.5vw,130px);top:49%;transform:translateY(-50%)}
+.full-hero--meguru .full-hero-title img{width:clamp(200px,23vw,340px)}
+.full-hero--meguru::after{background:linear-gradient(90deg,rgba(0,0,0,.53) 0%,rgba(0,0,0,.30) 25%,rgba(0,0,0,.05) 55%,transparent 85%),linear-gradient(0deg,rgba(0,0,0,.35),transparent 20%)}
+@media(max-width:760px){
+ .full-hero--meguru .full-hero-photo{object-position:53% center}
+ .full-hero--meguru .full-hero-title{left:5vw;top:48%;transform:translateY(-50%)}
+ .full-hero--meguru .full-hero-title img{width:clamp(158px,44vw,210px)}
+ .full-hero--meguru::after{background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.13) 75%),linear-gradient(0deg,rgba(0,0,0,.3),transparent 25%)}
+}
