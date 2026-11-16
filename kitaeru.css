@@ -4,3 +4,83 @@ body{background:#f7f6f1}.page-heading{text-align:center;padding:28px 20px 39px}.
 @media(max-width:650px){.page-heading{padding:22px 20px 28px}.page-heading h1{font-size:57px}.practice-menu{width:88%;display:block}.practice-main{min-height:370px}.practice-main>img{object-position:48% center}.practice-caption{padding:23px 20px;gap:12px}.practice-caption h2{font-size:28px}.practice-caption p{font-size:12px;max-width:220px}.practice-side{display:grid;grid-template-columns:1fr 1fr}.practice-side>a{padding:22px 15px;border-bottom:1px solid #d5cabe}.practice-side>a:last-child{border-left:0}.practice-side h2{font-size:23px;letter-spacing:0;line-height:1.55;margin:13px 0 20px}.practice-side>a:last-child h2{max-width:4em}.side-bottom{align-items:flex-end;gap:8px}.side-bottom p{font-size:12px}.entry-arrow{font-size:25px}.materials{padding:45px 6% 50px}.print-item{flex-wrap:wrap;align-items:flex-start}.print-item h3{font-size:25px}.print-item p{font-size:14px}.category-number{font-size:12px}}
 @media(max-width:650px){.practice-side>a:last-child h2{max-width:none}}
 @media(max-width:360px){.practice-side h2{font-size:21px}}
+
+
+/* 2026-11-16／鍛える：博物館・図録をイメージした三枚の演習案内 */
+.page-kitaeru .practice-menu{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.2vw,36px);
+  width:min(1470px,calc(100% - clamp(36px,8vw,140px)));max-width:none;
+  min-height:0;margin-inline:auto;margin-bottom:clamp(36px,5vw,76px);
+}
+.page-kitaeru .practice-tile{
+  position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;
+  min-width:0;min-height:clamp(305px,27vw,405px);padding:55px 35px 48px;
+  border:1px solid #506152;border-radius:0;
+  background-color:#f8f4eb;
+  background-image:linear-gradient(120deg,rgba(255,255,255,.43),transparent 62%),repeating-linear-gradient(90deg,rgba(110,97,71,.012) 0,rgba(110,97,71,.012) 1px,transparent 1px,transparent 4px);
+  color:#20392e;text-decoration:none;
+  box-shadow:0 3px 10px rgba(35,42,33,.04);
+  transition:background-color .2s,border-color .2s,box-shadow .2s;
+}
+.page-kitaeru .practice-tile::before{
+  content:"";position:absolute;top:0;left:0;width:58px;height:58px;
+  background:#324b3d;clip-path:polygon(0 0,100% 0,0 100%);pointer-events:none;
+}
+.page-kitaeru .practice-tile::after{
+  content:"";position:absolute;bottom:0;left:0;width:180px;height:100px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='32' viewBox='0 0 64 32'%3E%3Cg fill='none' stroke='%23b59d70' stroke-width='2'%3E%3Cpath d='M0 32 A16 16 0 0 1 32 32 M16 32 A16 16 0 0 1 48 32 M32 32 A16 16 0 0 1 64 32'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:64px 32px;opacity:.34;
+  -webkit-mask-image:linear-gradient(40deg,#000 0%,transparent 95%);
+  mask-image:linear-gradient(40deg,#000 0%,transparent 95%);pointer-events:none;
+}
+.page-kitaeru .practice-number{
+  position:absolute;top:clamp(26px,3.1vw,46px);left:clamp(30px,3.5vw,58px);
+  display:block;color:#a37d2b;border-bottom:1px solid #b79b63;
+  font:400 clamp(28px,2.4vw,39px)/1.2 Georgia,"Times New Roman",serif;
+  padding-bottom:7px;z-index:2;letter-spacing:.04em!important;
+}
+.page-kitaeru .practice-title{
+  display:flex;flex-direction:row-reverse;align-items:flex-start;justify-content:center;
+  gap:clamp(5px,1vw,16px);margin:0!important;padding:0;
+  font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif CJK JP",serif;
+  font-size:clamp(31px,3.05vw,53px);font-weight:500;line-height:1.12;
+  color:#1b352c;position:relative;z-index:2;
+}
+.page-kitaeru .practice-title span{display:block;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;letter-spacing:.10em!important}
+.page-kitaeru .practice-title span:last-child{margin-top:clamp(17px,2vw,34px)}
+.page-kitaeru .practice-arrow{
+  position:absolute;bottom:clamp(22px,2.5vw,36px);right:clamp(25px,3vw,45px);
+  color:#b18a36;font:300 clamp(29px,3vw,45px)/1 Georgia,serif;z-index:2;
+  transition:transform .2s;
+}
+.page-kitaeru .practice-tile:hover{background-color:#f1eddf;border-color:#a5813b;box-shadow:0 9px 28px rgba(32,45,34,.085)}
+.page-kitaeru .practice-tile:hover .practice-arrow{transform:translateX(6px)}
+.page-kitaeru .practice-tile[data-active="true"]{border-color:#967943;box-shadow:inset 0 0 0 1px #967943}
+.page-kitaeru .practice-tile:focus-visible{outline:3px solid #967943;outline-offset:5px}
+.page-kitaeru #practice-options{scroll-margin-top:calc(var(--site-header-height,72px) + 15px)}
+.page-kitaeru .materials{padding-top:0}
+@media(max-width:960px){
+  .page-kitaeru .practice-menu{gap:14px;width:calc(100% - 44px)}
+  .page-kitaeru .practice-tile{min-height:310px;padding:55px 10px 40px}
+  .page-kitaeru .practice-title{font-size:clamp(27px,3.7vw,38px)}
+  .page-kitaeru .practice-number{left:26px;top:26px}
+}
+@media(max-width:700px){
+  .page-kitaeru .practice-menu{display:grid;grid-template-columns:1fr;gap:12px;width:calc(100% - 36px);margin-bottom:38px}
+  .page-kitaeru .practice-tile{min-height:127px;justify-content:flex-start;padding:26px 58px 24px 102px}
+  .page-kitaeru .practice-tile::before{width:37px;height:37px}
+  .page-kitaeru .practice-tile::after{width:100px;height:60px;opacity:.22}
+  .page-kitaeru .practice-number{top:50%;left:29px;transform:translateY(-50%);font-size:24px;padding-bottom:4px}
+  .page-kitaeru .practice-title{display:flex;flex-direction:row;gap:0;align-items:center;font-size:clamp(23px,6vw,32px);white-space:nowrap;line-height:1.35}
+  .page-kitaeru .practice-title span{writing-mode:horizontal-tb;letter-spacing:0!important}
+  .page-kitaeru .practice-title span:last-child{margin-top:0}
+  .page-kitaeru .practice-arrow{right:20px;bottom:auto;top:50%;transform:translateY(-50%);font-size:29px}
+  .page-kitaeru .practice-tile:hover .practice-arrow{transform:translate(4px,-50%)}
+}
+@media(max-width:370px){
+  .page-kitaeru .practice-tile{padding-left:87px;padding-right:41px}
+  .page-kitaeru .practice-number{left:22px}
+  .page-kitaeru .practice-title{font-size:22px}
+  .page-kitaeru .practice-arrow{right:12px}
+}
+@media(prefers-reduced-motion:reduce){.page-kitaeru .practice-tile,.page-kitaeru .practice-arrow{transition:none}}
