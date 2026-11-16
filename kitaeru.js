@@ -9,6 +9,9 @@ function loadRows(text){const raw=csv(text),h=(raw.shift()||[]).map(s=>s.trim().
 function modeOf(s){if(/模試|模擬試験|模擬テスト/.test(s))return '模試過去問';if(/過去問|大学入試|入試問題/.test(s))return '過去問演習';return '演習プリント';}
 function updateURL(){if(location.protocol==='file:')return;const u=new URL(location.href);for(const[k,v]of Object.entries({mode,era})){if(v)u.searchParams.set(k,v);else u.searchParams.delete(k);}history.replaceState(null,'',u);}
 const catalog=window.MaterialsUI({list:'#print-list',controls:'.materials .type-nav',render});
+// 検索・並び順・公開状態は必要なときだけ開く。共有の MaterialsUI は変更しない。
+const extra=$('#catalogue-extra'),toolbar=$('.materials .material-tools');
+if(extra&&toolbar)extra.append(toolbar);
 function render(){
   document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(mode===b.dataset.mode)));
   document.querySelectorAll('.practice-tile[data-choose]').forEach(a=>{
@@ -20,6 +23,13 @@ function render(){
   const visible=catalog.filter(rows.filter(r=>(!mode||modeOf(r.kind)===mode)&&(!era||norm(r.era).includes(era))));
   $('#count').textContent=visible.length+' 件';
   const batch=catalog.slice(visible);
+  const cols=$('.catalogue-columns');
+  if(cols)cols.hidden=visible.length===0;
+  const advanced=Boolean(era||$('#material-query')?.value.trim()||$('#material-ready')?.checked||$('#material-sort')?.value);
+  const filterPanel=$('#catalogue-filter');
+  if(filterPanel){filterPanel.dataset.active=String(advanced);}
+  const emptyText=advanced?'条件に合う教材がありません。':mode?'この分類には、まだ教材がありません。':'現在、掲載されている教材はありません。';
+  const resetMarkup=(mode||advanced)?'<button id="reset" type="button">すべての教材を見る</button>':'';
   $('#print-list').innerHTML=visible.length?batch.map(r=>{
     const url=safeURL(r.url);
     const video=url&&/(^|\\.)(youtube\\.com|youtu\\.be)$/.test(new URL(url).hostname);
@@ -38,11 +48,12 @@ function render(){
       </div>
       ${url?'<span class="item-arrow" aria-hidden="true">↗</span>':'<span class="pending">準備中</span>'}
     </article>`;
-  }).join(''):'<div class="empty"><p>条件に合う教材がありません。分類や検索条件をご確認ください。</p><button id="reset" type="button">すべて表示する</button></div>';
+  }).join(''):`<div class="empty"><p>${emptyText}</p>${resetMarkup}</div>`;
   $('#reset')?.addEventListener('click',()=>{catalog.reset();mode='';era='';updateURL();render();});
 }
 document.addEventListener('materials-reset',()=>{catalog.reset();mode='';era='';updateURL();render();});
 const p=new URLSearchParams(location.search);if(['演習プリント','過去問演習','模試過去問'].includes(p.get('mode')))mode=p.get('mode');if([...$('#era').options].some(o=>o.value===p.get('era')))era=p.get('era');
+if(['q','sort','ready','era'].some(key=>p.has(key)))$('#catalogue-filter').open=true;
 document.querySelectorAll('[data-choose]').forEach(a=>a.addEventListener('click',()=>{mode=a.dataset.choose;era='';updateURL();render();}));
 document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;updateURL();render();}));$('#era').addEventListener('change',e=>{era=e.target.value;updateURL();render();});render();
 window.MaterialsUI.load({url:CSV,status:$('#data-status'),apply:text=>{rows=loadRows(text);render();}});
