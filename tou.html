@@ -329,6 +329,16 @@
 /* 写楽の顔を画面内でやや下に見せ、目元まで入れるために上側の画像領域を優先 */
 .page-tou .tou-hero>img{object-position:60% 23%!important}
 @media(max-width:760px){.page-tou .tou-hero>img{object-position:59% 28%!important}}
+</style><style>
+/* 「解く」は画面右側。既存の左寄せ!importantより後に指定する。 */
+.page-tou .tou-hero .tou-hero-copy{
+ left:auto!important;right:clamp(28px,7.5vw,116px)!important;
+ top:49%!important;bottom:auto!important;transform:translateY(-50%)!important;
+}
+@media(max-width:760px){
+ .page-tou .tou-hero .tou-hero-copy{left:auto!important;right:5vw!important;top:47%!important}
+ .page-tou .tou-hero .tou-hero-copy h1{width:clamp(135px,36vw,215px)}
+}
 </style></head>
 <body class="page-tou"><a class="skip" href="#choices">教材を選ぶ</a>
 <header class="site-header" id="top">
