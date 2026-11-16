@@ -3,10 +3,10 @@
   document.querySelectorAll('.site-nav-link[data-nav="tou"]').forEach(link => {
     link.setAttribute('aria-label', '解く');
     const img = link.querySelector('img');
-    if (img) { img.src = 'header-toku.svg?v=2'; img.alt = '解く'; }
+    if (img) { img.src = 'header-toku.svg?v=20261116-brush4'; img.alt = '解く'; }
   });
   document.querySelectorAll('.site-drawer-link[data-nav="tou"]').forEach(link => { link.textContent = '解く'; });
-  document.querySelectorAll('img.vverb[alt="問う"]').forEach(img => { img.src = 'header-toku.svg?v=2'; img.alt = '解く'; });
+  document.querySelectorAll('img.vverb[alt="問う"]').forEach(img => { img.src = 'header-toku.svg?v=20261116-brush4'; img.alt = '解く'; });
   const trigger = document.querySelector('.site-menu-button');
   const old = document.getElementById('siteDrawer');
   if (!trigger || !old) return;
