@@ -9,7 +9,38 @@ function loadRows(text){const raw=csv(text),h=(raw.shift()||[]).map(s=>s.trim().
 function modeOf(s){if(/模試|模擬試験|模擬テスト/.test(s))return '模試過去問';if(/過去問|大学入試|入試問題/.test(s))return '過去問演習';return '演習プリント';}
 function updateURL(){if(location.protocol==='file:')return;const u=new URL(location.href);for(const[k,v]of Object.entries({mode,era})){if(v)u.searchParams.set(k,v);else u.searchParams.delete(k);}history.replaceState(null,'',u);}
 const catalog=window.MaterialsUI({list:'#print-list',controls:'.materials .type-nav',render});
-function render(){document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(mode===b.dataset.mode)));document.querySelectorAll('.practice-tile[data-choose]').forEach(a=>{if(mode===a.dataset.choose){a.dataset.active='true';a.setAttribute('aria-current','true');}else{delete a.dataset.active;a.removeAttribute('aria-current');}});$('#era').value=era;const visible=catalog.filter(rows.filter(r=>(!mode||modeOf(r.kind)===mode)&&(!era||norm(r.era).includes(era))));$('#count').textContent=visible.length+'件';const batch=catalog.slice(visible);$('#print-list').innerHTML=visible.length?batch.map(r=>{const url=safeURL(r.url),video=url&&/(^|\.)(youtube\.com|youtu\.be)$/.test(new URL(url).hostname);return `<article class="print-item"><div><div class="item-meta"><span>${esc(r.era)}</span><span>${esc(r.kind)}</span>${r.format?`<span>${esc(r.format)}</span>`:''}</div><h3>${url?`<a class="print-link" href="${esc(url)}" target="_blank" rel="noopener">${esc(r.title)}</a>`:esc(r.title)}</h3><p>${esc(r.desc)}</p>${r.date?`<time class="material-date">${esc(r.date)} 公開</time>`:''}${video?'<span class="link-note">登録されているリンク先：動画</span>':''}</div>${url?'<span class="item-arrow" aria-hidden="true">↗</span>':'<span class="pending">準備中</span>'}</article>`;}).join(''):'<div class="empty"><p>条件に合う教材がありません。検索条件を変えてお試しください。</p><button id="reset">すべての教材を見る</button></div>';$('#reset')?.addEventListener('click',()=>{catalog.reset();mode='';era='';updateURL();render();});}
+function render(){
+  document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(mode===b.dataset.mode)));
+  document.querySelectorAll('.practice-tile[data-choose]').forEach(a=>{
+    if(mode===a.dataset.choose){a.dataset.active='true';a.setAttribute('aria-current','true');}
+    else{delete a.dataset.active;a.removeAttribute('aria-current');}
+  });
+  $('#current-mode').textContent=mode||'すべての教材';
+  $('#era').value=era;
+  const visible=catalog.filter(rows.filter(r=>(!mode||modeOf(r.kind)===mode)&&(!era||norm(r.era).includes(era))));
+  $('#count').textContent=visible.length+' 件';
+  const batch=catalog.slice(visible);
+  $('#print-list').innerHTML=visible.length?batch.map(r=>{
+    const url=safeURL(r.url);
+    const video=url&&/(^|\\.)(youtube\\.com|youtu\\.be)$/.test(new URL(url).hostname);
+    const number=String(visible.indexOf(r)+1).padStart(2,'0');
+    return `<article class="print-item">
+      <span class="print-item-index" aria-hidden="true">${number}</span>
+      <div class="print-item-main">
+        <div class="item-meta">${r.era?'<span>'+esc(r.era)+'</span>':''}${r.kind?'<span>'+esc(r.kind)+'</span>':''}</div>
+        <h3>${url?'<a class="print-link" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+esc(r.title)+'</a>':esc(r.title)}</h3>
+        ${r.desc?'<p>'+esc(r.desc)+'</p>':''}
+      </div>
+      <div class="print-item-side">
+        ${r.format?'<span class="print-format">'+esc(r.format)+'</span>':''}
+        ${r.date?'<time>'+esc(r.date)+'</time>':''}
+        ${video?'<span>動画リンク</span>':''}
+      </div>
+      ${url?'<span class="item-arrow" aria-hidden="true">↗</span>':'<span class="pending">準備中</span>'}
+    </article>`;
+  }).join(''):'<div class="empty"><p>条件に合う教材がありません。分類や検索条件をご確認ください。</p><button id="reset" type="button">すべて表示する</button></div>';
+  $('#reset')?.addEventListener('click',()=>{catalog.reset();mode='';era='';updateURL();render();});
+}
 document.addEventListener('materials-reset',()=>{catalog.reset();mode='';era='';updateURL();render();});
 const p=new URLSearchParams(location.search);if(['演習プリント','過去問演習','模試過去問'].includes(p.get('mode')))mode=p.get('mode');if([...$('#era').options].some(o=>o.value===p.get('era')))era=p.get('era');
 document.querySelectorAll('[data-choose]').forEach(a=>a.addEventListener('click',()=>{mode=a.dataset.choose;era='';updateURL();render();}));
