@@ -171,3 +171,96 @@
  .page-kitaeru .print-item h3{font-size:20px}
 }
 @media(prefers-reduced-motion:reduce){.page-kitaeru .print-item{transition:none}}
+
+/* 2026-11-16／スマホ：教材の前に検索欄を積み重ねない、省スペースの資料目録 */
+.page-kitaeru .materials{padding-top:0!important}
+.page-kitaeru .catalogue-heading{
+ align-items:center;gap:14px;padding:0 0 11px!important;
+ border-bottom:1px solid #708176;
+}
+.page-kitaeru .catalogue-fig{display:none!important}
+.page-kitaeru .catalogue-heading h2{
+ font:400 clamp(23px,2.5vw,31px)/1.4 "Yu Mincho","Hiragino Mincho ProN",serif;
+ letter-spacing:.05em!important;
+}
+.page-kitaeru .catalogue-heading-meta{padding:0;align-items:center;gap:0}
+.page-kitaeru #current-mode.visually-hidden,
+.page-kitaeru .materials .material-summary{
+ position:absolute!important;width:1px!important;height:1px!important;
+ padding:0!important;margin:0!important;overflow:hidden!important;
+ clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important;
+}
+.page-kitaeru #count{font:400 14px/1.3 Georgia,"Yu Gothic",sans-serif;color:#788779}
+.page-kitaeru .catalogue-controls{
+ position:relative;display:block!important;padding:5px 0 11px!important;
+ border-bottom:1px solid #d2d8cf;
+}
+.page-kitaeru .materials .type-nav{
+ display:flex!important;flex-direction:row;flex-wrap:nowrap!important;align-items:center;
+ width:calc(100% - 122px);max-width:none;min-width:0;
+ overflow-x:auto;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;
+ gap:0 22px!important;margin:0!important;padding:0!important;
+ scrollbar-width:none;white-space:nowrap;border:0!important;
+}
+.page-kitaeru .materials .type-nav::-webkit-scrollbar{display:none}
+.page-kitaeru .materials .type-nav button{
+ flex:0 0 auto;min-height:43px;padding:9px 0!important;font-size:13px;
+}
+.page-kitaeru .catalogue-filter{display:block;margin:0;padding:0;min-height:0}
+.page-kitaeru .catalogue-filter summary{
+ position:absolute;right:0;top:5px;display:flex;align-items:center;gap:6px;
+ min-height:43px;padding:9px 0 9px 10px;cursor:pointer;list-style:none;
+ font:400 12px/1.5 "Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+ color:#4d6956;white-space:nowrap;border:0;letter-spacing:0!important;
+}
+.page-kitaeru .catalogue-filter summary::-webkit-details-marker{display:none}
+.page-kitaeru .catalogue-filter-icon{color:#a18551;font-size:18px;font-weight:300}
+.page-kitaeru .catalogue-filter[open] .catalogue-filter-icon{transform:rotate(45deg)}
+.page-kitaeru .catalogue-filter[data-active="true"] summary{color:#997b42;font-weight:600}
+.page-kitaeru .catalogue-filter summary:focus-visible{outline:2px solid #997b42;outline-offset:2px}
+.page-kitaeru .catalogue-extra{
+ margin-top:5px;padding:20px 0 12px;border-top:1px solid #e0e4dc;
+ display:grid;grid-template-columns:minmax(0,1fr);gap:15px;
+}
+.page-kitaeru .materials .catalogue-extra .era-select{
+ display:flex!important;grid-column:auto!important;grid-row:auto!important;
+ margin:0!important;justify-self:stretch;align-items:center;gap:14px;
+}
+.page-kitaeru .materials .catalogue-extra .era-select select{max-width:100%;min-width:170px}
+.page-kitaeru .materials .catalogue-extra .material-tools{
+ display:grid!important;grid-column:auto!important;grid-row:auto!important;
+ grid-template-columns:minmax(0,1fr) auto;gap:16px 24px;
+ margin:0!important;padding:0!important;
+}
+.page-kitaeru .catalogue-columns[hidden]{display:none!important}
+.page-kitaeru .catalogue-columns{padding:12px 0!important}
+.page-kitaeru #print-list .empty{
+ padding:23px 0 27px!important;text-align:left!important;
+ border-bottom:1px solid #d4ddd2;
+}
+.page-kitaeru #print-list .empty p{
+ margin:0!important;color:#737f72;font-size:13px;line-height:1.75;
+}
+.page-kitaeru #print-list .empty button{
+ margin-top:12px;padding:6px 0;font-size:12px;
+}
+.page-kitaeru .materials .material-pagination[hidden]{display:none!important}
+.page-kitaeru .materials .material-pagination{margin-top:17px!important}
+@media(max-width:930px){
+ .page-kitaeru .materials .catalogue-extra .material-tools{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+ .page-kitaeru .materials{padding:3px 0 65px!important}
+ .page-kitaeru .catalogue-heading{padding-bottom:9px!important}
+ .page-kitaeru .catalogue-heading h2{font-size:25px}
+ .page-kitaeru .catalogue-heading-meta{flex-direction:row;align-items:center}
+ .page-kitaeru .catalogue-controls{padding:4px 0 8px!important}
+ .page-kitaeru .materials .type-nav{width:calc(100% - 110px);gap:0 17px!important}
+ .page-kitaeru .materials .type-nav button{font-size:12px;min-height:40px}
+ .page-kitaeru .catalogue-filter summary{top:4px;min-height:40px;font-size:11px;gap:4px}
+ .page-kitaeru .catalogue-extra{margin-top:5px;padding:14px 0 10px;gap:12px}
+ .page-kitaeru .materials .catalogue-extra .era-select{margin:0!important}
+ .page-kitaeru .catalogue-columns{display:none!important}
+ .page-kitaeru #print-list .empty{padding:17px 0 19px!important}
+ .page-kitaeru .print-item{padding:16px 0}
+}
