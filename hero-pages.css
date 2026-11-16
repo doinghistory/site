@@ -95,3 +95,26 @@ body[class*="page-"] footer:has(.footer-art-credit){display:flex;flex-wrap:wrap;
   width:clamp(142px,39vw,210px);max-height:64svh;
  }
 }
+
+/* 2026-11-16: 歴史史料の見せ方を修正。笠懸を広く、伊能図は日本全体を見せる */
+.full-hero--kitaeru .full-hero-photo{object-position:43% 50%!important}
+.full-hero--shiraberu{background:#bdb09a}
+.full-hero--shiraberu::before{
+ content:"";position:absolute;inset:-4%;z-index:-3;
+ background:url("https://commons.wikimedia.org/wiki/Special:FilePath/Inoh_taizu_01.jpg?width=960") center center / cover no-repeat;
+ filter:blur(20px) brightness(.74);pointer-events:none;
+}
+.full-hero--shiraberu .full-hero-photo{
+ object-fit:contain!important;object-position:85% center!important;
+ width:100%;height:100%;filter:sepia(.06);
+}
+.full-hero--shiraberu::after{
+ background:linear-gradient(90deg,rgba(26,22,18,.53),rgba(45,38,29,.23) 30%,transparent 60%),
+ linear-gradient(0deg,rgba(32,28,24,.32),transparent 23%);
+}
+@media(max-width:760px){
+ .full-hero--kitaeru .full-hero-photo{object-position:42% center!important}
+ .full-hero--shiraberu .full-hero-photo{object-fit:contain!important;object-position:70% center!important}
+ .full-hero--shiraberu::after{background:linear-gradient(90deg,rgba(25,23,22,.56),transparent 88%),
+ linear-gradient(0deg,rgba(27,25,23,.31),transparent 27%)}
+}
