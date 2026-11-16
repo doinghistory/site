@@ -1,12 +1,37 @@
 (() => {
-  // 共通のページ名称を「解く」に統一。トップページの埋め込みナビにも適用する。
+  // 「解く」のみ Adobe Fonts「黒龍爽」で描画する。他の５項目は既存の筆文字画像を保持。
+  // Webフォントを読み込めない環境ではヘッダーの既存文字画像を表示する。
   document.querySelectorAll('.site-nav-link[data-nav="tou"]').forEach(link => {
     link.setAttribute('aria-label', '解く');
     const img = link.querySelector('img');
-    if (img) { img.src = 'header-toku.svg?v=20261116-nav-layout5'; img.alt = '解く'; }
+    if (img) { img.src = 'header-toku.svg?v=20261116-kokuryu-fallback'; img.alt = '解く'; }
+    if (!link.querySelector('.site-nav-kokuryu')) {
+      const label = document.createElement('span');
+      label.className = 'site-nav-kokuryu';
+      label.setAttribute('aria-hidden', 'true');
+      label.textContent = '解く';
+      link.appendChild(label);
+    }
   });
+
+  // Adobe Fonts のダイナミックサブセット（日本語）を提供されたWebプロジェクトで読み込む。
+  if (document.querySelector('.site-nav-link[data-nav="tou"]') && !document.getElementById('site-kokuryu-kit')) {
+    const tk = document.createElement('script');
+    tk.id = 'site-kokuryu-kit';
+    tk.async = true;
+    tk.src = 'https://use.typekit.net/iro6lgt.js';
+    tk.onload = () => {
+      try {
+        window.Typekit.load({
+          async: true,
+          active: () => document.documentElement.classList.add('kokuryu-ready')
+        });
+      } catch (error) { /* フォントが使えない場合は既存画像を表示 */ }
+    };
+    document.head.appendChild(tk);
+  }
   document.querySelectorAll('.site-drawer-link[data-nav="tou"]').forEach(link => { link.textContent = '解く'; });
-  document.querySelectorAll('img.vverb[alt="問う"]').forEach(img => { img.src = 'header-toku.svg?v=20261116-nav-layout5'; img.alt = '解く'; });
+  document.querySelectorAll('img.vverb[alt="問う"]').forEach(img => { img.src = 'header-toku.svg?v=20261116-kokuryu-fallback'; img.alt = '解く'; });
   const trigger = document.querySelector('.site-menu-button');
   const old = document.getElementById('siteDrawer');
   if (!trigger || !old) return;
