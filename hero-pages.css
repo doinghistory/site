@@ -37,3 +37,23 @@
  .full-hero--meguru .full-hero-title img{width:clamp(158px,44vw,210px)}
  .full-hero--meguru::after{background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.13) 75%),linear-gradient(0deg,rgba(0,0,0,.3),transparent 25%)}
 }
+
+/* ヒーロー後はページ名を繰り返さず、すぐ内容へ進む */
+.page-kitaeru .practice-menu{margin-top:clamp(26px,4vw,64px)}
+.page-miru .video-heading{padding-top:clamp(22px,3.4vw,40px);padding-bottom:20px}
+.page-miru .video-heading p{margin-bottom:0}
+.page-shiraberu .db-mast{padding:clamp(28px,3.5vw,48px) 0 24px}
+.page-shiraberu .db-mast .eyebrow{margin:0}
+.page-meguru .journal-cover{padding-top:clamp(25px,3vw,48px)}
+.page-meguru .cover-story{padding-top:clamp(35px,7vw,112px)}
+/* 画像のクレジットは各ページ末尾だけに表示 */
+body[class*="page-"] footer:has(.footer-art-credit){display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px}
+.footer-art-credit{margin-left:auto;max-width:100%;font:400 12px/1.75 "Noto Sans JP","Yu Gothic",sans-serif;color:#777c70;text-align:right}
+.footer-art-credit summary{display:inline-block;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.footer-art-credit-detail{margin:9px 0 0;font-size:11px;overflow-wrap:anywhere}
+.footer-art-credit-detail a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:650px){
+ .page-meguru .journal-cover{padding-top:22px}
+ .page-meguru .cover-story{padding-top:20px}
+ .footer-art-credit{text-align:left;width:100%;margin-left:0}
+}
