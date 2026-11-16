@@ -57,3 +57,41 @@ body[class*="page-"] footer:has(.footer-art-credit){display:flex;flex-wrap:wrap;
  .page-meguru .cover-story{padding-top:20px}
  .footer-art-credit{text-align:left;width:100%;margin-left:0}
 }
+
+/* off-center title placements: 画面中央の既定値を全ページで上書き */
+.full-hero--kitaeru .full-hero-title,
+.full-hero--miru .full-hero-title{
+ left:auto!important;right:clamp(26px,7vw,116px)!important;
+ top:49%;transform:translateY(-50%)!important;
+}
+.full-hero--shiraberu .full-hero-title,
+.full-hero--meguru .full-hero-title{
+ left:clamp(26px,7vw,116px)!important;right:auto!important;
+ top:49%;transform:translateY(-50%)!important;
+}
+.full-hero--kitaeru .full-hero-title img,
+.full-hero--miru .full-hero-title img,
+.full-hero--shiraberu .full-hero-title img,
+.full-hero--meguru .full-hero-title img{
+ width:clamp(185px,23vw,342px);max-height:73svh;
+}
+.full-hero--kitaeru::after,.full-hero--miru::after{
+ background:linear-gradient(270deg,rgba(0,0,0,.48),rgba(0,0,0,.13) 42%,transparent 77%),
+ linear-gradient(0deg,rgba(0,0,0,.3),transparent 25%);
+}
+.full-hero--shiraberu::after{
+ background:linear-gradient(90deg,rgba(0,0,0,.39),rgba(0,0,0,.08) 42%,transparent 76%),
+ linear-gradient(0deg,rgba(0,0,0,.2),transparent 27%);
+}
+@media(max-width:760px){
+ .full-hero--kitaeru .full-hero-title,.full-hero--miru .full-hero-title{
+  right:5vw!important;left:auto!important;top:47%;
+ }
+ .full-hero--shiraberu .full-hero-title,.full-hero--meguru .full-hero-title{
+  left:5vw!important;right:auto!important;top:47%;
+ }
+ .full-hero--kitaeru .full-hero-title img,.full-hero--miru .full-hero-title img,
+ .full-hero--shiraberu .full-hero-title img,.full-hero--meguru .full-hero-title img{
+  width:clamp(142px,39vw,210px);max-height:64svh;
+ }
+}
